@@ -7,9 +7,10 @@
 
 - hosts: localhost
   connection: local
-
 #  vars:
 #    dump_vars: true
+#  vars_files:
+#    - roles/local/0-system-prep/vars.yml
 
   pre_tasks:
     - name: Update apt cache.
@@ -24,5 +25,7 @@
       changed_when: false
 
   roles:
-    - role: dumpall
+#    - role: dumpall
 #      when: dump_vars | bool
+    - role: 0-system-prep
+

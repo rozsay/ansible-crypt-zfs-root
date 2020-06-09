@@ -29,10 +29,22 @@
         state: absent
       when: force_purge | bool
 
-    - name: Install all vendor roles
-      command: >
-        ansible-galaxy install 
-        {{ ( force_purge | bool ) | ternary('--force','') }}
-        --role-file {{ installation_prefix }}roles/requirements.yml 
-        --roles-path {{ installation_prefix }}{{ installation_dir }}
+#    - name: get device name
+#      set_fact:
+#        device_name: "{{ item.key }}"
+#      no_log: True
+#      with_dict: "{{ ansible_devices }}"
+#      when: "item.value.host.startswith('SATA')"
 
+#    - name: show all values for selected device name
+#      debug: var=ansible_devices[device_name]
+
+#    - name: show only device name
+#      debug: var=device_name
+
+#    - name: Install all vendor roles
+#      command: >
+#        ansible-galaxy install 
+#        {{ ( force_purge | bool ) | ternary('--force','') }}
+#        --role-file {{ installation_prefix }}roles/requirements.yml 
+#        --roles-path {{ installation_prefix }}{{ installation_dir }}

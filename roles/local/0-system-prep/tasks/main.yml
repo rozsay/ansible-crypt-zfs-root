@@ -1,0 +1,8 @@
+---
+- name: mkdir
+  shell: " mkdir -p /mnt/install"
+
+- debug: var="DISK {{ _root_disks }} "
+#- debug: var=" TARGET DISK {{ _target_disks }} "
+#- debug: var='" root_disks_by_id {{ _root_disks_by_id }} "'
+#- debug: var='"{{ _root_device_list }} "'
