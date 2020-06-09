@@ -1,0 +1,305 @@
+2020-06-09 05:37:59,971 p=55889 u=root n=ansible | PLAY [localhost] ****************************************************************************************************************************************************************************************************************************
+2020-06-09 05:38:00,846 p=55889 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-09 05:38:00,846 p=55889 u=root n=ansible | ok: [localhost]
+2020-06-09 05:38:05,657 p=55889 u=root n=ansible | TASK [Install all vendor roles] *************************************************************************************************************************************************************************************************************
+2020-06-09 05:38:05,657 p=55889 u=root n=ansible | changed: [localhost]
+2020-06-09 05:38:05,675 p=55889 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-09 05:38:05,675 p=55889 u=root n=ansible | localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-06-09 05:38:28,642 p=55948 u=root n=ansible | PLAY [all] **********************************************************************************************************************************************************************************************************************************
+2020-06-09 05:38:28,891 p=55953 u=root n=ansible | [WARNING]: Unhandled error in Python interpreter discovery for host host1: Failed to connect to the host via ssh: ssh: connect to host 192.168.100.10 port 22: Connection refused
+
+2020-06-09 05:38:28,917 p=55948 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-09 05:38:28,918 p=55948 u=root n=ansible | fatal: [host1]: UNREACHABLE! => {"changed": false, "msg": "Data could not be sent to remote host \"192.168.100.10\". Make sure this host can be reached over ssh: ssh: connect to host 192.168.100.10 port 22: Connection refused\r\n", "unreachable": true}
+2020-06-09 05:38:29,613 p=55948 u=root n=ansible | ok: [local_user]
+2020-06-09 05:38:29,855 p=55948 u=root n=ansible | TASK [Test Ansible ping] ********************************************************************************************************************************************************************************************************************
+2020-06-09 05:38:29,855 p=55948 u=root n=ansible | ok: [local_user]
+2020-06-09 05:38:30,105 p=55948 u=root n=ansible | TASK [Run a command to get target release] **************************************************************************************************************************************************************************************************
+2020-06-09 05:38:30,105 p=55948 u=root n=ansible | ok: [local_user]
+2020-06-09 05:38:30,670 p=55948 u=root n=ansible | TASK [dumpall : Dump all vars] **************************************************************************************************************************************************************************************************************
+2020-06-09 05:38:30,670 p=55948 u=root n=ansible | changed: [local_user]
+2020-06-09 05:38:31,891 p=55948 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] **********************************************************************************************************************************************************************************************************
+2020-06-09 05:38:31,892 p=55948 u=root n=ansible | ok: [local_user]
+2020-06-09 05:38:32,167 p=55948 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] **********************************************************************************************************************************************************************************************
+2020-06-09 05:38:32,167 p=55948 u=root n=ansible | changed: [local_user]
+2020-06-09 05:38:32,186 p=55948 u=root n=ansible | 	to retry, use: --limit @/root/ansible-crypt-zfs-root/config/tmp/retry/1_target_test.retry
+
+2020-06-09 05:38:32,186 p=55948 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-09 05:38:32,187 p=55948 u=root n=ansible | host1                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-09 05:38:32,187 p=55948 u=root n=ansible | local_user                 : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-09 06:33:46,121 p=33008 u=root n=ansible | localhost | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2020-06-09 06:40:10,067 p=33203 u=root n=ansible | PLAY [all] ********************************************************************************************************************************************************************
+2020-06-09 06:40:10,299 p=33208 u=root n=ansible | [WARNING]: Unhandled error in Python interpreter discovery for host host1: Failed to connect to the host via ssh: ssh: connect to host 192.168.100.10 port 22: Connection
+refused
+
+2020-06-09 06:40:10,314 p=33203 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 06:40:10,315 p=33203 u=root n=ansible | fatal: [host1]: UNREACHABLE! => {"changed": false, "msg": "Data could not be sent to remote host \"192.168.100.10\". Make sure this host can be reached over ssh: ssh: connect to host 192.168.100.10 port 22: Connection refused\r\n", "unreachable": true}
+2020-06-09 06:40:12,690 p=33203 u=root n=ansible | ok: [local_user]
+2020-06-09 06:40:13,262 p=33203 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-09 06:40:13,262 p=33203 u=root n=ansible | ok: [local_user]
+2020-06-09 06:40:13,495 p=33203 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-09 06:40:13,495 p=33203 u=root n=ansible | ok: [local_user]
+2020-06-09 06:40:14,052 p=33203 u=root n=ansible | TASK [dumpall : Dump all vars] ************************************************************************************************************************************************
+2020-06-09 06:40:14,053 p=33203 u=root n=ansible | changed: [local_user]
+2020-06-09 06:40:14,232 p=33203 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] ********************************************************************************************************************************************
+2020-06-09 06:40:14,232 p=33203 u=root n=ansible | ok: [local_user]
+2020-06-09 06:40:14,478 p=33203 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] ********************************************************************************************************************************
+2020-06-09 06:40:14,478 p=33203 u=root n=ansible | changed: [local_user]
+2020-06-09 06:40:14,496 p=33203 u=root n=ansible | 	to retry, use: --limit @/home/sa/ansible-crypt-zfs-root/config/tmp/retry/1_target_test.retry
+
+2020-06-09 06:40:14,496 p=33203 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-09 06:40:14,496 p=33203 u=root n=ansible | host1                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-09 06:40:14,497 p=33203 u=root n=ansible | local_user                 : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-09 06:49:33,335 p=33459 u=root n=ansible | PLAY [all] ********************************************************************************************************************************************************************
+2020-06-09 06:49:33,610 p=33464 u=root n=ansible | [WARNING]: Unhandled error in Python interpreter discovery for host zfs_root: Failed to connect to the host via ssh: ssh: connect to host 192.168.100.10 port 22: Connection
+refused
+
+2020-06-09 06:49:33,882 p=33459 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 06:49:33,888 p=33459 u=root n=ansible | fatal: [zfs_root]: UNREACHABLE! => {"changed": false, "msg": "Data could not be sent to remote host \"192.168.100.10\". Make sure this host can be reached over ssh: ssh: connect to host 192.168.100.10 port 22: Connection refused\r\n", "unreachable": true}
+2020-06-09 06:49:38,383 p=33459 u=root n=ansible | ok: [local_user]
+2020-06-09 06:49:38,624 p=33459 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-09 06:49:38,624 p=33459 u=root n=ansible | ok: [local_user]
+2020-06-09 06:49:39,273 p=33459 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-09 06:49:39,274 p=33459 u=root n=ansible | ok: [local_user]
+2020-06-09 06:49:39,338 p=33459 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 06:49:39,339 p=33459 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 06:49:39,574 p=33459 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-09 06:49:39,576 p=33459 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 06:49:39,748 p=33459 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-09 06:49:39,749 p=33459 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 06:49:40,061 p=33459 u=root n=ansible | TASK [dumpall : Dump all vars] ************************************************************************************************************************************************
+2020-06-09 06:49:40,061 p=33459 u=root n=ansible | changed: [local_user]
+2020-06-09 06:49:40,401 p=33459 u=root n=ansible | changed: [/mnt/install/]
+2020-06-09 06:49:40,507 p=33459 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] ********************************************************************************************************************************************
+2020-06-09 06:49:40,507 p=33459 u=root n=ansible | ok: [local_user]
+2020-06-09 06:49:40,622 p=33459 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: IsADirectoryError: [Errno 21] Is a directory: '/tmp/ansible_dump_/mnt/install/'
+2020-06-09 06:49:40,622 p=33459 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"changed": false, "module_stderr": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 94, in _ansiballz_main\n  File \"<stdin>\", line 40, in invoke_module\n  File \"/usr/lib/python3.8/runpy.py\", line 206, in run_module\n    return _run_module_code(code, init_globals, run_name, mod_spec)\n  File \"/usr/lib/python3.8/runpy.py\", line 96, in _run_module_code\n    _run_code(code, mod_globals, init_globals,\n  File \"/usr/lib/python3.8/runpy.py\", line 86, in _run_code\n    exec(code, run_globals)\n  File \"/tmp/ansible_slurp_payload_fny6a119/ansible_slurp_payload.zip/ansible/modules/net_tools/basics/slurp.py\", line 91, in <module>\n  File \"/tmp/ansible_slurp_payload_fny6a119/ansible_slurp_payload.zip/ansible/modules/net_tools/basics/slurp.py\", line 83, in main\nIsADirectoryError: [Errno 21] Is a directory: '/tmp/ansible_dump_/mnt/install/'\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+2020-06-09 06:49:40,780 p=33459 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] ********************************************************************************************************************************
+2020-06-09 06:49:40,781 p=33459 u=root n=ansible | changed: [local_user]
+2020-06-09 06:49:40,799 p=33459 u=root n=ansible | 	to retry, use: --limit @/home/sa/ansible-crypt-zfs-root/config/tmp/retry/1_target_test.retry
+
+2020-06-09 06:49:40,799 p=33459 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-09 06:49:40,800 p=33459 u=root n=ansible | /mnt/install/              : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-09 06:49:40,800 p=33459 u=root n=ansible | local_user                 : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-09 06:49:40,800 p=33459 u=root n=ansible | zfs_root                   : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-09 06:50:23,148 p=33745 u=root n=ansible | PLAY [all] ********************************************************************************************************************************************************************
+2020-06-09 06:50:24,068 p=33745 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 06:50:24,069 p=33745 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 06:50:24,395 p=33745 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-09 06:50:24,395 p=33745 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 06:50:24,483 p=33745 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 06:50:24,483 p=33745 u=root n=ansible | ok: [local_user]
+2020-06-09 06:50:24,641 p=33745 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-09 06:50:24,642 p=33745 u=root n=ansible | ok: [local_user]
+2020-06-09 06:50:24,655 p=33745 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-09 06:50:24,656 p=33745 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 06:50:24,803 p=33745 u=root n=ansible | ok: [local_user]
+2020-06-09 06:50:25,861 p=33745 u=root n=ansible | TASK [dumpall : Dump all vars] ************************************************************************************************************************************************
+2020-06-09 06:50:25,862 p=33745 u=root n=ansible | changed: [local_user]
+2020-06-09 06:50:25,917 p=33745 u=root n=ansible | changed: [/mnt/install/]
+2020-06-09 06:50:26,185 p=33745 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] ********************************************************************************************************************************************
+2020-06-09 06:50:26,186 p=33745 u=root n=ansible | ok: [local_user]
+2020-06-09 06:50:26,247 p=33745 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: IsADirectoryError: [Errno 21] Is a directory: '/tmp/ansible_dump_/mnt/install/'
+2020-06-09 06:50:26,247 p=33745 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"changed": false, "module_stderr": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 94, in _ansiballz_main\n  File \"<stdin>\", line 40, in invoke_module\n  File \"/usr/lib/python3.8/runpy.py\", line 206, in run_module\n    return _run_module_code(code, init_globals, run_name, mod_spec)\n  File \"/usr/lib/python3.8/runpy.py\", line 96, in _run_module_code\n    _run_code(code, mod_globals, init_globals,\n  File \"/usr/lib/python3.8/runpy.py\", line 86, in _run_code\n    exec(code, run_globals)\n  File \"/tmp/ansible_slurp_payload_5unq8m7b/ansible_slurp_payload.zip/ansible/modules/net_tools/basics/slurp.py\", line 91, in <module>\n  File \"/tmp/ansible_slurp_payload_5unq8m7b/ansible_slurp_payload.zip/ansible/modules/net_tools/basics/slurp.py\", line 83, in main\nIsADirectoryError: [Errno 21] Is a directory: '/tmp/ansible_dump_/mnt/install/'\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+2020-06-09 06:50:26,489 p=33745 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] ********************************************************************************************************************************
+2020-06-09 06:50:26,489 p=33745 u=root n=ansible | changed: [local_user]
+2020-06-09 06:50:53,233 p=33745 u=root n=ansible |  [ERROR]: User interrupted execution
+
+2020-06-09 07:05:43,067 p=34130 u=root n=ansible | PLAY [all] ********************************************************************************************************************************************************************
+2020-06-09 07:05:44,030 p=34130 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 07:05:44,039 p=34130 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 07:05:44,305 p=34130 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-09 07:05:44,305 p=34130 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 07:05:44,417 p=34130 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 07:05:44,418 p=34130 u=root n=ansible | ok: [local_user]
+2020-06-09 07:05:44,577 p=34130 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-09 07:05:44,578 p=34130 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 07:05:44,583 p=34130 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-09 07:05:44,583 p=34130 u=root n=ansible | ok: [local_user]
+2020-06-09 07:05:44,729 p=34130 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-09 07:05:44,729 p=34130 u=root n=ansible | ok: [local_user]
+2020-06-09 07:05:45,250 p=34130 u=root n=ansible | TASK [dumpall : Dump all vars] ************************************************************************************************************************************************
+2020-06-09 07:05:45,251 p=34130 u=root n=ansible | changed: [/mnt/install/]
+2020-06-09 07:05:45,260 p=34130 u=root n=ansible | changed: [local_user]
+2020-06-09 07:05:45,520 p=34130 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] ********************************************************************************************************************************************
+2020-06-09 07:05:45,521 p=34130 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: IsADirectoryError: [Errno 21] Is a directory: '/tmp/ansible_dump_/mnt/install/'
+2020-06-09 07:05:45,521 p=34130 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"changed": false, "module_stderr": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 94, in _ansiballz_main\n  File \"<stdin>\", line 40, in invoke_module\n  File \"/usr/lib/python3.8/runpy.py\", line 206, in run_module\n    return _run_module_code(code, init_globals, run_name, mod_spec)\n  File \"/usr/lib/python3.8/runpy.py\", line 96, in _run_module_code\n    _run_code(code, mod_globals, init_globals,\n  File \"/usr/lib/python3.8/runpy.py\", line 86, in _run_code\n    exec(code, run_globals)\n  File \"/tmp/ansible_slurp_payload_vtrv4_98/ansible_slurp_payload.zip/ansible/modules/net_tools/basics/slurp.py\", line 91, in <module>\n  File \"/tmp/ansible_slurp_payload_vtrv4_98/ansible_slurp_payload.zip/ansible/modules/net_tools/basics/slurp.py\", line 83, in main\nIsADirectoryError: [Errno 21] Is a directory: '/tmp/ansible_dump_/mnt/install/'\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+2020-06-09 07:05:45,546 p=34130 u=root n=ansible | ok: [local_user]
+2020-06-09 07:05:45,798 p=34130 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] ********************************************************************************************************************************
+2020-06-09 07:05:45,798 p=34130 u=root n=ansible | changed: [local_user]
+2020-06-09 07:05:49,773 p=34130 u=root n=ansible |  [ERROR]: User interrupted execution
+
+2020-06-09 07:05:59,789 p=34358 u=root n=ansible | ERROR! the role 'geerlingguy.jenkins' was not found in /home/sa/ansible-crypt-zfs-root/playbooks/roles:/home/sa/ansible-crypt-zfs-root/roles/local:/home/sa/ansible-crypt-zfs-root/roles/profiles:/home/sa/ansible-crypt-zfs-root/roles/vendors:/home/sa/ansible-crypt-zfs-root/playbooks
+
+The error appears to be in '/home/sa/ansible-crypt-zfs-root/playbooks/0_local_requirements.yaml': line 27, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - geerlingguy.jenkins
+      ^ here
+
+2020-06-09 07:06:21,947 p=34362 u=root n=ansible | ERROR! the role 'geerlingguy.jenkins' was not found in /home/sa/ansible-crypt-zfs-root/playbooks/roles:/home/sa/ansible-crypt-zfs-root/roles/local:/home/sa/ansible-crypt-zfs-root/roles/profiles:/home/sa/ansible-crypt-zfs-root/roles/vendors:/home/sa/ansible-crypt-zfs-root/playbooks
+
+The error appears to be in '/home/sa/ansible-crypt-zfs-root/playbooks/0_local_requirements.yaml': line 24, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - geerlingguy.jenkins
+      ^ here
+
+2020-06-09 07:06:26,256 p=34365 u=root n=ansible | ERROR! the role 'geerlingguy.jenkins' was not found in /home/sa/ansible-crypt-zfs-root/playbooks/roles:/home/sa/ansible-crypt-zfs-root/roles/local:/home/sa/ansible-crypt-zfs-root/roles/profiles:/home/sa/ansible-crypt-zfs-root/roles/vendors:/home/sa/ansible-crypt-zfs-root/playbooks
+
+The error appears to be in '/home/sa/ansible-crypt-zfs-root/playbooks/0_local_requirements.yaml': line 24, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - geerlingguy.jenkins
+      ^ here
+
+2020-06-09 07:06:42,071 p=34370 u=root n=ansible | ERROR! the role 'geerlingguy.jenkins' was not found in /home/sa/ansible-crypt-zfs-root/playbooks/roles:/home/sa/ansible-crypt-zfs-root/roles/local:/home/sa/ansible-crypt-zfs-root/roles/profiles:/home/sa/ansible-crypt-zfs-root/roles/vendors:/home/sa/ansible-crypt-zfs-root/playbooks
+
+The error appears to be in '/home/sa/ansible-crypt-zfs-root/playbooks/0_local_requirements.yaml': line 24, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - geerlingguy.jenkins
+      ^ here
+
+2020-06-09 07:06:59,306 p=34376 u=root n=ansible | PLAY [localhost] **************************************************************************************************************************************************************
+2020-06-09 07:07:00,213 p=34376 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 07:07:00,214 p=34376 u=root n=ansible | ok: [localhost]
+2020-06-09 07:07:02,958 p=34376 u=root n=ansible | TASK [Update apt cache.] ******************************************************************************************************************************************************
+2020-06-09 07:07:02,958 p=34376 u=root n=ansible | changed: [localhost]
+2020-06-09 07:07:03,553 p=34376 u=root n=ansible | TASK [Install all vendor roles] ***********************************************************************************************************************************************
+2020-06-09 07:07:03,553 p=34376 u=root n=ansible | changed: [localhost]
+2020-06-09 07:07:03,571 p=34376 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-09 07:07:03,571 p=34376 u=root n=ansible | localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-06-09 07:08:03,429 p=34681 u=root n=ansible | playbook: playbooks/0_local_requirements.yaml
+2020-06-09 07:08:39,781 p=34685 u=root n=ansible | playbook: playbooks/0_local_requirements.yaml
+2020-06-09 07:09:07,170 p=34688 u=root n=ansible | playbook: playbooks/1_target_test.yml
+2020-06-09 07:09:19,266 p=34691 u=root n=ansible | PLAY [all] ********************************************************************************************************************************************************************
+2020-06-09 07:09:19,923 p=34691 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 07:09:19,924 p=34691 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 07:09:20,223 p=34691 u=root n=ansible | ok: [local_user]
+2020-06-09 07:09:26,525 p=34691 u=root n=ansible | TASK [Update apt cache.] ******************************************************************************************************************************************************
+2020-06-09 07:09:26,525 p=34691 u=root n=ansible | changed: [local_user]
+2020-06-09 07:09:27,822 p=34691 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-09 07:09:27,823 p=34691 u=root n=ansible | ok: [local_user]
+2020-06-09 07:09:29,380 p=34691 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-09 07:09:29,380 p=34691 u=root n=ansible | ok: [local_user]
+2020-06-09 07:09:30,219 p=34691 u=root n=ansible | TASK [dumpall : Dump all vars] ************************************************************************************************************************************************
+2020-06-09 07:09:30,220 p=34691 u=root n=ansible | changed: [local_user]
+2020-06-09 07:09:30,521 p=34691 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] ********************************************************************************************************************************************
+2020-06-09 07:09:30,522 p=34691 u=root n=ansible | ok: [local_user]
+2020-06-09 07:09:30,823 p=34691 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] ********************************************************************************************************************************
+2020-06-09 07:09:30,824 p=34691 u=root n=ansible | changed: [local_user]
+2020-06-09 07:09:43,929 p=34691 u=root n=ansible |  [ERROR]: User interrupted execution
+
+2020-06-09 07:15:30,867 p=35421 u=root n=ansible | playbook: playbooks/0_local_requirements.yaml
+2020-06-09 07:15:35,825 p=35424 u=root n=ansible | PLAY [localhost] **************************************************************************************************************************************************************
+2020-06-09 07:15:37,759 p=35424 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 07:15:37,760 p=35424 u=root n=ansible | ok: [localhost]
+2020-06-09 07:15:39,121 p=35424 u=root n=ansible | TASK [Update apt cache.] ******************************************************************************************************************************************************
+2020-06-09 07:15:39,121 p=35424 u=root n=ansible | changed: [localhost]
+2020-06-09 07:15:39,796 p=35424 u=root n=ansible | TASK [Install all vendor roles] ***********************************************************************************************************************************************
+2020-06-09 07:15:39,796 p=35424 u=root n=ansible | changed: [localhost]
+2020-06-09 07:15:39,814 p=35424 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-09 07:15:39,814 p=35424 u=root n=ansible | localhost                  : ok=3    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-06-09 07:17:10,380 p=35772 u=root n=ansible | PLAY [all] ********************************************************************************************************************************************************************
+2020-06-09 07:17:11,480 p=35772 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 07:17:11,480 p=35772 u=root n=ansible | ok: [local_user]
+2020-06-09 07:17:12,590 p=35772 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 07:17:13,373 p=35772 u=root n=ansible | TASK [Update apt cache.] ******************************************************************************************************************************************************
+2020-06-09 07:17:13,374 p=35772 u=root n=ansible | changed: [local_user]
+2020-06-09 07:17:13,590 p=35772 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-09 07:17:13,590 p=35772 u=root n=ansible | ok: [local_user]
+2020-06-09 07:17:13,942 p=35772 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-09 07:17:13,942 p=35772 u=root n=ansible | ok: [local_user]
+2020-06-09 07:17:16,251 p=35772 u=root n=ansible | TASK [dumpall : Dump all vars] ************************************************************************************************************************************************
+2020-06-09 07:17:16,252 p=35772 u=root n=ansible | changed: [local_user]
+2020-06-09 07:17:16,577 p=35772 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] ********************************************************************************************************************************************
+2020-06-09 07:17:16,577 p=35772 u=root n=ansible | ok: [local_user]
+2020-06-09 07:17:17,786 p=35772 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] ********************************************************************************************************************************
+2020-06-09 07:17:17,786 p=35772 u=root n=ansible | changed: [local_user]
+2020-06-09 07:17:30,251 p=35772 u=root n=ansible | TASK [Update apt cache.] ******************************************************************************************************************************************************
+2020-06-09 07:17:30,252 p=35772 u=root n=ansible | [WARNING]: Updating cache and auto-installing missing dependency: python3-apt
+
+2020-06-09 07:17:30,253 p=35772 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 07:17:30,412 p=35772 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-09 07:17:30,412 p=35772 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 07:17:30,545 p=35772 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-09 07:17:30,546 p=35772 u=root n=ansible | ok: [/mnt/install/]
+2020-06-09 07:17:30,888 p=35772 u=root n=ansible | TASK [dumpall : Dump all vars] ************************************************************************************************************************************************
+2020-06-09 07:17:30,889 p=35772 u=root n=ansible | changed: [/mnt/install/]
+2020-06-09 07:17:31,080 p=35772 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] ********************************************************************************************************************************************
+2020-06-09 07:17:31,081 p=35772 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: IsADirectoryError: [Errno 21] Is a directory: '/tmp/ansible_dump_/mnt/install/'
+2020-06-09 07:17:31,081 p=35772 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"changed": false, "module_stderr": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 94, in _ansiballz_main\n  File \"<stdin>\", line 40, in invoke_module\n  File \"/usr/lib/python3.8/runpy.py\", line 206, in run_module\n    return _run_module_code(code, init_globals, run_name, mod_spec)\n  File \"/usr/lib/python3.8/runpy.py\", line 96, in _run_module_code\n    _run_code(code, mod_globals, init_globals,\n  File \"/usr/lib/python3.8/runpy.py\", line 86, in _run_code\n    exec(code, run_globals)\n  File \"/tmp/ansible_slurp_payload_4_57nnsh/ansible_slurp_payload.zip/ansible/modules/net_tools/basics/slurp.py\", line 91, in <module>\n  File \"/tmp/ansible_slurp_payload_4_57nnsh/ansible_slurp_payload.zip/ansible/modules/net_tools/basics/slurp.py\", line 83, in main\nIsADirectoryError: [Errno 21] Is a directory: '/tmp/ansible_dump_/mnt/install/'\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+2020-06-09 07:17:53,193 p=35777 u=root n=ansible | [WARNING]: Unhandled error in Python interpreter discovery for host zfs_root: Failed to connect to the host via ssh: Host key verification failed.
+
+2020-06-09 07:17:54,480 p=35772 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 07:17:54,480 p=35772 u=root n=ansible | fatal: [zfs_root]: UNREACHABLE! => {"changed": false, "msg": "Data could not be sent to remote host \"192.168.100.10\". Make sure this host can be reached over ssh: Host key verification failed.\r\n", "unreachable": true}
+2020-06-09 07:17:54,486 p=35772 u=root n=ansible | 	to retry, use: --limit @/home/sa/ansible-crypt-zfs-root/config/tmp/retry/1_target_test.retry
+
+2020-06-09 07:17:54,486 p=35772 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-09 07:17:54,486 p=35772 u=root n=ansible | /mnt/install/              : ok=5    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-09 07:17:54,486 p=35772 u=root n=ansible | local_user                 : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-09 07:17:54,486 p=35772 u=root n=ansible | zfs_root                   : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-09 07:18:49,832 p=36708 u=root n=ansible | PLAY [local] ******************************************************************************************************************************************************************
+2020-06-09 07:18:50,924 p=36708 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 07:18:50,925 p=36708 u=root n=ansible | ok: [local_user]
+2020-06-09 07:18:52,200 p=36708 u=root n=ansible | TASK [Update apt cache.] ******************************************************************************************************************************************************
+2020-06-09 07:18:52,200 p=36708 u=root n=ansible | changed: [local_user]
+2020-06-09 07:18:52,403 p=36708 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-09 07:18:52,404 p=36708 u=root n=ansible | ok: [local_user]
+2020-06-09 07:18:52,611 p=36708 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-09 07:18:52,612 p=36708 u=root n=ansible | ok: [local_user]
+2020-06-09 07:18:53,118 p=36708 u=root n=ansible | TASK [dumpall : Dump all vars] ************************************************************************************************************************************************
+2020-06-09 07:18:53,119 p=36708 u=root n=ansible | changed: [local_user]
+2020-06-09 07:18:53,383 p=36708 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] ********************************************************************************************************************************************
+2020-06-09 07:18:53,383 p=36708 u=root n=ansible | ok: [local_user]
+2020-06-09 07:18:53,636 p=36708 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] ********************************************************************************************************************************
+2020-06-09 07:18:53,636 p=36708 u=root n=ansible | changed: [local_user]
+2020-06-09 07:18:53,654 p=36708 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-09 07:18:53,654 p=36708 u=root n=ansible | local_user                 : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-09 07:19:03,947 p=37037 u=root n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: vagrant
+
+2020-06-09 07:19:03,948 p=37037 u=root n=ansible | PLAY [vagrant] ****************************************************************************************************************************************************************
+2020-06-09 07:19:03,948 p=37037 u=root n=ansible | skipping: no hosts matched
+2020-06-09 07:19:03,948 p=37037 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-09 07:19:13,193 p=37040 u=root n=ansible | ERROR! Empty playbook, nothing to do
+2020-06-09 07:19:20,453 p=37044 u=root n=ansible | ERROR! the playbook: playbooks/3 could not be found
+2020-06-09 07:19:23,202 p=37046 u=root n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: vagrant
+
+2020-06-09 07:19:23,202 p=37046 u=root n=ansible | PLAY [vagrant] ****************************************************************************************************************************************************************
+2020-06-09 07:19:23,202 p=37046 u=root n=ansible | skipping: no hosts matched
+2020-06-09 07:19:23,203 p=37046 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-09 07:20:45,586 p=37091 u=root n=ansible | PLAY [localhost] **************************************************************************************************************************************************************
+2020-06-09 07:20:46,509 p=37091 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-09 07:20:46,509 p=37091 u=root n=ansible | ok: [localhost]
+2020-06-09 07:20:47,748 p=37091 u=root n=ansible | TASK [Update apt cache.] ******************************************************************************************************************************************************
+2020-06-09 07:20:47,748 p=37091 u=root n=ansible | changed: [localhost]
+2020-06-09 07:20:47,953 p=37091 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-09 07:20:47,954 p=37091 u=root n=ansible | ok: [localhost]
+2020-06-09 07:20:48,174 p=37091 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-09 07:20:48,174 p=37091 u=root n=ansible | ok: [localhost]
+2020-06-09 07:20:48,680 p=37091 u=root n=ansible | TASK [dumpall : Dump all vars] ************************************************************************************************************************************************
+2020-06-09 07:20:48,680 p=37091 u=root n=ansible | changed: [localhost]
+2020-06-09 07:20:48,877 p=37091 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] ********************************************************************************************************************************************
+2020-06-09 07:20:48,878 p=37091 u=root n=ansible | ok: [localhost]
+2020-06-09 07:20:49,123 p=37091 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] ********************************************************************************************************************************
+2020-06-09 07:20:49,124 p=37091 u=root n=ansible | changed: [localhost]
+2020-06-09 07:20:49,142 p=37091 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-09 07:20:49,142 p=37091 u=root n=ansible | localhost                  : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
