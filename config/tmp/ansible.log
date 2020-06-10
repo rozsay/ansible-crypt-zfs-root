@@ -4654,3 +4654,329 @@ ansible.cfg to get rid of this message.
 
 2020-06-09 11:12:57,880 p=54499 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
 2020-06-09 11:12:57,880 p=54499 u=root n=ansible | localhost                  : ok=6    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-09 11:31:35,659 p=54846 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/sa/ansible-crypt-zfs-root/roles/local/0-system-prep/vars/main.yml': line 57, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      mountpoint: /root
+- name: "{{ zfsprep_root_pool }}/var"
+^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-10 04:57:15,403 p=57526 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/sa/ansible-crypt-zfs-root/roles/local/0-system-prep/vars/main.yml': line 57, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      mountpoint: /root
+- name: "{{ zfsprep_root_pool }}/var"
+^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-10 04:58:05,268 p=57531 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/sa/ansible-crypt-zfs-root/roles/local/0-system-prep/vars/main.yml': line 57, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      mountpoint: /root
+- name: "{{ _root_pool }}/var"
+^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-10 04:59:52,086 p=57537 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/sa/ansible-crypt-zfs-root/roles/local/0-system-prep/vars/main.yml': line 57, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      mountpoint: /root
+- name: "{{ _root_pool }}/var"
+^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-10 05:00:43,177 p=57541 u=root n=ansible | PLAY [localhost] **************************************************************************************************************************************************************
+2020-06-10 05:01:01,366 p=57541 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-10 05:01:01,366 p=57541 u=root n=ansible | ok: [localhost]
+2020-06-10 05:01:59,982 p=57541 u=root n=ansible | TASK [Update apt cache.] ******************************************************************************************************************************************************
+2020-06-10 05:01:59,982 p=57541 u=root n=ansible | changed: [localhost]
+2020-06-10 05:02:01,103 p=57541 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-10 05:02:01,104 p=57541 u=root n=ansible | ok: [localhost]
+2020-06-10 05:02:01,400 p=57541 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-10 05:02:01,401 p=57541 u=root n=ansible | ok: [localhost]
+2020-06-10 05:02:01,565 p=57541 u=root n=ansible | TASK [0-system-prep : mkdir] **************************************************************************************************************************************************
+2020-06-10 05:02:01,566 p=57541 u=root n=ansible | [WARNING]: Consider using the file module with state=directory rather than running 'mkdir'.  If you need to use command because file is insufficient you can add 'warn: false'
+to this command task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-06-10 05:02:01,567 p=57541 u=root n=ansible | changed: [localhost]
+2020-06-10 05:02:01,740 p=57541 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:02:01,740 p=57541 u=root n=ansible | ok: [localhost] => {
+    "DISK ['sda'] ": "VARIABLE IS NOT DEFINED!"
+}
+2020-06-10 05:02:01,759 p=57541 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-10 05:02:01,759 p=57541 u=root n=ansible | localhost                  : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-10 05:17:24,113 p=57971 u=root n=ansible | PLAY [localhost] **************************************************************************************************************************************************************
+2020-06-10 05:17:26,666 p=57971 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-10 05:17:26,666 p=57971 u=root n=ansible | ok: [localhost]
+2020-06-10 05:17:36,787 p=57971 u=root n=ansible | TASK [Update apt cache.] ******************************************************************************************************************************************************
+2020-06-10 05:17:36,787 p=57971 u=root n=ansible | changed: [localhost]
+2020-06-10 05:17:37,025 p=57971 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-10 05:17:37,025 p=57971 u=root n=ansible | ok: [localhost]
+2020-06-10 05:17:37,266 p=57971 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-10 05:17:37,266 p=57971 u=root n=ansible | ok: [localhost]
+2020-06-10 05:17:37,409 p=57971 u=root n=ansible | TASK [0-system-prep : mkdir] **************************************************************************************************************************************************
+2020-06-10 05:17:37,410 p=57971 u=root n=ansible | [WARNING]: Consider using the file module with state=directory rather than running 'mkdir'.  If you need to use command because file is insufficient you can add 'warn: false'
+to this command task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-06-10 05:17:37,410 p=57971 u=root n=ansible | changed: [localhost]
+2020-06-10 05:17:37,449 p=57971 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:17:37,449 p=57971 u=root n=ansible | ok: [localhost] => {
+    "DISK ['sda'] ": "VARIABLE IS NOT DEFINED!"
+}
+2020-06-10 05:17:37,496 p=57971 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:17:37,496 p=57971 u=root n=ansible | fatal: [localhost]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: '_data_disks' is undefined\n\nThe error appears to be in '/home/sa/ansible-crypt-zfs-root/roles/local/0-system-prep/tasks/main.yml': line 6, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n- debug: var=\"DISK {{ _root_disks }} \"\n- debug: var=\" TARGET DISK {{ _target_disks }} \"\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-10 05:17:37,501 p=57971 u=root n=ansible | 	to retry, use: --limit @/home/sa/ansible-crypt-zfs-root/config/tmp/retry/1_target_test.retry
+
+2020-06-10 05:17:37,501 p=57971 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-10 05:17:37,501 p=57971 u=root n=ansible | localhost                  : ok=6    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-10 05:18:19,253 p=58285 u=root n=ansible | PLAY [localhost] **************************************************************************************************************************************************************
+2020-06-10 05:18:20,245 p=58285 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-10 05:18:20,245 p=58285 u=root n=ansible | ok: [localhost]
+2020-06-10 05:18:21,587 p=58285 u=root n=ansible | TASK [Update apt cache.] ******************************************************************************************************************************************************
+2020-06-10 05:18:21,587 p=58285 u=root n=ansible | changed: [localhost]
+2020-06-10 05:18:21,794 p=58285 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-10 05:18:21,795 p=58285 u=root n=ansible | ok: [localhost]
+2020-06-10 05:18:22,008 p=58285 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-10 05:18:22,009 p=58285 u=root n=ansible | ok: [localhost]
+2020-06-10 05:18:22,153 p=58285 u=root n=ansible | TASK [0-system-prep : mkdir] **************************************************************************************************************************************************
+2020-06-10 05:18:22,153 p=58285 u=root n=ansible | [WARNING]: Consider using the file module with state=directory rather than running 'mkdir'.  If you need to use command because file is insufficient you can add 'warn: false'
+to this command task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-06-10 05:18:22,154 p=58285 u=root n=ansible | changed: [localhost]
+2020-06-10 05:18:22,194 p=58285 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:18:22,194 p=58285 u=root n=ansible | ok: [localhost] => {
+    "DISK ['sda'] ": "VARIABLE IS NOT DEFINED!"
+}
+2020-06-10 05:18:22,232 p=58285 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:18:22,233 p=58285 u=root n=ansible | fatal: [localhost]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: '_target_disks' is undefined\n\nThe error appears to be in '/home/sa/ansible-crypt-zfs-root/roles/local/0-system-prep/tasks/main.yml': line 6, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n- debug: var=\"DISK {{ _root_disks }} \"\n- debug: var=\" TARGET DISK {{ _target_disks }} \"\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-10 05:18:22,238 p=58285 u=root n=ansible | 	to retry, use: --limit @/home/sa/ansible-crypt-zfs-root/config/tmp/retry/1_target_test.retry
+
+2020-06-10 05:18:22,238 p=58285 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-10 05:18:22,239 p=58285 u=root n=ansible | localhost                  : ok=6    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-10 05:18:31,459 p=58576 u=root n=ansible |  [ERROR]: User interrupted execution
+
+2020-06-10 05:19:18,161 p=58581 u=root n=ansible | PLAY [localhost] **************************************************************************************************************************************************************
+2020-06-10 05:19:20,149 p=58581 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-10 05:19:20,150 p=58581 u=root n=ansible | ok: [localhost]
+2020-06-10 05:19:21,388 p=58581 u=root n=ansible | TASK [Update apt cache.] ******************************************************************************************************************************************************
+2020-06-10 05:19:21,388 p=58581 u=root n=ansible | changed: [localhost]
+2020-06-10 05:19:21,603 p=58581 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-10 05:19:21,603 p=58581 u=root n=ansible | ok: [localhost]
+2020-06-10 05:19:21,822 p=58581 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-10 05:19:21,822 p=58581 u=root n=ansible | ok: [localhost]
+2020-06-10 05:19:21,966 p=58581 u=root n=ansible | TASK [0-system-prep : mkdir] **************************************************************************************************************************************************
+2020-06-10 05:19:21,967 p=58581 u=root n=ansible | [WARNING]: Consider using the file module with state=directory rather than running 'mkdir'.  If you need to use command because file is insufficient you can add 'warn: false'
+to this command task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-06-10 05:19:21,967 p=58581 u=root n=ansible | changed: [localhost]
+2020-06-10 05:19:22,006 p=58581 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:19:22,007 p=58581 u=root n=ansible | ok: [localhost] => {
+    "DISK ['sda'] ": "VARIABLE IS NOT DEFINED!"
+}
+2020-06-10 05:19:22,053 p=58581 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:19:22,053 p=58581 u=root n=ansible | ok: [localhost] => {
+    "\" root_disks_by_id /dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10 \"": " root_disks_by_id /dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10 "
+}
+2020-06-10 05:19:22,099 p=58581 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:19:22,100 p=58581 u=root n=ansible | ok: [localhost] => {
+    "\"/dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10 \"": "/dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10 "
+}
+2020-06-10 05:19:22,140 p=58581 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:19:22,141 p=58581 u=root n=ansible | ok: [localhost] => {
+    "\"sa \"": "sa "
+}
+2020-06-10 05:19:22,181 p=58581 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:19:22,182 p=58581 u=root n=ansible | ok: [localhost] => {
+    "\"$6$DWFDlpd5WmPQuXQX$RbjY1OJwcZv5j5iI3U0X/Zslj6wn1ybR0DJb0UiPqQ1FC15Wnmhx5lnYmOEnM9DbtTeSoE9Xm6iY9YnqByyiv0 \"": "$6$DWFDlpd5WmPQuXQX$RbjY1OJwcZv5j5iI3U0X/Zslj6wn1ybR0DJb0UiPqQ1FC15Wnmhx5lnYmOEnM9DbtTeSoE9Xm6iY9YnqByyiv0 "
+}
+2020-06-10 05:19:22,201 p=58581 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-10 05:19:22,201 p=58581 u=root n=ansible | localhost                  : ok=10   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-10 05:20:45,342 p=58890 u=root n=ansible | PLAY [localhost] **************************************************************************************************************************************************************
+2020-06-10 05:20:46,245 p=58890 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-10 05:20:46,245 p=58890 u=root n=ansible | ok: [localhost]
+2020-06-10 05:20:47,529 p=58890 u=root n=ansible | TASK [Update apt cache.] ******************************************************************************************************************************************************
+2020-06-10 05:20:47,529 p=58890 u=root n=ansible | changed: [localhost]
+2020-06-10 05:20:47,750 p=58890 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-10 05:20:47,750 p=58890 u=root n=ansible | ok: [localhost]
+2020-06-10 05:20:47,960 p=58890 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-10 05:20:47,961 p=58890 u=root n=ansible | ok: [localhost]
+2020-06-10 05:20:48,105 p=58890 u=root n=ansible | TASK [0-system-prep : mkdir] **************************************************************************************************************************************************
+2020-06-10 05:20:48,106 p=58890 u=root n=ansible | [WARNING]: Consider using the file module with state=directory rather than running 'mkdir'.  If you need to use command because file is insufficient you can add 'warn: false'
+to this command task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-06-10 05:20:48,106 p=58890 u=root n=ansible | changed: [localhost]
+2020-06-10 05:20:48,145 p=58890 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:20:48,146 p=58890 u=root n=ansible | ok: [localhost] => {
+    "DISK ['sda'] ": "VARIABLE IS NOT DEFINED!"
+}
+2020-06-10 05:20:48,193 p=58890 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:20:48,194 p=58890 u=root n=ansible | ok: [localhost] => {
+    "\" root_disks_by_id /dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10 \"": " root_disks_by_id /dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10 "
+}
+2020-06-10 05:20:48,241 p=58890 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:20:48,242 p=58890 u=root n=ansible | ok: [localhost] => {
+    "\"/dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10 \"": "/dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10 "
+}
+2020-06-10 05:20:48,280 p=58890 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:20:48,281 p=58890 u=root n=ansible | ok: [localhost] => {
+    "\"sa \"": "sa "
+}
+2020-06-10 05:20:48,320 p=58890 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:20:48,320 p=58890 u=root n=ansible | ok: [localhost] => {
+    "\"$6$uZJyuGyZMufaPRXd$Uo1JB0AyuvuKaK/xQnGJGSygbugo7LdZX.YFPCEuWATj853WZ2ZqNNbmvcmG5PQXgLAbPVBxOiFZevrEtHPeW. \"": "$6$uZJyuGyZMufaPRXd$Uo1JB0AyuvuKaK/xQnGJGSygbugo7LdZX.YFPCEuWATj853WZ2ZqNNbmvcmG5PQXgLAbPVBxOiFZevrEtHPeW. "
+}
+2020-06-10 05:20:48,359 p=58890 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:20:48,360 p=58890 u=root n=ansible | ok: [localhost] => {
+    "\"-part1 \"": "-part1 "
+}
+2020-06-10 05:20:48,399 p=58890 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:20:48,400 p=58890 u=root n=ansible | ok: [localhost] => {
+    "\"-part2 \"": "-part2 "
+}
+2020-06-10 05:20:48,441 p=58890 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:20:48,442 p=58890 u=root n=ansible | ok: [localhost] => {
+    "\"-part3 \"": "-part3 "
+}
+2020-06-10 05:20:48,461 p=58890 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-10 05:20:48,461 p=58890 u=root n=ansible | localhost                  : ok=13   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-10 05:22:16,436 p=59205 u=root n=ansible | PLAY [localhost] **************************************************************************************************************************************************************
+2020-06-10 05:22:18,292 p=59205 u=root n=ansible | TASK [Gathering Facts] ********************************************************************************************************************************************************
+2020-06-10 05:22:18,293 p=59205 u=root n=ansible | ok: [localhost]
+2020-06-10 05:22:19,547 p=59205 u=root n=ansible | TASK [Update apt cache.] ******************************************************************************************************************************************************
+2020-06-10 05:22:19,547 p=59205 u=root n=ansible | changed: [localhost]
+2020-06-10 05:22:19,752 p=59205 u=root n=ansible | TASK [Test Ansible ping] ******************************************************************************************************************************************************
+2020-06-10 05:22:19,752 p=59205 u=root n=ansible | ok: [localhost]
+2020-06-10 05:22:19,967 p=59205 u=root n=ansible | TASK [Run a command to get target release] ************************************************************************************************************************************
+2020-06-10 05:22:19,967 p=59205 u=root n=ansible | ok: [localhost]
+2020-06-10 05:22:20,111 p=59205 u=root n=ansible | TASK [0-system-prep : mkdir] **************************************************************************************************************************************************
+2020-06-10 05:22:20,112 p=59205 u=root n=ansible | [WARNING]: Consider using the file module with state=directory rather than running 'mkdir'.  If you need to use command because file is insufficient you can add 'warn: false'
+to this command task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-06-10 05:22:20,112 p=59205 u=root n=ansible | changed: [localhost]
+2020-06-10 05:22:20,151 p=59205 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:22:20,152 p=59205 u=root n=ansible | ok: [localhost] => {
+    "DISK ['sda'] ": "VARIABLE IS NOT DEFINED!"
+}
+2020-06-10 05:22:20,198 p=59205 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:22:20,198 p=59205 u=root n=ansible | ok: [localhost] => {
+    "\" root_disks_by_id /dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10 \"": " root_disks_by_id /dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10 "
+}
+2020-06-10 05:22:20,246 p=59205 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:22:20,246 p=59205 u=root n=ansible | ok: [localhost] => {
+    "\"/dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10 \"": "/dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10 "
+}
+2020-06-10 05:22:20,285 p=59205 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:22:20,286 p=59205 u=root n=ansible | ok: [localhost] => {
+    "\"sa \"": "sa "
+}
+2020-06-10 05:22:20,324 p=59205 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:22:20,324 p=59205 u=root n=ansible | ok: [localhost] => {
+    "\"$6$8/SqK8ftAzJ96taA$08TjSvK8iiLzUwz8ndIgPVR0t0FDTtec046p3kCpoqmQABSc.nCZ/ozUHWI4fVQC7Q1WSIj07pR7VkYjUJmz31 \"": "$6$8/SqK8ftAzJ96taA$08TjSvK8iiLzUwz8ndIgPVR0t0FDTtec046p3kCpoqmQABSc.nCZ/ozUHWI4fVQC7Q1WSIj07pR7VkYjUJmz31 "
+}
+2020-06-10 05:22:20,371 p=59205 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:22:20,372 p=59205 u=root n=ansible | ok: [localhost] => {
+    "\"/dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10-part1 \"": "/dev/disk/by-id/scsi-36000c29362ce6759140e40aab0dafa10-part1 "
+}
+2020-06-10 05:22:20,413 p=59205 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:22:20,414 p=59205 u=root n=ansible | ok: [localhost] => {
+    "\"-part2 \"": "-part2 "
+}
+2020-06-10 05:22:20,454 p=59205 u=root n=ansible | TASK [0-system-prep : debug] **************************************************************************************************************************************************
+2020-06-10 05:22:20,455 p=59205 u=root n=ansible | ok: [localhost] => {
+    "\"-part3 \"": "-part3 "
+}
+2020-06-10 05:22:20,474 p=59205 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************
+2020-06-10 05:22:20,474 p=59205 u=root n=ansible | localhost                  : ok=13   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-10 05:41:12,525 p=59657 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/sa/ansible-crypt-zfs-root/roles/local/0-system-prep/vars/main.yml': line 12, column 19, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+_root_pool: rpool
+_root_pool_type: ""
+                  ^ here
+
+2020-06-10 05:45:07,145 p=59676 u=root n=ansible | PLAY [localhost] ****************************************************************************************************************************************************************************************************************************
+2020-06-10 05:45:09,064 p=59676 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-10 05:45:09,065 p=59676 u=root n=ansible | ok: [localhost]
+2020-06-10 05:45:10,406 p=59676 u=root n=ansible | TASK [Update apt cache.] ********************************************************************************************************************************************************************************************************************
+2020-06-10 05:45:10,406 p=59676 u=root n=ansible | changed: [localhost]
+2020-06-10 05:45:10,611 p=59676 u=root n=ansible | TASK [Test Ansible ping] ********************************************************************************************************************************************************************************************************************
+2020-06-10 05:45:10,612 p=59676 u=root n=ansible | ok: [localhost]
+2020-06-10 05:45:10,821 p=59676 u=root n=ansible | TASK [Run a command to get target release] **************************************************************************************************************************************************************************************************
+2020-06-10 05:45:10,822 p=59676 u=root n=ansible | ok: [localhost]
+2020-06-10 05:45:10,971 p=59676 u=root n=ansible | TASK [0-system-prep : mkdir] ****************************************************************************************************************************************************************************************************************
+2020-06-10 05:45:10,972 p=59676 u=root n=ansible | [WARNING]: Consider using the file module with state=directory rather than running 'mkdir'.  If you need to use command because file is insufficient you can add 'warn: false' to this command task or set 'command_warnings=False' in
+ansible.cfg to get rid of this message.
+
+2020-06-10 05:45:10,972 p=59676 u=root n=ansible | changed: [localhost]
+2020-06-10 05:45:11,010 p=59676 u=root n=ansible | TASK [0-system-prep : debug] ****************************************************************************************************************************************************************************************************************
+2020-06-10 05:45:11,011 p=59676 u=root n=ansible | fatal: [localhost]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: '_root_disks' is undefined\n\nThe error appears to be in '/home/sa/ansible-crypt-zfs-root/roles/local/0-system-prep/tasks/main.yml': line 5, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: var=\"DISK {{ _root_disks }} \"\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-10 05:45:11,016 p=59676 u=root n=ansible | 	to retry, use: --limit @/home/sa/ansible-crypt-zfs-root/config/tmp/retry/1_target_test.retry
+
+2020-06-10 05:45:11,016 p=59676 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-10 05:45:11,017 p=59676 u=root n=ansible | localhost                  : ok=5    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

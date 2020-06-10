@@ -11,6 +11,18 @@
 #    dump_vars: true
 #  vars_files:
 #    - roles/local/0-system-prep/vars.yml
+  vars_prompt:
+    - name: "user_name"
+      prompt: "Enter User Name"
+      default: "sa"
+      private: yes
+#      confirm: yes
+    - name: "user_password"
+      prompt: "Enter User Password"
+      default: "sa"
+      encrypt: "sha512_crypt"
+      private: yes
+      confirm: yes 
 
   pre_tasks:
     - name: Update apt cache.
