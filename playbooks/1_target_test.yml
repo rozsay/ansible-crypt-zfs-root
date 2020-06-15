@@ -1,33 +1,14 @@
 ---
 # Documentation:
-# This playbook helps to check if all hosts defined into the inventory
-# are joinable. This playbook can also retrieve a dump of all remote
-# hosts. This should support most UNIX operating systems (OSX included).
+# This playbook helps to check if all hosts defined into the inventory are joinable. 
+# This playbook can also retrieve a dump of all remote hosts. 
+# This should support most UNIX operating systems (OSX included).
+- hosts: live
 
-
-- hosts: localhost
-  connection: local
-#  vars:
-#    dump_vars: true
-#  vars_files:
-#    - roles/local/0-system-prep/vars.yml
-  vars_prompt:
-    - name: "user_name"
-      prompt: "Enter User Name"
-      default: "sa"
-      private: yes
-#      confirm: yes
-    - name: "user_password"
-      prompt: "Enter User Password"
-      default: "sa"
-      encrypt: "sha512_crypt"
-      private: yes
-      confirm: yes 
+  vars:
+    dump_vars: true
 
   pre_tasks:
-    - name: Update apt cache.
-      apt: update_cache=yes
-#      when: ansible_os_family == 'Debian'
 
     - name: Test Ansible ping
       ping:
@@ -37,7 +18,5 @@
       changed_when: false
 
   roles:
-#    - role: dumpall
+    - role: dumpall
 #      when: dump_vars | bool
-    - role: 0-system-prep
-

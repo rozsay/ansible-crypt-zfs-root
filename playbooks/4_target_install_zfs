@@ -1,10 +1,5 @@
 ---
-
-# TODO: 
-# - should install the default utils: screen, vim, htop, etc ...
-# - Should make the user happy to use the vm: bashrc, gitconfig, screenrc, etc ...
-
-- hosts: local
+- hosts: live
 #- hosts: targets
   user: root
 
@@ -20,3 +15,12 @@
       encrypt: "sha512_crypt"
       private: yes
       confirm: yes
+
+  pre_tasks:
+
+    - name: Test Ansible ping
+      ping:
+
+  roles:
+    - role: 01-system-prep
+#      when: dump_vars | bool
