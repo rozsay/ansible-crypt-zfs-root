@@ -1,11 +1,13 @@
 ---
 - hosts: live
+  connection: local
+
 #- hosts: targets
-  user: root
+#  user: root
 
   vars_prompt:
     - name: "user_name"
-      prompt: "Enter User Name"
+      prompt: "Enter User Namesssss"
       default: "sa"
       private: yes
 #      confirm: yes
@@ -15,11 +17,6 @@
       encrypt: "sha512_crypt"
       private: yes
       confirm: yes
-
-  pre_tasks:
-
-    - name: Test Ansible ping
-      ping:
 
   roles:
     - role: 01-system-prep
