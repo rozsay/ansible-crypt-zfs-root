@@ -1,0 +1,6 @@
+---
+- hosts: live
+  connection: local
+
+  roles:
+    - role: 01-system-prep

@@ -1,0 +1,47 @@
+---
+# tasks file for 03-chroot-final
+- name: Create a snapshot of {{_root_pool }}/root file system.
+#_installdir: /mnt/install/
+  zfs:
+    name: "{{ _root_pool }}/root@{{ ansible_date_time.date }}install1"
+    state: present
+# Cleanup
+
+#- name: Unmount
+#  mount:
+#    path: "{{ _installdir }}"
+#    state: unmounted
+#absent
+
+- name: Print mosh version
+  debug:
+    msg: " ELSO {{ _installdir }}dev"
+
+#- name: Unmount All Directories
+#  mount:
+#    name: "{{ item.name }}"
+#    state: unmounted
+#    fstype: none
+#    src: none
+#  become: True
+#  with_items:
+#   - '"{{ _installdir }}"dev'
+#   - '"{{_installdir}}"proc'
+#   - '"{{_installdir}}"sys'
+#   - '"{{_installdir}}"boot/efi'
+#   - '"{{_installdir}}"boot'
+#   - '"{{_installdir}}"home'
+- name: Umount special filesystems for chroot
+  shell: "umount -l {{ item }}"
+  with_items:
+    - "{{ _installdir }}dev"
+    - "{{ _installdir }}proc"
+    - "{{ _installdir }}sys"
+    - "{{ _installdir }}boot/efi"
+    - "{{ _installdir }}boot"
+    - "{{ _installdir }}home"
+  args:
+    warn: false
+
+#- name: export all zpool
+#  shell: zpool export {{_root_pool}}

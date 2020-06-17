@@ -1,13 +1,10 @@
 ---
-- hosts: live
-  connection: local
-
-#- hosts: targets
-#  user: root
+- hosts: chroot
+  connection: chroot
 
   vars_prompt:
     - name: "user_name"
-      prompt: "Enter User Namesssss"
+      prompt: "Enter User Name"
       default: "sa"
       private: yes
 #      confirm: yes
@@ -19,5 +16,5 @@
       confirm: yes
 
   roles:
-    - role: 01-system-prep
-#      when: dump_vars | bool
+#    - role: 02-chroot
+    - role: 03-chroot-final
