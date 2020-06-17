@@ -1,0 +1,26 @@
+---
+#- import_tasks: install.yml
+- name: Install netplan
+  apt:
+    name: "{{ netplan_packages }}"
+    state: present
+  become: true
+  register: result
+  until: result is successful
+  when:
+    - netplan_check_install
+
+- name: define traditional ethernet facts
+  set_fact:
+    ansible_eth: "{% set ansible_eth = ansible_eth|default([]) + [hostvars[inventory_hostname]['ansible_' + item]] %}{{ ansible_eth|list }}"
+  when: hostvars[inventory_hostname]['ansible_' + item]['type'] == 'ether'
+  with_items:
+    - "{{ hostvars[inventory_hostname]['ansible_interfaces'] }}"
+
+- name: Configuring Netplan
+  template:
+    src: etc/netplan/config.yaml.j2
+    dest: "{{ netplan_config_file }}"
+  become: true
+  when: netplan_configuration != []
+  notify: netplan generate config

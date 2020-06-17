@@ -5864,3 +5864,301 @@ The offending line appears to be:
 2020-06-15 11:10:36,596 p=105001 u=root n=ansible | changed: [local_zfs_root] => (item=/sys "/mnt/install/sys")
 2020-06-15 11:10:36,615 p=105001 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************
 2020-06-15 11:10:36,616 p=105001 u=root n=ansible | local_zfs_root             : ok=20   changed=15   unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-06-17 04:48:40,378 p=1833 u=root n=ansible | PLAY [localhost] *****************************************************************************************************************************************************
+2020-06-17 04:48:43,785 p=1833 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************
+2020-06-17 04:48:43,786 p=1833 u=root n=ansible | ok: [localhost]
+2020-06-17 04:48:45,120 p=1833 u=root n=ansible | TASK [Install all vendor roles] **************************************************************************************************************************************
+2020-06-17 04:48:45,120 p=1833 u=root n=ansible | changed: [localhost]
+2020-06-17 04:48:45,140 p=1833 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************
+2020-06-17 04:48:45,141 p=1833 u=root n=ansible | localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-06-17 04:48:51,507 p=2017 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************
+2020-06-17 04:48:52,175 p=2017 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************
+2020-06-17 04:48:52,175 p=2017 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 04:48:52,417 p=2017 u=root n=ansible | TASK [Test Ansible ping] *********************************************************************************************************************************************
+2020-06-17 04:48:52,418 p=2017 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 04:48:52,650 p=2017 u=root n=ansible | TASK [Run a command to get target release] ***************************************************************************************************************************
+2020-06-17 04:48:52,651 p=2017 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 04:48:53,193 p=2017 u=root n=ansible | TASK [dumpall : Dump all vars] ***************************************************************************************************************************************
+2020-06-17 04:48:53,193 p=2017 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 04:48:53,503 p=2017 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] ***********************************************************************************************************************************
+2020-06-17 04:48:53,503 p=2017 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 04:48:53,750 p=2017 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] ***********************************************************************************************************************
+2020-06-17 04:48:53,751 p=2017 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 04:48:53,770 p=2017 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************
+2020-06-17 04:48:53,770 p=2017 u=root n=ansible | local_zfs_root             : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-17 04:48:58,467 p=2139 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************
+2020-06-17 04:48:59,090 p=2139 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************
+2020-06-17 04:48:59,090 p=2139 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 04:49:04,014 p=2139 u=root n=ansible | TASK [raw] ***********************************************************************************************************************************************************
+2020-06-17 04:49:04,014 p=2139 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 04:49:04,262 p=2139 u=root n=ansible | TASK [Test Ansible ping] *********************************************************************************************************************************************
+2020-06-17 04:49:04,263 p=2139 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 04:49:04,547 p=2139 u=root n=ansible | TASK [Run a command to get target release] ***************************************************************************************************************************
+2020-06-17 04:49:04,547 p=2139 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 04:49:04,613 p=2139 u=root n=ansible | TASK [debug] *********************************************************************************************************************************************************
+2020-06-17 04:49:04,613 p=2139 u=root n=ansible | ok: [local_zfs_root] => {
+    "system_output.stdout_lines": [
+        "Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease",
+        "Get:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease [107 kB]",
+        "Get:3 http://security.ubuntu.com/ubuntu focal-security InRelease [107 kB]",
+        "Get:4 http://archive.ubuntu.com/ubuntu focal-updates/main Sources [78.5 kB]",
+        "Get:5 http://archive.ubuntu.com/ubuntu focal-updates/universe Sources [35.3 kB]",
+        "Get:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [197 kB]",
+        "Get:7 http://security.ubuntu.com/ubuntu focal-security/main Sources [33.8 kB]",
+        "Get:8 http://archive.ubuntu.com/ubuntu focal-updates/main Translation-en [77.7 kB]",
+        "Get:9 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [106 kB]",
+        "Get:10 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [110 kB]",
+        "Get:11 http://archive.ubuntu.com/ubuntu focal-updates/universe Translation-en [51.9 kB]",
+        "Get:12 http://security.ubuntu.com/ubuntu focal-security/main Translation-en [40.1 kB]",
+        "Get:13 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [35.5 kB]",
+        "Get:14 http://security.ubuntu.com/ubuntu focal-security/universe Translation-en [17.7 kB]",
+        "Fetched 997 kB in 2s (627 kB/s)",
+        "Reading package lists..."
+    ]
+}
+2020-06-17 04:49:04,631 p=2139 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************
+2020-06-17 04:49:04,631 p=2139 u=root n=ansible | local_zfs_root             : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-17 05:37:08,716 p=4703 u=root n=ansible | PLAY [localhost] ****************************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:09,340 p=4703 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:09,341 p=4703 u=root n=ansible | ok: [localhost]
+2020-06-17 05:37:11,017 p=4703 u=root n=ansible | TASK [Install all vendor roles] *************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:11,018 p=4703 u=root n=ansible | changed: [localhost]
+2020-06-17 05:37:11,051 p=4703 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:11,052 p=4703 u=root n=ansible | localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-06-17 05:37:15,616 p=4799 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:16,270 p=4799 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:16,270 p=4799 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 05:37:16,501 p=4799 u=root n=ansible | TASK [Test Ansible ping] ********************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:16,502 p=4799 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 05:37:16,743 p=4799 u=root n=ansible | TASK [Run a command to get target release] **************************************************************************************************************************************************************************************************
+2020-06-17 05:37:16,744 p=4799 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 05:37:17,247 p=4799 u=root n=ansible | TASK [dumpall : Dump all vars] **************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:17,247 p=4799 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 05:37:17,524 p=4799 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] **********************************************************************************************************************************************************************************************************
+2020-06-17 05:37:17,524 p=4799 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 05:37:17,798 p=4799 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] **********************************************************************************************************************************************************************************************
+2020-06-17 05:37:17,798 p=4799 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 05:37:17,818 p=4799 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:17,818 p=4799 u=root n=ansible | local_zfs_root             : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-17 05:37:22,483 p=4923 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:23,114 p=4923 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:23,115 p=4923 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 05:37:24,435 p=4923 u=root n=ansible | TASK [raw] **********************************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:24,435 p=4923 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 05:37:24,671 p=4923 u=root n=ansible | TASK [Test Ansible ping] ********************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:24,671 p=4923 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 05:37:24,888 p=4923 u=root n=ansible | TASK [Run a command to get target release] **************************************************************************************************************************************************************************************************
+2020-06-17 05:37:24,888 p=4923 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 05:37:24,959 p=4923 u=root n=ansible | TASK [debug] ********************************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:24,961 p=4923 u=root n=ansible | ok: [local_zfs_root] => {
+    "system_output.stdout_lines": [
+        "Get:1 http://security.ubuntu.com/ubuntu focal-security InRelease [107 kB]",
+        "Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease",
+        "Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [107 kB]",
+        "Fetched 214 kB in 0s (458 kB/s)",
+        "Reading package lists..."
+    ]
+}
+2020-06-17 05:37:24,982 p=4923 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:24,982 p=4923 u=root n=ansible | local_zfs_root             : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-17 05:37:31,756 p=5205 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:32,447 p=5205 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:32,448 p=5205 u=root n=ansible | ok: [local_user]
+2020-06-17 05:37:32,475 p=5205 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-17 05:37:32,475 p=5205 u=root n=ansible | local_user                 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-17 05:37:37,045 p=5290 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/opt/test/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml': line 85, column 39, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+# defaults file for ansible-netplan
+netplan_config_file: {{ _installdir }}etc/netplan/config.yaml
+                                      ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-17 05:38:20,461 p=5368 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-17 05:38:21,104 p=5368 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-17 05:38:21,104 p=5368 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 05:38:22,201 p=5368 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *****************************************************************************************************************************************************************
+2020-06-17 05:38:22,201 p=5368 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 05:38:22,242 p=5368 u=root n=ansible | TASK [01-system-prep : debug] ***************************************************************************************************************************************************************************************************************
+2020-06-17 05:38:22,243 p=5368 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1592372243,
+        "cache_updated": false,
+        "changed": false,
+        "failed": false
+    }
+}
+2020-06-17 05:38:22,804 p=5368 u=root n=ansible | TASK [01-system-prep : Necessary efi] *******************************************************************************************************************************************************************************************************
+2020-06-17 05:38:22,805 p=5368 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-06-17 05:38:24,146 p=5368 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] **************************************************************************************************************************************************************************************************
+2020-06-17 05:38:24,146 p=5368 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c295d128118475b5033b1942e221)
+2020-06-17 05:38:25,362 p=5368 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ******************************************************************************************************************************************************************************************
+2020-06-17 05:38:25,362 p=5368 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c295d128118475b5033b1942e221)
+2020-06-17 05:38:26,616 p=5368 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *****************************************************************************************************************************************************************************************
+2020-06-17 05:38:26,617 p=5368 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c295d128118475b5033b1942e221)
+2020-06-17 05:38:32,556 p=5368 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *****************************************************************************************************************************************************************************************
+2020-06-17 05:38:32,557 p=5368 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c295d128118475b5033b1942e221)
+2020-06-17 05:38:32,750 p=5368 u=root n=ansible | TASK [01-system-prep : print info disk] *****************************************************************************************************************************************************************************************************
+2020-06-17 05:38:32,751 p=5368 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c295d128118475b5033b1942e221)
+2020-06-17 05:38:32,811 p=5368 u=root n=ansible | TASK [01-system-prep : debug directory output] **********************************************************************************************************************************************************************************************
+2020-06-17 05:38:32,812 p=5368 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c295d128118475b5033b1942e221: 62914560 sectors, 30.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): E4C518C1-B240-44CE-834F-F5A5180B3C73",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 62914526",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  ",
+            "   2         1050624         3147775   1024.0 MiB  8300  ",
+            "   3         3147776        62914526   28.5 GiB    BF01  "
+        ]
+    ]
+}
+2020-06-17 05:38:33,285 p=5368 u=root n=ansible | TASK [01-system-prep : set up root zfs crypt devices] ***************************************************************************************************************************************************************************************
+2020-06-17 05:38:33,286 p=5368 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 05:38:33,657 p=5368 u=root n=ansible | TASK [01-system-prep : create root dataset] *************************************************************************************************************************************************************************************************
+2020-06-17 05:38:33,657 p=5368 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 05:38:33,854 p=5368 u=root n=ansible | TASK [01-system-prep : manually mount rpool/root before creating other mountpoints] *********************************************************************************************************************************************************
+2020-06-17 05:38:33,854 p=5368 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 05:38:34,174 p=5368 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] **********************************************************************************************************************************************************************************
+2020-06-17 05:38:34,175 p=5368 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c295d128118475b5033b1942e221-part2)
+2020-06-17 05:38:34,522 p=5368 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/efi] ******************************************************************************************************************************************************************************
+2020-06-17 05:38:34,522 p=5368 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c295d128118475b5033b1942e221-part1)
+2020-06-17 05:40:36,650 p=5368 u=root n=ansible | TASK [01-system-prep : run debootstrap and set devices=off for root pool] *******************************************************************************************************************************************************************
+2020-06-17 05:40:36,650 p=5368 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 05:40:37,176 p=5368 u=root n=ansible | TASK [01-system-prep : write /etc/hostname in chroot] ***************************************************************************************************************************************************************************************
+2020-06-17 05:40:37,176 p=5368 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 05:40:37,487 p=5368 u=root n=ansible | TASK [01-system-prep : write /mnt/install/apt/sources.list in chroot] ***********************************************************************************************************************************************************************
+2020-06-17 05:40:37,487 p=5368 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 05:40:37,764 p=5368 u=root n=ansible | TASK [01-system-prep : add hostname entries to /mnt/install/hosts in chroot] ****************************************************************************************************************************************************************
+2020-06-17 05:40:37,764 p=5368 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 05:40:37,920 p=5368 u=root n=ansible | TASK [01-system-prep : mount special filesystems for chroot] ********************************************************************************************************************************************************************************
+2020-06-17 05:40:37,920 p=5368 u=root n=ansible | changed: [local_zfs_root] => (item=/dev "/mnt/install/dev")
+2020-06-17 05:40:38,043 p=5368 u=root n=ansible | changed: [local_zfs_root] => (item=/proc "/mnt/install/proc")
+2020-06-17 05:40:38,175 p=5368 u=root n=ansible | changed: [local_zfs_root] => (item=/sys "/mnt/install/sys")
+2020-06-17 05:40:38,313 p=5368 u=root n=ansible | TASK [01-system-prep : Get physical interfaces names] ***************************************************************************************************************************************************************************************
+2020-06-17 05:40:38,314 p=5368 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 05:40:38,440 p=5368 u=root n=ansible | TASK [01-system-prep : Show interfaces details] *********************************************************************************************************************************************************************************************
+2020-06-17 05:40:38,441 p=5368 u=root n=ansible | ok: [local_zfs_root] => (item=ens33) => {
+    "msg": {
+        "active": true,
+        "device": "ens33",
+        "features": {
+            "esp_hw_offload": "off [fixed]",
+            "esp_tx_csum_hw_offload": "off [fixed]",
+            "fcoe_mtu": "off [fixed]",
+            "generic_receive_offload": "on",
+            "generic_segmentation_offload": "on",
+            "highdma": "off [fixed]",
+            "hw_tc_offload": "off [fixed]",
+            "l2_fwd_offload": "off [fixed]",
+            "large_receive_offload": "off [fixed]",
+            "loopback": "off [fixed]",
+            "netns_local": "off [fixed]",
+            "ntuple_filters": "off [fixed]",
+            "receive_hashing": "off [fixed]",
+            "rx_all": "off",
+            "rx_checksumming": "off",
+            "rx_fcs": "off",
+            "rx_gro_hw": "off [fixed]",
+            "rx_udp_tunnel_port_offload": "off [fixed]",
+            "rx_vlan_filter": "on [fixed]",
+            "rx_vlan_offload": "on",
+            "rx_vlan_stag_filter": "off [fixed]",
+            "rx_vlan_stag_hw_parse": "off [fixed]",
+            "scatter_gather": "on",
+            "tcp_segmentation_offload": "on",
+            "tls_hw_record": "off [fixed]",
+            "tls_hw_rx_offload": "off [fixed]",
+            "tls_hw_tx_offload": "off [fixed]",
+            "tx_checksum_fcoe_crc": "off [fixed]",
+            "tx_checksum_ip_generic": "on",
+            "tx_checksum_ipv4": "off [fixed]",
+            "tx_checksum_ipv6": "off [fixed]",
+            "tx_checksum_sctp": "off [fixed]",
+            "tx_checksumming": "on",
+            "tx_esp_segmentation": "off [fixed]",
+            "tx_fcoe_segmentation": "off [fixed]",
+            "tx_gre_csum_segmentation": "off [fixed]",
+            "tx_gre_segmentation": "off [fixed]",
+            "tx_gso_partial": "off [fixed]",
+            "tx_gso_robust": "off [fixed]",
+            "tx_ipxip4_segmentation": "off [fixed]",
+            "tx_ipxip6_segmentation": "off [fixed]",
+            "tx_lockless": "off [fixed]",
+            "tx_nocache_copy": "off",
+            "tx_scatter_gather": "on",
+            "tx_scatter_gather_fraglist": "off [fixed]",
+            "tx_sctp_segmentation": "off [fixed]",
+            "tx_tcp6_segmentation": "off [fixed]",
+            "tx_tcp_ecn_segmentation": "off [fixed]",
+            "tx_tcp_mangleid_segmentation": "off",
+            "tx_tcp_segmentation": "on",
+            "tx_udp_segmentation": "off [fixed]",
+            "tx_udp_tnl_csum_segmentation": "off [fixed]",
+            "tx_udp_tnl_segmentation": "off [fixed]",
+            "tx_vlan_offload": "on [fixed]",
+            "tx_vlan_stag_hw_insert": "off [fixed]",
+            "vlan_challenged": "off [fixed]"
+        },
+        "hw_timestamp_filters": [],
+        "ipv4": {
+            "address": "192.168.100.10",
+            "broadcast": "192.168.100.255",
+            "netmask": "255.255.255.0",
+            "network": "192.168.100.0"
+        },
+        "ipv6": [
+            {
+                "address": "fe80::20c:29ff:fea7:8507",
+                "prefix": "64",
+                "scope": "link"
+            }
+        ],
+        "macaddress": "00:0c:29:a7:85:07",
+        "module": "e1000",
+        "mtu": 1500,
+        "pciid": "0000:02:01.0",
+        "promisc": false,
+        "speed": 1000,
+        "timestamping": [
+            "tx_software",
+            "rx_software",
+            "software"
+        ],
+        "type": "ether"
+    }
+}
+2020-06-17 05:40:39,198 p=5368 u=root n=ansible | TASK [01-system-prep : Install netplan] *****************************************************************************************************************************************************************************************************
+2020-06-17 05:40:39,199 p=5368 u=root n=ansible | ok: [local_zfs_root]
+2020-06-17 05:40:39,267 p=5368 u=root n=ansible | TASK [01-system-prep : define traditional ethernet facts] ***********************************************************************************************************************************************************************************
+2020-06-17 05:40:39,267 p=5368 u=root n=ansible | ok: [local_zfs_root] => (item=ens33)
+2020-06-17 05:40:39,582 p=5368 u=root n=ansible | TASK [01-system-prep : Configuring Netplan] *************************************************************************************************************************************************************************************************
+2020-06-17 05:40:39,582 p=5368 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 05:40:40,366 p=5368 u=root n=ansible | RUNNING HANDLER [01-system-prep : Generating Netplan Configuration] *************************************************************************************************************************************************************************
+2020-06-17 05:40:40,366 p=5368 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 05:40:40,646 p=5368 u=root n=ansible | RUNNING HANDLER [01-system-prep : Applying Netplan Configuration] ***************************************************************************************************************************************************************************
+2020-06-17 05:40:40,647 p=5368 u=root n=ansible | changed: [local_zfs_root]
+2020-06-17 05:40:40,659 p=5368 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-17 05:40:40,659 p=5368 u=root n=ansible | local_zfs_root             : ok=27   changed=18   unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
