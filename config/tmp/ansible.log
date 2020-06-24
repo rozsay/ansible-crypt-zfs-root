@@ -7120,3 +7120,179 @@ Should be written as:
 
 2020-06-17 08:33:12,173 p=98986 u=root n=ansible | PLAY RECAP ********************************************************************************************************************************************************************************************************
 2020-06-17 08:33:12,173 p=98986 u=root n=ansible | /mnt/install/              : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-24 08:32:57,500 p=1362 u=root n=ansible |  [ERROR]: User interrupted execution
+
+2020-06-24 08:33:00,167 p=1391 u=root n=ansible | PLAY [localhost] ****************************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:07,373 p=1391 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:07,374 p=1391 u=root n=ansible | ok: [localhost]
+2020-06-24 08:33:08,142 p=1391 u=root n=ansible | TASK [Install all vendor roles] *************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:08,143 p=1391 u=root n=ansible | changed: [localhost]
+2020-06-24 08:33:08,162 p=1391 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:08,163 p=1391 u=root n=ansible | localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-06-24 08:33:14,422 p=1490 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:15,088 p=1490 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:15,089 p=1490 u=root n=ansible | ok: [local_zfs_root]
+2020-06-24 08:33:15,315 p=1490 u=root n=ansible | TASK [Test Ansible ping] ********************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:15,315 p=1490 u=root n=ansible | ok: [local_zfs_root]
+2020-06-24 08:33:15,545 p=1490 u=root n=ansible | TASK [Run a command to get target release] **************************************************************************************************************************************************************************************************
+2020-06-24 08:33:15,545 p=1490 u=root n=ansible | ok: [local_zfs_root]
+2020-06-24 08:33:16,069 p=1490 u=root n=ansible | TASK [dumpall : Dump all vars] **************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:16,069 p=1490 u=root n=ansible | changed: [local_zfs_root]
+2020-06-24 08:33:16,341 p=1490 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] **********************************************************************************************************************************************************************************************************
+2020-06-24 08:33:16,341 p=1490 u=root n=ansible | ok: [local_zfs_root]
+2020-06-24 08:33:16,581 p=1490 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] **********************************************************************************************************************************************************************************************
+2020-06-24 08:33:16,581 p=1490 u=root n=ansible | changed: [local_zfs_root]
+2020-06-24 08:33:16,598 p=1490 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:16,598 p=1490 u=root n=ansible | local_zfs_root             : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-24 08:33:20,698 p=1606 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:21,326 p=1606 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:21,326 p=1606 u=root n=ansible | ok: [local_zfs_root]
+2020-06-24 08:33:27,114 p=1606 u=root n=ansible | TASK [raw] **********************************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:27,114 p=1606 u=root n=ansible | changed: [local_zfs_root]
+2020-06-24 08:33:27,350 p=1606 u=root n=ansible | TASK [Test Ansible ping] ********************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:27,350 p=1606 u=root n=ansible | ok: [local_zfs_root]
+2020-06-24 08:33:27,586 p=1606 u=root n=ansible | TASK [Run a command to get target release] **************************************************************************************************************************************************************************************************
+2020-06-24 08:33:27,587 p=1606 u=root n=ansible | ok: [local_zfs_root]
+2020-06-24 08:33:27,639 p=1606 u=root n=ansible | TASK [debug] ********************************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:27,640 p=1606 u=root n=ansible | ok: [local_zfs_root] => {
+    "system_output.stdout_lines": [
+        "Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease",
+        "Get:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease [107 kB]",
+        "Get:3 http://security.ubuntu.com/ubuntu focal-security InRelease [107 kB]",
+        "Get:4 http://security.ubuntu.com/ubuntu focal-security/universe Sources [2,308 B]",
+        "Get:5 http://security.ubuntu.com/ubuntu focal-security/main Sources [34.8 kB]",
+        "Get:6 http://security.ubuntu.com/ubuntu focal-security/multiverse Sources [716 B]",
+        "Get:7 http://security.ubuntu.com/ubuntu focal-security/restricted Sources [2,308 B]",
+        "Get:8 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [107 kB]",
+        "Get:9 http://archive.ubuntu.com/ubuntu focal-updates/universe Sources [38.5 kB]",
+        "Get:10 http://archive.ubuntu.com/ubuntu focal-updates/main Sources [83.6 kB]",
+        "Get:11 http://security.ubuntu.com/ubuntu focal-security/main Translation-en [40.9 kB]",
+        "Get:12 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [35.5 kB]",
+        "Get:13 http://archive.ubuntu.com/ubuntu focal-updates/restricted Sources [2,300 B]",
+        "Get:14 http://archive.ubuntu.com/ubuntu focal-updates/multiverse Sources [716 B]",
+        "Get:15 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [203 kB]",
+        "Get:16 http://security.ubuntu.com/ubuntu focal-security/universe Translation-en [17.7 kB]",
+        "Get:17 http://security.ubuntu.com/ubuntu focal-security/restricted amd64 Packages [11.0 kB]",
+        "Get:18 http://security.ubuntu.com/ubuntu focal-security/restricted Translation-en [3,000 B]",
+        "Get:19 http://security.ubuntu.com/ubuntu focal-security/multiverse amd64 Packages [1,172 B]",
+        "Get:20 http://archive.ubuntu.com/ubuntu focal-updates/main Translation-en [81.5 kB]",
+        "Get:21 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [115 kB]",
+        "Get:22 http://archive.ubuntu.com/ubuntu focal-updates/universe Translation-en [54.5 kB]",
+        "Get:23 http://archive.ubuntu.com/ubuntu focal-updates/restricted amd64 Packages [11.1 kB]",
+        "Get:24 http://archive.ubuntu.com/ubuntu focal-updates/restricted Translation-en [3,036 B]",
+        "Get:25 http://archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 Packages [1,172 B]",
+        "Fetched 1,064 kB in 2s (696 kB/s)",
+        "Reading package lists..."
+    ]
+}
+2020-06-24 08:33:27,657 p=1606 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:27,657 p=1606 u=root n=ansible | local_zfs_root             : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-24 08:33:36,185 p=2074 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:36,848 p=2074 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:36,849 p=2074 u=root n=ansible | ok: [local_user]
+2020-06-24 08:33:36,873 p=2074 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:36,874 p=2074 u=root n=ansible | local_user                 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-24 08:33:41,783 p=2142 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:42,426 p=2142 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:42,427 p=2142 u=root n=ansible | ok: [local_user]
+2020-06-24 08:33:42,495 p=2142 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:42,495 p=2142 u=root n=ansible | local_user                 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-24 08:33:49,222 p=2234 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:49,859 p=2234 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-24 08:33:49,860 p=2234 u=root n=ansible | ok: [local_zfs_root]
+2020-06-24 08:34:08,789 p=2234 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *****************************************************************************************************************************************************************
+2020-06-24 08:34:08,789 p=2234 u=root n=ansible | changed: [local_zfs_root]
+2020-06-24 08:34:08,836 p=2234 u=root n=ansible | TASK [01-system-prep : debug] ***************************************************************************************************************************************************************************************************************
+2020-06-24 08:34:08,837 p=2234 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1592987604,
+        "cache_updated": false,
+        "changed": true,
+        "diff": {},
+        "failed": false,
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nThe following additional packages will be installed:\n  finalrd\nSuggested packages:\n  arch-test squid-deb-proxy-client default-mta | mail-transport-agent\n  dracut-core\nThe following NEW packages will be installed:\n  debootstrap finalrd mdadm\n0 upgraded, 3 newly installed, 0 to remove and 54 not upgraded.\nNeed to get 462 kB of archives.\nAfter this operation, 1580 kB of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu focal/main amd64 finalrd all 5 [6648 B]\nGet:2 http://archive.ubuntu.com/ubuntu focal/main amd64 mdadm amd64 4.1-5ubuntu1 [416 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 debootstrap all 1.0.118ubuntu1.1 [39.4 kB]\nPreconfiguring packages ...\nFetched 462 kB in 1s (813 kB/s)\nSelecting previously unselected package finalrd.\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 89925 files and directories currently installed.)\r\nPreparing to unpack .../apt/archives/finalrd_5_all.deb ...\r\nUnpacking finalrd (5) ...\r\nSelecting previously unselected package mdadm.\r\nPreparing to unpack .../mdadm_4.1-5ubuntu1_amd64.deb ...\r\nUnpacking mdadm (4.1-5ubuntu1) ...\r\nSelecting previously unselected package debootstrap.\r\nPreparing to unpack .../debootstrap_1.0.118ubuntu1.1_all.deb ...\r\nUnpacking debootstrap (1.0.118ubuntu1.1) ...\r\nSetting up debootstrap (1.0.118ubuntu1.1) ...\r\nSetting up finalrd (5) ...\r\nCreated symlink /etc/systemd/system/sysinit.target.wants/finalrd.service -> /lib/systemd/system/finalrd.service.\r\nSetting up mdadm (4.1-5ubuntu1) ...\r\nGenerating mdadm.conf... done.\r\nupdate-initramfs: deferring update (trigger activated)\r\nSourcing file `/etc/default/grub'\r\nSourcing file `/etc/default/grub.d/init-select.cfg'\r\nGenerating grub configuration file ...\r\ngrub-probe: error: unknown filesystem.\r\ncannot open 'bpool/BOOT/root': dataset does not exist\r\nFound linux image: vmlinuz-5.4.0-31-generic in rpool/root\r\nFound initrd image: initrd.img-5.4.0-31-generic in rpool/root\r\ncannot open 'bpool/BOOT/root@install': dataset does not exist\r\nFound linux image: vmlinuz-5.4.0-31-generic in rpool/root@install\r\nFound initrd image: initrd.img-5.4.0-31-generic in rpool/root@install\r\nAdding boot menu entry for UEFI Firmware Settings\r\ndone\r\nCreated symlink /etc/systemd/system/mdmonitor.service.wants/mdcheck_start.timer -> /lib/systemd/system/mdcheck_start.timer.\r\nCreated symlink /etc/systemd/system/mdmonitor.service.wants/mdmonitor-oneshot.timer -> /lib/systemd/system/mdmonitor-oneshot.timer.\r\nmdcheck_continue.timer is a disabled or a static unit, not starting it.\r\nProcessing triggers for initramfs-tools (0.136ubuntu6) ...\r\n",
+        "stdout_lines": [
+            "Reading package lists...",
+            "Building dependency tree...",
+            "Reading state information...",
+            "The following additional packages will be installed:",
+            "  finalrd",
+            "Suggested packages:",
+            "  arch-test squid-deb-proxy-client default-mta | mail-transport-agent",
+            "  dracut-core",
+            "The following NEW packages will be installed:",
+            "  debootstrap finalrd mdadm",
+            "0 upgraded, 3 newly installed, 0 to remove and 54 not upgraded.",
+            "Need to get 462 kB of archives.",
+            "After this operation, 1580 kB of additional disk space will be used.",
+            "Get:1 http://archive.ubuntu.com/ubuntu focal/main amd64 finalrd all 5 [6648 B]",
+            "Get:2 http://archive.ubuntu.com/ubuntu focal/main amd64 mdadm amd64 4.1-5ubuntu1 [416 kB]",
+            "Get:3 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 debootstrap all 1.0.118ubuntu1.1 [39.4 kB]",
+            "Preconfiguring packages ...",
+            "Fetched 462 kB in 1s (813 kB/s)",
+            "Selecting previously unselected package finalrd.",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 89925 files and directories currently installed.)",
+            "Preparing to unpack .../apt/archives/finalrd_5_all.deb ...",
+            "Unpacking finalrd (5) ...",
+            "Selecting previously unselected package mdadm.",
+            "Preparing to unpack .../mdadm_4.1-5ubuntu1_amd64.deb ...",
+            "Unpacking mdadm (4.1-5ubuntu1) ...",
+            "Selecting previously unselected package debootstrap.",
+            "Preparing to unpack .../debootstrap_1.0.118ubuntu1.1_all.deb ...",
+            "Unpacking debootstrap (1.0.118ubuntu1.1) ...",
+            "Setting up debootstrap (1.0.118ubuntu1.1) ...",
+            "Setting up finalrd (5) ...",
+            "Created symlink /etc/systemd/system/sysinit.target.wants/finalrd.service -> /lib/systemd/system/finalrd.service.",
+            "Setting up mdadm (4.1-5ubuntu1) ...",
+            "Generating mdadm.conf... done.",
+            "update-initramfs: deferring update (trigger activated)",
+            "Sourcing file `/etc/default/grub'",
+            "Sourcing file `/etc/default/grub.d/init-select.cfg'",
+            "Generating grub configuration file ...",
+            "grub-probe: error: unknown filesystem.",
+            "cannot open 'bpool/BOOT/root': dataset does not exist",
+            "Found linux image: vmlinuz-5.4.0-31-generic in rpool/root",
+            "Found initrd image: initrd.img-5.4.0-31-generic in rpool/root",
+            "cannot open 'bpool/BOOT/root@install': dataset does not exist",
+            "Found linux image: vmlinuz-5.4.0-31-generic in rpool/root@install",
+            "Found initrd image: initrd.img-5.4.0-31-generic in rpool/root@install",
+            "Adding boot menu entry for UEFI Firmware Settings",
+            "done",
+            "Created symlink /etc/systemd/system/mdmonitor.service.wants/mdcheck_start.timer -> /lib/systemd/system/mdcheck_start.timer.",
+            "Created symlink /etc/systemd/system/mdmonitor.service.wants/mdmonitor-oneshot.timer -> /lib/systemd/system/mdmonitor-oneshot.timer.",
+            "mdcheck_continue.timer is a disabled or a static unit, not starting it.",
+            "Processing triggers for initramfs-tools (0.136ubuntu6) ..."
+        ]
+    }
+}
+2020-06-24 08:34:09,374 p=2234 u=root n=ansible | TASK [01-system-prep : Necessary efi] *******************************************************************************************************************************************************************************************************
+2020-06-24 08:34:09,374 p=2234 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-06-24 08:34:09,423 p=2234 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] **************************************************************************************************************************************************************************************************
+2020-06-24 08:34:09,423 p=2234 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "An unhandled exception occurred while templating '/dev/disk/by-id/{{ (_root_disks | map('extract', hostvars[inventory_hostname]['ansible_devices'], ['links', 'ids', 0]) | list).0 }}'. Error was a <class 'KeyError'>, original message: 'sdf'"}
+2020-06-24 08:34:09,429 p=2234 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/4_local_install_zfs.retry
+
+2020-06-24 08:34:09,429 p=2234 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-24 08:34:09,429 p=2234 u=root n=ansible | local_zfs_root             : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

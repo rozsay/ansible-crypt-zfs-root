@@ -13,11 +13,10 @@
   command: getent passwd {{ user_name }}
   register: user_on_board
   ignore_errors: yes 
-# continue with the playbook
+#  continue with the playbook
 
 - name: Creating user "{{ user_name }}" with admin access
   user:
-
     name: "{{ user_name }}"
     password: "{{ user_password  | password_hash('sha512') }}"
     groups: users, sudo    
@@ -26,13 +25,14 @@
     state: present
     shell: /bin/bash       
 # Defaults to /bin/bash
-    system: no             
+#    system:  
 # Defaults to no system: Set this to "yes" to make it a system user. No shell or home directory will be made u>
     createhome: yes        
 # Defaults to yes
-    home: /home/{{ user_name }}         # Defaults to /home/<username>
+    home: /home/{{ user_name }}         
+# Defaults to /home/<username>
 #  when:  assigned_role  == "yes"
-#  when: user_on_board.rc == 0
+    when: user_on_board.rc == 0
 
 #- name: Users | Add Super User Authorized Key
 #  authorized_key:
