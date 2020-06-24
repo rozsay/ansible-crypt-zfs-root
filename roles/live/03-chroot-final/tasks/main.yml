@@ -1,10 +1,9 @@
 ---
 # tasks file for 03-chroot-final
-- name: Create a snapshot of {{_root_pool }}/root file system.
-#_installdir: /mnt/install/
-  zfs:
-    name: "{{ _root_pool }}/root@{{ ansible_date_time.date }}install1"
-    state: present
+#- name: Create a snapshot of {{_root_pool }}/root file system.
+#  zfs:
+#    name: "{{ _root_pool }}/root@{{ ansible_date_time.date }}install2"
+#    state: present
 # Cleanup
 
 #- name: Unmount
@@ -13,9 +12,32 @@
 #    state: unmounted
 #absent
 
-- name: Print mosh version
-  debug:
-    msg: " ELSO {{ _installdir }}dev"
+#- name: Print mosh version
+#  debug:
+#    msg: " ELSO {{ _installdir }}dev"
+
+#- name: umount dev
+#  shell: "mount --rbind {{ item }}"
+#  src: "/dev"
+#  dest: "{{ _installdir }}dev"
+#  state: absent
+
+#- name: umount proc
+#  shell: "mount --rbind {{ item }}"
+#  src: '/proc'
+#  dest: '"{{ _installdir }}dev"'
+#  state: absent
+#  with_items:
+#    - /proc "{{ _installdir }}proc"
+
+#- name: umount sys
+#  shell: "mount --rbind {{ item }}"
+#  src: '/sys'
+#  dest: '"{{ _installdir }}sys"'
+#  state: absent
+#  with_items:
+#    - /proc "{{ _installdir }}proc"
+
 
 #- name: Unmount All Directories
 #  mount:
@@ -25,23 +47,37 @@
 #    src: none
 #  become: True
 #  with_items:
-#   - '"{{ _installdir }}"dev'
-#   - '"{{_installdir}}"proc'
-#   - '"{{_installdir}}"sys'
-#   - '"{{_installdir}}"boot/efi'
-#   - '"{{_installdir}}"boot'
-#   - '"{{_installdir}}"home'
-- name: Umount special filesystems for chroot
-  shell: "umount -l {{ item }}"
-  with_items:
-    - "{{ _installdir }}dev"
-    - "{{ _installdir }}proc"
-    - "{{ _installdir }}sys"
-    - "{{ _installdir }}boot/efi"
-    - "{{ _installdir }}boot"
-    - "{{ _installdir }}home"
-  args:
-    warn: false
+#   - "{{ _installdir }}"dev"
+#   - "{{_installdir}}"proc"
+#   - "{{_installdir}}"sys"
+#   - "{{_installdir}}"boot/efi"
+#   - "{{_installdir}}"boot"
+#   - "{{_installdir}}"home"
 
-#- name: export all zpool
-#  shell: zpool export {{_root_pool}}
+#- name: Umount dev
+#  shell: "umount -l {{ _installdir }}dev/"
+#  args:
+#    warn: false
+
+#- name: Umount proc
+#  shell: "umount -l {{ _installdir }}proc/"
+#  args:
+#    warn: false
+
+#- name: Umount sys
+#  shell: "umount -l {{ _installdir }}sys/"
+#  args:
+#    warn: false
+
+#- name: Umount efi
+#  shell: "umount -l {{ _installdir }}boot/efi/"
+#  args:
+#    warn: false
+
+#- name: Umount boot
+#  shell: "umount -l {{ _installdir }}boot/"
+#  args:
+#    warn: false
+
+- name: export all zpool
+  shell: zpool export {{_root_pool}}

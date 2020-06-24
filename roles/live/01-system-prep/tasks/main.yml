@@ -19,6 +19,7 @@
     name: 
       - mdadm
       - debootstrap
+      - dosfstools
     state: present
     update_cache: true
     cache_valid_time: 3600
@@ -43,7 +44,7 @@
     state: present
   with_items: 
     - dosfstools
-  when: _crypt | default(false) | bool == true
+#  when: _crypt | default(false) | bool == true
 - name: forcibly zap disks
   shell: "sgdisk --zap-all {{ item }}"
   with_items:
