@@ -10087,3 +10087,674 @@ Should be written as:
 
 2020-06-25 08:59:47,318 p=143332 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
 2020-06-25 08:59:47,318 p=143332 u=root n=ansible | local_zfs_root             : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:10:05,337 p=143642 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:10:07,224 p=143642 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:10:07,226 p=143642 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:10:07,268 p=143642 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:10:07,269 p=143642 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:10:07,582 p=143642 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:10:07,583 p=143642 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:10:07,750 p=143642 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:10:07,750 p=143642 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:10:07,799 p=143740 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: {{ item.name }} == {{ zpool_facts }}
+
+2020-06-25 09:10:07,806 p=143642 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:10:07,806 p=143642 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check '{{ item.name }} == {{ zpool_facts }}' failed. The error was: error while evaluating conditional ({{ item.name }} == {{ zpool_facts }}): 'zpool_facts' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:10:07,811 p=143642 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:10:07,812 p=143642 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:10:07,812 p=143642 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:10:40,526 p=143797 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:10:41,297 p=143797 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:10:41,298 p=143797 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:10:41,345 p=143797 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:10:41,345 p=143797 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:10:41,663 p=143797 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:10:41,664 p=143797 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:10:41,824 p=143797 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:10:41,824 p=143797 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:10:41,879 p=143797 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:10:41,880 p=143797 u=root n=ansible | ok: [local_zfs_root] => (item={'free': '16.0G', 'size': '18G', 'name': 'rpool'}) => {
+    "msg": "ZFS pool rpool has 16.0G free space out of 18G."
+}
+2020-06-25 09:10:42,191 p=143797 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 09:10:42,191 p=143797 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 09:10:42,320 p=143797 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 09:10:42,341 p=143797 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:10:42,341 p=143797 u=root n=ansible | local_zfs_root             : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:11:52,054 p=143992 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:11:52,766 p=143992 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:11:52,766 p=143992 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:11:52,803 p=143992 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:11:52,803 p=143992 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:11:53,084 p=143992 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:11:53,085 p=143992 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:11:53,238 p=143992 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:11:53,239 p=143992 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:11:53,286 p=144066 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: {{ item.name }} == {{ _root_pool }}
+
+2020-06-25 09:11:53,293 p=143992 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:11:53,294 p=143992 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check '{{ item.name }} == {{ _root_pool }}' failed. The error was: error while evaluating conditional ({{ item.name }} == {{ _root_pool }}): 'rpool' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:11:53,298 p=143992 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:11:53,299 p=143992 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:11:53,299 p=143992 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:12:07,439 p=144119 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 15, column 27, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  with_items: '{{ ansible_zfs_pools }}'
+  when: "{{ item.name }}" == "{{ _root_pool }}"
+                          ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-25 09:15:04,464 p=144228 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:15:05,251 p=144228 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:15:05,252 p=144228 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:15:05,284 p=144228 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:15:05,284 p=144228 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:15:05,585 p=144228 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:15:05,586 p=144228 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:15:05,743 p=144228 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:15:05,743 p=144228 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:15:05,798 p=144289 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: item.name.stdout == "{{ _root_pool }}"
+
+2020-06-25 09:15:05,805 p=144228 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:15:05,805 p=144228 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check 'item.name.stdout == \"{{ _root_pool }}\"' failed. The error was: error while evaluating conditional (item.name.stdout == \"{{ _root_pool }}\"): 'ansible.utils.unsafe_proxy.AnsibleUnsafeText object' has no attribute 'stdout'\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:15:05,811 p=144228 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:15:05,811 p=144228 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:15:05,811 p=144228 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:15:23,968 p=144355 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 16, column 28, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  when:
+    - {{item.name.stdout}} == "{{ _root_pool }}"
+                           ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-25 09:15:51,787 p=144445 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:15:52,642 p=144445 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:15:52,643 p=144445 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:15:52,674 p=144445 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:15:52,675 p=144445 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:15:53,008 p=144445 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:15:53,008 p=144445 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:15:53,173 p=144445 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:15:53,173 p=144445 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:15:53,225 p=144508 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found:  item.name.stdout == '{{ _root_pool }}'
+
+2020-06-25 09:15:53,232 p=144445 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:15:53,232 p=144445 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check ' item.name.stdout == '{{ _root_pool }}'' failed. The error was: error while evaluating conditional ( item.name.stdout == '{{ _root_pool }}'): 'ansible.utils.unsafe_proxy.AnsibleUnsafeText object' has no attribute 'stdout'\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:15:53,238 p=144445 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:15:53,238 p=144445 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:15:53,238 p=144445 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:17:46,236 p=144650 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 16, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  when  '"item.name" in {{ _root_pool }}'
+#  when:     - " item.name.stdout == '{{ _root_pool }}'"
+^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-25 09:18:07,042 p=144724 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 17, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+#- name: Umount devs
+^ here
+
+2020-06-25 09:18:40,600 p=144811 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 17, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+#- name: Umount devs
+^ here
+
+2020-06-25 09:18:51,322 p=144837 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:18:52,147 p=144837 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:18:52,147 p=144837 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:18:52,175 p=144837 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:18:52,176 p=144837 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:18:52,501 p=144837 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:18:52,502 p=144837 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:18:52,638 p=144837 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:18:52,638 p=144837 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:18:52,682 p=144898 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: "{{item.name}}" == {{ _root_pool }}
+
+2020-06-25 09:18:52,688 p=144837 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:18:52,689 p=144837 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check '\"{{item.name}}\" == {{ _root_pool }}' failed. The error was: error while evaluating conditional (\"{{item.name}}\" == {{ _root_pool }}): 'r_system' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:18:52,693 p=144837 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:18:52,694 p=144837 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:18:52,694 p=144837 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:19:16,399 p=144970 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:19:17,173 p=144970 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:19:17,173 p=144970 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:19:17,202 p=144970 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:19:17,202 p=144970 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:19:17,456 p=144970 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:19:17,457 p=144970 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:19:17,598 p=144970 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:19:17,599 p=144970 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:19:17,643 p=145031 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: "{{item.name.stdout}}" == {{ _root_pool }}
+
+2020-06-25 09:19:17,648 p=144970 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:19:17,649 p=144970 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check '\"{{item.name.stdout}}\" == {{ _root_pool }}' failed. The error was: error while evaluating conditional (\"{{item.name.stdout}}\" == {{ _root_pool }}): 'ansible.utils.unsafe_proxy.AnsibleUnsafeText object' has no attribute 'stdout'\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:19:17,654 p=144970 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:19:17,655 p=144970 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:19:17,655 p=144970 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:19:26,791 p=145060 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:19:27,546 p=145060 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:19:27,547 p=145060 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:19:27,575 p=145060 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:19:27,575 p=145060 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:19:27,841 p=145060 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:19:27,842 p=145060 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:19:27,986 p=145060 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:19:27,987 p=145060 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:19:28,031 p=145121 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: "{{item.name.stdout}}" == {{ _root_pool }}
+
+2020-06-25 09:19:28,043 p=145060 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:19:28,043 p=145060 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check '\"{{item.name.stdout}}\" == {{ _root_pool }}' failed. The error was: error while evaluating conditional (\"{{item.name.stdout}}\" == {{ _root_pool }}): 'ansible.utils.unsafe_proxy.AnsibleUnsafeText object' has no attribute 'stdout'\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:19:28,048 p=145060 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:19:28,048 p=145060 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:19:28,049 p=145060 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:19:31,911 p=145154 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:19:34,163 p=145154 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:19:34,164 p=145154 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:19:34,193 p=145154 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:19:34,193 p=145154 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:19:34,458 p=145154 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:19:34,458 p=145154 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:19:34,625 p=145154 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:19:34,626 p=145154 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:19:34,670 p=145237 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: "{{item.name.stdout}}" == {{ _root_pool }}
+
+2020-06-25 09:19:34,675 p=145154 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:19:34,675 p=145154 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check '\"{{item.name.stdout}}\" == {{ _root_pool }}' failed. The error was: error while evaluating conditional (\"{{item.name.stdout}}\" == {{ _root_pool }}): 'ansible.utils.unsafe_proxy.AnsibleUnsafeText object' has no attribute 'stdout'\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:19:34,680 p=145154 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:19:34,680 p=145154 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:19:34,681 p=145154 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:19:55,862 p=145304 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 15, column 31, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  with_items: '{{ ansible_zfs_pools }}'
+  when:  {{item.name.stdout}} == {{ _root_pool }}
+                              ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-25 09:20:05,130 p=145347 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 15, column 31, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  with_items: '{{ ansible_zfs_pools }}'
+  when:  {{item.name.stdout}} == "{{ _root_pool }}"
+                              ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-25 09:20:15,148 p=145380 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:20:15,832 p=145380 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:20:15,833 p=145380 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:20:15,861 p=145380 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:20:15,862 p=145380 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:20:16,124 p=145380 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:20:16,125 p=145380 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:20:16,266 p=145380 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:20:16,266 p=145380 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:20:16,309 p=145458 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: {{item.name.stdout}} == {{ _root_pool }}
+
+2020-06-25 09:20:16,314 p=145380 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:20:16,314 p=145380 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check '{{item.name.stdout}} == {{ _root_pool }}' failed. The error was: error while evaluating conditional ({{item.name.stdout}} == {{ _root_pool }}): 'ansible.utils.unsafe_proxy.AnsibleUnsafeText object' has no attribute 'stdout'\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:20:16,320 p=145380 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:20:16,320 p=145380 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:20:16,320 p=145380 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:32:42,702 p=145586 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:32:43,389 p=145586 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:32:43,390 p=145586 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:32:43,418 p=145586 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:32:43,418 p=145586 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:32:43,668 p=145586 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:32:43,668 p=145586 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:32:43,811 p=145586 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:32:43,811 p=145586 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:32:43,855 p=145659 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: item.name == "{{ _root_pool }}"
+
+2020-06-25 09:32:44,141 p=145586 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 09:32:44,142 p=145586 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 09:32:44,275 p=145586 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 09:32:44,294 p=145586 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:32:44,294 p=145586 u=root n=ansible | local_zfs_root             : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-06-25 09:33:12,743 p=145722 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:33:13,529 p=145722 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:33:13,529 p=145722 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:33:13,559 p=145722 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:33:13,560 p=145722 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:33:13,874 p=145722 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:33:13,874 p=145722 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:33:14,017 p=145722 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:33:14,017 p=145722 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:33:14,061 p=145806 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: item.name == {{ _root_pool }}
+
+2020-06-25 09:33:14,067 p=145722 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:33:14,067 p=145722 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check 'item.name == {{ _root_pool }}' failed. The error was: error while evaluating conditional (item.name == {{ _root_pool }}): 'r_system' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:33:14,073 p=145722 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:33:14,073 p=145722 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:33:14,073 p=145722 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:33:31,598 p=145867 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 15, column 24, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  with_items: '{{ ansible_zfs_pools }}'
+  when:  {{item.name}} == "{{ _root_pool }}"
+                       ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-25 09:33:42,141 p=145914 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 15, column 26, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  with_items: '{{ ansible_zfs_pools }}'
+  when:  "{{item.name}}" == "{{ _root_pool }}"
+                         ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-25 09:33:58,141 p=145963 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:33:58,815 p=145963 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:33:58,815 p=145963 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:33:58,842 p=145963 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:33:58,843 p=145963 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:33:59,104 p=145963 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:33:59,105 p=145963 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:33:59,261 p=145963 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:33:59,262 p=145963 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:33:59,306 p=146040 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: "{{item.name}}" == "{{ _root_pool }}"
+
+2020-06-25 09:33:59,624 p=145963 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 09:33:59,624 p=145963 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 09:33:59,754 p=145963 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 09:33:59,775 p=145963 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:33:59,775 p=145963 u=root n=ansible | local_zfs_root             : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-06-25 09:34:21,766 p=146118 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:34:22,432 p=146118 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:34:22,433 p=146118 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:34:22,482 p=146118 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:34:22,483 p=146118 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:34:22,755 p=146118 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:34:22,756 p=146118 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:34:22,904 p=146118 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:34:22,904 p=146118 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:34:22,955 p=146179 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: {{item.name}} == "{{ _root_pool }}"
+
+2020-06-25 09:34:22,963 p=146118 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:34:22,963 p=146118 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check '{{item.name}} == \"{{ _root_pool }}\"' failed. The error was: error while evaluating conditional ({{item.name}} == \"{{ _root_pool }}\"): 'rpool' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:34:22,980 p=146118 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:34:22,981 p=146118 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:34:22,981 p=146118 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:35:20,868 p=146265 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 15, column 24, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  with_items: '{{ ansible_zfs_pools }}'
+  when:  {{item.name}} != ""
+                       ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-25 09:35:30,091 p=146316 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 15, column 26, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  with_items: '{{ ansible_zfs_pools }}'
+  when:  "{{item.name}}" != ""
+                         ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-25 09:35:39,001 p=146359 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 15, column 26, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  with_items: '{{ ansible_zfs_pools }}'
+  when:  '{{item.name}}' != ""
+                         ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-25 09:36:16,362 p=146444 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:36:17,026 p=146444 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:36:17,027 p=146444 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:36:17,061 p=146444 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:36:17,061 p=146444 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:36:17,312 p=146444 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:36:17,313 p=146444 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:36:17,461 p=146444 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:36:17,461 p=146444 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:36:17,505 p=146515 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: {{item.name}} != ""
+
+2020-06-25 09:36:17,511 p=146444 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:36:17,511 p=146444 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check '{{item.name}} != \"\"' failed. The error was: error while evaluating conditional ({{item.name}} != \"\"): 'rpool' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:36:17,517 p=146444 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:36:17,517 p=146444 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:36:17,517 p=146444 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:37:19,183 p=146574 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:37:20,625 p=146574 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:37:20,626 p=146574 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:37:20,667 p=146574 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:37:20,668 p=146574 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:37:20,927 p=146574 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:37:20,927 p=146574 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:37:21,068 p=146574 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:37:21,068 p=146574 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:37:21,113 p=146659 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: {{item.name}} == {{ _root_pool }}
+
+2020-06-25 09:37:21,119 p=146574 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:37:21,120 p=146574 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check '{{item.name}} == {{ _root_pool }}' failed. The error was: error while evaluating conditional ({{item.name}} == {{ _root_pool }}): 'rpool' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:37:21,127 p=146574 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:37:21,127 p=146574 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:37:21,127 p=146574 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:37:45,706 p=146767 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:37:47,429 p=146767 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:37:47,429 p=146767 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:37:47,457 p=146767 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:37:47,457 p=146767 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:37:47,704 p=146767 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:37:47,705 p=146767 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:37:47,844 p=146767 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:37:47,845 p=146767 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:37:47,916 p=146829 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: item.name == {{ _root_pool }}
+
+2020-06-25 09:37:47,923 p=146767 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:37:47,923 p=146767 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check 'item.name == {{ _root_pool }}' failed. The error was: error while evaluating conditional (item.name == {{ _root_pool }}): 'r_system' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 13, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-06-25 09:37:47,928 p=146767 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 09:37:47,929 p=146767 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:37:47,929 p=146767 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:38:08,114 p=146892 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:38:09,938 p=146892 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:38:09,939 p=146892 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:38:09,980 p=146892 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:38:09,980 p=146892 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:38:10,232 p=146892 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:38:10,232 p=146892 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:38:10,371 p=146892 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:38:10,371 p=146892 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:38:10,451 p=146892 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:38:10,451 p=146892 u=root n=ansible | ok: [local_zfs_root] => (item={'free': '16.0G', 'size': '18G', 'name': 'rpool'}) => {
+    "msg": "ZFS pool rpool has 16.0G free space out of 18G."
+}
+2020-06-25 09:38:10,759 p=146892 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 09:38:10,759 p=146892 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 09:38:10,885 p=146892 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 09:38:10,906 p=146892 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:38:10,906 p=146892 u=root n=ansible | local_zfs_root             : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:38:46,854 p=147082 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:38:47,560 p=147082 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:38:47,561 p=147082 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:38:47,589 p=147082 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:38:47,590 p=147082 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:38:47,844 p=147082 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:38:47,844 p=147082 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:38:47,985 p=147082 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:38:47,986 p=147082 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:38:48,031 p=147143 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: item.name == '{{_root_pool}}'
+
+2020-06-25 09:38:48,346 p=147082 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 09:38:48,346 p=147082 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 09:38:48,473 p=147082 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 09:38:48,494 p=147082 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:38:48,495 p=147082 u=root n=ansible | local_zfs_root             : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-06-25 09:39:09,718 p=147226 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 5, column 11, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+_root_pool=rpool
+          ^ here
+
+There appears to be both 'k=v' shorthand syntax and YAML in this task. Only one syntax may be used.
+
+2020-06-25 09:39:37,987 p=147340 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:39:39,651 p=147340 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:39:39,652 p=147340 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:39:39,681 p=147340 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:39:39,682 p=147340 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:39:39,948 p=147340 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:39:39,948 p=147340 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:39:40,086 p=147340 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:39:40,086 p=147340 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:39:40,157 p=147401 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: item.name == '{{_root_pool}}'
+
+2020-06-25 09:39:40,167 p=147340 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:39:40,168 p=147340 u=root n=ansible | ok: [local_zfs_root] => (item={'free': '16.0G', 'size': '18G', 'name': 'rpool'}) => {
+    "msg": "ZFS pool rpool has 16.0G free space out of 18G."
+}
+2020-06-25 09:39:40,455 p=147340 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 09:39:40,455 p=147340 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 09:39:40,590 p=147340 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 09:39:40,610 p=147340 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:39:40,610 p=147340 u=root n=ansible | local_zfs_root             : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-25 09:40:06,517 p=147492 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 09:40:07,155 p=147492 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 09:40:07,155 p=147492 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:40:07,196 p=147492 u=root n=ansible | TASK [04-test : Print test message] *****************************************************************************************************************************************************************
+2020-06-25 09:40:07,197 p=147492 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 09:40:07,461 p=147492 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:40:07,461 p=147492 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:40:07,600 p=147492 u=root n=ansible | TASK [04-test : zpool_facts] ************************************************************************************************************************************************************************
+2020-06-25 09:40:07,601 p=147492 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 09:40:07,645 p=147553 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: item.name == '{{_root_pool}}'
+
+2020-06-25 09:40:07,655 p=147492 u=root n=ansible | TASK [04-test : debug] ******************************************************************************************************************************************************************************
+2020-06-25 09:40:07,656 p=147492 u=root n=ansible | ok: [local_zfs_root] => (item={'free': '16.0G', 'size': '18G', 'name': 'rpool'}) => {
+    "msg": "ZFS pool rpool has 16.0G free space out of 18G."
+}
+2020-06-25 09:40:08,347 p=147492 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 09:40:08,348 p=147492 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 09:40:08,544 p=147492 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 09:40:08,564 p=147492 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 09:40:08,564 p=147492 u=root n=ansible | local_zfs_root             : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

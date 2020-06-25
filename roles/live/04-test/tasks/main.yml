@@ -2,16 +2,17 @@
 - name: Print test message
   debug:
     msg: " ELSO mount | grep -v zfs | tac | awk '/\/mnt/ {print $3}' | xargs -i{} umount -lf {}"
-
 # Gather facts about ZFS pool rpool
-- zpool_facts: pool=r_system
+#- zpool_facts: pool=r_system
+- zpool_facts: pool=rpool
 
 # Gather space usage about all imported ZFS pools
 - zpool_facts: properties='free,size'
 
 - debug: msg='ZFS pool {{ item.name }} has {{ item.free }} free space out of {{ item.size }}.'
   with_items: '{{ ansible_zfs_pools }}'
-  when: "{{ item.name }} == {{ zpool_facts }}"
+  when: item.name == '{{_root_pool}}'
+#  when: item.name == 'rpool'
 
 #- name: Umount devs
 #  shell: "umount -l {{ _installdir }}dev/"
@@ -44,5 +45,5 @@
    - "{{ _installdir }}boot"
 #   - "{{_installdir}}"home"
 
-- name: export all zpool
-  shell: zpool export {{_root_pool}}
+#- name: export all zpool
+#  shell: zpool export {{_root_pool}}
