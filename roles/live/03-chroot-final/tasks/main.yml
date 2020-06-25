@@ -79,5 +79,24 @@
 #  args:
 #    warn: false
 
-- name: export all zpool
-  shell: zpool export {{_root_pool}}
+#- name: export all zpool
+#  shell: zpool export {{_root_pool}}
+
+#- name: Unmount All Directories
+#  mount:
+#    name: "{{ item }}"
+#    state: unmounted
+##    state: present
+#    fstype: none
+#3    src: none
+#  become: True
+#  with_items:
+#   - "/dev"
+#   - "/proc"
+#   - "/sys"
+
+#- name: Umount dev
+#  shell: "umount /proc /sys /dev"
+#  args:
+#    warn: false
+#mount | grep -v zfs | tac | awk '/mnt/ {print $3}' | xargs -i{} umount -lf {}

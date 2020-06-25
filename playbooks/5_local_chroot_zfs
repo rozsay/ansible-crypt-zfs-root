@@ -7,14 +7,14 @@
       prompt: "Enter User Name"
       default: "sa"
       private: yes
-#      confirm: yes
+      confirm: yes
     - name: "user_password"
       prompt: "Enter User Password"
       default: "sa"
-      encrypt: "sha512_crypt"
+#      encrypt: "sha512_crypt"
       private: yes
       confirm: yes
 
   roles:
-    - role: 02-chroot
+#    - role: 02-chroot
     - role: 03-chroot-final

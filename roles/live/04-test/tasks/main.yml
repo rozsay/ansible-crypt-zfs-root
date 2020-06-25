@@ -1,0 +1,38 @@
+---
+- name: Print test message
+  debug:
+    msg: " ELSO mount | grep -v zfs | tac | awk '/\/mnt/ {print $3}' | xargs -i{} umount -lf {}"
+
+#- name: Umount devs
+#  shell: "umount -l {{ _installdir }}dev/"
+#  args:
+#    warn: false
+
+#- name: Umount proc
+#  shell: "umount -l {{ _installdir }}proc/"
+#  args:
+#    warn: false
+
+#- name: Umount sys
+#  shell: "umount -l {{ _installdir }}sys/"
+#  args:
+#    warn: false
+
+- name: Unmount All Directories
+  mount:
+    name: "{{ item }}"
+    state: unmounted
+#    state: present
+    fstype: none
+    src: none
+#  become: True
+  with_items:
+#   - "{{ _installdir }}dev"
+#   - "{{ _installdir }}proc"
+#   - "{{ _installdir }}sys"
+   - "{{ _installdir }}boot/efi"
+   - "{{ _installdir }}boot"
+#   - "{{_installdir}}"home"
+
+- name: export all zpool
+  shell: zpool export {{_root_pool}}

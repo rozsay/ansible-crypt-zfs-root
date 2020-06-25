@@ -2,8 +2,198 @@
 # tasks file for 02-chroot
 - debug:
     var: _efi|default(false)|bool == true
+
+- apt:
+    name: software-properties-common
+    state: present
+
+- shell: add-apt-repository universe
+
+
+- name: install locales
+  locale_gen:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ _locales }}"
+- name: set LANG in /etc/default/locale
+  lineinfile:
+    line: "LANG={{ _lang }}"
+    path: /etc/default/locale
+    insertafter: EOF
+- name: set timezone
+  shell: "echo {{ _timezone }} > /etc/timezone && rm /etc/localtime && dpkg-reconfigure -f noninteractive tzdata"
+- name: ln -s /proc/self/mounts /etc/mtab
+  file:
+    src: /proc/self/mounts
+    dest: /etc/mtab
+    state: link
+- name: ensure live system has necessary packages installed
+  apt:
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+    upgrade: safe
+  become: true
+  register: apt_out
+
+- debug: var=apt_out
+- debug: var={{ apt_out.stdout.split('\n')[:-1] }}
+
+- name: update apt cache
+  become: true
+  apt:
+    update_cache: yes
+    upgrade: 'yes'
+
+- name: install linux-image-generic
+  apt:
+    name: linux-image-generic
+    install_recommends: no
+    state: present
+- name: install linux-headers-generic
+  apt:
+    name: linux-headers-generic
+    state: present
+
+- name: zfs-dkms note-incompatible-licenses note true
+  shell: "zfs-dkms zfs-dkms/note-incompatible-licenses note true | debconf-set-selections"
+- name: install zfs-dkms
+  apt:
+    name: zfs-dkms
+    state: present
+- name: install zfs-initramfs
+  apt:
+    name: zfs-initramfs
+    state: present
+- name: install grub-pc
+  apt:
+    name: grub-pc
+    state: present
+  when: _efi|default(false)|bool != true
+- apt:
+    name: dosfstools
+    state: present
+  when: _efi|default(false)|bool == true
+- name: install grub-efi-amd64
+  apt:
+    name: grub-efi-amd64
+    state: present
+  when: _efi|default(false)|bool == true
+- apt:
+    name: grub-efi-amd64-signed
+    state: present
+  when: _efi|default(false)|bool == true
+- apt:
+    name: shim-signed
+    state: present
+  when: _efi|default(false)|bool == true
+
+- name: update fstab with /boot volume
+  shell: "echo UUID=$(blkid -s UUID -o value {{ item }}) /boot ext2 noatime,nofail,x-systemd.device-timeout=1 0 1 >> /etc/fstab"
+  with_items:
+    - "{{ _root_device_list }}{{ _boot_part_append }}"
+#- "{{ (_root_device_list | length > 1) | ternary('/dev/md0', (_root_device_list | map('regex_replace', '(.*)', '\\g<1>' + _boot_part_append) | list).0) }}"
+
+- name: update fstab with efi partitions
+  shell: "echo UUID=$(blkid -s UUID -o value {{ item }})  /boot/efi vfat nofail,x-systemd.device-timeout=1 0 1 >> /etc/fstab"
+  with_items:
+    - "{{ _root_device_list }}{{ _efi_part_append }}"
+  when: _efi|default(false)|bool == true
+
+- name: install grub-efi-amd64
+  apt:
+    name: grub-efi-amd64
+    state: present
+  when: _efi|default(false)|bool == true
+  
+- name: set root password
+  user:
+    name: root
+    password: "{{ _root_password_hash }}"
+
+#- name: fix mount race condition
+#  shell: "zfs set mountpoint=legacy {{ item }}"
+#  with_items:
+#    - "{{ _root_pool }}/var/log"
+#    - "{{ _root_pool }}/var/tmp"
+#- name: update fstab
+#  lineinfile:
+#    line: "{{ _root_pool}}{{ item }} {{ item }} zfs defaults 0 0"
+#    path: /etc/fstab
+#    insertafter: EOF
+#  with_items:
+#    - /var/log
+#    - /var/tmp
+
+- name: zfs-import-scan.service start and enabled
+  systemd:
+    name:  zfs-import-scan.service
+    state: started
+    enabled: yes
+    daemon-reload: yes
+
+#- name: create swap zvol
+#  zfs:
+#    name: "{{ _root_pool }}/swap "
+#    state: present
+#    extra_zfs_properties:
+#      "{{ _swap_opts }}"
+
+#- name: mkswap
+#  shell: "mkswap -f /dev/zvol/{{ _root_pool }}/swap && echo /dev/zvol/{{ _root_pool }}/swap none swap defaults 0 0 >> /etc/fstab && swapon -av"
+#  when: _swap|default(false)|bool == true
+
+#- lineinfile:
+#    line: "RESUME=none"
+#    path: /etc/initramfs-tools/conf.d/resume
+#    create: yes
+#    state: present
+#  when: _swap|default(false)|bool == true
+
+- shell: "update-initramfs -c -k all"
+
+- name: modify /etc/default/grub
+  replace:
+    path: /etc/default/grub
+    regexp: "{{ item.regex }}"
+    replace: "{{ item.replace }}"
+  with_items:
+    - regex: "^(GRUB_HIDDEN_TIMEOUT.*)"
+      replace: "#\\1"
+    - regex: "^GRUB_CMDLINE_LINUX_DEFAULT=.*"
+      replace: 'GRUB_CMDLINE_LINUX_DEFAULT=""'
+    - regex: "^GRUB_CMDLINE_LINUX=.*"
+      replace: 'GRUB_CMDLINE_LINUX="{{ _grub_cmdline }}"'
+    - regex: "^#(GRUB_TERMINAL.*)"
+      replace: "\\1"
+- shell: "echo 'GRUB_DISABLE_OS_PROBER=true' >> /etc/default/grub"
+- shell: update-grub
+- shell: "grub-install {{ item }}"
+  with_items:
+    - "{{ _root_device_list }}"
+  when: _efi|default(false)|bool != true
+- name: install grub efi on primary disk
+  shell: "grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ubuntu --recheck --no-floppy"
+  when: _efi|default(false)|bool == true
+
+- name: ensure zfs.target starts on boot
+  systemd:
+    name: zfs.target
+    enabled: yes
+
+- name: Creates an entry like "@reboot /some/job.sh"
+  cron:
+    name: "a job for reboot"
+    special_time: reboot
+    job: " mount /boot ; mount /boot/efi"
+#- shell: "( crontab -l ; echo '"'@reboot mount /boot ; mount /boot/efi'"' ) | crontab -"
+
 - import_tasks: ssh_server.yml
   when: sshd_enabled
+
+- import_tasks: users.yml
+#- include: users.yml
 
 - name: Ensure specified packages are in there desired state
   package:
@@ -14,6 +204,3 @@
 #  register: is_softneedinstalled
 #  become: yes
   become: true
-
-- import_tasks: users.yml
-#- include: users.yml

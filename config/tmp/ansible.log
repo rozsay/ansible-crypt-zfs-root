@@ -8888,3 +8888,1097 @@ The offending line appears to be:
 
 2020-06-24 11:22:14,793 p=88318 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
 2020-06-24 11:22:14,794 p=88318 u=root n=ansible | /mnt/install/              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 04:32:21,998 p=1861 u=root n=ansible | PLAY [chroot] *******************************************************************************************************************************************************************************************************************************
+2020-06-25 04:32:22,432 p=1861 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 04:32:22,433 p=1861 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"msg": "/mnt/install/ is not a directory"}
+2020-06-25 04:32:22,440 p=1861 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 04:32:22,440 p=1861 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 04:32:22,440 p=1861 u=root n=ansible | /mnt/install/              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 04:32:42,400 p=1906 u=root n=ansible | PLAY [chroot] *******************************************************************************************************************************************************************************************************************************
+2020-06-25 04:32:42,454 p=1906 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 04:32:42,454 p=1906 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: FileNotFoundError: [Errno 2] No such file or directory: '/mnt/install/bin/sh'
+2020-06-25 04:32:42,455 p=1906 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"msg": "Unexpected failure during module execution.", "stdout": ""}
+2020-06-25 04:32:42,462 p=1906 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 04:32:42,463 p=1906 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 04:32:42,463 p=1906 u=root n=ansible | /mnt/install/              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 04:33:08,692 p=1946 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:11,021 p=1946 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:11,021 p=1946 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 04:33:11,264 p=1946 u=root n=ansible | TASK [Test Ansible ping] ********************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:11,265 p=1946 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 04:33:11,489 p=1946 u=root n=ansible | TASK [Run a command to get target release] **************************************************************************************************************************************************************************************************
+2020-06-25 04:33:11,489 p=1946 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 04:33:12,529 p=1946 u=root n=ansible | TASK [dumpall : Dump all vars] **************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:12,530 p=1946 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:33:12,848 p=1946 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] **********************************************************************************************************************************************************************************************************
+2020-06-25 04:33:12,848 p=1946 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 04:33:13,088 p=1946 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] **********************************************************************************************************************************************************************************************
+2020-06-25 04:33:13,088 p=1946 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:33:13,107 p=1946 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:13,108 p=1946 u=root n=ansible | local_zfs_root             : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-25 04:33:17,776 p=2116 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:18,402 p=2116 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:18,403 p=2116 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 04:33:24,426 p=2116 u=root n=ansible | TASK [raw] **********************************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:24,427 p=2116 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:33:24,669 p=2116 u=root n=ansible | TASK [Test Ansible ping] ********************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:24,669 p=2116 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 04:33:24,909 p=2116 u=root n=ansible | TASK [Run a command to get target release] **************************************************************************************************************************************************************************************************
+2020-06-25 04:33:24,909 p=2116 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 04:33:24,979 p=2116 u=root n=ansible | TASK [debug] ********************************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:24,979 p=2116 u=root n=ansible | ok: [local_zfs_root] => {
+    "system_output.stdout_lines": [
+        "Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease",
+        "Get:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease [107 kB]",
+        "Get:3 http://security.ubuntu.com/ubuntu focal-security InRelease [107 kB]",
+        "Get:4 http://archive.ubuntu.com/ubuntu focal-updates/main Sources [84.1 kB]",
+        "Get:5 http://archive.ubuntu.com/ubuntu focal-updates/restricted Sources [2,324 B]",
+        "Get:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [211 kB]",
+        "Get:7 http://security.ubuntu.com/ubuntu focal-security/restricted Sources [2,300 B]",
+        "Get:8 http://archive.ubuntu.com/ubuntu focal-updates/main Translation-en [83.7 kB]",
+        "Get:9 http://security.ubuntu.com/ubuntu focal-security/main Sources [35.3 kB]",
+        "Get:10 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [115 kB]",
+        "Get:11 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [109 kB]",
+        "Get:12 http://archive.ubuntu.com/ubuntu focal-updates/restricted amd64 Packages [13.4 kB]",
+        "Get:13 http://archive.ubuntu.com/ubuntu focal-updates/restricted Translation-en [3,496 B]",
+        "Get:14 http://security.ubuntu.com/ubuntu focal-security/main Translation-en [41.7 kB]",
+        "Get:15 http://security.ubuntu.com/ubuntu focal-security/restricted amd64 Packages [11.1 kB]",
+        "Get:16 http://security.ubuntu.com/ubuntu focal-security/restricted Translation-en [3,036 B]",
+        "Fetched 929 kB in 1s (650 kB/s)",
+        "Reading package lists..."
+    ]
+}
+2020-06-25 04:33:24,999 p=2116 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:24,999 p=2116 u=root n=ansible | local_zfs_root             : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-25 04:33:33,092 p=2571 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:34,778 p=2571 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:34,778 p=2571 u=root n=ansible | ok: [local_user]
+2020-06-25 04:33:34,807 p=2571 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:34,807 p=2571 u=root n=ansible | local_user                 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-25 04:33:38,957 p=2652 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:39,584 p=2652 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:39,584 p=2652 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 04:33:54,400 p=2652 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *****************************************************************************************************************************************************************
+2020-06-25 04:33:54,401 p=2652 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:33:54,449 p=2652 u=root n=ansible | TASK [01-system-prep : debug] ***************************************************************************************************************************************************************************************************************
+2020-06-25 04:33:54,449 p=2652 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1593059601,
+        "cache_updated": false,
+        "changed": true,
+        "diff": {},
+        "failed": false,
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nThe following NEW packages will be installed:\n  dosfstools\n0 upgraded, 1 newly installed, 0 to remove and 55 not upgraded.\nNeed to get 59.0 kB of archives.\nAfter this operation, 216 kB of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu focal/main amd64 dosfstools amd64 4.1-2 [59.0 kB]\nFetched 59.0 kB in 0s (277 kB/s)\nSelecting previously unselected package dosfstools.\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 90303 files and directories currently installed.)\r\nPreparing to unpack .../dosfstools_4.1-2_amd64.deb ...\r\nUnpacking dosfstools (4.1-2) ...\r\nSetting up dosfstools (4.1-2) ...\r\n",
+        "stdout_lines": [
+            "Reading package lists...",
+            "Building dependency tree...",
+            "Reading state information...",
+            "The following NEW packages will be installed:",
+            "  dosfstools",
+            "0 upgraded, 1 newly installed, 0 to remove and 55 not upgraded.",
+            "Need to get 59.0 kB of archives.",
+            "After this operation, 216 kB of additional disk space will be used.",
+            "Get:1 http://archive.ubuntu.com/ubuntu focal/main amd64 dosfstools amd64 4.1-2 [59.0 kB]",
+            "Fetched 59.0 kB in 0s (277 kB/s)",
+            "Selecting previously unselected package dosfstools.",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 90303 files and directories currently installed.)",
+            "Preparing to unpack .../dosfstools_4.1-2_amd64.deb ...",
+            "Unpacking dosfstools (4.1-2) ...",
+            "Setting up dosfstools (4.1-2) ..."
+        ]
+    }
+}
+2020-06-25 04:33:54,991 p=2652 u=root n=ansible | TASK [01-system-prep : Necessary efi] *******************************************************************************************************************************************************************************************************
+2020-06-25 04:33:54,991 p=2652 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-06-25 04:33:58,384 p=2652 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] **************************************************************************************************************************************************************************************************
+2020-06-25 04:33:58,385 p=2652 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d9653eeb5e24453410f4c1bf7)
+2020-06-25 04:33:59,588 p=2652 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ******************************************************************************************************************************************************************************************
+2020-06-25 04:33:59,589 p=2652 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d9653eeb5e24453410f4c1bf7)
+2020-06-25 04:34:02,959 p=2652 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *****************************************************************************************************************************************************************************************
+2020-06-25 04:34:02,960 p=2652 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d9653eeb5e24453410f4c1bf7)
+2020-06-25 04:34:08,074 p=2652 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *****************************************************************************************************************************************************************************************
+2020-06-25 04:34:08,074 p=2652 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d9653eeb5e24453410f4c1bf7)
+2020-06-25 04:34:08,255 p=2652 u=root n=ansible | TASK [01-system-prep : print info disk] *****************************************************************************************************************************************************************************************************
+2020-06-25 04:34:08,256 p=2652 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d9653eeb5e24453410f4c1bf7)
+2020-06-25 04:34:08,315 p=2652 u=root n=ansible | TASK [01-system-prep : debug directory output] **********************************************************************************************************************************************************************************************
+2020-06-25 04:34:08,316 p=2652 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d9653eeb5e24453410f4c1bf7: 62914560 sectors, 30.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 5814329D-56AF-46BB-8D95-DDFC39DF54E2",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 62914526",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  ",
+            "   2         1050624         3147775   1024.0 MiB  8300  ",
+            "   3         3147776        62914526   28.5 GiB    BF01  "
+        ]
+    ]
+}
+2020-06-25 04:34:08,788 p=2652 u=root n=ansible | TASK [01-system-prep : set up root zfs crypt devices] ***************************************************************************************************************************************************************************************
+2020-06-25 04:34:08,788 p=2652 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:34:09,148 p=2652 u=root n=ansible | TASK [01-system-prep : create root dataset] *************************************************************************************************************************************************************************************************
+2020-06-25 04:34:09,148 p=2652 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:34:09,335 p=2652 u=root n=ansible | TASK [01-system-prep : manually mount rpool/root before creating other mountpoints] *********************************************************************************************************************************************************
+2020-06-25 04:34:09,335 p=2652 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:34:09,660 p=2652 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] **********************************************************************************************************************************************************************************
+2020-06-25 04:34:09,661 p=2652 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d9653eeb5e24453410f4c1bf7-part2)
+2020-06-25 04:34:09,893 p=2652 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/efi] ******************************************************************************************************************************************************************************
+2020-06-25 04:34:09,893 p=2652 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d9653eeb5e24453410f4c1bf7-part1)
+2020-06-25 04:36:18,402 p=2652 u=root n=ansible | TASK [01-system-prep : run debootstrap and set devices=off for root pool] *******************************************************************************************************************************************************************
+2020-06-25 04:36:18,403 p=2652 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:36:18,918 p=2652 u=root n=ansible | TASK [01-system-prep : write /etc/hostname in chroot] ***************************************************************************************************************************************************************************************
+2020-06-25 04:36:18,918 p=2652 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:36:19,221 p=2652 u=root n=ansible | TASK [01-system-prep : write /mnt/install/apt/sources.list in chroot] ***********************************************************************************************************************************************************************
+2020-06-25 04:36:19,221 p=2652 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:36:19,484 p=2652 u=root n=ansible | TASK [01-system-prep : add hostname entries to /mnt/install/hosts in chroot] ****************************************************************************************************************************************************************
+2020-06-25 04:36:19,485 p=2652 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:36:19,637 p=2652 u=root n=ansible | TASK [01-system-prep : mount special filesystems for chroot] ********************************************************************************************************************************************************************************
+2020-06-25 04:36:19,637 p=2652 u=root n=ansible | changed: [local_zfs_root] => (item=/dev "/mnt/install/dev")
+2020-06-25 04:36:19,762 p=2652 u=root n=ansible | changed: [local_zfs_root] => (item=/proc "/mnt/install/proc")
+2020-06-25 04:36:19,892 p=2652 u=root n=ansible | changed: [local_zfs_root] => (item=/sys "/mnt/install/sys")
+2020-06-25 04:36:20,034 p=2652 u=root n=ansible | TASK [01-system-prep : Get physical interfaces names] ***************************************************************************************************************************************************************************************
+2020-06-25 04:36:20,035 p=2652 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 04:36:20,100 p=2652 u=root n=ansible | TASK [01-system-prep : Show interfaces details] *********************************************************************************************************************************************************************************************
+2020-06-25 04:36:20,100 p=2652 u=root n=ansible | ok: [local_zfs_root] => (item=ens33) => {
+    "msg": {
+        "active": true,
+        "device": "ens33",
+        "features": {
+            "esp_hw_offload": "off [fixed]",
+            "esp_tx_csum_hw_offload": "off [fixed]",
+            "fcoe_mtu": "off [fixed]",
+            "generic_receive_offload": "on",
+            "generic_segmentation_offload": "on",
+            "highdma": "off [fixed]",
+            "hw_tc_offload": "off [fixed]",
+            "l2_fwd_offload": "off [fixed]",
+            "large_receive_offload": "off [fixed]",
+            "loopback": "off [fixed]",
+            "netns_local": "off [fixed]",
+            "ntuple_filters": "off [fixed]",
+            "receive_hashing": "off [fixed]",
+            "rx_all": "off",
+            "rx_checksumming": "off",
+            "rx_fcs": "off",
+            "rx_gro_hw": "off [fixed]",
+            "rx_udp_tunnel_port_offload": "off [fixed]",
+            "rx_vlan_filter": "on [fixed]",
+            "rx_vlan_offload": "on",
+            "rx_vlan_stag_filter": "off [fixed]",
+            "rx_vlan_stag_hw_parse": "off [fixed]",
+            "scatter_gather": "on",
+            "tcp_segmentation_offload": "on",
+            "tls_hw_record": "off [fixed]",
+            "tls_hw_rx_offload": "off [fixed]",
+            "tls_hw_tx_offload": "off [fixed]",
+            "tx_checksum_fcoe_crc": "off [fixed]",
+            "tx_checksum_ip_generic": "on",
+            "tx_checksum_ipv4": "off [fixed]",
+            "tx_checksum_ipv6": "off [fixed]",
+            "tx_checksum_sctp": "off [fixed]",
+            "tx_checksumming": "on",
+            "tx_esp_segmentation": "off [fixed]",
+            "tx_fcoe_segmentation": "off [fixed]",
+            "tx_gre_csum_segmentation": "off [fixed]",
+            "tx_gre_segmentation": "off [fixed]",
+            "tx_gso_partial": "off [fixed]",
+            "tx_gso_robust": "off [fixed]",
+            "tx_ipxip4_segmentation": "off [fixed]",
+            "tx_ipxip6_segmentation": "off [fixed]",
+            "tx_lockless": "off [fixed]",
+            "tx_nocache_copy": "off",
+            "tx_scatter_gather": "on",
+            "tx_scatter_gather_fraglist": "off [fixed]",
+            "tx_sctp_segmentation": "off [fixed]",
+            "tx_tcp6_segmentation": "off [fixed]",
+            "tx_tcp_ecn_segmentation": "off [fixed]",
+            "tx_tcp_mangleid_segmentation": "off",
+            "tx_tcp_segmentation": "on",
+            "tx_udp_segmentation": "off [fixed]",
+            "tx_udp_tnl_csum_segmentation": "off [fixed]",
+            "tx_udp_tnl_segmentation": "off [fixed]",
+            "tx_vlan_offload": "on [fixed]",
+            "tx_vlan_stag_hw_insert": "off [fixed]",
+            "vlan_challenged": "off [fixed]"
+        },
+        "hw_timestamp_filters": [],
+        "ipv4": {
+            "address": "192.168.100.10",
+            "broadcast": "192.168.100.255",
+            "netmask": "255.255.255.0",
+            "network": "192.168.100.0"
+        },
+        "ipv6": [
+            {
+                "address": "fe80::20c:29ff:fea7:8507",
+                "prefix": "64",
+                "scope": "link"
+            }
+        ],
+        "macaddress": "00:0c:29:a7:85:07",
+        "module": "e1000",
+        "mtu": 1500,
+        "pciid": "0000:02:01.0",
+        "promisc": false,
+        "speed": 1000,
+        "timestamping": [
+            "tx_software",
+            "rx_software",
+            "software"
+        ],
+        "type": "ether"
+    }
+}
+2020-06-25 04:36:20,856 p=2652 u=root n=ansible | TASK [01-system-prep : Install netplan] *****************************************************************************************************************************************************************************************************
+2020-06-25 04:36:20,856 p=2652 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 04:36:20,925 p=2652 u=root n=ansible | TASK [01-system-prep : define traditional ethernet facts] ***********************************************************************************************************************************************************************************
+2020-06-25 04:36:20,925 p=2652 u=root n=ansible | ok: [local_zfs_root] => (item=ens33)
+2020-06-25 04:36:21,219 p=2652 u=root n=ansible | TASK [01-system-prep : Configuring Netplan] *************************************************************************************************************************************************************************************************
+2020-06-25 04:36:21,220 p=2652 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:36:21,526 p=2652 u=root n=ansible | RUNNING HANDLER [01-system-prep : Generating Netplan Configuration] *************************************************************************************************************************************************************************
+2020-06-25 04:36:21,527 p=2652 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:36:21,883 p=2652 u=root n=ansible | RUNNING HANDLER [01-system-prep : Applying Netplan Configuration] ***************************************************************************************************************************************************************************
+2020-06-25 04:36:21,883 p=2652 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 04:36:21,895 p=2652 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 04:36:21,896 p=2652 u=root n=ansible | local_zfs_root             : ok=27   changed=19   unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-06-25 04:45:01,607 p=20955 u=root n=ansible | PLAY [chroot] *******************************************************************************************************************************************************************************************************************************
+2020-06-25 04:45:02,383 p=20955 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 04:45:02,384 p=20955 u=root n=ansible | ok: [/mnt/install/]
+2020-06-25 04:45:02,440 p=20955 u=root n=ansible | TASK [02-chroot : debug] ********************************************************************************************************************************************************************************************************************
+2020-06-25 04:45:02,441 p=20955 u=root n=ansible | ok: [/mnt/install/] => {
+    "_efi|default(false)|bool == true": true
+}
+2020-06-25 04:45:42,183 p=20955 u=root n=ansible | TASK [02-chroot : apt] **********************************************************************************************************************************************************************************************************************
+2020-06-25 04:45:42,183 p=20955 u=root n=ansible | [WARNING]: Updating cache and auto-installing missing dependency: python3-apt
+
+2020-06-25 04:45:42,184 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:45:42,805 p=20955 u=root n=ansible | TASK [02-chroot : command] ******************************************************************************************************************************************************************************************************************
+2020-06-25 04:45:42,806 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:45:45,066 p=20955 u=root n=ansible | TASK [02-chroot : install locales] **********************************************************************************************************************************************************************************************************
+2020-06-25 04:45:45,067 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=en_US.UTF-8)
+2020-06-25 04:45:45,352 p=20955 u=root n=ansible | TASK [02-chroot : set LANG in /etc/default/locale] ******************************************************************************************************************************************************************************************
+2020-06-25 04:45:45,352 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:45:45,932 p=20955 u=root n=ansible | TASK [02-chroot : set timezone] *************************************************************************************************************************************************************************************************************
+2020-06-25 04:45:45,932 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:45:46,213 p=20955 u=root n=ansible | TASK [02-chroot : ln -s /proc/self/mounts /etc/mtab] ****************************************************************************************************************************************************************************************
+2020-06-25 04:45:46,214 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:46:07,545 p=20955 u=root n=ansible | TASK [02-chroot : ensure live system has necessary packages installed] **********************************************************************************************************************************************************************
+2020-06-25 04:46:07,545 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:46:07,599 p=20955 u=root n=ansible | TASK [02-chroot : debug] ********************************************************************************************************************************************************************************************************************
+2020-06-25 04:46:07,602 p=20955 u=root n=ansible | ok: [/mnt/install/] => {
+    "apt_out": {
+        "changed": true,
+        "diff": {},
+        "failed": false,
+        "msg": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nCalculating upgrade...\nThe following packages will be upgraded:\n  apt apt-utils ca-certificates distro-info-data gir1.2-glib-2.0 libapparmor1\n  libapt-pkg6.0 libgirepository-1.0-1 libgnutls30 libjson-c4 libnetplan0\n  libnss-systemd libpam-systemd libpython3.8-minimal libpython3.8-stdlib\n  libsqlite3-0 libsystemd0 libudev1 netplan.io python3.8 python3.8-minimal\n  systemd systemd-sysv systemd-timesyncd tzdata ubuntu-minimal udev\n27 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\nNeed to get 15.0 MB of archives.\nAfter this operation, 8192 B of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 udev amd64 245.4-4ubuntu3.1 [1362 kB]\nGet:2 http://security.ubuntu.com/ubuntu focal-security/main amd64 libgnutls30 amd64 3.6.13-2ubuntu1.1 [828 kB]\nGet:3 http://security.ubuntu.com/ubuntu focal-security/main amd64 libapt-pkg6.0 amd64 2.0.2ubuntu0.1 [832 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libudev1 amd64 245.4-4ubuntu3.1 [78.3 kB]\nGet:5 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd-sysv amd64 245.4-4ubuntu3.1 [10.3 kB]\nGet:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd-timesyncd amd64 245.4-4ubuntu3.1 [27.9 kB]\nGet:7 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnss-systemd amd64 245.4-4ubuntu3.1 [95.7 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-systemd amd64 245.4-4ubuntu3.1 [186 kB]\nGet:9 http://security.ubuntu.com/ubuntu focal-security/main amd64 apt amd64 2.0.2ubuntu0.1 [1290 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libapparmor1 amd64 2.13.3-7ubuntu5.1 [34.1 kB]\nGet:11 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd amd64 245.4-4ubuntu3.1 [3795 kB]\nGet:12 http://security.ubuntu.com/ubuntu focal-security/main amd64 apt-utils amd64 2.0.2ubuntu0.1 [214 kB]\nGet:13 http://security.ubuntu.com/ubuntu focal-security/main amd64 python3.8 amd64 3.8.2-1ubuntu1.1 [364 kB]\nGet:14 http://security.ubuntu.com/ubuntu focal-security/main amd64 libpython3.8-stdlib amd64 3.8.2-1ubuntu1.1 [1666 kB]\nGet:15 http://security.ubuntu.com/ubuntu focal-security/main amd64 python3.8-minimal amd64 3.8.2-1ubuntu1.1 [1896 kB]\nGet:16 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libsystemd0 amd64 245.4-4ubuntu3.1 [271 kB]\nGet:17 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 distro-info-data all 0.43ubuntu1.1 [4584 B]\nGet:18 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgirepository-1.0-1 amd64 1.64.1-1~ubuntu20.04.1 [85.7 kB]\nGet:19 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 gir1.2-glib-2.0 amd64 1.64.1-1~ubuntu20.04.1 [134 kB]\nGet:20 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnetplan0 amd64 0.99-0ubuntu3~20.04.2 [22.7 kB]\nGet:21 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 netplan.io amd64 0.99-0ubuntu3~20.04.2 [70.9 kB]\nGet:22 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 ubuntu-minimal amd64 1.450.1 [2748 B]\nGet:23 http://security.ubuntu.com/ubuntu focal-security/main amd64 libpython3.8-minimal amd64 3.8.2-1ubuntu1.1 [705 kB]\nGet:24 http://security.ubuntu.com/ubuntu focal-security/main amd64 libsqlite3-0 amd64 3.31.1-4ubuntu0.1 [549 kB]\nGet:25 http://security.ubuntu.com/ubuntu focal-security/main amd64 ca-certificates all 20190110ubuntu1.1 [145 kB]\nGet:26 http://security.ubuntu.com/ubuntu focal-security/main amd64 libjson-c4 amd64 0.13.1+dfsg-7ubuntu0.3 [29.3 kB]\nGet:27 http://security.ubuntu.com/ubuntu focal-security/main amd64 tzdata all 2020a-0ubuntu0.20.04 [293 kB]\nPreconfiguring packages ...\nFetched 15.0 MB in 7s (2293 kB/s)\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../udev_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking udev (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libudev1_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking libudev1:amd64 (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nSetting up libudev1:amd64 (245.4-4ubuntu3.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../0-systemd-sysv_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking systemd-sysv (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../1-systemd-timesyncd_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking systemd-timesyncd (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../2-libnss-systemd_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking libnss-systemd:amd64 (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../3-libpam-systemd_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking libpam-systemd:amd64 (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../4-libapparmor1_2.13.3-7ubuntu5.1_amd64.deb ...\r\nUnpacking libapparmor1:amd64 (2.13.3-7ubuntu5.1) over (2.13.3-7ubuntu5) ...\r\nPreparing to unpack .../5-libgnutls30_3.6.13-2ubuntu1.1_amd64.deb ...\r\nUnpacking libgnutls30:amd64 (3.6.13-2ubuntu1.1) over (3.6.13-2ubuntu1) ...\r\nSetting up libgnutls30:amd64 (3.6.13-2ubuntu1.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../systemd_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking systemd (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libsystemd0_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking libsystemd0:amd64 (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nSetting up libsystemd0:amd64 (245.4-4ubuntu3.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../libapt-pkg6.0_2.0.2ubuntu0.1_amd64.deb ...\r\nUnpacking libapt-pkg6.0:amd64 (2.0.2ubuntu0.1) over (2.0.2) ...\r\nSetting up libapt-pkg6.0:amd64 (2.0.2ubuntu0.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../apt_2.0.2ubuntu0.1_amd64.deb ...\r\nUnpacking apt (2.0.2ubuntu0.1) over (2.0.2) ...\r\nSetting up apt (2.0.2ubuntu0.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../00-apt-utils_2.0.2ubuntu0.1_amd64.deb ...\r\nUnpacking apt-utils (2.0.2ubuntu0.1) over (2.0.2) ...\r\nPreparing to unpack .../01-python3.8_3.8.2-1ubuntu1.1_amd64.deb ...\r\nUnpacking python3.8 (3.8.2-1ubuntu1.1) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../02-libpython3.8-stdlib_3.8.2-1ubuntu1.1_amd64.deb ...\r\nUnpacking libpython3.8-stdlib:amd64 (3.8.2-1ubuntu1.1) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../03-python3.8-minimal_3.8.2-1ubuntu1.1_amd64.deb ...\r\nUnpacking python3.8-minimal (3.8.2-1ubuntu1.1) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../04-libpython3.8-minimal_3.8.2-1ubuntu1.1_amd64.deb ...\r\nUnpacking libpython3.8-minimal:amd64 (3.8.2-1ubuntu1.1) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../05-libsqlite3-0_3.31.1-4ubuntu0.1_amd64.deb ...\r\nUnpacking libsqlite3-0:amd64 (3.31.1-4ubuntu0.1) over (3.31.1-4) ...\r\nPreparing to unpack .../06-ca-certificates_20190110ubuntu1.1_all.deb ...\r\nUnpacking ca-certificates (20190110ubuntu1.1) over (20190110ubuntu1) ...\r\nPreparing to unpack .../07-distro-info-data_0.43ubuntu1.1_all.deb ...\r\nUnpacking distro-info-data (0.43ubuntu1.1) over (0.43ubuntu1) ...\r\nPreparing to unpack .../08-libgirepository-1.0-1_1.64.1-1~ubuntu20.04.1_amd64.deb ...\r\nUnpacking libgirepository-1.0-1:amd64 (1.64.1-1~ubuntu20.04.1) over (1.64.0-2) ...\r\nPreparing to unpack .../09-gir1.2-glib-2.0_1.64.1-1~ubuntu20.04.1_amd64.deb ...\r\nUnpacking gir1.2-glib-2.0:amd64 (1.64.1-1~ubuntu20.04.1) over (1.64.0-2) ...\r\nPreparing to unpack .../10-libjson-c4_0.13.1+dfsg-7ubuntu0.3_amd64.deb ...\r\nUnpacking libjson-c4:amd64 (0.13.1+dfsg-7ubuntu0.3) over (0.13.1+dfsg-7) ...\r\nPreparing to unpack .../11-libnetplan0_0.99-0ubuntu3~20.04.2_amd64.deb ...\r\nUnpacking libnetplan0:amd64 (0.99-0ubuntu3~20.04.2) over (0.99-0ubuntu1) ...\r\nPreparing to unpack .../12-netplan.io_0.99-0ubuntu3~20.04.2_amd64.deb ...\r\nUnpacking netplan.io (0.99-0ubuntu3~20.04.2) over (0.99-0ubuntu1) ...\r\nPreparing to unpack .../13-tzdata_2020a-0ubuntu0.20.04_all.deb ...\r\nUnpacking tzdata (2020a-0ubuntu0.20.04) over (2019c-3ubuntu1) ...\r\nPreparing to unpack .../14-ubuntu-minimal_1.450.1_amd64.deb ...\r\nUnpacking ubuntu-minimal (1.450.1) over (1.450) ...\r\nSetting up libapparmor1:amd64 (2.13.3-7ubuntu5.1) ...\r\nSetting up libpython3.8-minimal:amd64 (3.8.2-1ubuntu1.1) ...\r\nSetting up apt-utils (2.0.2ubuntu0.1) ...\r\nSetting up distro-info-data (0.43ubuntu1.1) ...\r\nSetting up libsqlite3-0:amd64 (3.31.1-4ubuntu0.1) ...\r\nSetting up libnetplan0:amd64 (0.99-0ubuntu3~20.04.2) ...\r\nSetting up tzdata (2020a-0ubuntu0.20.04) ...\r\n\r\nCurrent default time zone: 'Etc/UTC'\r\nLocal time is now:      Thu Jun 25 04:46:01 UTC 2020.\r\nUniversal Time is now:  Thu Jun 25 04:46:01 UTC 2020.\r\nRun 'dpkg-reconfigure tzdata' if you wish to change it.\r\n\r\nSetting up ca-certificates (20190110ubuntu1.1) ...\r\nUpdating certificates in /etc/ssl/certs...\r\n0 added, 1 removed; done.\r\nSetting up udev (245.4-4ubuntu3.1) ...\r\nA chroot environment has been detected, udev not started.\r\nSetting up python3.8-minimal (3.8.2-1ubuntu1.1) ...\r\nSetting up libgirepository-1.0-1:amd64 (1.64.1-1~ubuntu20.04.1) ...\r\nSetting up libjson-c4:amd64 (0.13.1+dfsg-7ubuntu0.3) ...\r\nSetting up libpython3.8-stdlib:amd64 (3.8.2-1ubuntu1.1) ...\r\nSetting up python3.8 (3.8.2-1ubuntu1.1) ...\r\nSetting up gir1.2-glib-2.0:amd64 (1.64.1-1~ubuntu20.04.1) ...\r\nSetting up systemd (245.4-4ubuntu3.1) ...\r\nSetting up netplan.io (0.99-0ubuntu3~20.04.2) ...\r\nSetting up systemd-timesyncd (245.4-4ubuntu3.1) ...\r\nSetting up systemd-sysv (245.4-4ubuntu3.1) ...\r\nSetting up ubuntu-minimal (1.450.1) ...\r\nSetting up libnss-systemd:amd64 (245.4-4ubuntu3.1) ...\r\nSetting up libpam-systemd:amd64 (245.4-4ubuntu3.1) ...\r\nProcessing triggers for mime-support (3.64ubuntu1) ...\r\nProcessing triggers for libc-bin (2.31-0ubuntu9) ...\r\nProcessing triggers for dbus (1.12.16-2ubuntu2.1) ...\r\nProcessing triggers for ca-certificates (20190110ubuntu1.1) ...\r\nUpdating certificates in /etc/ssl/certs...\r\n0 added, 0 removed; done.\r\nRunning hooks in /etc/ca-certificates/update.d...\r\ndone.\r\n",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nCalculating upgrade...\nThe following packages will be upgraded:\n  apt apt-utils ca-certificates distro-info-data gir1.2-glib-2.0 libapparmor1\n  libapt-pkg6.0 libgirepository-1.0-1 libgnutls30 libjson-c4 libnetplan0\n  libnss-systemd libpam-systemd libpython3.8-minimal libpython3.8-stdlib\n  libsqlite3-0 libsystemd0 libudev1 netplan.io python3.8 python3.8-minimal\n  systemd systemd-sysv systemd-timesyncd tzdata ubuntu-minimal udev\n27 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\nNeed to get 15.0 MB of archives.\nAfter this operation, 8192 B of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 udev amd64 245.4-4ubuntu3.1 [1362 kB]\nGet:2 http://security.ubuntu.com/ubuntu focal-security/main amd64 libgnutls30 amd64 3.6.13-2ubuntu1.1 [828 kB]\nGet:3 http://security.ubuntu.com/ubuntu focal-security/main amd64 libapt-pkg6.0 amd64 2.0.2ubuntu0.1 [832 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libudev1 amd64 245.4-4ubuntu3.1 [78.3 kB]\nGet:5 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd-sysv amd64 245.4-4ubuntu3.1 [10.3 kB]\nGet:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd-timesyncd amd64 245.4-4ubuntu3.1 [27.9 kB]\nGet:7 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnss-systemd amd64 245.4-4ubuntu3.1 [95.7 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-systemd amd64 245.4-4ubuntu3.1 [186 kB]\nGet:9 http://security.ubuntu.com/ubuntu focal-security/main amd64 apt amd64 2.0.2ubuntu0.1 [1290 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libapparmor1 amd64 2.13.3-7ubuntu5.1 [34.1 kB]\nGet:11 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd amd64 245.4-4ubuntu3.1 [3795 kB]\nGet:12 http://security.ubuntu.com/ubuntu focal-security/main amd64 apt-utils amd64 2.0.2ubuntu0.1 [214 kB]\nGet:13 http://security.ubuntu.com/ubuntu focal-security/main amd64 python3.8 amd64 3.8.2-1ubuntu1.1 [364 kB]\nGet:14 http://security.ubuntu.com/ubuntu focal-security/main amd64 libpython3.8-stdlib amd64 3.8.2-1ubuntu1.1 [1666 kB]\nGet:15 http://security.ubuntu.com/ubuntu focal-security/main amd64 python3.8-minimal amd64 3.8.2-1ubuntu1.1 [1896 kB]\nGet:16 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libsystemd0 amd64 245.4-4ubuntu3.1 [271 kB]\nGet:17 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 distro-info-data all 0.43ubuntu1.1 [4584 B]\nGet:18 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgirepository-1.0-1 amd64 1.64.1-1~ubuntu20.04.1 [85.7 kB]\nGet:19 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 gir1.2-glib-2.0 amd64 1.64.1-1~ubuntu20.04.1 [134 kB]\nGet:20 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnetplan0 amd64 0.99-0ubuntu3~20.04.2 [22.7 kB]\nGet:21 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 netplan.io amd64 0.99-0ubuntu3~20.04.2 [70.9 kB]\nGet:22 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 ubuntu-minimal amd64 1.450.1 [2748 B]\nGet:23 http://security.ubuntu.com/ubuntu focal-security/main amd64 libpython3.8-minimal amd64 3.8.2-1ubuntu1.1 [705 kB]\nGet:24 http://security.ubuntu.com/ubuntu focal-security/main amd64 libsqlite3-0 amd64 3.31.1-4ubuntu0.1 [549 kB]\nGet:25 http://security.ubuntu.com/ubuntu focal-security/main amd64 ca-certificates all 20190110ubuntu1.1 [145 kB]\nGet:26 http://security.ubuntu.com/ubuntu focal-security/main amd64 libjson-c4 amd64 0.13.1+dfsg-7ubuntu0.3 [29.3 kB]\nGet:27 http://security.ubuntu.com/ubuntu focal-security/main amd64 tzdata all 2020a-0ubuntu0.20.04 [293 kB]\nPreconfiguring packages ...\nFetched 15.0 MB in 7s (2293 kB/s)\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../udev_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking udev (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libudev1_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking libudev1:amd64 (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nSetting up libudev1:amd64 (245.4-4ubuntu3.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../0-systemd-sysv_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking systemd-sysv (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../1-systemd-timesyncd_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking systemd-timesyncd (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../2-libnss-systemd_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking libnss-systemd:amd64 (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../3-libpam-systemd_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking libpam-systemd:amd64 (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../4-libapparmor1_2.13.3-7ubuntu5.1_amd64.deb ...\r\nUnpacking libapparmor1:amd64 (2.13.3-7ubuntu5.1) over (2.13.3-7ubuntu5) ...\r\nPreparing to unpack .../5-libgnutls30_3.6.13-2ubuntu1.1_amd64.deb ...\r\nUnpacking libgnutls30:amd64 (3.6.13-2ubuntu1.1) over (3.6.13-2ubuntu1) ...\r\nSetting up libgnutls30:amd64 (3.6.13-2ubuntu1.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../systemd_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking systemd (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libsystemd0_245.4-4ubuntu3.1_amd64.deb ...\r\nUnpacking libsystemd0:amd64 (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...\r\nSetting up libsystemd0:amd64 (245.4-4ubuntu3.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../libapt-pkg6.0_2.0.2ubuntu0.1_amd64.deb ...\r\nUnpacking libapt-pkg6.0:amd64 (2.0.2ubuntu0.1) over (2.0.2) ...\r\nSetting up libapt-pkg6.0:amd64 (2.0.2ubuntu0.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../apt_2.0.2ubuntu0.1_amd64.deb ...\r\nUnpacking apt (2.0.2ubuntu0.1) over (2.0.2) ...\r\nSetting up apt (2.0.2ubuntu0.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../00-apt-utils_2.0.2ubuntu0.1_amd64.deb ...\r\nUnpacking apt-utils (2.0.2ubuntu0.1) over (2.0.2) ...\r\nPreparing to unpack .../01-python3.8_3.8.2-1ubuntu1.1_amd64.deb ...\r\nUnpacking python3.8 (3.8.2-1ubuntu1.1) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../02-libpython3.8-stdlib_3.8.2-1ubuntu1.1_amd64.deb ...\r\nUnpacking libpython3.8-stdlib:amd64 (3.8.2-1ubuntu1.1) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../03-python3.8-minimal_3.8.2-1ubuntu1.1_amd64.deb ...\r\nUnpacking python3.8-minimal (3.8.2-1ubuntu1.1) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../04-libpython3.8-minimal_3.8.2-1ubuntu1.1_amd64.deb ...\r\nUnpacking libpython3.8-minimal:amd64 (3.8.2-1ubuntu1.1) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../05-libsqlite3-0_3.31.1-4ubuntu0.1_amd64.deb ...\r\nUnpacking libsqlite3-0:amd64 (3.31.1-4ubuntu0.1) over (3.31.1-4) ...\r\nPreparing to unpack .../06-ca-certificates_20190110ubuntu1.1_all.deb ...\r\nUnpacking ca-certificates (20190110ubuntu1.1) over (20190110ubuntu1) ...\r\nPreparing to unpack .../07-distro-info-data_0.43ubuntu1.1_all.deb ...\r\nUnpacking distro-info-data (0.43ubuntu1.1) over (0.43ubuntu1) ...\r\nPreparing to unpack .../08-libgirepository-1.0-1_1.64.1-1~ubuntu20.04.1_amd64.deb ...\r\nUnpacking libgirepository-1.0-1:amd64 (1.64.1-1~ubuntu20.04.1) over (1.64.0-2) ...\r\nPreparing to unpack .../09-gir1.2-glib-2.0_1.64.1-1~ubuntu20.04.1_amd64.deb ...\r\nUnpacking gir1.2-glib-2.0:amd64 (1.64.1-1~ubuntu20.04.1) over (1.64.0-2) ...\r\nPreparing to unpack .../10-libjson-c4_0.13.1+dfsg-7ubuntu0.3_amd64.deb ...\r\nUnpacking libjson-c4:amd64 (0.13.1+dfsg-7ubuntu0.3) over (0.13.1+dfsg-7) ...\r\nPreparing to unpack .../11-libnetplan0_0.99-0ubuntu3~20.04.2_amd64.deb ...\r\nUnpacking libnetplan0:amd64 (0.99-0ubuntu3~20.04.2) over (0.99-0ubuntu1) ...\r\nPreparing to unpack .../12-netplan.io_0.99-0ubuntu3~20.04.2_amd64.deb ...\r\nUnpacking netplan.io (0.99-0ubuntu3~20.04.2) over (0.99-0ubuntu1) ...\r\nPreparing to unpack .../13-tzdata_2020a-0ubuntu0.20.04_all.deb ...\r\nUnpacking tzdata (2020a-0ubuntu0.20.04) over (2019c-3ubuntu1) ...\r\nPreparing to unpack .../14-ubuntu-minimal_1.450.1_amd64.deb ...\r\nUnpacking ubuntu-minimal (1.450.1) over (1.450) ...\r\nSetting up libapparmor1:amd64 (2.13.3-7ubuntu5.1) ...\r\nSetting up libpython3.8-minimal:amd64 (3.8.2-1ubuntu1.1) ...\r\nSetting up apt-utils (2.0.2ubuntu0.1) ...\r\nSetting up distro-info-data (0.43ubuntu1.1) ...\r\nSetting up libsqlite3-0:amd64 (3.31.1-4ubuntu0.1) ...\r\nSetting up libnetplan0:amd64 (0.99-0ubuntu3~20.04.2) ...\r\nSetting up tzdata (2020a-0ubuntu0.20.04) ...\r\n\r\nCurrent default time zone: 'Etc/UTC'\r\nLocal time is now:      Thu Jun 25 04:46:01 UTC 2020.\r\nUniversal Time is now:  Thu Jun 25 04:46:01 UTC 2020.\r\nRun 'dpkg-reconfigure tzdata' if you wish to change it.\r\n\r\nSetting up ca-certificates (20190110ubuntu1.1) ...\r\nUpdating certificates in /etc/ssl/certs...\r\n0 added, 1 removed; done.\r\nSetting up udev (245.4-4ubuntu3.1) ...\r\nA chroot environment has been detected, udev not started.\r\nSetting up python3.8-minimal (3.8.2-1ubuntu1.1) ...\r\nSetting up libgirepository-1.0-1:amd64 (1.64.1-1~ubuntu20.04.1) ...\r\nSetting up libjson-c4:amd64 (0.13.1+dfsg-7ubuntu0.3) ...\r\nSetting up libpython3.8-stdlib:amd64 (3.8.2-1ubuntu1.1) ...\r\nSetting up python3.8 (3.8.2-1ubuntu1.1) ...\r\nSetting up gir1.2-glib-2.0:amd64 (1.64.1-1~ubuntu20.04.1) ...\r\nSetting up systemd (245.4-4ubuntu3.1) ...\r\nSetting up netplan.io (0.99-0ubuntu3~20.04.2) ...\r\nSetting up systemd-timesyncd (245.4-4ubuntu3.1) ...\r\nSetting up systemd-sysv (245.4-4ubuntu3.1) ...\r\nSetting up ubuntu-minimal (1.450.1) ...\r\nSetting up libnss-systemd:amd64 (245.4-4ubuntu3.1) ...\r\nSetting up libpam-systemd:amd64 (245.4-4ubuntu3.1) ...\r\nProcessing triggers for mime-support (3.64ubuntu1) ...\r\nProcessing triggers for libc-bin (2.31-0ubuntu9) ...\r\nProcessing triggers for dbus (1.12.16-2ubuntu2.1) ...\r\nProcessing triggers for ca-certificates (20190110ubuntu1.1) ...\r\nUpdating certificates in /etc/ssl/certs...\r\n0 added, 0 removed; done.\r\nRunning hooks in /etc/ca-certificates/update.d...\r\ndone.\r\n",
+        "stdout_lines": [
+            "Reading package lists...",
+            "Building dependency tree...",
+            "Reading state information...",
+            "Calculating upgrade...",
+            "The following packages will be upgraded:",
+            "  apt apt-utils ca-certificates distro-info-data gir1.2-glib-2.0 libapparmor1",
+            "  libapt-pkg6.0 libgirepository-1.0-1 libgnutls30 libjson-c4 libnetplan0",
+            "  libnss-systemd libpam-systemd libpython3.8-minimal libpython3.8-stdlib",
+            "  libsqlite3-0 libsystemd0 libudev1 netplan.io python3.8 python3.8-minimal",
+            "  systemd systemd-sysv systemd-timesyncd tzdata ubuntu-minimal udev",
+            "27 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.",
+            "Need to get 15.0 MB of archives.",
+            "After this operation, 8192 B of additional disk space will be used.",
+            "Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 udev amd64 245.4-4ubuntu3.1 [1362 kB]",
+            "Get:2 http://security.ubuntu.com/ubuntu focal-security/main amd64 libgnutls30 amd64 3.6.13-2ubuntu1.1 [828 kB]",
+            "Get:3 http://security.ubuntu.com/ubuntu focal-security/main amd64 libapt-pkg6.0 amd64 2.0.2ubuntu0.1 [832 kB]",
+            "Get:4 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libudev1 amd64 245.4-4ubuntu3.1 [78.3 kB]",
+            "Get:5 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd-sysv amd64 245.4-4ubuntu3.1 [10.3 kB]",
+            "Get:6 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd-timesyncd amd64 245.4-4ubuntu3.1 [27.9 kB]",
+            "Get:7 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnss-systemd amd64 245.4-4ubuntu3.1 [95.7 kB]",
+            "Get:8 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-systemd amd64 245.4-4ubuntu3.1 [186 kB]",
+            "Get:9 http://security.ubuntu.com/ubuntu focal-security/main amd64 apt amd64 2.0.2ubuntu0.1 [1290 kB]",
+            "Get:10 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libapparmor1 amd64 2.13.3-7ubuntu5.1 [34.1 kB]",
+            "Get:11 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd amd64 245.4-4ubuntu3.1 [3795 kB]",
+            "Get:12 http://security.ubuntu.com/ubuntu focal-security/main amd64 apt-utils amd64 2.0.2ubuntu0.1 [214 kB]",
+            "Get:13 http://security.ubuntu.com/ubuntu focal-security/main amd64 python3.8 amd64 3.8.2-1ubuntu1.1 [364 kB]",
+            "Get:14 http://security.ubuntu.com/ubuntu focal-security/main amd64 libpython3.8-stdlib amd64 3.8.2-1ubuntu1.1 [1666 kB]",
+            "Get:15 http://security.ubuntu.com/ubuntu focal-security/main amd64 python3.8-minimal amd64 3.8.2-1ubuntu1.1 [1896 kB]",
+            "Get:16 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libsystemd0 amd64 245.4-4ubuntu3.1 [271 kB]",
+            "Get:17 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 distro-info-data all 0.43ubuntu1.1 [4584 B]",
+            "Get:18 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgirepository-1.0-1 amd64 1.64.1-1~ubuntu20.04.1 [85.7 kB]",
+            "Get:19 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 gir1.2-glib-2.0 amd64 1.64.1-1~ubuntu20.04.1 [134 kB]",
+            "Get:20 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnetplan0 amd64 0.99-0ubuntu3~20.04.2 [22.7 kB]",
+            "Get:21 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 netplan.io amd64 0.99-0ubuntu3~20.04.2 [70.9 kB]",
+            "Get:22 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 ubuntu-minimal amd64 1.450.1 [2748 B]",
+            "Get:23 http://security.ubuntu.com/ubuntu focal-security/main amd64 libpython3.8-minimal amd64 3.8.2-1ubuntu1.1 [705 kB]",
+            "Get:24 http://security.ubuntu.com/ubuntu focal-security/main amd64 libsqlite3-0 amd64 3.31.1-4ubuntu0.1 [549 kB]",
+            "Get:25 http://security.ubuntu.com/ubuntu focal-security/main amd64 ca-certificates all 20190110ubuntu1.1 [145 kB]",
+            "Get:26 http://security.ubuntu.com/ubuntu focal-security/main amd64 libjson-c4 amd64 0.13.1+dfsg-7ubuntu0.3 [29.3 kB]",
+            "Get:27 http://security.ubuntu.com/ubuntu focal-security/main amd64 tzdata all 2020a-0ubuntu0.20.04 [293 kB]",
+            "Preconfiguring packages ...",
+            "Fetched 15.0 MB in 7s (2293 kB/s)",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13486 files and directories currently installed.)",
+            "Preparing to unpack .../udev_245.4-4ubuntu3.1_amd64.deb ...",
+            "Unpacking udev (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...",
+            "Preparing to unpack .../libudev1_245.4-4ubuntu3.1_amd64.deb ...",
+            "Unpacking libudev1:amd64 (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...",
+            "Setting up libudev1:amd64 (245.4-4ubuntu3.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13486 files and directories currently installed.)",
+            "Preparing to unpack .../0-systemd-sysv_245.4-4ubuntu3.1_amd64.deb ...",
+            "Unpacking systemd-sysv (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...",
+            "Preparing to unpack .../1-systemd-timesyncd_245.4-4ubuntu3.1_amd64.deb ...",
+            "Unpacking systemd-timesyncd (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...",
+            "Preparing to unpack .../2-libnss-systemd_245.4-4ubuntu3.1_amd64.deb ...",
+            "Unpacking libnss-systemd:amd64 (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...",
+            "Preparing to unpack .../3-libpam-systemd_245.4-4ubuntu3.1_amd64.deb ...",
+            "Unpacking libpam-systemd:amd64 (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...",
+            "Preparing to unpack .../4-libapparmor1_2.13.3-7ubuntu5.1_amd64.deb ...",
+            "Unpacking libapparmor1:amd64 (2.13.3-7ubuntu5.1) over (2.13.3-7ubuntu5) ...",
+            "Preparing to unpack .../5-libgnutls30_3.6.13-2ubuntu1.1_amd64.deb ...",
+            "Unpacking libgnutls30:amd64 (3.6.13-2ubuntu1.1) over (3.6.13-2ubuntu1) ...",
+            "Setting up libgnutls30:amd64 (3.6.13-2ubuntu1.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13486 files and directories currently installed.)",
+            "Preparing to unpack .../systemd_245.4-4ubuntu3.1_amd64.deb ...",
+            "Unpacking systemd (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...",
+            "Preparing to unpack .../libsystemd0_245.4-4ubuntu3.1_amd64.deb ...",
+            "Unpacking libsystemd0:amd64 (245.4-4ubuntu3.1) over (245.4-4ubuntu3) ...",
+            "Setting up libsystemd0:amd64 (245.4-4ubuntu3.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13486 files and directories currently installed.)",
+            "Preparing to unpack .../libapt-pkg6.0_2.0.2ubuntu0.1_amd64.deb ...",
+            "Unpacking libapt-pkg6.0:amd64 (2.0.2ubuntu0.1) over (2.0.2) ...",
+            "Setting up libapt-pkg6.0:amd64 (2.0.2ubuntu0.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13486 files and directories currently installed.)",
+            "Preparing to unpack .../apt_2.0.2ubuntu0.1_amd64.deb ...",
+            "Unpacking apt (2.0.2ubuntu0.1) over (2.0.2) ...",
+            "Setting up apt (2.0.2ubuntu0.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13486 files and directories currently installed.)",
+            "Preparing to unpack .../00-apt-utils_2.0.2ubuntu0.1_amd64.deb ...",
+            "Unpacking apt-utils (2.0.2ubuntu0.1) over (2.0.2) ...",
+            "Preparing to unpack .../01-python3.8_3.8.2-1ubuntu1.1_amd64.deb ...",
+            "Unpacking python3.8 (3.8.2-1ubuntu1.1) over (3.8.2-1ubuntu1) ...",
+            "Preparing to unpack .../02-libpython3.8-stdlib_3.8.2-1ubuntu1.1_amd64.deb ...",
+            "Unpacking libpython3.8-stdlib:amd64 (3.8.2-1ubuntu1.1) over (3.8.2-1ubuntu1) ...",
+            "Preparing to unpack .../03-python3.8-minimal_3.8.2-1ubuntu1.1_amd64.deb ...",
+            "Unpacking python3.8-minimal (3.8.2-1ubuntu1.1) over (3.8.2-1ubuntu1) ...",
+            "Preparing to unpack .../04-libpython3.8-minimal_3.8.2-1ubuntu1.1_amd64.deb ...",
+            "Unpacking libpython3.8-minimal:amd64 (3.8.2-1ubuntu1.1) over (3.8.2-1ubuntu1) ...",
+            "Preparing to unpack .../05-libsqlite3-0_3.31.1-4ubuntu0.1_amd64.deb ...",
+            "Unpacking libsqlite3-0:amd64 (3.31.1-4ubuntu0.1) over (3.31.1-4) ...",
+            "Preparing to unpack .../06-ca-certificates_20190110ubuntu1.1_all.deb ...",
+            "Unpacking ca-certificates (20190110ubuntu1.1) over (20190110ubuntu1) ...",
+            "Preparing to unpack .../07-distro-info-data_0.43ubuntu1.1_all.deb ...",
+            "Unpacking distro-info-data (0.43ubuntu1.1) over (0.43ubuntu1) ...",
+            "Preparing to unpack .../08-libgirepository-1.0-1_1.64.1-1~ubuntu20.04.1_amd64.deb ...",
+            "Unpacking libgirepository-1.0-1:amd64 (1.64.1-1~ubuntu20.04.1) over (1.64.0-2) ...",
+            "Preparing to unpack .../09-gir1.2-glib-2.0_1.64.1-1~ubuntu20.04.1_amd64.deb ...",
+            "Unpacking gir1.2-glib-2.0:amd64 (1.64.1-1~ubuntu20.04.1) over (1.64.0-2) ...",
+            "Preparing to unpack .../10-libjson-c4_0.13.1+dfsg-7ubuntu0.3_amd64.deb ...",
+            "Unpacking libjson-c4:amd64 (0.13.1+dfsg-7ubuntu0.3) over (0.13.1+dfsg-7) ...",
+            "Preparing to unpack .../11-libnetplan0_0.99-0ubuntu3~20.04.2_amd64.deb ...",
+            "Unpacking libnetplan0:amd64 (0.99-0ubuntu3~20.04.2) over (0.99-0ubuntu1) ...",
+            "Preparing to unpack .../12-netplan.io_0.99-0ubuntu3~20.04.2_amd64.deb ...",
+            "Unpacking netplan.io (0.99-0ubuntu3~20.04.2) over (0.99-0ubuntu1) ...",
+            "Preparing to unpack .../13-tzdata_2020a-0ubuntu0.20.04_all.deb ...",
+            "Unpacking tzdata (2020a-0ubuntu0.20.04) over (2019c-3ubuntu1) ...",
+            "Preparing to unpack .../14-ubuntu-minimal_1.450.1_amd64.deb ...",
+            "Unpacking ubuntu-minimal (1.450.1) over (1.450) ...",
+            "Setting up libapparmor1:amd64 (2.13.3-7ubuntu5.1) ...",
+            "Setting up libpython3.8-minimal:amd64 (3.8.2-1ubuntu1.1) ...",
+            "Setting up apt-utils (2.0.2ubuntu0.1) ...",
+            "Setting up distro-info-data (0.43ubuntu1.1) ...",
+            "Setting up libsqlite3-0:amd64 (3.31.1-4ubuntu0.1) ...",
+            "Setting up libnetplan0:amd64 (0.99-0ubuntu3~20.04.2) ...",
+            "Setting up tzdata (2020a-0ubuntu0.20.04) ...",
+            "",
+            "Current default time zone: 'Etc/UTC'",
+            "Local time is now:      Thu Jun 25 04:46:01 UTC 2020.",
+            "Universal Time is now:  Thu Jun 25 04:46:01 UTC 2020.",
+            "Run 'dpkg-reconfigure tzdata' if you wish to change it.",
+            "",
+            "Setting up ca-certificates (20190110ubuntu1.1) ...",
+            "Updating certificates in /etc/ssl/certs...",
+            "0 added, 1 removed; done.",
+            "Setting up udev (245.4-4ubuntu3.1) ...",
+            "A chroot environment has been detected, udev not started.",
+            "Setting up python3.8-minimal (3.8.2-1ubuntu1.1) ...",
+            "Setting up libgirepository-1.0-1:amd64 (1.64.1-1~ubuntu20.04.1) ...",
+            "Setting up libjson-c4:amd64 (0.13.1+dfsg-7ubuntu0.3) ...",
+            "Setting up libpython3.8-stdlib:amd64 (3.8.2-1ubuntu1.1) ...",
+            "Setting up python3.8 (3.8.2-1ubuntu1.1) ...",
+            "Setting up gir1.2-glib-2.0:amd64 (1.64.1-1~ubuntu20.04.1) ...",
+            "Setting up systemd (245.4-4ubuntu3.1) ...",
+            "Setting up netplan.io (0.99-0ubuntu3~20.04.2) ...",
+            "Setting up systemd-timesyncd (245.4-4ubuntu3.1) ...",
+            "Setting up systemd-sysv (245.4-4ubuntu3.1) ...",
+            "Setting up ubuntu-minimal (1.450.1) ...",
+            "Setting up libnss-systemd:amd64 (245.4-4ubuntu3.1) ...",
+            "Setting up libpam-systemd:amd64 (245.4-4ubuntu3.1) ...",
+            "Processing triggers for mime-support (3.64ubuntu1) ...",
+            "Processing triggers for libc-bin (2.31-0ubuntu9) ...",
+            "Processing triggers for dbus (1.12.16-2ubuntu2.1) ...",
+            "Processing triggers for ca-certificates (20190110ubuntu1.1) ...",
+            "Updating certificates in /etc/ssl/certs...",
+            "0 added, 0 removed; done.",
+            "Running hooks in /etc/ca-certificates/update.d...",
+            "done."
+        ]
+    }
+}
+2020-06-25 04:46:07,652 p=20955 u=root n=ansible | TASK [02-chroot : debug] ********************************************************************************************************************************************************************************************************************
+2020-06-25 04:46:07,653 p=20955 u=root n=ansible | ok: [/mnt/install/] => {
+    "<class 'list'>": "VARIABLE IS NOT DEFINED!"
+}
+2020-06-25 04:46:11,348 p=20955 u=root n=ansible | TASK [02-chroot : update apt cache] *********************************************************************************************************************************************************************************************************
+2020-06-25 04:46:11,349 p=20955 u=root n=ansible | ok: [/mnt/install/]
+2020-06-25 04:48:55,281 p=20955 u=root n=ansible | TASK [02-chroot : install linux-image-generic] **********************************************************************************************************************************************************************************************
+2020-06-25 04:48:55,282 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:49:42,160 p=20955 u=root n=ansible | TASK [02-chroot : install linux-headers-generic] ********************************************************************************************************************************************************************************************
+2020-06-25 04:49:42,160 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:49:42,884 p=20955 u=root n=ansible | TASK [02-chroot : zfs-dkms note-incompatible-licenses note true] ****************************************************************************************************************************************************************************
+2020-06-25 04:49:42,884 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:53:41,494 p=20955 u=root n=ansible | TASK [02-chroot : install zfs-dkms] *********************************************************************************************************************************************************************************************************
+2020-06-25 04:53:41,495 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:53:45,015 p=20955 u=root n=ansible | TASK [02-chroot : install zfs-initramfs] ****************************************************************************************************************************************************************************************************
+2020-06-25 04:53:45,016 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:53:47,637 p=20955 u=root n=ansible | TASK [02-chroot : apt] **********************************************************************************************************************************************************************************************************************
+2020-06-25 04:53:47,638 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:53:55,988 p=20955 u=root n=ansible | TASK [02-chroot : install grub-efi-amd64] ***************************************************************************************************************************************************************************************************
+2020-06-25 04:53:55,989 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:53:56,834 p=20955 u=root n=ansible | TASK [02-chroot : apt] **********************************************************************************************************************************************************************************************************************
+2020-06-25 04:53:56,835 p=20955 u=root n=ansible | ok: [/mnt/install/]
+2020-06-25 04:54:00,517 p=20955 u=root n=ansible | TASK [02-chroot : apt] **********************************************************************************************************************************************************************************************************************
+2020-06-25 04:54:00,517 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:54:00,910 p=20955 u=root n=ansible | TASK [02-chroot : update fstab with /boot volume] *******************************************************************************************************************************************************************************************
+2020-06-25 04:54:00,911 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=/dev/disk/by-id/scsi-36000c29d9653eeb5e24453410f4c1bf7-part2)
+2020-06-25 04:54:01,140 p=20955 u=root n=ansible | TASK [02-chroot : update fstab with efi partitions] *****************************************************************************************************************************************************************************************
+2020-06-25 04:54:01,141 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=/dev/disk/by-id/scsi-36000c29d9653eeb5e24453410f4c1bf7-part1)
+2020-06-25 04:54:02,109 p=20955 u=root n=ansible | TASK [02-chroot : install grub-efi-amd64] ***************************************************************************************************************************************************************************************************
+2020-06-25 04:54:02,110 p=20955 u=root n=ansible | ok: [/mnt/install/]
+2020-06-25 04:54:02,590 p=20955 u=root n=ansible | TASK [02-chroot : set root password] ********************************************************************************************************************************************************************************************************
+2020-06-25 04:54:02,591 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:54:03,591 p=20955 u=root n=ansible | TASK [02-chroot : zfs-import-scan.service start and enabled] ********************************************************************************************************************************************************************************
+2020-06-25 04:54:03,592 p=20955 u=root n=ansible | [WARNING]: Target is a chroot. This can lead to false positives or prevent the init system tools from working.
+
+2020-06-25 04:54:03,592 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:54:36,435 p=20955 u=root n=ansible | TASK [02-chroot : command] ******************************************************************************************************************************************************************************************************************
+2020-06-25 04:54:36,436 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:54:36,763 p=20955 u=root n=ansible | TASK [02-chroot : modify /etc/default/grub] *************************************************************************************************************************************************************************************************
+2020-06-25 04:54:36,763 p=20955 u=root n=ansible | ok: [/mnt/install/] => (item={'regex': '^(GRUB_HIDDEN_TIMEOUT.*)', 'replace': '#\\1'})
+2020-06-25 04:54:36,946 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item={'regex': '^GRUB_CMDLINE_LINUX_DEFAULT=.*', 'replace': 'GRUB_CMDLINE_LINUX_DEFAULT=""'})
+2020-06-25 04:54:37,079 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item={'regex': '^GRUB_CMDLINE_LINUX=.*', 'replace': 'GRUB_CMDLINE_LINUX="root=ZFS=r_system/root"'})
+2020-06-25 04:54:37,207 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item={'regex': '^#(GRUB_TERMINAL.*)', 'replace': '\\1'})
+2020-06-25 04:54:37,208 p=20955 u=root n=ansible | [WARNING]: Module remote_tmp /root/.ansible/tmp did not exist and was created with a mode of 0700, this may cause issues when running as another user. To avoid this, create the remote_tmp dir with the correct permissions manually
+
+2020-06-25 04:54:37,392 p=20955 u=root n=ansible | TASK [02-chroot : command] ******************************************************************************************************************************************************************************************************************
+2020-06-25 04:54:37,393 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:55:11,562 p=20955 u=root n=ansible | TASK [02-chroot : command] ******************************************************************************************************************************************************************************************************************
+2020-06-25 04:55:11,563 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:55:12,283 p=20955 u=root n=ansible | TASK [02-chroot : install grub efi on primary disk] *****************************************************************************************************************************************************************************************
+2020-06-25 04:55:12,284 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:55:12,564 p=20955 u=root n=ansible | TASK [02-chroot : ensure zfs.target starts on boot] *****************************************************************************************************************************************************************************************
+2020-06-25 04:55:12,564 p=20955 u=root n=ansible | ok: [/mnt/install/]
+2020-06-25 04:55:12,872 p=20955 u=root n=ansible | TASK [02-chroot : Creates an entry like "@reboot /some/job.sh"] *****************************************************************************************************************************************************************************
+2020-06-25 04:55:12,872 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:55:18,361 p=20955 u=root n=ansible | TASK [02-chroot : Install OpenSSH server] ***************************************************************************************************************************************************************************************************
+2020-06-25 04:55:18,361 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:55:18,518 p=20955 u=root n=ansible | TASK [02-chroot : Ensure Ed25519 host key is present] ***************************************************************************************************************************************************************************************
+2020-06-25 04:55:18,519 p=20955 u=root n=ansible | ok: [/mnt/install/]
+2020-06-25 04:55:19,377 p=20955 u=root n=ansible | TASK [02-chroot : Generate SSHD config] *****************************************************************************************************************************************************************************************************
+2020-06-25 04:55:19,377 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:55:19,946 p=20955 u=root n=ansible | TASK [02-chroot : Adding user sudo] *********************************************************************************************************************************************************************************************************
+2020-06-25 04:55:19,946 p=20955 u=root n=ansible | changed: [/mnt/install/]
+2020-06-25 04:55:23,571 p=20955 u=root n=ansible | TASK [02-chroot : Ensure specified packages are in there desired state] *********************************************************************************************************************************************************************
+2020-06-25 04:55:23,572 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=gdisk)
+2020-06-25 04:55:53,913 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=ansible)
+2020-06-25 04:55:54,771 p=20955 u=root n=ansible | ok: [/mnt/install/] => (item=openssh-server)
+2020-06-25 04:55:59,724 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=mc)
+2020-06-25 04:56:01,757 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=ssh)
+2020-06-25 04:56:04,071 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=nano)
+2020-06-25 04:56:07,167 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=lshw)
+2020-06-25 04:56:10,232 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=rsync)
+2020-06-25 04:56:12,409 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=ncdu)
+2020-06-25 04:56:14,839 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=ethtool)
+2020-06-25 04:56:15,730 p=20955 u=root n=ansible | ok: [/mnt/install/] => (item=wget)
+2020-06-25 04:56:24,451 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=git)
+2020-06-25 04:56:26,447 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=gpart)
+2020-06-25 04:56:57,596 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=gparted)
+2020-06-25 04:57:00,770 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=ssh-askpass)
+2020-06-25 04:57:03,353 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=net-tools)
+2020-06-25 04:57:05,576 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=tree)
+2020-06-25 04:57:08,047 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=htop)
+2020-06-25 04:57:10,660 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=strace)
+2020-06-25 04:57:14,460 p=20955 u=root n=ansible | changed: [/mnt/install/] => (item=p7zip-full)
+2020-06-25 04:57:15,348 p=20955 u=root n=ansible | TASK [03-chroot-final : export all zpool] ***************************************************************************************************************************************************************************************************
+2020-06-25 04:57:15,349 p=20955 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"changed": true, "cmd": "zpool export r_system", "delta": "0:00:00.700234", "end": "2020-06-25 04:57:15.334277", "msg": "non-zero return code", "rc": 1, "start": "2020-06-25 04:57:14.634043", "stderr": "cannot export 'r_system': pool is busy", "stderr_lines": ["cannot export 'r_system': pool is busy"], "stdout": "", "stdout_lines": []}
+2020-06-25 04:57:15,489 p=20955 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/5_local_chroot_zfs.retry
+
+2020-06-25 04:57:15,490 p=20955 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 04:57:15,490 p=20955 u=root n=ansible | /mnt/install/              : ok=38   changed=29   unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-06-25 07:50:41,472 p=137261 u=root n=ansible | PLAY [chroot] ***************************************************************************************************************************************************************************************
+2020-06-25 07:50:50,613 p=137261 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 07:50:50,617 p=137261 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"ansible_facts": {}, "changed": false, "failed_modules": {"setup": {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python3"}, "exception": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 87, in _ansiballz_main\n  File \"/usr/lib/python3.8/tempfile.py\", line 487, in mkdtemp\n    prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)\n  File \"/usr/lib/python3.8/tempfile.py\", line 256, in _sanitize_params\n    dir = gettempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 425, in gettempdir\n    tempdir = _get_default_tempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 357, in _get_default_tempdir\n    raise FileNotFoundError(_errno.ENOENT,\nFileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/']\n", "failed": true, "module_stderr": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 87, in _ansiballz_main\n  File \"/usr/lib/python3.8/tempfile.py\", line 487, in mkdtemp\n    prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)\n  File \"/usr/lib/python3.8/tempfile.py\", line 256, in _sanitize_params\n    dir = gettempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 425, in gettempdir\n    tempdir = _get_default_tempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 357, in _get_default_tempdir\n    raise FileNotFoundError(_errno.ENOENT,\nFileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/']\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}}, "msg": "The following modules failed to execute: setup\n"}
+2020-06-25 07:50:50,638 p=137261 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 07:50:50,638 p=137261 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 07:50:50,639 p=137261 u=root n=ansible | /mnt/install/              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 07:52:58,416 p=137494 u=root n=ansible | PLAY [chroot] ***************************************************************************************************************************************************************************************
+2020-06-25 07:52:59,108 p=137494 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 07:52:59,109 p=137494 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"ansible_facts": {}, "changed": false, "failed_modules": {"setup": {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python3"}, "exception": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 87, in _ansiballz_main\n  File \"/usr/lib/python3.8/tempfile.py\", line 487, in mkdtemp\n    prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)\n  File \"/usr/lib/python3.8/tempfile.py\", line 256, in _sanitize_params\n    dir = gettempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 425, in gettempdir\n    tempdir = _get_default_tempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 357, in _get_default_tempdir\n    raise FileNotFoundError(_errno.ENOENT,\nFileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/']\n", "failed": true, "module_stderr": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 87, in _ansiballz_main\n  File \"/usr/lib/python3.8/tempfile.py\", line 487, in mkdtemp\n    prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)\n  File \"/usr/lib/python3.8/tempfile.py\", line 256, in _sanitize_params\n    dir = gettempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 425, in gettempdir\n    tempdir = _get_default_tempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 357, in _get_default_tempdir\n    raise FileNotFoundError(_errno.ENOENT,\nFileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/']\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}}, "msg": "The following modules failed to execute: setup\n"}
+2020-06-25 07:52:59,115 p=137494 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 07:52:59,116 p=137494 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 07:52:59,116 p=137494 u=root n=ansible | /mnt/install/              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 07:53:09,273 p=137556 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 4, column 28, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  mount:
+    path: {{ _installdir }}dev
+                           ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-25 07:53:31,776 p=137644 u=root n=ansible | PLAY [chroot] ***************************************************************************************************************************************************************************************
+2020-06-25 07:53:32,454 p=137644 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 07:53:32,455 p=137644 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"ansible_facts": {}, "changed": false, "failed_modules": {"setup": {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python3"}, "exception": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 87, in _ansiballz_main\n  File \"/usr/lib/python3.8/tempfile.py\", line 487, in mkdtemp\n    prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)\n  File \"/usr/lib/python3.8/tempfile.py\", line 256, in _sanitize_params\n    dir = gettempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 425, in gettempdir\n    tempdir = _get_default_tempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 357, in _get_default_tempdir\n    raise FileNotFoundError(_errno.ENOENT,\nFileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/']\n", "failed": true, "module_stderr": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 87, in _ansiballz_main\n  File \"/usr/lib/python3.8/tempfile.py\", line 487, in mkdtemp\n    prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)\n  File \"/usr/lib/python3.8/tempfile.py\", line 256, in _sanitize_params\n    dir = gettempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 425, in gettempdir\n    tempdir = _get_default_tempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 357, in _get_default_tempdir\n    raise FileNotFoundError(_errno.ENOENT,\nFileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/']\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}}, "msg": "The following modules failed to execute: setup\n"}
+2020-06-25 07:53:32,460 p=137644 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 07:53:32,460 p=137644 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 07:53:32,460 p=137644 u=root n=ansible | /mnt/install/              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 07:56:06,432 p=137952 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 57, column 25, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  with_items:
+   - "{{ _installdir }}"dev"
+                        ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-06-25 07:56:34,672 p=138017 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 07:56:41,529 p=138017 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 07:56:41,530 p=138017 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 07:56:41,769 p=138017 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 07:56:41,769 p=138017 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'ansible.utils.unsafe_proxy.AnsibleUnsafeText object' has no attribute 'name'\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 49, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Unmount All Directories\n  ^ here\n"}
+2020-06-25 07:56:41,774 p=138017 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 07:56:41,774 p=138017 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 07:56:41,775 p=138017 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 07:57:18,727 p=138166 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 07:57:19,857 p=138166 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 07:57:19,859 p=138166 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 07:57:19,918 p=138166 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 07:57:19,919 p=138166 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'ansible.utils.unsafe_proxy.AnsibleUnsafeText object' has no attribute 'name'\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/04-test/tasks/main.yml': line 49, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Unmount All Directories\n  ^ here\n"}
+2020-06-25 07:57:19,924 p=138166 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 07:57:19,924 p=138166 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 07:57:19,924 p=138166 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 07:57:38,717 p=138286 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 07:57:39,613 p=138286 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 07:57:39,613 p=138286 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 07:57:40,018 p=138286 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 07:57:40,019 p=138286 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/dev) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/dev", "msg": "Error unmounting /mnt/install/dev: umount: /mnt/install/dev: target is busy.\n"}
+2020-06-25 07:57:41,167 p=138286 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/proc) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/proc", "msg": "Error unmounting /mnt/install/proc: umount: /mnt/install/proc: target is busy.\n"}
+2020-06-25 07:57:41,358 p=138286 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/sys) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/sys", "msg": "Error unmounting /mnt/install/sys: umount: /mnt/install/sys: target is busy.\n"}
+2020-06-25 07:57:42,776 p=138286 u=root n=ansible | changed: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 07:57:45,415 p=138286 u=root n=ansible | changed: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 07:57:45,421 p=138286 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 07:57:45,421 p=138286 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 07:57:45,421 p=138286 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 07:58:12,916 p=138485 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 07:58:15,672 p=138485 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 07:58:15,672 p=138485 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 07:58:15,996 p=138485 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 07:58:15,996 p=138485 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/dev) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/dev", "msg": "Error unmounting /mnt/install/dev: umount: /mnt/install/dev: target is busy.\n"}
+2020-06-25 07:58:16,138 p=138485 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/proc) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/proc", "msg": "Error unmounting /mnt/install/proc: umount: /mnt/install/proc: target is busy.\n"}
+2020-06-25 07:58:16,268 p=138485 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/sys) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/sys", "msg": "Error unmounting /mnt/install/sys: umount: /mnt/install/sys: target is busy.\n"}
+2020-06-25 07:58:16,435 p=138485 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 07:58:16,563 p=138485 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 07:58:16,569 p=138485 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 07:58:16,569 p=138485 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 07:58:16,569 p=138485 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 07:59:36,352 p=138739 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 07:59:37,095 p=138739 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 07:59:37,096 p=138739 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 07:59:37,399 p=138739 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 07:59:37,400 p=138739 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/dev) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/dev", "msg": "state is present but all of the following are missing: src, fstype"}
+2020-06-25 07:59:37,526 p=138739 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/proc) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/proc", "msg": "state is present but all of the following are missing: src, fstype"}
+2020-06-25 07:59:37,651 p=138739 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/sys) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/sys", "msg": "state is present but all of the following are missing: src, fstype"}
+2020-06-25 07:59:37,793 p=138739 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/boot/efi) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/boot/efi", "msg": "state is present but all of the following are missing: src, fstype"}
+2020-06-25 07:59:37,926 p=138739 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/boot) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/boot", "msg": "state is present but all of the following are missing: src, fstype"}
+2020-06-25 07:59:37,932 p=138739 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 07:59:37,932 p=138739 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 07:59:37,932 p=138739 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 07:59:58,636 p=138861 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 07:59:59,413 p=138861 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 07:59:59,413 p=138861 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 07:59:59,806 p=138861 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 07:59:59,806 p=138861 u=root n=ansible | changed: [local_zfs_root] => (item=/mnt/install/dev)
+2020-06-25 07:59:59,948 p=138861 u=root n=ansible | changed: [local_zfs_root] => (item=/mnt/install/proc)
+2020-06-25 08:00:00,114 p=138861 u=root n=ansible | changed: [local_zfs_root] => (item=/mnt/install/sys)
+2020-06-25 08:00:00,247 p=138861 u=root n=ansible | changed: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 08:00:00,379 p=138861 u=root n=ansible | changed: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 08:00:00,399 p=138861 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 08:00:00,400 p=138861 u=root n=ansible | local_zfs_root             : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:00:28,993 p=139021 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 08:00:29,791 p=139021 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 08:00:29,792 p=139021 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:00:30,094 p=139021 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 08:00:30,095 p=139021 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/dev) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/dev", "msg": "Error unmounting /mnt/install/dev: umount: /mnt/install/dev: target is busy.\n"}
+2020-06-25 08:00:30,240 p=139021 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/proc) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/proc", "msg": "Error unmounting /mnt/install/proc: umount: /mnt/install/proc: target is busy.\n"}
+2020-06-25 08:00:30,388 p=139021 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/sys) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/sys", "msg": "Error unmounting /mnt/install/sys: umount: /mnt/install/sys: target is busy.\n"}
+2020-06-25 08:00:30,521 p=139021 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 08:00:30,652 p=139021 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 08:00:30,658 p=139021 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 08:00:30,658 p=139021 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 08:00:30,658 p=139021 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:05:49,755 p=139474 u=root n=ansible | PLAY [chroot] ***************************************************************************************************************************************************************************************
+2020-06-25 08:05:50,182 p=139474 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 08:05:50,183 p=139474 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"ansible_facts": {}, "changed": false, "failed_modules": {"setup": {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python3"}, "exception": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 87, in _ansiballz_main\n  File \"/usr/lib/python3.8/tempfile.py\", line 487, in mkdtemp\n    prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)\n  File \"/usr/lib/python3.8/tempfile.py\", line 256, in _sanitize_params\n    dir = gettempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 425, in gettempdir\n    tempdir = _get_default_tempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 357, in _get_default_tempdir\n    raise FileNotFoundError(_errno.ENOENT,\nFileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/']\n", "failed": true, "module_stderr": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 87, in _ansiballz_main\n  File \"/usr/lib/python3.8/tempfile.py\", line 487, in mkdtemp\n    prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)\n  File \"/usr/lib/python3.8/tempfile.py\", line 256, in _sanitize_params\n    dir = gettempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 425, in gettempdir\n    tempdir = _get_default_tempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 357, in _get_default_tempdir\n    raise FileNotFoundError(_errno.ENOENT,\nFileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/']\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}}, "msg": "The following modules failed to execute: setup\n"}
+2020-06-25 08:05:50,219 p=139474 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/5_local_chroot_zfs.retry
+
+2020-06-25 08:05:50,219 p=139474 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 08:05:50,219 p=139474 u=root n=ansible | /mnt/install/              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:07:03,686 p=139648 u=root n=ansible | PLAY [chroot] ***************************************************************************************************************************************************************************************
+2020-06-25 08:07:03,990 p=139648 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 08:07:03,991 p=139648 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"ansible_facts": {}, "changed": false, "failed_modules": {"setup": {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python3"}, "exception": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 87, in _ansiballz_main\n  File \"/usr/lib/python3.8/tempfile.py\", line 487, in mkdtemp\n    prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)\n  File \"/usr/lib/python3.8/tempfile.py\", line 256, in _sanitize_params\n    dir = gettempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 425, in gettempdir\n    tempdir = _get_default_tempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 357, in _get_default_tempdir\n    raise FileNotFoundError(_errno.ENOENT,\nFileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/']\n", "failed": true, "module_stderr": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 87, in _ansiballz_main\n  File \"/usr/lib/python3.8/tempfile.py\", line 487, in mkdtemp\n    prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)\n  File \"/usr/lib/python3.8/tempfile.py\", line 256, in _sanitize_params\n    dir = gettempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 425, in gettempdir\n    tempdir = _get_default_tempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 357, in _get_default_tempdir\n    raise FileNotFoundError(_errno.ENOENT,\nFileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/']\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}}, "msg": "The following modules failed to execute: setup\n"}
+2020-06-25 08:07:03,996 p=139648 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/5_local_chroot_zfs.retry
+
+2020-06-25 08:07:03,996 p=139648 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 08:07:03,997 p=139648 u=root n=ansible | /mnt/install/              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:07:15,624 p=139690 u=root n=ansible | PLAY [chroot] ***************************************************************************************************************************************************************************************
+2020-06-25 08:07:15,916 p=139690 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 08:07:15,917 p=139690 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"ansible_facts": {}, "changed": false, "failed_modules": {"setup": {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python3"}, "exception": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 87, in _ansiballz_main\n  File \"/usr/lib/python3.8/tempfile.py\", line 487, in mkdtemp\n    prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)\n  File \"/usr/lib/python3.8/tempfile.py\", line 256, in _sanitize_params\n    dir = gettempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 425, in gettempdir\n    tempdir = _get_default_tempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 357, in _get_default_tempdir\n    raise FileNotFoundError(_errno.ENOENT,\nFileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/']\n", "failed": true, "module_stderr": "Traceback (most recent call last):\n  File \"<stdin>\", line 102, in <module>\n  File \"<stdin>\", line 87, in _ansiballz_main\n  File \"/usr/lib/python3.8/tempfile.py\", line 487, in mkdtemp\n    prefix, suffix, dir, output_type = _sanitize_params(prefix, suffix, dir)\n  File \"/usr/lib/python3.8/tempfile.py\", line 256, in _sanitize_params\n    dir = gettempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 425, in gettempdir\n    tempdir = _get_default_tempdir()\n  File \"/usr/lib/python3.8/tempfile.py\", line 357, in _get_default_tempdir\n    raise FileNotFoundError(_errno.ENOENT,\nFileNotFoundError: [Errno 2] No usable temporary directory found in ['/tmp', '/var/tmp', '/usr/tmp', '/']\n", "module_stdout": "", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}}, "msg": "The following modules failed to execute: setup\n"}
+2020-06-25 08:07:15,921 p=139690 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/5_local_chroot_zfs.retry
+
+2020-06-25 08:07:15,921 p=139690 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 08:07:15,922 p=139690 u=root n=ansible | /mnt/install/              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:09:42,390 p=139898 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 08:09:43,077 p=139898 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 08:09:43,077 p=139898 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:09:43,117 p=139898 u=root n=ansible | TASK [04-test : Print mosh version] *****************************************************************************************************************************************************************
+2020-06-25 08:09:43,117 p=139898 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:09:43,548 p=139898 u=root n=ansible | TASK [04-test : umount dev] *************************************************************************************************************************************************************************
+2020-06-25 08:09:43,551 p=139898 u=root n=ansible | [WARNING]: Consider using the mount module rather than running 'mount'.  If you need to use command because mount is insufficient you can add 'warn: false' to this command task or set
+'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-06-25 08:09:43,552 p=139898 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 08:09:43,832 p=139898 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 08:09:43,832 p=139898 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 08:09:43,975 p=139898 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 08:09:43,993 p=139898 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 08:09:43,994 p=139898 u=root n=ansible | local_zfs_root             : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:10:27,363 p=140065 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 08:10:28,079 p=140065 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 08:10:28,080 p=140065 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:10:28,109 p=140065 u=root n=ansible | TASK [04-test : Print mosh version] *****************************************************************************************************************************************************************
+2020-06-25 08:10:28,111 p=140065 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:10:28,436 p=140065 u=root n=ansible | TASK [04-test : umount dev] *************************************************************************************************************************************************************************
+2020-06-25 08:10:28,437 p=140065 u=root n=ansible | [WARNING]: Consider using the mount module rather than running 'mount'.  If you need to use command because mount is insufficient you can add 'warn: false' to this command task or set
+'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-06-25 08:10:28,437 p=140065 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 08:10:28,783 p=140065 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 08:10:28,783 p=140065 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 08:10:28,923 p=140065 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 08:10:29,426 p=140065 u=root n=ansible | TASK [04-test : export all zpool] *******************************************************************************************************************************************************************
+2020-06-25 08:10:29,427 p=140065 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "zpool export r_system", "delta": "0:00:00.319648", "end": "2020-06-25 08:10:29.396037", "msg": "non-zero return code", "rc": 1, "start": "2020-06-25 08:10:29.076389", "stderr": "umount: /mnt/install: target is busy.\ncannot unmount '/mnt/install': umount failed", "stderr_lines": ["umount: /mnt/install: target is busy.", "cannot unmount '/mnt/install': umount failed"], "stdout": "", "stdout_lines": []}
+2020-06-25 08:10:29,474 p=140065 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 08:10:29,474 p=140065 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 08:10:29,479 p=140065 u=root n=ansible | local_zfs_root             : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:11:29,581 p=140260 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 08:11:30,256 p=140260 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 08:11:30,257 p=140260 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:11:30,284 p=140260 u=root n=ansible | TASK [04-test : Print mosh version] *****************************************************************************************************************************************************************
+2020-06-25 08:11:30,284 p=140260 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:11:30,527 p=140260 u=root n=ansible | TASK [04-test : umount dev] *************************************************************************************************************************************************************************
+2020-06-25 08:11:30,528 p=140260 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 08:11:30,807 p=140260 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 08:11:30,808 p=140260 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 08:11:31,081 p=140260 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 08:11:31,314 p=140260 u=root n=ansible | TASK [04-test : export all zpool] *******************************************************************************************************************************************************************
+2020-06-25 08:11:31,315 p=140260 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "zpool export r_system", "delta": "0:00:00.061756", "end": "2020-06-25 08:11:31.286779", "msg": "non-zero return code", "rc": 1, "start": "2020-06-25 08:11:31.225023", "stderr": "umount: /mnt/install: target is busy.\ncannot unmount '/mnt/install': umount failed", "stderr_lines": ["umount: /mnt/install: target is busy.", "cannot unmount '/mnt/install': umount failed"], "stdout": "", "stdout_lines": []}
+2020-06-25 08:11:31,321 p=140260 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 08:11:31,321 p=140260 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 08:11:31,321 p=140260 u=root n=ansible | local_zfs_root             : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:12:35,729 p=140465 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 08:12:36,479 p=140465 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 08:12:36,480 p=140465 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:12:36,505 p=140465 u=root n=ansible | TASK [04-test : Print mosh version] *****************************************************************************************************************************************************************
+2020-06-25 08:12:36,506 p=140465 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:12:36,747 p=140465 u=root n=ansible | TASK [04-test : umount dev] *************************************************************************************************************************************************************************
+2020-06-25 08:12:36,747 p=140465 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 08:12:37,085 p=140465 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 08:12:37,085 p=140465 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 08:12:37,206 p=140465 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 08:12:37,366 p=140465 u=root n=ansible | TASK [04-test : export all zpool] *******************************************************************************************************************************************************************
+2020-06-25 08:12:37,367 p=140465 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "zpool export r_system", "delta": "0:00:00.006956", "end": "2020-06-25 08:12:37.355097", "msg": "non-zero return code", "rc": 1, "start": "2020-06-25 08:12:37.348141", "stderr": "umount: /mnt/install: target is busy.\ncannot unmount '/mnt/install': umount failed", "stderr_lines": ["umount: /mnt/install: target is busy.", "cannot unmount '/mnt/install': umount failed"], "stdout": "", "stdout_lines": []}
+2020-06-25 08:12:37,371 p=140465 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 08:12:37,372 p=140465 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 08:12:37,372 p=140465 u=root n=ansible | local_zfs_root             : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:13:14,276 p=140640 u=root n=ansible | PLAY [live] *****************************************************************************************************************************************************************************************
+2020-06-25 08:13:15,072 p=140640 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2020-06-25 08:13:15,073 p=140640 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:13:15,100 p=140640 u=root n=ansible | TASK [04-test : Print mosh version] *****************************************************************************************************************************************************************
+2020-06-25 08:13:15,100 p=140640 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:13:15,340 p=140640 u=root n=ansible | TASK [04-test : umount dev] *************************************************************************************************************************************************************************
+2020-06-25 08:13:15,340 p=140640 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 08:13:15,611 p=140640 u=root n=ansible | TASK [04-test : Unmount All Directories] ************************************************************************************************************************************************************
+2020-06-25 08:13:15,611 p=140640 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/dev) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/dev", "msg": "Error unmounting /mnt/install/dev: umount: /mnt/install/dev: target is busy.\n"}
+2020-06-25 08:13:15,739 p=140640 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/proc) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/proc", "msg": "Error unmounting /mnt/install/proc: umount: /mnt/install/proc: target is busy.\n"}
+2020-06-25 08:13:15,857 p=140640 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/sys) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/sys", "msg": "Error unmounting /mnt/install/sys: umount: /mnt/install/sys: target is busy.\n"}
+2020-06-25 08:13:15,977 p=140640 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 08:13:16,118 p=140640 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 08:13:16,123 p=140640 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 08:13:16,123 p=140640 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2020-06-25 08:13:16,124 p=140640 u=root n=ansible | local_zfs_root             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:13:28,562 p=140750 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:13:29,287 p=140750 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 08:13:29,288 p=140750 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:13:29,316 p=140750 u=root n=ansible | TASK [04-test : Print mosh version] *********************************************************************************************************************************************************************************************************
+2020-06-25 08:13:29,317 p=140750 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:13:29,612 p=140750 u=root n=ansible | TASK [04-test : umount dev] *****************************************************************************************************************************************************************************************************************
+2020-06-25 08:13:29,613 p=140750 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 08:13:29,898 p=140750 u=root n=ansible | TASK [04-test : Unmount All Directories] ****************************************************************************************************************************************************************************************************
+2020-06-25 08:13:29,899 p=140750 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/dev) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/dev", "msg": "Error unmounting /mnt/install/dev: umount: /mnt/install/dev: target is busy.\n"}
+2020-06-25 08:13:30,022 p=140750 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/proc) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/proc", "msg": "Error unmounting /mnt/install/proc: umount: /mnt/install/proc: target is busy.\n"}
+2020-06-25 08:13:30,149 p=140750 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/sys) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/sys", "msg": "Error unmounting /mnt/install/sys: umount: /mnt/install/sys: target is busy.\n"}
+2020-06-25 08:13:30,269 p=140750 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 08:13:30,389 p=140750 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 08:13:30,394 p=140750 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_chroot_test.retry
+
+2020-06-25 08:13:30,394 p=140750 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:13:30,395 p=140750 u=root n=ansible | local_zfs_root             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:16:49,099 p=141071 u=root n=ansible | ERROR! the playbook: playbooks/6_local_chroot_test could not be found
+2020-06-25 08:16:54,394 p=141095 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:16:55,044 p=141095 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 08:16:55,045 p=141095 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:16:55,074 p=141095 u=root n=ansible | TASK [04-test : Print mosh version] *********************************************************************************************************************************************************************************************************
+2020-06-25 08:16:55,083 p=141095 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:16:55,344 p=141095 u=root n=ansible | TASK [04-test : umount dev] *****************************************************************************************************************************************************************************************************************
+2020-06-25 08:16:55,344 p=141095 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 08:16:55,632 p=141095 u=root n=ansible | TASK [04-test : Unmount All Directories] ****************************************************************************************************************************************************************************************************
+2020-06-25 08:16:55,632 p=141095 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/dev) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/dev", "msg": "Error unmounting /mnt/install/dev: umount: /mnt/install/dev: target is busy.\n"}
+2020-06-25 08:16:55,764 p=141095 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/proc) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/proc", "msg": "Error unmounting /mnt/install/proc: umount: /mnt/install/proc: target is busy.\n"}
+2020-06-25 08:16:55,888 p=141095 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/sys) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/sys", "msg": "Error unmounting /mnt/install/sys: umount: /mnt/install/sys: target is busy.\n"}
+2020-06-25 08:16:56,009 p=141095 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 08:16:56,139 p=141095 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 08:16:56,165 p=141095 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 08:16:56,166 p=141095 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:16:56,166 p=141095 u=root n=ansible | local_zfs_root             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:17:18,048 p=141276 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:17:18,725 p=141276 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 08:17:18,725 p=141276 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:17:18,757 p=141276 u=root n=ansible | TASK [04-test : Print mosh version] *********************************************************************************************************************************************************************************************************
+2020-06-25 08:17:18,757 p=141276 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:17:18,995 p=141276 u=root n=ansible | TASK [04-test : umount dev] *****************************************************************************************************************************************************************************************************************
+2020-06-25 08:17:18,995 p=141276 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 08:17:19,281 p=141276 u=root n=ansible | TASK [04-test : Unmount All Directories] ****************************************************************************************************************************************************************************************************
+2020-06-25 08:17:19,282 p=141276 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/dev) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/dev", "msg": "Error unmounting /mnt/install/dev: umount: /mnt/install/dev: target is busy.\n"}
+2020-06-25 08:17:20,433 p=141276 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/proc) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/proc", "msg": "Error unmounting /mnt/install/proc: umount: /mnt/install/proc: target is busy.\n"}
+2020-06-25 08:17:21,636 p=141276 u=root n=ansible | failed: [local_zfs_root] (item=/mnt/install/sys) => {"ansible_loop_var": "item", "changed": false, "item": "/mnt/install/sys", "msg": "Error unmounting /mnt/install/sys: umount: /mnt/install/sys: target is busy.\n"}
+2020-06-25 08:17:21,771 p=141276 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 08:17:21,906 p=141276 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 08:17:21,911 p=141276 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 08:17:21,912 p=141276 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:17:21,912 p=141276 u=root n=ansible | local_zfs_root             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:17:37,752 p=141478 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:17:38,489 p=141478 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 08:17:38,490 p=141478 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:17:38,517 p=141478 u=root n=ansible | TASK [04-test : Print mosh version] *********************************************************************************************************************************************************************************************************
+2020-06-25 08:17:38,517 p=141478 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:17:38,755 p=141478 u=root n=ansible | TASK [04-test : umount dev] *****************************************************************************************************************************************************************************************************************
+2020-06-25 08:17:38,756 p=141478 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 08:17:39,029 p=141478 u=root n=ansible | TASK [04-test : Unmount All Directories] ****************************************************************************************************************************************************************************************************
+2020-06-25 08:17:39,030 p=141478 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 08:17:39,153 p=141478 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 08:17:39,395 p=141478 u=root n=ansible | TASK [04-test : Umount devssssssssssssss] ***************************************************************************************************************************************************************************************************
+2020-06-25 08:17:39,395 p=141478 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 08:17:40,096 p=141478 u=root n=ansible | TASK [04-test : export all zpool] ***********************************************************************************************************************************************************************************************************
+2020-06-25 08:17:40,097 p=141478 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "zpool export r_system", "delta": "0:00:00.227887", "end": "2020-06-25 08:17:39.821898", "msg": "non-zero return code", "rc": 1, "start": "2020-06-25 08:17:39.594011", "stderr": "umount: /mnt/install: target is busy.\ncannot unmount '/mnt/install': umount failed", "stderr_lines": ["umount: /mnt/install: target is busy.", "cannot unmount '/mnt/install': umount failed"], "stdout": "", "stdout_lines": []}
+2020-06-25 08:17:40,129 p=141478 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 08:17:40,129 p=141478 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:17:40,130 p=141478 u=root n=ansible | local_zfs_root             : ok=5    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:19:05,086 p=141701 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:19:05,782 p=141701 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 08:19:05,783 p=141701 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:19:05,811 p=141701 u=root n=ansible | TASK [04-test : Print mosh version] *********************************************************************************************************************************************************************************************************
+2020-06-25 08:19:05,811 p=141701 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:19:06,088 p=141701 u=root n=ansible | TASK [04-test : Umount dev] *****************************************************************************************************************************************************************************************************************
+2020-06-25 08:19:06,088 p=141701 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "umount -l /mnt/install/dev/", "delta": "0:00:00.015830", "end": "2020-06-25 08:19:06.075627", "msg": "non-zero return code", "rc": 32, "start": "2020-06-25 08:19:06.059797", "stderr": "umount: /mnt/install/dev/: not mounted.", "stderr_lines": ["umount: /mnt/install/dev/: not mounted."], "stdout": "", "stdout_lines": []}
+2020-06-25 08:19:06,093 p=141701 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 08:19:06,093 p=141701 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:19:06,093 p=141701 u=root n=ansible | local_zfs_root             : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:19:21,344 p=141796 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:19:22,075 p=141796 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 08:19:22,076 p=141796 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:19:22,102 p=141796 u=root n=ansible | TASK [04-test : Print mosh version] *********************************************************************************************************************************************************************************************************
+2020-06-25 08:19:22,103 p=141796 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:19:22,407 p=141796 u=root n=ansible | TASK [04-test : Umount devs] ****************************************************************************************************************************************************************************************************************
+2020-06-25 08:19:22,407 p=141796 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "umount -l /mnt/install/dev/", "delta": "0:00:00.004034", "end": "2020-06-25 08:19:22.394748", "msg": "non-zero return code", "rc": 32, "start": "2020-06-25 08:19:22.390714", "stderr": "umount: /mnt/install/dev/: not mounted.", "stderr_lines": ["umount: /mnt/install/dev/: not mounted."], "stdout": "", "stdout_lines": []}
+2020-06-25 08:19:22,415 p=141796 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 08:19:22,416 p=141796 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:19:22,416 p=141796 u=root n=ansible | local_zfs_root             : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:19:40,717 p=141914 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:19:41,473 p=141914 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 08:19:41,473 p=141914 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:19:41,501 p=141914 u=root n=ansible | TASK [04-test : Print mosh version] *********************************************************************************************************************************************************************************************************
+2020-06-25 08:19:41,501 p=141914 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:19:41,883 p=141914 u=root n=ansible | TASK [04-test : Umount proc] ****************************************************************************************************************************************************************************************************************
+2020-06-25 08:19:41,909 p=141914 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 08:19:43,122 p=141914 u=root n=ansible | TASK [04-test : Umount sys] *****************************************************************************************************************************************************************************************************************
+2020-06-25 08:19:43,126 p=141914 u=root n=ansible | changed: [local_zfs_root]
+2020-06-25 08:19:43,468 p=141914 u=root n=ansible | TASK [04-test : Unmount All Directories] ****************************************************************************************************************************************************************************************************
+2020-06-25 08:19:43,469 p=141914 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 08:19:43,589 p=141914 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 08:19:43,781 p=141914 u=root n=ansible | TASK [04-test : Umount devssssssssssssss] ***************************************************************************************************************************************************************************************************
+2020-06-25 08:19:43,781 p=141914 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "umount -l /mnt/install/dev/", "delta": "0:00:00.003961", "end": "2020-06-25 08:19:43.767006", "msg": "non-zero return code", "rc": 32, "start": "2020-06-25 08:19:43.763045", "stderr": "umount: /mnt/install/dev/: not mounted.", "stderr_lines": ["umount: /mnt/install/dev/: not mounted."], "stdout": "", "stdout_lines": []}
+2020-06-25 08:19:43,788 p=141914 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 08:19:43,788 p=141914 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:19:43,788 p=141914 u=root n=ansible | local_zfs_root             : ok=5    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:20:14,152 p=142062 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:20:14,809 p=142062 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 08:20:14,810 p=142062 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:20:14,838 p=142062 u=root n=ansible | TASK [04-test : Print mosh version] *********************************************************************************************************************************************************************************************************
+2020-06-25 08:20:14,838 p=142062 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:20:15,107 p=142062 u=root n=ansible | TASK [04-test : Umount proc] ****************************************************************************************************************************************************************************************************************
+2020-06-25 08:20:15,108 p=142062 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "umount -l /mnt/install/proc/", "delta": "0:00:00.004050", "end": "2020-06-25 08:20:15.094049", "msg": "non-zero return code", "rc": 32, "start": "2020-06-25 08:20:15.089999", "stderr": "umount: /mnt/install/proc/: not mounted.", "stderr_lines": ["umount: /mnt/install/proc/: not mounted."], "stdout": "", "stdout_lines": []}
+2020-06-25 08:20:15,113 p=142062 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/6_local_test.retry
+
+2020-06-25 08:20:15,113 p=142062 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:20:15,113 p=142062 u=root n=ansible | local_zfs_root             : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-25 08:21:00,601 p=142229 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-06-25 08:21:06,481 p=142229 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-06-25 08:21:06,482 p=142229 u=root n=ansible | ok: [local_zfs_root]
+2020-06-25 08:21:06,516 p=142229 u=root n=ansible | TASK [04-test : Print test message] *********************************************************************************************************************************************************************************************************
+2020-06-25 08:21:06,517 p=142229 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": " ELSO mount | grep -v zfs | tac | awk '//mnt/ {print $3}' | xargs -i{} umount -lf {}"
+}
+2020-06-25 08:21:06,756 p=142229 u=root n=ansible | TASK [04-test : Unmount All Directories] ****************************************************************************************************************************************************************************************************
+2020-06-25 08:21:06,757 p=142229 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot/efi)
+2020-06-25 08:21:06,888 p=142229 u=root n=ansible | ok: [local_zfs_root] => (item=/mnt/install/boot)
+2020-06-25 08:23:47,140 p=142229 u=root n=ansible |  [ERROR]: User interrupted execution
+
