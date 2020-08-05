@@ -15,7 +15,8 @@ _root_pool_type: ""
 _legacy_device_nodes: false
 _installdir: /mnt/install/
 _root_disks:
-  - sdf
+  - sda
+
 #debug:
 # msg: "DISK {{ _root_disks }} "
 # _data_disks: [sdc, sdd]

@@ -16,5 +16,5 @@
       confirm: yes
 
   roles:
-#    - role: 02-chroot
+    - role: 02-chroot
     - role: 03-chroot-final
