@@ -6,7 +6,7 @@
 # - Customize virtualbox config
 # Goal: Make the system working
 
-- hosts: live
+- hosts: local
 #- hosts: targets
   user: root
 

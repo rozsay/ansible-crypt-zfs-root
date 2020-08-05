@@ -1,5 +1,5 @@
 ---
-- hosts: live
+- hosts: local
   connection: local
   roles:
 #    - role: 02-chroot
