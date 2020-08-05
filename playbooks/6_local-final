@@ -1,0 +1,5 @@
+---
+- hosts: live
+  connection: local
+  roles:
+    - role: 04-local-final

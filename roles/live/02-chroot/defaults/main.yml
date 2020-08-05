@@ -5,7 +5,7 @@ _swap: true
 _root_pool: r_system
 _installdir: /mnt/install/
 _root_disks:
-  - sdf
+  - sda
 
 _swap_opts:
   volsize: 1G

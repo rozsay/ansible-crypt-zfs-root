@@ -204,3 +204,7 @@
 #  register: is_softneedinstalled
 #  become: yes
   become: true
+- name: Create a snapshot of {{_root_pool }}/root file system.
+  zfs:
+    name: "{{ _root_pool }}/root@{{ ansible_date_time.date }}install2"
+    state: present
