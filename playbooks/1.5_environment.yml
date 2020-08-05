@@ -10,4 +10,4 @@
   user: root
 
   roles:
-    - role: 04-netplan-networking
+    - role: 05-environment
