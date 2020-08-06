@@ -42,7 +42,7 @@ kodi_gecos: 'kodi.org'
 # Gui Settings
 kodi_webserver_enable: true
 kodi_webserver_username: 'kodi'
-#kodi_webserver_password: 'kodi'
+kodi_webserver_password: 'kodi'
 kodi_webserver_port: '8080'
 
 kodi_zeroconf_enable: false
