@@ -10,4 +10,4 @@
   user: root
 
   roles:
-    - role: 07-service
+    - role: 07-services

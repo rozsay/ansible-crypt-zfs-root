@@ -31,10 +31,10 @@
   changed_when: false
   tags: samba
 
-# - name: "Installed Samba version:"
-#   debug:
-#     msg: "{{ samba_version }}"
-#   tags: samba
+- name: "Installed Samba version:"
+  debug:
+    msg: "{{ samba_version }}"
+  tags: samba
 
 - name: Install SELinux package
   package:
@@ -52,15 +52,15 @@
   when: ansible_selinux is defined and ansible_selinux.status == 'enabled'
   tags: samba
 
-- name: Create Samba shares root directory
-  file:
-    state: directory
-    path: "{{ samba_shares_root }}"
-    owner: root
-    group: root
-    mode: '0755'
-  when: samba_shares|length > 0
-  tags: samba
+#- name: Create Samba shares root directory
+#  file:
+#    state: directory
+#    path: "{{ samba_shares_root }}"
+#    owner: root
+#    group: root
+#    mode: '0755'
+#  when: samba_shares|length > 0
+#  tags: samba
 
 - name: Create share directories
   with_items: "{{ samba_shares }}"

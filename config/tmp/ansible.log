@@ -11615,3 +11615,298 @@ the correct permissions manually
 2020-08-05 10:44:44,652 p=37056 u=root n=ansible | changed: [local_zfs_root]
 2020-08-05 10:44:44,670 p=37056 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
 2020-08-05 10:44:44,671 p=37056 u=root n=ansible | local_zfs_root             : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-08-06 04:44:17,759 p=1943 u=root n=ansible | PLAY [local] *******************************************************************************************************************************************************************
+2020-08-06 04:44:20,521 p=1943 u=root n=ansible | TASK [Gathering Facts] *********************************************************************************************************************************************************
+2020-08-06 04:44:20,522 p=1943 u=root n=ansible | ok: [local_user]
+2020-08-06 04:44:42,153 p=1943 u=root n=ansible | TASK [05-environment : install cryptsetup] *************************************************************************************************************************************
+2020-08-06 04:44:42,154 p=1943 u=root n=ansible | changed: [local_user]
+2020-08-06 04:44:42,701 p=1943 u=root n=ansible | TASK [05-environment : Collect only facts about hardware] **********************************************************************************************************************
+2020-08-06 04:44:42,701 p=1943 u=root n=ansible | ok: [local_user]
+2020-08-06 04:44:44,231 p=1943 u=root n=ansible | TASK [05-environment : Output disks] *******************************************************************************************************************************************
+2020-08-06 04:44:44,231 p=1943 u=root n=ansible | ok: [local_user] => {
+    "hostvars[inventory_hostname].ansible_devices.keys() | map('regex_search', 'sd.*') | select('string') | list": [
+        "sdd",
+        "sdb",
+        "sdc",
+        "sda"
+    ]
+}
+2020-08-06 04:44:44,520 p=1943 u=root n=ansible | TASK [05-environment : data1500 check directory.] ******************************************************************************************************************************
+2020-08-06 04:44:44,521 p=1943 u=root n=ansible | ok: [local_user]
+2020-08-06 04:44:44,876 p=1943 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists] *****************************************************************************************************************
+2020-08-06 04:44:44,876 p=1943 u=root n=ansible | changed: [local_user]
+2020-08-06 04:44:46,174 p=1943 u=root n=ansible | TASK [05-environment : Mounts data1500] ****************************************************************************************************************************************
+2020-08-06 04:44:46,175 p=1943 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/data1500: mount: /mnt/data1500: special device /dev/sdb1 does not exist.\n"}
+2020-08-06 04:44:46,175 p=1943 u=root n=ansible | ...ignoring
+2020-08-06 04:44:46,311 p=1943 u=root n=ansible | TASK [05-environment : data2000 check directory.] ******************************************************************************************************************************
+2020-08-06 04:44:46,311 p=1943 u=root n=ansible | ok: [local_user]
+2020-08-06 04:44:46,537 p=1943 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists] *****************************************************************************************************************
+2020-08-06 04:44:46,537 p=1943 u=root n=ansible | changed: [local_user]
+2020-08-06 04:44:46,685 p=1943 u=root n=ansible | TASK [05-environment : Mounts data2000] ****************************************************************************************************************************************
+2020-08-06 04:44:46,685 p=1943 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/data2000: mount: /mnt/data2000: special device /dev/sdc1 does not exist.\n"}
+2020-08-06 04:44:46,685 p=1943 u=root n=ansible | ...ignoring
+2020-08-06 04:44:46,822 p=1943 u=root n=ansible | TASK [05-environment : data2000new check directory.] ***************************************************************************************************************************
+2020-08-06 04:44:46,823 p=1943 u=root n=ansible | ok: [local_user]
+2020-08-06 04:44:47,056 p=1943 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists] *****************************************************************************************************************
+2020-08-06 04:44:47,057 p=1943 u=root n=ansible | changed: [local_user]
+2020-08-06 04:44:47,213 p=1943 u=root n=ansible | TASK [05-environment : Mounts data2000-new] ************************************************************************************************************************************
+2020-08-06 04:44:47,214 p=1943 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/data2000-new: mount: /mnt/data2000-new: special device /dev/sdd1 does not exist.\n"}
+2020-08-06 04:44:47,214 p=1943 u=root n=ansible | ...ignoring
+2020-08-06 04:44:47,233 p=1943 u=root n=ansible | PLAY RECAP *********************************************************************************************************************************************************************
+2020-08-06 04:44:47,233 p=1943 u=root n=ansible | local_user                 : ok=13   changed=4    unreachable=0    failed=0    skipped=3    rescued=0    ignored=3   
+2020-08-06 04:45:57,478 p=2736 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************************
+2020-08-06 04:45:58,198 p=2736 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************************
+2020-08-06 04:45:58,199 p=2736 u=root n=ansible | ok: [local_user]
+2020-08-06 04:45:59,058 p=2736 u=root n=ansible | TASK [05-environment : install cryptsetup] *****************************************************************************************************************************************************************************************
+2020-08-06 04:45:59,058 p=2736 u=root n=ansible | ok: [local_user]
+2020-08-06 04:45:59,539 p=2736 u=root n=ansible | TASK [05-environment : Collect only facts about hardware] **************************************************************************************************************************************************************************
+2020-08-06 04:45:59,540 p=2736 u=root n=ansible | ok: [local_user]
+2020-08-06 04:45:59,594 p=2736 u=root n=ansible | TASK [05-environment : Output disks] ***********************************************************************************************************************************************************************************************
+2020-08-06 04:45:59,595 p=2736 u=root n=ansible | ok: [local_user] => {
+    "hostvars[inventory_hostname].ansible_devices.keys() | map('regex_search', 'sd.*') | select('string') | list": [
+        "sdd",
+        "sdb",
+        "sdc",
+        "sda"
+    ]
+}
+2020-08-06 04:45:59,814 p=2736 u=root n=ansible | TASK [05-environment : data1500 check directory.] **********************************************************************************************************************************************************************************
+2020-08-06 04:45:59,814 p=2736 u=root n=ansible | ok: [local_user]
+2020-08-06 04:45:59,860 p=2736 u=root n=ansible | TASK [05-environment : echo if directory already existed] **************************************************************************************************************************************************************************
+2020-08-06 04:45:59,861 p=2736 u=root n=ansible | ok: [local_user] => {
+    "msg": "the /mnt/data1500 is already existed"
+}
+2020-08-06 04:46:00,131 p=2736 u=root n=ansible | TASK [05-environment : Mounts data1500] ********************************************************************************************************************************************************************************************
+2020-08-06 04:46:00,132 p=2736 u=root n=ansible | changed: [local_user]
+2020-08-06 04:46:00,273 p=2736 u=root n=ansible | TASK [05-environment : data2000 check directory.] **********************************************************************************************************************************************************************************
+2020-08-06 04:46:00,273 p=2736 u=root n=ansible | ok: [local_user]
+2020-08-06 04:46:00,319 p=2736 u=root n=ansible | TASK [05-environment : echo if directory already existed] **************************************************************************************************************************************************************************
+2020-08-06 04:46:00,320 p=2736 u=root n=ansible | ok: [local_user] => {
+    "msg": "the /mnt/data2000 is already existed"
+}
+2020-08-06 04:46:00,505 p=2736 u=root n=ansible | TASK [05-environment : Mounts data2000] ********************************************************************************************************************************************************************************************
+2020-08-06 04:46:00,506 p=2736 u=root n=ansible | changed: [local_user]
+2020-08-06 04:46:00,647 p=2736 u=root n=ansible | TASK [05-environment : data2000new check directory.] *******************************************************************************************************************************************************************************
+2020-08-06 04:46:00,648 p=2736 u=root n=ansible | ok: [local_user]
+2020-08-06 04:46:00,694 p=2736 u=root n=ansible | TASK [05-environment : echo if directory already existed] **************************************************************************************************************************************************************************
+2020-08-06 04:46:00,695 p=2736 u=root n=ansible | ok: [local_user] => {
+    "msg": "the /mnt/data2000-new is already existed"
+}
+2020-08-06 04:46:00,882 p=2736 u=root n=ansible | TASK [05-environment : Mounts data2000-new] ****************************************************************************************************************************************************************************************
+2020-08-06 04:46:00,883 p=2736 u=root n=ansible | changed: [local_user]
+2020-08-06 04:46:00,902 p=2736 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************************
+2020-08-06 04:46:00,902 p=2736 u=root n=ansible | local_user                 : ok=13   changed=3    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2020-08-06 04:47:59,959 p=3339 u=root n=ansible | ERROR! the role '07-service' was not found in /opt/ansible-crypt-zfs-root/playbooks/roles:/opt/ansible-crypt-zfs-root/roles/local:/opt/ansible-crypt-zfs-root/roles/live:/opt/ansible-crypt-zfs-root/roles/targets:/opt/ansible-crypt-zfs-root/roles/profiles:/opt/ansible-crypt-zfs-root/roles/vendors:/opt/ansible-crypt-zfs-root/playbooks
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/playbooks/1.7_service.yml': line 13, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - role: 07-service
+      ^ here
+
+2020-08-06 04:48:28,356 p=3416 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************************
+2020-08-06 04:48:30,094 p=3416 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************************
+2020-08-06 04:48:30,095 p=3416 u=root n=ansible | ok: [local_user]
+2020-08-06 04:48:30,407 p=3416 u=root n=ansible | TASK [07-services : TimeZone | Check the Current Timezone] *************************************************************************************************************************************************************************
+2020-08-06 04:48:30,408 p=3416 u=root n=ansible | ok: [local_user]
+2020-08-06 04:48:30,439 p=3472 u=root n=ansible | [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: current_timezone.stdout != '{{ timezone }}'
+
+2020-08-06 04:48:30,468 p=3416 u=root n=ansible | TASK [07-services : TimeZone | Set the provided Timezone] **************************************************************************************************************************************************************************
+2020-08-06 04:48:30,469 p=3416 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The conditional check 'current_timezone.stdout != '{{ timezone }}'' failed. The error was: error while evaluating conditional (current_timezone.stdout != '{{ timezone }}'): 'timezone' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/07-services/tasks/timezone.yml': line 7, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: TimeZone | Set the provided Timezone\n  ^ here\n"}
+2020-08-06 04:48:30,473 p=3416 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.7_service.retry
+
+2020-08-06 04:48:30,474 p=3416 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************************
+2020-08-06 04:48:30,474 p=3416 u=root n=ansible | local_user                 : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-08-06 04:48:57,548 p=3542 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************************
+2020-08-06 04:48:58,272 p=3542 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************************
+2020-08-06 04:48:58,273 p=3542 u=root n=ansible | ok: [local_user]
+2020-08-06 04:49:05,007 p=3542 u=root n=ansible | TASK [07-services : Security_Updates | Ensure "unattended-upgrades" is at the latest version] **************************************************************************************************************************************
+2020-08-06 04:49:05,007 p=3542 u=root n=ansible | ok: [local_user]
+2020-08-06 04:49:05,623 p=3542 u=root n=ansible | TASK [07-services : Security_Updates | Copy the "10periodic.j2" to the "/etc/apt/apt.conf.d/"] *************************************************************************************************************************************
+2020-08-06 04:49:05,623 p=3542 u=root n=ansible | changed: [local_user]
+2020-08-06 04:49:05,934 p=3542 u=root n=ansible | TASK [07-services : Security_Updates | Copy the "50unattended-upgrades.j2" to the "/etc/apt/apt.conf.d/"] **************************************************************************************************************************
+2020-08-06 04:49:05,935 p=3542 u=root n=ansible | changed: [local_user]
+2020-08-06 04:49:05,953 p=3542 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************************
+2020-08-06 04:49:05,954 p=3542 u=root n=ansible | local_user                 : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-08-06 04:50:25,245 p=4259 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************************
+2020-08-06 04:50:26,005 p=4259 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************************
+2020-08-06 04:50:26,006 p=4259 u=root n=ansible | ok: [local_user]
+2020-08-06 04:50:41,998 p=4259 u=root n=ansible | TASK [081-transmission : Install Transmission] *************************************************************************************************************************************************************************************
+2020-08-06 04:50:41,998 p=4259 u=root n=ansible | changed: [local_user]
+2020-08-06 04:50:42,965 p=4259 u=root n=ansible | TASK [081-transmission : Make sure transmission is not running] ********************************************************************************************************************************************************************
+2020-08-06 04:50:42,966 p=4259 u=root n=ansible | changed: [local_user]
+2020-08-06 04:50:43,036 p=4259 u=root n=ansible | TASK [081-transmission : grep and register] ****************************************************************************************************************************************************************************************
+2020-08-06 04:50:43,037 p=4259 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'user_name' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/081-transmission/tasks/main.yml': line 17, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: grep and register\n  ^ here\n"}
+2020-08-06 04:50:43,042 p=4259 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.8.1_transmission.retry
+
+2020-08-06 04:50:43,042 p=4259 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************************
+2020-08-06 04:50:43,042 p=4259 u=root n=ansible | local_user                 : ok=3    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-08-06 04:56:04,362 p=5375 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************************
+2020-08-06 04:56:05,140 p=5375 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************************
+2020-08-06 04:56:05,141 p=5375 u=root n=ansible | ok: [local_user]
+2020-08-06 04:56:05,933 p=5375 u=root n=ansible | TASK [081-transmission : Install Transmission] *************************************************************************************************************************************************************************************
+2020-08-06 04:56:05,933 p=5375 u=root n=ansible | ok: [local_user]
+2020-08-06 04:56:06,382 p=5375 u=root n=ansible | TASK [081-transmission : Make sure transmission is not running] ********************************************************************************************************************************************************************
+2020-08-06 04:56:06,383 p=5375 u=root n=ansible | ok: [local_user]
+2020-08-06 04:56:06,629 p=5375 u=root n=ansible | TASK [081-transmission : grep and register] ****************************************************************************************************************************************************************************************
+2020-08-06 04:56:06,629 p=5375 u=root n=ansible | ok: [local_user]
+2020-08-06 04:56:06,869 p=5375 u=root n=ansible | TASK [081-transmission : Add downloads folder] *************************************************************************************************************************************************************************************
+2020-08-06 04:56:06,869 p=5375 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "gid": 0, "group": "root", "mode": "0755", "msg": "chown failed: failed to look up user  sa", "owner": "root", "path": "/mnt/data2000-new/torrents", "size": 4096, "state": "directory", "uid": 0}
+2020-08-06 04:56:06,869 p=5375 u=root n=ansible | ...ignoring
+2020-08-06 04:56:07,031 p=5375 u=root n=ansible | TASK [081-transmission : Add watch dir] ********************************************************************************************************************************************************************************************
+2020-08-06 04:56:07,032 p=5375 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "gid": 0, "group": "root", "mode": "0755", "msg": "chown failed: failed to look up user  sa", "owner": "root", "path": "/root/torrents", "size": 2, "state": "directory", "uid": 0}
+2020-08-06 04:56:07,036 p=5375 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.8.1_transmission.retry
+
+2020-08-06 04:56:07,037 p=5375 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************************
+2020-08-06 04:56:07,037 p=5375 u=root n=ansible | local_user                 : ok=5    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=1   
+2020-08-06 04:58:29,434 p=5761 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************************
+2020-08-06 04:58:30,166 p=5761 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************************
+2020-08-06 04:58:30,166 p=5761 u=root n=ansible | ok: [local_user]
+2020-08-06 04:58:30,246 p=5761 u=root n=ansible | TASK [08-samba : Include OS specific variables] ************************************************************************************************************************************************************************************
+2020-08-06 04:58:30,247 p=5761 u=root n=ansible | ok: [local_user] => (item=/opt/ansible-crypt-zfs-root/roles/local/08-samba/vars/os_Debian.yml)
+2020-08-06 04:59:18,244 p=5761 u=root n=ansible | TASK [08-samba : Install Samba packages] *******************************************************************************************************************************************************************************************
+2020-08-06 04:59:18,245 p=5761 u=root n=ansible | changed: [local_user]
+2020-08-06 04:59:19,375 p=5761 u=root n=ansible | TASK [08-samba : Install Samba VFS extensions packages] ****************************************************************************************************************************************************************************
+2020-08-06 04:59:19,376 p=5761 u=root n=ansible | ok: [local_user]
+2020-08-06 04:59:19,645 p=5761 u=root n=ansible | TASK [08-samba : Register Samba version] *******************************************************************************************************************************************************************************************
+2020-08-06 04:59:19,646 p=5761 u=root n=ansible | ok: [local_user]
+2020-08-06 04:59:19,806 p=5761 u=root n=ansible | TASK [08-samba : Create Samba shares root directory] *******************************************************************************************************************************************************************************
+2020-08-06 04:59:19,807 p=5761 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The conditional check 'samba_shares|length > 0' failed. The error was: error while evaluating conditional (samba_shares|length > 0): 'user_name' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/08-samba/tasks/main.yml': line 55, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Create Samba shares root directory\n  ^ here\n"}
+2020-08-06 04:59:19,814 p=5761 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.8_samba.retry
+
+2020-08-06 04:59:19,814 p=5761 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************************
+2020-08-06 04:59:19,815 p=5761 u=root n=ansible | local_user                 : ok=5    changed=1    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-08-06 05:01:58,148 p=8419 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************************
+2020-08-06 05:01:58,912 p=8419 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************************
+2020-08-06 05:01:58,913 p=8419 u=root n=ansible | ok: [local_user]
+2020-08-06 05:01:58,970 p=8419 u=root n=ansible | TASK [08-samba : Include OS specific variables] ************************************************************************************************************************************************************************************
+2020-08-06 05:01:58,970 p=8419 u=root n=ansible | ok: [local_user] => (item=/opt/ansible-crypt-zfs-root/roles/local/08-samba/vars/os_Debian.yml)
+2020-08-06 05:01:59,791 p=8419 u=root n=ansible | TASK [08-samba : Install Samba packages] *******************************************************************************************************************************************************************************************
+2020-08-06 05:01:59,791 p=8419 u=root n=ansible | ok: [local_user]
+2020-08-06 05:02:00,510 p=8419 u=root n=ansible | TASK [08-samba : Install Samba VFS extensions packages] ****************************************************************************************************************************************************************************
+2020-08-06 05:02:00,511 p=8419 u=root n=ansible | ok: [local_user]
+2020-08-06 05:02:00,746 p=8419 u=root n=ansible | TASK [08-samba : Register Samba version] *******************************************************************************************************************************************************************************************
+2020-08-06 05:02:00,747 p=8419 u=root n=ansible | ok: [local_user]
+2020-08-06 05:02:00,878 p=8419 u=root n=ansible | TASK [08-samba : Create Samba shares root directory] *******************************************************************************************************************************************************************************
+2020-08-06 05:02:00,879 p=8419 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The conditional check 'samba_shares|length > 0' failed. The error was: error while evaluating conditional (samba_shares|length > 0): 'user_name' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/08-samba/tasks/main.yml': line 55, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Create Samba shares root directory\n  ^ here\n"}
+2020-08-06 05:02:00,884 p=8419 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.8_samba.retry
+
+2020-08-06 05:02:00,884 p=8419 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************************
+2020-08-06 05:02:00,884 p=8419 u=root n=ansible | local_user                 : ok=5    changed=0    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-08-06 05:03:05,523 p=8632 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************************
+2020-08-06 05:03:06,276 p=8632 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************************
+2020-08-06 05:03:06,277 p=8632 u=root n=ansible | ok: [local_user]
+2020-08-06 05:03:06,333 p=8632 u=root n=ansible | TASK [08-samba : Include OS specific variables] ************************************************************************************************************************************************************************************
+2020-08-06 05:03:06,333 p=8632 u=root n=ansible | ok: [local_user] => (item=/opt/ansible-crypt-zfs-root/roles/local/08-samba/vars/os_Debian.yml)
+2020-08-06 05:03:07,146 p=8632 u=root n=ansible | TASK [08-samba : Install Samba packages] *******************************************************************************************************************************************************************************************
+2020-08-06 05:03:07,147 p=8632 u=root n=ansible | ok: [local_user]
+2020-08-06 05:03:07,861 p=8632 u=root n=ansible | TASK [08-samba : Install Samba VFS extensions packages] ****************************************************************************************************************************************************************************
+2020-08-06 05:03:07,861 p=8632 u=root n=ansible | ok: [local_user]
+2020-08-06 05:03:08,096 p=8632 u=root n=ansible | TASK [08-samba : Register Samba version] *******************************************************************************************************************************************************************************************
+2020-08-06 05:03:08,096 p=8632 u=root n=ansible | ok: [local_user]
+2020-08-06 05:03:08,142 p=8632 u=root n=ansible | TASK [08-samba : Installed Samba version:] *****************************************************************************************************************************************************************************************
+2020-08-06 05:03:08,143 p=8632 u=root n=ansible | ok: [local_user] => {
+    "msg": {
+        "changed": false,
+        "cmd": "set -o nounset -o pipefail -o errexit && smbd --version | sed 's/Version //'\n",
+        "delta": "0:00:00.025285",
+        "end": "2020-08-06 05:03:08.081743",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-08-06 05:03:08.056458",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "4.11.6-Ubuntu",
+        "stdout_lines": [
+            "4.11.6-Ubuntu"
+        ]
+    }
+}
+2020-08-06 05:03:08,274 p=8632 u=root n=ansible | TASK [08-samba : Create Samba shares root directory] *******************************************************************************************************************************************************************************
+2020-08-06 05:03:08,274 p=8632 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The conditional check 'samba_shares|length > 0' failed. The error was: error while evaluating conditional (samba_shares|length > 0): 'user_name' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/08-samba/tasks/main.yml': line 55, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Create Samba shares root directory\n  ^ here\n"}
+2020-08-06 05:03:08,279 p=8632 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.8_samba.retry
+
+2020-08-06 05:03:08,279 p=8632 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************************
+2020-08-06 05:03:08,280 p=8632 u=root n=ansible | local_user                 : ok=6    changed=0    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-08-06 05:03:57,714 p=8809 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************************
+2020-08-06 05:03:58,466 p=8809 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************************
+2020-08-06 05:03:58,467 p=8809 u=root n=ansible | ok: [local_user]
+2020-08-06 05:03:58,525 p=8809 u=root n=ansible | TASK [08-samba : Include OS specific variables] ************************************************************************************************************************************************************************************
+2020-08-06 05:03:58,525 p=8809 u=root n=ansible | ok: [local_user] => (item=/opt/ansible-crypt-zfs-root/roles/local/08-samba/vars/os_Debian.yml)
+2020-08-06 05:03:59,352 p=8809 u=root n=ansible | TASK [08-samba : Install Samba packages] *******************************************************************************************************************************************************************************************
+2020-08-06 05:03:59,352 p=8809 u=root n=ansible | ok: [local_user]
+2020-08-06 05:04:00,072 p=8809 u=root n=ansible | TASK [08-samba : Install Samba VFS extensions packages] ****************************************************************************************************************************************************************************
+2020-08-06 05:04:00,072 p=8809 u=root n=ansible | ok: [local_user]
+2020-08-06 05:04:00,307 p=8809 u=root n=ansible | TASK [08-samba : Register Samba version] *******************************************************************************************************************************************************************************************
+2020-08-06 05:04:00,308 p=8809 u=root n=ansible | ok: [local_user]
+2020-08-06 05:04:00,354 p=8809 u=root n=ansible | TASK [08-samba : Installed Samba version:] *****************************************************************************************************************************************************************************************
+2020-08-06 05:04:00,355 p=8809 u=root n=ansible | ok: [local_user] => {
+    "msg": {
+        "changed": false,
+        "cmd": "set -o nounset -o pipefail -o errexit && smbd --version | sed 's/Version //'\n",
+        "delta": "0:00:00.025334",
+        "end": "2020-08-06 05:04:00.293204",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-08-06 05:04:00.267870",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "4.11.6-Ubuntu",
+        "stdout_lines": [
+            "4.11.6-Ubuntu"
+        ]
+    }
+}
+2020-08-06 05:04:00,497 p=8809 u=root n=ansible | TASK [08-samba : Create share directories] *****************************************************************************************************************************************************************************************
+2020-08-06 05:04:00,497 p=8809 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "'user_name' is undefined"}
+2020-08-06 05:04:00,503 p=8809 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.8_samba.retry
+
+2020-08-06 05:04:00,503 p=8809 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************************
+2020-08-06 05:04:00,503 p=8809 u=root n=ansible | local_user                 : ok=6    changed=0    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-08-06 05:05:35,839 p=9311 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************************
+2020-08-06 05:05:37,526 p=9311 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************************
+2020-08-06 05:05:37,526 p=9311 u=root n=ansible | ok: [local_user]
+2020-08-06 05:05:37,608 p=9311 u=root n=ansible | TASK [08-samba : Include OS specific variables] ************************************************************************************************************************************************************************************
+2020-08-06 05:05:37,608 p=9311 u=root n=ansible | ok: [local_user] => (item=/opt/ansible-crypt-zfs-root/roles/local/08-samba/vars/os_Debian.yml)
+2020-08-06 05:05:38,427 p=9311 u=root n=ansible | TASK [08-samba : Install Samba packages] *******************************************************************************************************************************************************************************************
+2020-08-06 05:05:38,427 p=9311 u=root n=ansible | ok: [local_user]
+2020-08-06 05:05:39,117 p=9311 u=root n=ansible | TASK [08-samba : Install Samba VFS extensions packages] ****************************************************************************************************************************************************************************
+2020-08-06 05:05:39,117 p=9311 u=root n=ansible | ok: [local_user]
+2020-08-06 05:05:39,350 p=9311 u=root n=ansible | TASK [08-samba : Register Samba version] *******************************************************************************************************************************************************************************************
+2020-08-06 05:05:39,351 p=9311 u=root n=ansible | ok: [local_user]
+2020-08-06 05:05:39,396 p=9311 u=root n=ansible | TASK [08-samba : Installed Samba version:] *****************************************************************************************************************************************************************************************
+2020-08-06 05:05:39,399 p=9311 u=root n=ansible | ok: [local_user] => {
+    "msg": {
+        "changed": false,
+        "cmd": "set -o nounset -o pipefail -o errexit && smbd --version | sed 's/Version //'\n",
+        "delta": "0:00:00.024537",
+        "end": "2020-08-06 05:05:39.337461",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-08-06 05:05:39.312924",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "4.11.6-Ubuntu",
+        "stdout_lines": [
+            "4.11.6-Ubuntu"
+        ]
+    }
+}
+2020-08-06 05:05:39,742 p=9311 u=root n=ansible | TASK [08-samba : Create share directories] *****************************************************************************************************************************************************************************************
+2020-08-06 05:05:39,742 p=9311 u=root n=ansible | changed: [local_user] => (item={'name': 'torrents', 'comment': 'A place for pirates to hang out', 'path': '/mnt/data2000-new/torrents/', 'group': 'users', 'owner': 'sa', 'guest_ok': 'yes', 'browseable': 'yes'})
+2020-08-06 05:05:39,869 p=9311 u=root n=ansible | changed: [local_user] => (item={'name': 'data1500', 'comment': 'data1500 A place for pirates to hang out', 'path': '/mnt/data1500/', 'guest_ok': 'yes', 'browseable': 'yes'})
+2020-08-06 05:05:39,995 p=9311 u=root n=ansible | changed: [local_user] => (item={'name': 'data2000', 'comment': 'data2000 A place for pirates to hang out', 'path': '/mnt/data2000/', 'guest_ok': 'yes', 'browseable': 'yes'})
+2020-08-06 05:05:40,124 p=9311 u=root n=ansible | changed: [local_user] => (item={'name': 'data3000t', 'comment': 'data3000A place for pirates to hang out', 'path': '/mnt/data3000/', 'guest_ok': 'yes', 'browseable': 'yes'})
+2020-08-06 05:05:40,749 p=9311 u=root n=ansible | TASK [08-samba : Samba configuration] **********************************************************************************************************************************************************************************************
+2020-08-06 05:05:40,750 p=9311 u=root n=ansible | changed: [local_user]
+2020-08-06 05:05:41,411 p=9311 u=root n=ansible | TASK [08-samba : Start Samba service(s)] *******************************************************************************************************************************************************************************************
+2020-08-06 05:05:41,412 p=9311 u=root n=ansible | ok: [local_user] => (item=smbd)
+2020-08-06 05:05:41,632 p=9311 u=root n=ansible | ok: [local_user] => (item=nmbd)
+2020-08-06 05:05:41,995 p=9311 u=root n=ansible | RUNNING HANDLER [08-samba : Restart Samba services] ********************************************************************************************************************************************************************************
+2020-08-06 05:05:41,996 p=9311 u=root n=ansible | changed: [local_user] => (item=smbd)
+2020-08-06 05:05:42,254 p=9311 u=root n=ansible | changed: [local_user] => (item=nmbd)
+2020-08-06 05:05:42,267 p=9311 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************************
+2020-08-06 05:05:42,267 p=9311 u=root n=ansible | local_user                 : ok=10   changed=3    unreachable=0    failed=0    skipped=8    rescued=0    ignored=0   
