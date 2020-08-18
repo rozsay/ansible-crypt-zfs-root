@@ -1,0 +1,28 @@
+---
+# defaults file for 09-
+your_email: your@email.hu
+your_domain: test_domain
+default_packages:
+#  - 'gdisk'
+#  - 'ansible'
+#  - 'openssh-server'
+#  - 'mc'
+#  - 'ssh'
+#  - 'nano'
+#  - 'lshw'
+#  - 'rsync'
+#  - 'ncdu'
+#  - 'ethtool'
+#  - 'wget'
+#  - 'git'
+#  - 'gpart'
+#  - 'gparted '
+#  - 'ssh-askpass'
+#  - 'net-tools'
+#  - 'tree'
+  - 'htop'
+#  - 'strace '
+#  - 'p7zip-full'
+dropbear_packages:
+  - 'dropbear'
+  - ' busybox'

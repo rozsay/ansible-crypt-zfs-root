@@ -11999,3 +11999,406 @@ The offending line appears to be:
 2020-08-18 07:33:18,928 p=2057 u=root n=ansible | ok: [local_user]
 2020-08-18 07:33:25,373 p=2057 u=root n=ansible | TASK [07-services : Essentials | Ensure that the repositories are update] **********************************************************************************************************************
 2020-08-18 07:33:25,373 p=2057 u=root n=ansible | changed: [local_user]
+2020-08-18 07:37:41,221 p=2057 u=root n=ansible | TASK [07-services : Essentials | Upgrade the Server] *******************************************************************************************************************************************
+2020-08-18 07:37:41,221 p=2057 u=root n=ansible | changed: [local_user]
+2020-08-18 07:37:41,931 p=37732 u=root n=ansible | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ item }}"`, 
+please use `name: ['build-essential', 'python-software-properties', 'git', 'ssh', 'lshw', 'rsync', 'ncdu', 'ethtool', 'wget', 'gparted', 'ssh-askpass', 'net-tools', 'tree', 'htop', 'strace']`
+ and remove the loop. This feature will be removed in version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-08-18 07:37:42,172 p=2057 u=root n=ansible | TASK [07-services : Essentials | Install all the essential packages] ***************************************************************************************************************************
+2020-08-18 07:37:42,173 p=2057 u=root n=ansible | failed: [local_user] (item=['build-essential', 'python-software-properties', 'git', 'ssh', 'lshw', 'rsync', 'ncdu', 'ethtool', 'wget', 'gparted', 'ssh-askpass', 'net-tools', 'tree', 'htop', 'strace']) => {"ansible_loop_var": "item", "changed": false, "item": ["build-essential", "python-software-properties", "git", "ssh", "lshw", "rsync", "ncdu", "ethtool", "wget", "gparted", "ssh-askpass", "net-tools", "tree", "htop", "strace"], "msg": "value of state must be one of: absent, build-dep, fixed, latest, present, got: installed"}
+2020-08-18 07:37:42,178 p=2057 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.7_service.retry
+
+2020-08-18 07:37:42,178 p=2057 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************
+2020-08-18 07:37:42,178 p=2057 u=root n=ansible | local_user                 : ok=3    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-08-18 07:42:23,492 p=38218 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************
+2020-08-18 07:42:24,259 p=38218 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************
+2020-08-18 07:42:24,260 p=38218 u=root n=ansible | ok: [local_user]
+2020-08-18 07:42:25,180 p=38218 u=root n=ansible | TASK [09-remote_unlock : Ensure specified packages are in there desired state] *****************************************************************************************************************
+2020-08-18 07:42:25,180 p=38218 u=root n=ansible | ok: [local_user] => (item=gdisk)
+2020-08-18 07:42:25,834 p=38218 u=root n=ansible | ok: [local_user] => (item=ansible)
+2020-08-18 07:42:26,505 p=38218 u=root n=ansible | ok: [local_user] => (item=openssh-server)
+2020-08-18 07:42:27,157 p=38218 u=root n=ansible | ok: [local_user] => (item=mc)
+2020-08-18 07:42:27,808 p=38218 u=root n=ansible | ok: [local_user] => (item=ssh)
+2020-08-18 07:42:28,470 p=38218 u=root n=ansible | ok: [local_user] => (item=nano)
+2020-08-18 07:42:29,118 p=38218 u=root n=ansible | ok: [local_user] => (item=lshw)
+2020-08-18 07:42:29,770 p=38218 u=root n=ansible | ok: [local_user] => (item=rsync)
+2020-08-18 07:42:30,432 p=38218 u=root n=ansible | ok: [local_user] => (item=ncdu)
+2020-08-18 07:42:31,097 p=38218 u=root n=ansible | ok: [local_user] => (item=ethtool)
+2020-08-18 07:42:31,797 p=38218 u=root n=ansible | ok: [local_user] => (item=wget)
+2020-08-18 07:42:32,500 p=38218 u=root n=ansible | ok: [local_user] => (item=git)
+2020-08-18 07:42:33,232 p=38218 u=root n=ansible | ok: [local_user] => (item=gpart)
+2020-08-18 07:42:34,020 p=38218 u=root n=ansible | ok: [local_user] => (item=gparted)
+2020-08-18 07:42:34,756 p=38218 u=root n=ansible | ok: [local_user] => (item=ssh-askpass)
+2020-08-18 07:42:35,453 p=38218 u=root n=ansible | ok: [local_user] => (item=net-tools)
+2020-08-18 07:42:36,214 p=38218 u=root n=ansible | ok: [local_user] => (item=tree)
+2020-08-18 07:42:37,114 p=38218 u=root n=ansible | ok: [local_user] => (item=htop)
+2020-08-18 07:42:37,786 p=38218 u=root n=ansible | ok: [local_user] => (item=strace)
+2020-08-18 07:42:38,471 p=38218 u=root n=ansible | ok: [local_user] => (item=p7zip-full)
+2020-08-18 07:42:38,491 p=38218 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************
+2020-08-18 07:42:38,491 p=38218 u=root n=ansible | local_user                 : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-08-18 07:52:03,284 p=38868 u=root n=ansible | PLAY [local] *********************************************************************************************************************
+2020-08-18 07:52:04,072 p=38868 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2020-08-18 07:52:04,073 p=38868 u=root n=ansible | ok: [local_user]
+2020-08-18 07:52:05,010 p=38868 u=root n=ansible | TASK [09-remote_unlock : Ensure specified packages are in there desired state] ***************************************************
+2020-08-18 07:52:05,010 p=38868 u=root n=ansible | ok: [local_user] => (item=gdisk)
+2020-08-18 07:52:05,725 p=38868 u=root n=ansible | ok: [local_user] => (item=ansible)
+2020-08-18 07:52:06,456 p=38868 u=root n=ansible | ok: [local_user] => (item=openssh-server)
+2020-08-18 07:52:07,175 p=38868 u=root n=ansible | ok: [local_user] => (item=mc)
+2020-08-18 07:52:07,893 p=38868 u=root n=ansible | ok: [local_user] => (item=ssh)
+2020-08-18 07:52:08,634 p=38868 u=root n=ansible | ok: [local_user] => (item=nano)
+2020-08-18 07:52:09,356 p=38868 u=root n=ansible | ok: [local_user] => (item=lshw)
+2020-08-18 07:52:10,088 p=38868 u=root n=ansible | ok: [local_user] => (item=rsync)
+2020-08-18 07:52:10,821 p=38868 u=root n=ansible | ok: [local_user] => (item=ncdu)
+2020-08-18 07:52:11,549 p=38868 u=root n=ansible | ok: [local_user] => (item=ethtool)
+2020-08-18 07:52:12,277 p=38868 u=root n=ansible | ok: [local_user] => (item=wget)
+2020-08-18 07:52:13,009 p=38868 u=root n=ansible | ok: [local_user] => (item=git)
+2020-08-18 07:52:13,723 p=38868 u=root n=ansible | ok: [local_user] => (item=gpart)
+2020-08-18 07:52:14,453 p=38868 u=root n=ansible | ok: [local_user] => (item=gparted)
+2020-08-18 07:52:15,179 p=38868 u=root n=ansible | ok: [local_user] => (item=ssh-askpass)
+2020-08-18 07:52:15,905 p=38868 u=root n=ansible | ok: [local_user] => (item=net-tools)
+2020-08-18 07:52:16,635 p=38868 u=root n=ansible | ok: [local_user] => (item=tree)
+2020-08-18 07:52:17,357 p=38868 u=root n=ansible | ok: [local_user] => (item=htop)
+2020-08-18 07:52:18,077 p=38868 u=root n=ansible | ok: [local_user] => (item=strace)
+2020-08-18 07:52:18,803 p=38868 u=root n=ansible | ok: [local_user] => (item=p7zip-full)
+2020-08-18 07:52:19,085 p=38868 u=root n=ansible | TASK [09-remote_unlock : Ansible check directory.] *******************************************************************************
+2020-08-18 07:52:19,086 p=38868 u=root n=ansible | ok: [local_user]
+2020-08-18 07:52:19,470 p=38868 u=root n=ansible | TASK [09-remote_unlock : Ansible Create directory if not exists] *****************************************************************
+2020-08-18 07:52:19,470 p=38868 u=root n=ansible | changed: [local_user]
+2020-08-18 07:52:19,490 p=38868 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************
+2020-08-18 07:52:19,491 p=38868 u=root n=ansible | local_user                 : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-08-18 07:56:36,288 p=39407 u=root n=ansible | ERROR! the playbook: playbooks/1.9.Remote_Unlock.ym could not be found
+2020-08-18 07:56:48,102 p=39435 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/main.yml': line 45, column 11, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: "ssh-keygen
+  shell: "ssh-keygen -t rsa -b 4096 -C "your_email@domain.com""
+          ^ here
+We could be wrong, but this one looks like it might be an issue with
+unbalanced quotes. If starting a value with a quote, make sure the
+line ends with the same set of quotes. For instance this arbitrary
+example:
+
+    foo: "bad" "wolf"
+
+Could be written as:
+
+    foo: '"bad" "wolf"'
+
+2020-08-18 07:59:42,243 p=39727 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/main.yml': line 45, column 11, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: "ssh-keygen
+  shell: "ssh-keygen -t rsa -b 4096 -C {{ your_email }}"
+          ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-08-18 08:00:08,202 p=39801 u=root n=ansible | PLAY [local] *********************************************************************************************************************
+2020-08-18 08:00:08,965 p=39801 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************
+2020-08-18 08:00:08,966 p=39801 u=root n=ansible | ok: [local_user]
+2020-08-18 08:00:09,819 p=39801 u=root n=ansible | TASK [09-remote_unlock : Ensure specified packages are in there desired state] ***************************************************
+2020-08-18 08:00:09,819 p=39801 u=root n=ansible | ok: [local_user] => (item=gdisk)
+2020-08-18 08:00:10,487 p=39801 u=root n=ansible | ok: [local_user] => (item=ansible)
+2020-08-18 08:00:11,145 p=39801 u=root n=ansible | ok: [local_user] => (item=openssh-server)
+2020-08-18 08:00:11,811 p=39801 u=root n=ansible | ok: [local_user] => (item=mc)
+2020-08-18 08:00:12,476 p=39801 u=root n=ansible | ok: [local_user] => (item=ssh)
+2020-08-18 08:00:13,139 p=39801 u=root n=ansible | ok: [local_user] => (item=nano)
+2020-08-18 08:00:13,806 p=39801 u=root n=ansible | ok: [local_user] => (item=lshw)
+2020-08-18 08:00:14,471 p=39801 u=root n=ansible | ok: [local_user] => (item=rsync)
+2020-08-18 08:00:15,134 p=39801 u=root n=ansible | ok: [local_user] => (item=ncdu)
+2020-08-18 08:00:15,803 p=39801 u=root n=ansible | ok: [local_user] => (item=ethtool)
+2020-08-18 08:00:16,461 p=39801 u=root n=ansible | ok: [local_user] => (item=wget)
+2020-08-18 08:00:17,125 p=39801 u=root n=ansible | ok: [local_user] => (item=git)
+2020-08-18 08:00:17,795 p=39801 u=root n=ansible | ok: [local_user] => (item=gpart)
+2020-08-18 08:00:18,459 p=39801 u=root n=ansible | ok: [local_user] => (item=gparted)
+2020-08-18 08:00:19,122 p=39801 u=root n=ansible | ok: [local_user] => (item=ssh-askpass)
+2020-08-18 08:00:19,793 p=39801 u=root n=ansible | ok: [local_user] => (item=net-tools)
+2020-08-18 08:00:20,459 p=39801 u=root n=ansible | ok: [local_user] => (item=tree)
+2020-08-18 08:00:21,135 p=39801 u=root n=ansible | ok: [local_user] => (item=htop)
+2020-08-18 08:00:21,786 p=39801 u=root n=ansible | ok: [local_user] => (item=strace)
+2020-08-18 08:00:22,444 p=39801 u=root n=ansible | ok: [local_user] => (item=p7zip-full)
+2020-08-18 08:00:22,703 p=39801 u=root n=ansible | TASK [09-remote_unlock : Ansible check directory.] *******************************************************************************
+2020-08-18 08:00:22,703 p=39801 u=root n=ansible | ok: [local_user]
+2020-08-18 08:00:22,748 p=39801 u=root n=ansible | TASK [09-remote_unlock : echo if directory already existed] **********************************************************************
+2020-08-18 08:00:22,749 p=39801 u=root n=ansible | ok: [local_user] => {
+    "msg": "the jboss directory is already existed"
+}
+2020-08-18 08:00:23,084 p=39801 u=root n=ansible | TASK [09-remote_unlock : chmod 700 ~/.ssh] ***************************************************************************************
+2020-08-18 08:00:23,084 p=39801 u=root n=ansible | [WARNING]: Consider using the file module with mode rather than running 'chmod'.  If you need to use command because file is
+insufficient you can add 'warn: false' to this command task or set 'command_warnings=False' in ansible.cfg to get rid of this
+message.
+
+2020-08-18 08:00:23,084 p=39801 u=root n=ansible | changed: [local_user]
+2020-08-18 08:00:23,636 p=39801 u=root n=ansible | TASK [09-remote_unlock : ssh-keygen] *********************************************************************************************
+2020-08-18 08:00:23,637 p=39801 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": true, "cmd": "ssh-keygen -t rsa -b 4096 -C your@email.hu", "delta": "0:00:00.391792", "end": "2020-08-18 08:00:23.624751", "msg": "non-zero return code", "rc": 1, "start": "2020-08-18 08:00:23.232959", "stderr": "", "stderr_lines": [], "stdout": "Generating public/private rsa key pair.\nEnter file in which to save the key (/root/.ssh/id_rsa): ", "stdout_lines": ["Generating public/private rsa key pair.", "Enter file in which to save the key (/root/.ssh/id_rsa): "]}
+2020-08-18 08:00:23,642 p=39801 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.9.Remote_Unlock.retry
+
+2020-08-18 08:00:23,642 p=39801 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************
+2020-08-18 08:00:23,642 p=39801 u=root n=ansible | local_user                 : ok=5    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-08-18 08:08:52,068 p=40690 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************
+2020-08-18 08:08:52,826 p=40690 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************
+2020-08-18 08:08:52,826 p=40690 u=root n=ansible | ok: [local_user]
+2020-08-18 08:08:53,722 p=40690 u=root n=ansible | TASK [09-remote_unlock : Ensure specified packages are in there desired state] *****************************************************************************************************************
+2020-08-18 08:08:53,722 p=40690 u=root n=ansible | ok: [local_user] => (item=gdisk)
+2020-08-18 08:08:54,431 p=40690 u=root n=ansible | ok: [local_user] => (item=ansible)
+2020-08-18 08:08:55,148 p=40690 u=root n=ansible | ok: [local_user] => (item=openssh-server)
+2020-08-18 08:08:55,849 p=40690 u=root n=ansible | ok: [local_user] => (item=mc)
+2020-08-18 08:08:56,545 p=40690 u=root n=ansible | ok: [local_user] => (item=ssh)
+2020-08-18 08:08:57,259 p=40690 u=root n=ansible | ok: [local_user] => (item=nano)
+2020-08-18 08:08:57,960 p=40690 u=root n=ansible | ok: [local_user] => (item=lshw)
+2020-08-18 08:08:58,660 p=40690 u=root n=ansible | ok: [local_user] => (item=rsync)
+2020-08-18 08:08:59,376 p=40690 u=root n=ansible | ok: [local_user] => (item=ncdu)
+2020-08-18 08:09:00,078 p=40690 u=root n=ansible | ok: [local_user] => (item=ethtool)
+2020-08-18 08:09:00,781 p=40690 u=root n=ansible | ok: [local_user] => (item=wget)
+2020-08-18 08:09:01,492 p=40690 u=root n=ansible | ok: [local_user] => (item=git)
+2020-08-18 08:09:02,194 p=40690 u=root n=ansible | ok: [local_user] => (item=gpart)
+2020-08-18 08:09:02,898 p=40690 u=root n=ansible | ok: [local_user] => (item=gparted)
+2020-08-18 08:09:03,600 p=40690 u=root n=ansible | ok: [local_user] => (item=ssh-askpass)
+2020-08-18 08:09:04,295 p=40690 u=root n=ansible | ok: [local_user] => (item=net-tools)
+2020-08-18 08:09:04,990 p=40690 u=root n=ansible | ok: [local_user] => (item=tree)
+2020-08-18 08:09:05,681 p=40690 u=root n=ansible | ok: [local_user] => (item=htop)
+2020-08-18 08:09:06,382 p=40690 u=root n=ansible | ok: [local_user] => (item=strace)
+2020-08-18 08:09:07,095 p=40690 u=root n=ansible | ok: [local_user] => (item=p7zip-full)
+2020-08-18 08:09:07,807 p=40690 u=root n=ansible | TASK [09-remote_unlock : Install OpenSSH server] ***********************************************************************************************************************************************
+2020-08-18 08:09:07,807 p=40690 u=root n=ansible | ok: [local_user]
+2020-08-18 08:09:08,053 p=40690 u=root n=ansible | TASK [09-remote_unlock : Ensure Ed25519 host key is present] ***********************************************************************************************************************************
+2020-08-18 08:09:08,053 p=40690 u=root n=ansible | ok: [local_user]
+2020-08-18 08:09:08,125 p=40690 u=root n=ansible | TASK [09-remote_unlock : Generate SSHD config] *************************************************************************************************************************************************
+2020-08-18 08:09:08,126 p=40690 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "AnsibleUndefinedVariable: 'sshd_port' is undefined"}
+2020-08-18 08:09:08,131 p=40690 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.9.Remote_Unlock.retry
+
+2020-08-18 08:09:08,131 p=40690 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************
+2020-08-18 08:09:08,131 p=40690 u=root n=ansible | local_user                 : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-08-18 08:09:53,231 p=41195 u=root n=ansible | ERROR! conflicting action statements: hosts, vars_prompt
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/generate-ssh.yaml': line 1, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- name: generate SSH key
+  ^ here
+
+2020-08-18 08:12:11,307 p=41267 u=root n=ansible | ERROR! conflicting action statements: hosts, vars_prompt
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/generate-ssh.yaml': line 31, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- name: generate SSH key
+  ^ here
+
+2020-08-18 08:42:53,810 p=42110 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************
+2020-08-18 08:42:54,580 p=42110 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************
+2020-08-18 08:42:54,581 p=42110 u=root n=ansible | ok: [local_user]
+2020-08-18 08:42:55,486 p=42110 u=root n=ansible | TASK [09-remote_unlock : Ensure specified packages are in there desired state] *****************************************************************************************************************
+2020-08-18 08:42:55,487 p=42110 u=root n=ansible | ok: [local_user] => (item=gdisk)
+2020-08-18 08:42:56,182 p=42110 u=root n=ansible | ok: [local_user] => (item=ansible)
+2020-08-18 08:42:56,885 p=42110 u=root n=ansible | ok: [local_user] => (item=openssh-server)
+2020-08-18 08:42:57,580 p=42110 u=root n=ansible | ok: [local_user] => (item=mc)
+2020-08-18 08:42:58,270 p=42110 u=root n=ansible | ok: [local_user] => (item=ssh)
+2020-08-18 08:42:58,973 p=42110 u=root n=ansible | ok: [local_user] => (item=nano)
+2020-08-18 08:42:59,665 p=42110 u=root n=ansible | ok: [local_user] => (item=lshw)
+2020-08-18 08:43:00,363 p=42110 u=root n=ansible | ok: [local_user] => (item=rsync)
+2020-08-18 08:43:01,081 p=42110 u=root n=ansible | ok: [local_user] => (item=ncdu)
+2020-08-18 08:43:01,771 p=42110 u=root n=ansible | ok: [local_user] => (item=ethtool)
+2020-08-18 08:43:02,464 p=42110 u=root n=ansible | ok: [local_user] => (item=wget)
+2020-08-18 08:43:03,163 p=42110 u=root n=ansible | ok: [local_user] => (item=git)
+2020-08-18 08:43:03,854 p=42110 u=root n=ansible | ok: [local_user] => (item=gpart)
+2020-08-18 08:43:04,546 p=42110 u=root n=ansible | ok: [local_user] => (item=gparted)
+2020-08-18 08:43:05,247 p=42110 u=root n=ansible | ok: [local_user] => (item=ssh-askpass)
+2020-08-18 08:43:05,942 p=42110 u=root n=ansible | ok: [local_user] => (item=net-tools)
+2020-08-18 08:43:06,644 p=42110 u=root n=ansible | ok: [local_user] => (item=tree)
+2020-08-18 08:43:07,347 p=42110 u=root n=ansible | ok: [local_user] => (item=htop)
+2020-08-18 08:43:08,036 p=42110 u=root n=ansible | ok: [local_user] => (item=strace)
+2020-08-18 08:43:08,747 p=42110 u=root n=ansible | ok: [local_user] => (item=p7zip-full)
+2020-08-18 08:43:09,029 p=42110 u=root n=ansible | TASK [09-remote_unlock : Ansible check directory.] *********************************************************************************************************************************************
+2020-08-18 08:43:09,030 p=42110 u=root n=ansible | ok: [local_user]
+2020-08-18 08:43:09,084 p=42110 u=root n=ansible | TASK [09-remote_unlock : echo if directory already existed] ************************************************************************************************************************************
+2020-08-18 08:43:09,084 p=42110 u=root n=ansible | ok: [local_user] => {
+    "msg": "the jboss directory is already existed"
+}
+2020-08-18 08:43:09,398 p=42110 u=root n=ansible | TASK [09-remote_unlock : chmod 700 ~/.ssh] *****************************************************************************************************************************************************
+2020-08-18 08:43:09,398 p=42110 u=root n=ansible | [WARNING]: Consider using the file module with mode rather than running 'chmod'.  If you need to use command because file is insufficient you can add 'warn: false' to this command task or set
+'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-08-18 08:43:09,398 p=42110 u=root n=ansible | changed: [local_user]
+2020-08-18 08:43:09,570 p=42110 u=root n=ansible | TASK [09-remote_unlock : Generate SSH keys] ****************************************************************************************************************************************************
+2020-08-18 08:43:09,571 p=42110 u=root n=ansible | ok: [local_user]
+2020-08-18 08:43:09,591 p=42110 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************
+2020-08-18 08:43:09,591 p=42110 u=root n=ansible | local_user                 : ok=6    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-08-18 08:43:52,856 p=42646 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************
+2020-08-18 08:43:53,613 p=42646 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************
+2020-08-18 08:43:53,613 p=42646 u=root n=ansible | ok: [local_user]
+2020-08-18 08:43:54,506 p=42646 u=root n=ansible | TASK [09-remote_unlock : Ensure specified packages are in there desired state] *****************************************************************************************************************
+2020-08-18 08:43:54,506 p=42646 u=root n=ansible | ok: [local_user] => (item=gdisk)
+2020-08-18 08:43:55,210 p=42646 u=root n=ansible | ok: [local_user] => (item=ansible)
+2020-08-18 08:43:55,896 p=42646 u=root n=ansible | ok: [local_user] => (item=openssh-server)
+2020-08-18 08:43:56,594 p=42646 u=root n=ansible | ok: [local_user] => (item=mc)
+2020-08-18 08:43:57,284 p=42646 u=root n=ansible | ok: [local_user] => (item=ssh)
+2020-08-18 08:43:57,979 p=42646 u=root n=ansible | ok: [local_user] => (item=nano)
+2020-08-18 08:43:58,679 p=42646 u=root n=ansible | ok: [local_user] => (item=lshw)
+2020-08-18 08:43:59,365 p=42646 u=root n=ansible | ok: [local_user] => (item=rsync)
+2020-08-18 08:44:00,059 p=42646 u=root n=ansible | ok: [local_user] => (item=ncdu)
+2020-08-18 08:44:00,766 p=42646 u=root n=ansible | ok: [local_user] => (item=ethtool)
+2020-08-18 08:44:01,457 p=42646 u=root n=ansible | ok: [local_user] => (item=wget)
+2020-08-18 08:44:02,144 p=42646 u=root n=ansible | ok: [local_user] => (item=git)
+2020-08-18 08:44:02,841 p=42646 u=root n=ansible | ok: [local_user] => (item=gpart)
+2020-08-18 08:44:03,528 p=42646 u=root n=ansible | ok: [local_user] => (item=gparted)
+2020-08-18 08:44:04,221 p=42646 u=root n=ansible | ok: [local_user] => (item=ssh-askpass)
+2020-08-18 08:44:04,918 p=42646 u=root n=ansible | ok: [local_user] => (item=net-tools)
+2020-08-18 08:44:05,607 p=42646 u=root n=ansible | ok: [local_user] => (item=tree)
+2020-08-18 08:44:06,310 p=42646 u=root n=ansible | ok: [local_user] => (item=htop)
+2020-08-18 08:44:06,994 p=42646 u=root n=ansible | ok: [local_user] => (item=strace)
+2020-08-18 08:44:07,689 p=42646 u=root n=ansible | ok: [local_user] => (item=p7zip-full)
+2020-08-18 08:44:07,947 p=42646 u=root n=ansible | TASK [09-remote_unlock : Ansible check directory.] *********************************************************************************************************************************************
+2020-08-18 08:44:07,948 p=42646 u=root n=ansible | ok: [local_user]
+2020-08-18 08:44:07,996 p=42646 u=root n=ansible | TASK [09-remote_unlock : echo if directory already existed] ************************************************************************************************************************************
+2020-08-18 08:44:07,997 p=42646 u=root n=ansible | ok: [local_user] => {
+    "msg": "the jboss directory is already existed"
+}
+2020-08-18 08:44:08,294 p=42646 u=root n=ansible | TASK [09-remote_unlock : chmod 700 ~/.ssh] *****************************************************************************************************************************************************
+2020-08-18 08:44:08,295 p=42646 u=root n=ansible | [WARNING]: Consider using the file module with mode rather than running 'chmod'.  If you need to use command because file is insufficient you can add 'warn: false' to this command task or set
+'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-08-18 08:44:08,295 p=42646 u=root n=ansible | changed: [local_user]
+2020-08-18 08:44:08,465 p=42646 u=root n=ansible | TASK [09-remote_unlock : Generate SSH keys] ****************************************************************************************************************************************************
+2020-08-18 08:44:08,466 p=42646 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": true, "cmd": "ssh-keygen -b 4096  -t rsa -C  your@email.hu ~/.ssh/id_rsa -q -N \"\"", "delta": "0:00:00.005059", "end": "2020-08-18 08:44:08.453359", "msg": "non-zero return code", "rc": 1, "start": "2020-08-18 08:44:08.448300", "stderr": "Too many arguments.\r\nusage: ssh-keygen [-q] [-b bits] [-C comment] [-f output_keyfile] [-m format]\n                  [-t dsa | ecdsa | ecdsa-sk | ed25519 | ed25519-sk | rsa]\n                  [-N new_passphrase] [-O option] [-w provider]\n       ssh-keygen -p [-f keyfile] [-m format] [-N new_passphrase]\n                   [-P old_passphrase]\n       ssh-keygen -i [-f input_keyfile] [-m key_format]\n       ssh-keygen -e [-f input_keyfile] [-m key_format]\n       ssh-keygen -y [-f input_keyfile]\n       ssh-keygen -c [-C comment] [-f keyfile] [-P passphrase]\n       ssh-keygen -l [-v] [-E fingerprint_hash] [-f input_keyfile]\n       ssh-keygen -B [-f input_keyfile]\n       ssh-keygen -D pkcs11\n       ssh-keygen -F hostname [-lv] [-f known_hosts_file]\n       ssh-keygen -H [-f known_hosts_file]\n       ssh-keygen -K [-w provider]\n       ssh-keygen -R hostname [-f known_hosts_file]\n       ssh-keygen -r hostname [-g] [-f input_keyfile]\n       ssh-keygen -M generate [-O option] output_file\n       ssh-keygen -M screen [-f input_file] [-O option] output_file\n       ssh-keygen -I certificate_identity -s ca_key [-hU] [-D pkcs11_provider]\n                  [-n principals] [-O option] [-V validity_interval]\n                  [-z serial_number] file ...\n       ssh-keygen -L [-f input_keyfile]\n       ssh-keygen -A [-f prefix_path]\n       ssh-keygen -k -f krl_file [-u] [-s ca_public] [-z version_number]\n                  file ...\n       ssh-keygen -Q -f krl_file file ...\n       ssh-keygen -Y find-principals -s signature_file -f allowed_signers_file\n       ssh-keygen -Y check-novalidate -n namespace -s signature_file\n       ssh-keygen -Y sign -f key_file -n namespace file ...\n       ssh-keygen -Y verify -f allowed_signers_file -I signer_identity\n       \t\t-n namespace -s signature_file [-r revocation_file]", "stderr_lines": ["Too many arguments.", "usage: ssh-keygen [-q] [-b bits] [-C comment] [-f output_keyfile] [-m format]", "                  [-t dsa | ecdsa | ecdsa-sk | ed25519 | ed25519-sk | rsa]", "                  [-N new_passphrase] [-O option] [-w provider]", "       ssh-keygen -p [-f keyfile] [-m format] [-N new_passphrase]", "                   [-P old_passphrase]", "       ssh-keygen -i [-f input_keyfile] [-m key_format]", "       ssh-keygen -e [-f input_keyfile] [-m key_format]", "       ssh-keygen -y [-f input_keyfile]", "       ssh-keygen -c [-C comment] [-f keyfile] [-P passphrase]", "       ssh-keygen -l [-v] [-E fingerprint_hash] [-f input_keyfile]", "       ssh-keygen -B [-f input_keyfile]", "       ssh-keygen -D pkcs11", "       ssh-keygen -F hostname [-lv] [-f known_hosts_file]", "       ssh-keygen -H [-f known_hosts_file]", "       ssh-keygen -K [-w provider]", "       ssh-keygen -R hostname [-f known_hosts_file]", "       ssh-keygen -r hostname [-g] [-f input_keyfile]", "       ssh-keygen -M generate [-O option] output_file", "       ssh-keygen -M screen [-f input_file] [-O option] output_file", "       ssh-keygen -I certificate_identity -s ca_key [-hU] [-D pkcs11_provider]", "                  [-n principals] [-O option] [-V validity_interval]", "                  [-z serial_number] file ...", "       ssh-keygen -L [-f input_keyfile]", "       ssh-keygen -A [-f prefix_path]", "       ssh-keygen -k -f krl_file [-u] [-s ca_public] [-z version_number]", "                  file ...", "       ssh-keygen -Q -f krl_file file ...", "       ssh-keygen -Y find-principals -s signature_file -f allowed_signers_file", "       ssh-keygen -Y check-novalidate -n namespace -s signature_file", "       ssh-keygen -Y sign -f key_file -n namespace file ...", "       ssh-keygen -Y verify -f allowed_signers_file -I signer_identity", "       \t\t-n namespace -s signature_file [-r revocation_file]"], "stdout": "", "stdout_lines": []}
+2020-08-18 08:44:08,471 p=42646 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.9.Remote_Unlock.retry
+
+2020-08-18 08:44:08,471 p=42646 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************
+2020-08-18 08:44:08,471 p=42646 u=root n=ansible | local_user                 : ok=5    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-08-18 08:46:08,713 p=43139 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************
+2020-08-18 08:46:09,497 p=43139 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************
+2020-08-18 08:46:09,498 p=43139 u=root n=ansible | ok: [local_user]
+2020-08-18 08:46:10,382 p=43139 u=root n=ansible | TASK [09-remote_unlock : Ensure specified packages are in there desired state] *****************************************************************************************************************
+2020-08-18 08:46:10,382 p=43139 u=root n=ansible | ok: [local_user] => (item=gdisk)
+2020-08-18 08:46:11,087 p=43139 u=root n=ansible | ok: [local_user] => (item=ansible)
+2020-08-18 08:46:11,811 p=43139 u=root n=ansible | ok: [local_user] => (item=openssh-server)
+2020-08-18 08:46:12,537 p=43139 u=root n=ansible | ok: [local_user] => (item=mc)
+2020-08-18 08:46:13,235 p=43139 u=root n=ansible | ok: [local_user] => (item=ssh)
+2020-08-18 08:46:13,939 p=43139 u=root n=ansible | ok: [local_user] => (item=nano)
+2020-08-18 08:46:14,645 p=43139 u=root n=ansible | ok: [local_user] => (item=lshw)
+2020-08-18 08:46:15,348 p=43139 u=root n=ansible | ok: [local_user] => (item=rsync)
+2020-08-18 08:46:16,054 p=43139 u=root n=ansible | ok: [local_user] => (item=ncdu)
+2020-08-18 08:46:16,753 p=43139 u=root n=ansible | ok: [local_user] => (item=ethtool)
+2020-08-18 08:46:17,451 p=43139 u=root n=ansible | ok: [local_user] => (item=wget)
+2020-08-18 08:46:18,163 p=43139 u=root n=ansible | ok: [local_user] => (item=git)
+2020-08-18 08:46:18,851 p=43139 u=root n=ansible | ok: [local_user] => (item=gpart)
+2020-08-18 08:46:19,550 p=43139 u=root n=ansible | ok: [local_user] => (item=gparted)
+2020-08-18 08:46:20,255 p=43139 u=root n=ansible | ok: [local_user] => (item=ssh-askpass)
+2020-08-18 08:46:20,943 p=43139 u=root n=ansible | ok: [local_user] => (item=net-tools)
+2020-08-18 08:46:21,650 p=43139 u=root n=ansible | ok: [local_user] => (item=tree)
+2020-08-18 08:46:22,343 p=43139 u=root n=ansible | ok: [local_user] => (item=htop)
+2020-08-18 08:46:23,031 p=43139 u=root n=ansible | ok: [local_user] => (item=strace)
+2020-08-18 08:46:23,742 p=43139 u=root n=ansible | ok: [local_user] => (item=p7zip-full)
+2020-08-18 08:46:24,090 p=43139 u=root n=ansible | TASK [09-remote_unlock : Ansible check directory.] *********************************************************************************************************************************************
+2020-08-18 08:46:24,090 p=43139 u=root n=ansible | ok: [local_user]
+2020-08-18 08:46:24,141 p=43139 u=root n=ansible | TASK [09-remote_unlock : echo if directory already existed] ************************************************************************************************************************************
+2020-08-18 08:46:24,141 p=43139 u=root n=ansible | ok: [local_user] => {
+    "msg": "the jboss directory is already existed"
+}
+2020-08-18 08:46:24,438 p=43139 u=root n=ansible | TASK [09-remote_unlock : chmod 700 /root/.ssh] *************************************************************************************************************************************************
+2020-08-18 08:46:24,439 p=43139 u=root n=ansible | [WARNING]: Consider using the file module with mode rather than running 'chmod'.  If you need to use command because file is insufficient you can add 'warn: false' to this command task or set
+'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-08-18 08:46:24,439 p=43139 u=root n=ansible | changed: [local_user]
+2020-08-18 08:46:24,962 p=43139 u=root n=ansible | TASK [09-remote_unlock : Generate SSH keys] ****************************************************************************************************************************************************
+2020-08-18 08:46:24,963 p=43139 u=root n=ansible | changed: [local_user]
+2020-08-18 08:46:24,982 p=43139 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************
+2020-08-18 08:46:24,982 p=43139 u=root n=ansible | local_user                 : ok=6    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-08-18 08:57:39,554 p=44343 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/generate-ssh.yaml': line 28, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+cat >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys"
+^ here
+
+2020-08-18 08:58:06,311 p=44423 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/dropbear_busybox.yml': line 14, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+sudo -i
+sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
+^ here
+
+2020-08-18 08:58:22,920 p=44493 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-08-18 08:58:23,693 p=44493 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-08-18 08:58:23,694 p=44493 u=root n=ansible | ok: [local_user]
+2020-08-18 08:58:24,570 p=44493 u=root n=ansible | TASK [09-remote_unlock : Ensure specified packages are in there desired state] **************************************************************************************************************************************************************
+2020-08-18 08:58:24,570 p=44493 u=root n=ansible | ok: [local_user] => (item=htop)
+2020-08-18 08:58:24,821 p=44493 u=root n=ansible | TASK [09-remote_unlock : Ansible check directory.] ******************************************************************************************************************************************************************************************
+2020-08-18 08:58:24,821 p=44493 u=root n=ansible | ok: [local_user]
+2020-08-18 08:58:24,871 p=44493 u=root n=ansible | TASK [09-remote_unlock : echo if directory already existed] *********************************************************************************************************************************************************************************
+2020-08-18 08:58:24,871 p=44493 u=root n=ansible | ok: [local_user] => {
+    "msg": "the jboss directory is already existed"
+}
+2020-08-18 08:58:25,173 p=44493 u=root n=ansible | TASK [09-remote_unlock : chmod 700 /root/.ssh] **********************************************************************************************************************************************************************************************
+2020-08-18 08:58:25,173 p=44493 u=root n=ansible | [WARNING]: Consider using the file module with mode rather than running 'chmod'.  If you need to use command because file is insufficient you can add 'warn: false' to this command task or set 'command_warnings=False' in ansible.cfg to
+get rid of this message.
+
+2020-08-18 08:58:25,173 p=44493 u=root n=ansible | changed: [local_user]
+2020-08-18 08:58:25,311 p=44493 u=root n=ansible | TASK [09-remote_unlock : Generate SSH keys] *************************************************************************************************************************************************************************************************
+2020-08-18 08:58:25,311 p=44493 u=root n=ansible | ok: [local_user]
+2020-08-18 08:58:25,393 p=44493 u=root n=ansible | TASK [09-remote_unlock : Ensure specified packages are in there desired state] **************************************************************************************************************************************************************
+2020-08-18 08:58:25,394 p=44493 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "'ddropbear_packages' is undefined"}
+2020-08-18 08:58:25,400 p=44493 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.9.Remote_Unlock.retry
+
+2020-08-18 08:58:25,400 p=44493 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-08-18 08:58:25,400 p=44493 u=root n=ansible | local_user                 : ok=6    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-08-18 08:58:48,197 p=44685 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-08-18 08:58:48,984 p=44685 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-08-18 08:58:48,984 p=44685 u=root n=ansible | ok: [local_user]
+2020-08-18 08:58:49,856 p=44685 u=root n=ansible | TASK [09-remote_unlock : Ensure specified packages are in there desired state] **************************************************************************************************************************************************************
+2020-08-18 08:58:49,857 p=44685 u=root n=ansible | ok: [local_user] => (item=htop)
+2020-08-18 08:58:50,108 p=44685 u=root n=ansible | TASK [09-remote_unlock : Ansible check directory.] ******************************************************************************************************************************************************************************************
+2020-08-18 08:58:50,108 p=44685 u=root n=ansible | ok: [local_user]
+2020-08-18 08:58:50,159 p=44685 u=root n=ansible | TASK [09-remote_unlock : echo if directory already existed] *********************************************************************************************************************************************************************************
+2020-08-18 08:58:50,160 p=44685 u=root n=ansible | ok: [local_user] => {
+    "msg": "the jboss directory is already existed"
+}
+2020-08-18 08:58:50,458 p=44685 u=root n=ansible | TASK [09-remote_unlock : chmod 700 /root/.ssh] **********************************************************************************************************************************************************************************************
+2020-08-18 08:58:50,458 p=44685 u=root n=ansible | [WARNING]: Consider using the file module with mode rather than running 'chmod'.  If you need to use command because file is insufficient you can add 'warn: false' to this command task or set 'command_warnings=False' in ansible.cfg to
+get rid of this message.
+
+2020-08-18 08:58:50,458 p=44685 u=root n=ansible | changed: [local_user]
+2020-08-18 08:58:50,598 p=44685 u=root n=ansible | TASK [09-remote_unlock : Generate SSH keys] *************************************************************************************************************************************************************************************************
+2020-08-18 08:58:50,599 p=44685 u=root n=ansible | ok: [local_user]
+2020-08-18 08:59:22,173 p=44685 u=root n=ansible | TASK [09-remote_unlock : Ensure specified packages are in there desired state] **************************************************************************************************************************************************************
+2020-08-18 08:59:22,174 p=44685 u=root n=ansible | changed: [local_user] => (item=dropbear)
+2020-08-18 08:59:23,344 p=44685 u=root n=ansible | ok: [local_user] => (item=busybox)
+2020-08-18 08:59:23,637 p=44685 u=root n=ansible | TASK [09-remote_unlock : modify /etc/default/dropbear] **************************************************************************************************************************************************************************************
+2020-08-18 08:59:23,637 p=44685 u=root n=ansible | changed: [local_user] => (item={'regex': '^NO_START=1.*', 'replace': 'NO_START=0'})
+2020-08-18 08:59:23,659 p=44685 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-08-18 08:59:23,659 p=44685 u=root n=ansible | local_user                 : ok=8    changed=3    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   

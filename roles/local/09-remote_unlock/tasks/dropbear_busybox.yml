@@ -1,0 +1,35 @@
+- name: Ensure specified packages are in there desired state
+  package:
+    name: '{{ item }}'
+    state: present
+  with_flattened: '{{ dropbear_packages }}'
+#  tags: [ 'role::kodi:pkgs' ]
+#  register: is_softneedinstalled
+#  become: yes
+  become: true
+
+
+# Enable and configure
+#sudo -i
+#sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
+#sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=2222/g' /etc/default/dropbear 
+#sed -i '/BUSYBOX=auto/c\BUSYBOX=y' /etc/initramfs-tools/initramfs.conf 
+
+- name: modify /etc/default/dropbear
+  replace:
+    path: /etc/default/dropbear
+    regexp: "{{ item.regex }}"
+    replace: "{{ item.replace }}"
+  with_items:
+    - regex: "^NO_START=1.*"
+      replace: 'NO_START=0'
+#    - regex: "^GRUB_CMDLINE_LINUX=.*"
+#      replace: 'GRUB_CMDLINE_LINUX="{{ _grub_cmdline }}"'
+#    - regex: "^#(GRUB_TERMINAL.*)"
+#      replace: "\\1"
+
+#sudo echo "DROPBEAR=y" >> /etc/initramfs-tools/initramfs.conf 
+#m_value='DROPBEAR_OPTIONS="-p 2222 -s -j -k -I 60"' 
+#sudo sed -i "s/.DROPBEAR_OPTIONS./${m_value}/g" /etc/dropbear-initramfs/config
+
+#- shell: "echo 'GRUB_DISABLE_OS_PROBER=true' >> /etc/default/grub"

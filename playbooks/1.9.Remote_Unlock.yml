@@ -1,0 +1,25 @@
+---
+
+# TODO: 
+# - should install the default utils: screen, vim, htop, etc ...
+# - Should make the user happy to use the vm: bashrc, gitconfig, screenrc, etc ...
+
+- hosts: local
+#- hosts: targets
+  connection: local
+  user: root
+  vars_prompt:
+    - name: "user_name"
+      prompt: "Enter User Name"
+      default: "sa"
+      private: yes
+      confirm: yes
+    - name: "user_password"
+      prompt: "Enter User Password"
+      default: "sa"
+#      encrypt: "sha512_crypt"
+      private: yes
+      confirm: yes
+
+  roles:
+    - role: 09-remote_unlock
