@@ -16,3 +16,15 @@
     - build-essential
     - python-software-properties
     - git
+    - ssh
+    - lshw
+    - rsync
+    - ncdu
+    - ethtool
+    - wget
+    - gparted
+    - ssh-askpass
+    - net-tools
+    - tree
+    - htop
+    - strace 
