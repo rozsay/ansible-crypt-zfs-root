@@ -1,0 +1,14 @@
+---
+
+# TODO: 
+# - should install the default utils: screen, vim, htop, etc ...
+# - Should make the user happy to use the vm: bashrc, gitconfig, screenrc, etc ...
+
+- hosts: local
+#- hosts: targets
+  connection: local
+  user: root
+
+  roles:
+    - role: 20-docker
+      tags: ["docker"]
