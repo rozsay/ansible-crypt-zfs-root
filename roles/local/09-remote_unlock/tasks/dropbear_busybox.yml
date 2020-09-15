@@ -5,18 +5,9 @@
     pkg:
       - dropbear-initramfs
       - busybox
+      - dropbear
   when:
     - encrypted_rootfs|bool
-
-- name: Install required packages
-  package:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - busybox
-    - dropbear
-  notify:
-    - Update initramfs
 
 - name: Enable busybox in initramfs
   lineinfile:
@@ -27,42 +18,30 @@
   notify:
     - Update initramfs
 
-#- import_tasks: generate-ssh.yaml
-#- import_tasks: dropbear_busybox.yml
-
 - name: Setup static ip in initramfs
   lineinfile:
     path: /etc/initramfs-tools/initramfs.conf
     state: present
     insertafter: '^DEVICE=*'
     regexp: '^IP=*'
-    line: "IP={{ static_ip }}:{{ remote_ip }}:{{ gateway }}:{{ netmask }}:{{ hostname }}:{{ network_interface }}"
-  notify:
-    - Update initramfs
+    line: "IP={{ static_ip }}:{{ remote_ip }}:{{ gateway }}:{{ netmask }}:{{ hostname }}:{{ network_interface }}:off"
   when:
-    - static_ip is defined and (static_ip | length>0)
-# The initramfs static IP configuration will cause the Ubuntu server to freeze for some time during the boot process.
-# To overcome this problem, down the network adapter after the initramfs.
-# Edit the /usr/share/initramfs-tools/scripts/init-bottom/dropbear
-#echo "ifconfig ${IFACE} 0.0.0.0 down" >> /usr/share/initramfs-tools/scripts/init-bottom/dropbear
-- name: initramfs static IP
+    - encrypted_rootfs|bool
+
+- name: Setup DEVICE ip in initramfs
   lineinfile:
-    path: /usr/share/initramfs-tools/scripts/init-bottom/dropbear
+    path: /etc/initramfs-tools/initramfs.conf
     state: present
-    insertafter: '^DEVICE=*'
-    regexp: '^"ifconfig=*'
-    line: ""ifconfig {{ network_interface }} 0.0.0.0 down"
-  notify:
-    - Update initramfs
+    regexp: '^DEVICE=*'
+    line: "DEVICE={{ network_interface }}"
   when:
-    - static_ip is defined and (static_ip | length>0)
+    - encrypted_rootfs|bool
 
 - name: Configure dropbear SSH port
   lineinfile:
     path: /etc/initramfs-tools/initramfs.conf
     state: present
     regexp: '^.?DROPBEAR_OPTIONS=*'
-#    line: "DROPBEAR_OPTIONS='-p {{ ssh_port }}'"
      line: "DROPBEAR_OPTIONS='-p {{ ssh_port }} -s -j -k -I 60'"
   notify:
     - Update initramfs
@@ -99,14 +78,14 @@
   notify:
     - Update initramfs
 
-- name: Copy crypt unlock script
-  copy:
-    src: crypt_unlock.sh
-    dest: /usr/share/initramfs-tools/hooks/crypt_unlock.sh
-    dest: /etc/initramfs-tools/hooks/crypt_unlock.sh
-    mode: 0700
-  notify:
-    - Update initramfs
+#- name: Copy crypt unlock script
+#  copy:
+#    src: crypt_unlock.sh
+#    dest: /usr/share/initramfs-tools/hooks/crypt_unlock.sh
+#    dest: /etc/initramfs-tools/hooks/crypt_unlock.sh
+#    mode: 0700
+#  notify:
+#    - Update initramfs
 
 # /usr/share/initramfs-tools/hooks/crypt_unlock.sh
 

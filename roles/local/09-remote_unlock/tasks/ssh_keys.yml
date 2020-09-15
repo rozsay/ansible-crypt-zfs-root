@@ -1,0 +1,88 @@
+---
+- name: generate SSH key "{{ssh_key_filename}}"
+  user:
+    name: "{{ansible_user}}"
+    generate_ssh_key: yes
+    ssh_key_type: rsa
+    ssh_key_bits: 4096
+    ssh_key_file: .ssh/{{ssh_key_filename}}
+#    ssh_key_passphrase: "{{ssh_passphrase}}"
+    force: no
+
+
+#cd ~/.ssh 
+
+#dropbearkey -t dss -f dropbear_dss_host_key dropbearkey -t rsa -f dropbear_rsa_host_key
+- name: Convert dropbearkey
+  shell: |
+    set -o pipefail
+    dropbearkey -t dss -f dropbear_dss_host_key dropbearkey -t rsa -f dropbear_rsa_host_key
+  args:
+    executable: /bin/bash
+    chdir: ~/.ssh
+    creates: dropbear_rsa_host_key
+
+#dropbearkey -t rsa -f id_rsa.dropbear 
+- name: Convert dropbearkey rsa
+  shell: |
+    set -o pipefail
+    dropbearkey -t rsa -f id_rsa.dropbear
+  args:
+    executable: /bin/bash
+    chdir: ~/.ssh
+    creates: id_rsa.dropbear
+
+#/usr/lib/dropbear/dropbearconvert dropbear openssh id_rsa.dropbear id_rsa touch id_rsa.pub
+#dropbearkey -y -f id_rsa.dropbear | grep "^ssh-rsa " > id_rsa.pub 
+- name: Convert dropbear SSH key
+  shell: /usr/lib/dropbear/dropbearconvert dropbear openssh id_rsa.dropbear id_rsa touch id_rsa.pub
+#    dropbearkey -y -f id_rsa.dropbear | grep "^ssh-rsa " > id_rsa.pub
+  args:
+    executable: /bin/bash
+    chdir: /etc/dropbear-initramfs
+    creates: id_rsa.pub
+
+- name: Convert dropbear key
+  shell: dropbearkey -y -f id_rsa.dropbear | grep "^ssh-rsa " > id_rsa.pub
+  args:
+    executable: /bin/bash
+    chdir: /etc/dropbear-initramfs
+    creates: id_rsa.pub
+
+- name: touch authorized_keys
+  shell: touch authorized_keys
+  args:
+    creates: authorized_keys
+
+#cat id_rsa.pub >> authorized_keys
+- name: cat id_rsa.pub
+  shell: cat id_rsa.pub >> authorized_keys
+  args:
+    chdir: /etc/dropbear-initramfs
+    creates: authorized_keys
+
+- name: cp dropbear_
+  shell: cp dropbear_* /etc/dropbear-initramfs/
+  args:
+    chdir: /etc/dropbear-initramfs
+
+
+- name:  cp id_
+  shell:  cp id_* /etc/dropbear-initramfs/
+  args:
+    chdir: /etc/dropbear-initramfs
+
+
+- name:  cp authorized_keys
+  shell:  cp authorized_keys /etc/dropbear-initramfs/
+  args:
+    chdir: /etc/dropbear-initramfs
+
+# Note, if you don’t HAVE a /etc/dropbear-initramfs folder, do the following: 
+# sudo mkdir /etc/initramfs-tools/root 
+# sudo mkdir /etc/initramfs-tools/root/.ssh
+# sudo cp dropbear_* /etc/initramfs-tools/root/.ssh/ 
+- name:  cp id1_
+  shell:  cp id_* /etc/initramfs-tools/root/.ssh/
+  args:
+    chdir: /etc/dropbear-initramfs

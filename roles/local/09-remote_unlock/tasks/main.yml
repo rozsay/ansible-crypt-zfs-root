@@ -2,18 +2,8 @@
 # tasks file for 09-remote
 #- debug:
 #    var: _efi|default(false)|bool == true
-#- import_tasks: ssh_server.yml
+
+- import_tasks: ssh_keys.yml
 #  when: sshd_enabled
-
-#- name: Ensure specified packages are in there desired state
-#  package:
-#    name: '{{ item }}'
-#    state: present
-#  with_flattened: '{{ default_packages }}'
-#  tags: [ 'role::kodi:pkgs' ]
-#  register: is_softneedinstalled
-#  become: yes
-  become: true
-
-- import_tasks: dropbear_busybox.yml
-  when: encrypted_rootfs
+#- import_tasks: dropbear_busybox.yml
+#  when: encrypted_rootfs
