@@ -1,18 +1,25 @@
 ---
 # Unlocking a native encrypted ZFS root partition remotely via Dropbear
-# SSH server
-# exit if you are in root
+- name: Install dropbear-initramfs
+  apt:
+    state: installed
+    pkg:
+      - dropbear-initramfs
+      - busybox
+  when:
+    - encrypted_rootfs|bool
+
 
 # tasks file for 09-
-- name: Ensure specified packages are in there desired state
-  package:
-    name: '{{ item }}'
-    state: present
-  with_flattened: '{{ default_packages }}'
+#- name: Ensure specified packages are in there desired state
+#  package:
+#    name: '{{ item }}'
+#    state: present
+#  with_flattened: '{{ default_packages }}'
 #  tags: [ 'role::kodi:pkgs' ]
 #  register: is_softneedinstalled
 #  become: yes
-  become: true
+#  become: true
 
-- import_tasks: generate-ssh.yaml
-- import_tasks: dropbear_busybox.yml
+#- import_tasks: generate-ssh.yaml
+#- import_tasks: dropbear_busybox.yml

@@ -1,38 +1,35 @@
 Role Name
 =========
+dropbear-initramfs
 
 A brief description of the role goes here.
+Configure dropbear-initramfs to allow remote (ssh) unlocks of zfs native encrypted root-volumes
 
 Requirements
 ------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+You need to specify an 'ip' option on your kernel-commandline, so you can actually connect
+to the booting system. This role will update your /etc/default/grub file, but this is
+mostly just an example, please replace with your own preferred config
 
 Role Variables
 --------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+encrypted_rootfs: Set this to true to enable this role's changes, defaults to false
+dropbear_port:  Port dropbear-ssh should listen on, defaults to 10022
+dropbear_options: Options to hand to dropbear (defaults should be sufficient)
+grub_cmdline_linux: The commandline for the kernel, should include the 'ip' config. This
+needs te be replaced/customized for your configuration.
 
 Dependencies
 ------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+Ubuntu (19, 20)
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Dynerose -- Sig-I/O Automatisering
+
