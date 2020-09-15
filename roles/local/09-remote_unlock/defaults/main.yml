@@ -7,5 +7,5 @@ dropbear_packages:
   - ' busybox'
 encrypted_rootfs: true
 dropbear_port: 2222
-# dropbear_options: "-R -E -s -j -k -K 20 -I 120 -p {{dropbear_port}} -c /usr/bin/cryptroot-unlock"
-# grub_cmdline_linux: "net.ifnames=0 biosdevname=0 ip=1.2.3.4::1.2.3.1:255.255.255.0::eth0:off"
+dropbear_options: "-R -E -s -j -k -K 20 -I 120 -p {{dropbear_port}} -c /usr/bin/cryptroot-unlock"
+grub_cmdline_linux: "net.ifnames=0 biosdevname=0 ip=1.2.3.4::1.2.3.1:255.255.255.0::ens33:off"

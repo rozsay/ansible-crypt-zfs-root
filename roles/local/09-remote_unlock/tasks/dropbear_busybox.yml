@@ -1,11 +1,114 @@
 - name: Install dropbear-initramfs
   apt:
-    state: installed
+# "value of state must be one of: absent, build-dep, fixed, latest, present, got: installed"}
+    state: present
     pkg:
       - dropbear-initramfs
       - busybox
   when:
     - encrypted_rootfs|bool
+
+- name: Install required packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - busybox
+    - dropbear
+  notify:
+    - Update initramfs
+
+- name: Enable busybox in initramfs
+  lineinfile:
+    path: /etc/initramfs-tools/initramfs.conf
+    state: present
+    regexp: '^BUSYBOX=*'
+    line: BUSYBOX=y
+  notify:
+    - Update initramfs
+
+#- import_tasks: generate-ssh.yaml
+#- import_tasks: dropbear_busybox.yml
+
+- name: Setup static ip in initramfs
+  lineinfile:
+    path: /etc/initramfs-tools/initramfs.conf
+    state: present
+    insertafter: '^DEVICE=*'
+    regexp: '^IP=*'
+    line: "IP={{ static_ip }}:{{ remote_ip }}:{{ gateway }}:{{ netmask }}:{{ hostname }}:{{ network_interface }}"
+  notify:
+    - Update initramfs
+  when:
+    - static_ip is defined and (static_ip | length>0)
+# The initramfs static IP configuration will cause the Ubuntu server to freeze for some time during the boot process.
+# To overcome this problem, down the network adapter after the initramfs.
+# Edit the /usr/share/initramfs-tools/scripts/init-bottom/dropbear
+#echo "ifconfig ${IFACE} 0.0.0.0 down" >> /usr/share/initramfs-tools/scripts/init-bottom/dropbear
+- name: initramfs static IP
+  lineinfile:
+    path: /usr/share/initramfs-tools/scripts/init-bottom/dropbear
+    state: present
+    insertafter: '^DEVICE=*'
+    regexp: '^"ifconfig=*'
+    line: ""ifconfig {{ network_interface }} 0.0.0.0 down"
+  notify:
+    - Update initramfs
+  when:
+    - static_ip is defined and (static_ip | length>0)
+
+- name: Configure dropbear SSH port
+  lineinfile:
+    path: /etc/initramfs-tools/initramfs.conf
+    state: present
+    regexp: '^.?DROPBEAR_OPTIONS=*'
+#    line: "DROPBEAR_OPTIONS='-p {{ ssh_port }}'"
+     line: "DROPBEAR_OPTIONS='-p {{ ssh_port }} -s -j -k -I 60'"
+  notify:
+    - Update initramfs
+  when:
+    - ssh_port is defined
+
+- name: Convert dropbear SSH key
+  shell: |
+    set -o pipefail
+    /usr/lib/dropbear/dropbearconvert dropbear openssh dropbear_rsa_host_key id_rsa
+    dropbearkey -y -f dropbear_rsa_host_key | grep "^ssh-rsa " > id_rsa.pub
+  args:
+    executable: /bin/bash
+    chdir: /etc/dropbear-initramfs
+    creates: id_rsa.pub
+  notify:
+    - Update initramfs
+
+- name: Copy SSH public key to the remote server
+  authorized_key:
+    user: root
+    state: present
+    key: "{{ lookup('file', ssh_pub_key) }}"
+    path: /etc/dropbear-initramfs/authorized_keys
+  notify:
+    - Update initramfs
+
+- name: Enable dropbear start
+  lineinfile:
+    path: /etc/default/dropbear
+    state: present
+    regexp: '^NO_START=*'
+    line: NO_START=0
+  notify:
+    - Update initramfs
+
+- name: Copy crypt unlock script
+  copy:
+    src: crypt_unlock.sh
+    dest: /usr/share/initramfs-tools/hooks/crypt_unlock.sh
+    dest: /etc/initramfs-tools/hooks/crypt_unlock.sh
+    mode: 0700
+  notify:
+    - Update initramfs
+
+# /usr/share/initramfs-tools/hooks/crypt_unlock.sh
 
 - name: Template dropbear-initramfs files
   template:
@@ -15,34 +118,24 @@
     group: "{{ item.group|default('root') }}"
     mode: "{{ item.mode|default('0644') }}"
   with_items:
-    - { src: "dropbear-config.j2", dest: "/etc/dropbear-initramfs/config" }
-    - { src: "dropbear-authorized_keys.j2", dest: "/etc/dropbear-initramfs/authorized_keys", notify: "Update Initramfs" }
-    - { src: "default-grub", dest: "/etc/default/grub", mode: "0755", notify: "Update Grub" }
+#    - { src: "dropbear-config.j2", dest: "/etc/dropbear-initramfs/config" }
+#    - { src: "dropbear-authorized_keys.j2", dest: "/etc/dropbear-initramfs/authorized_keys", notify: "Update Initramfs" }
+#    - { src: "default-grub", dest: "/etc/default/grub", mode: "0755", notify: "Update Grub" }
+    - { src: "/crypt_unlock.sh", dest: "/etc/default/grub", mode: "0755", notify: "Update Grub" }
   notify: "{{ item.notify|default([]) }}"
   when:
     - encrypted_rootfs|bool
 
-# Enable and configure
-#sudo -i
-#sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-#sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=2222/g' /etc/default/dropbear 
-#sed -i '/BUSYBOX=auto/c\BUSYBOX=y' /etc/initramfs-tools/initramfs.conf 
+- name: Disable dropbear service
+  service:
+    name: dropbear
+    enabled: false
 
-- name: modify /etc/default/dropbear
-  replace:
-    path: /etc/default/dropbear
-    regexp: "{{ item.regex }}"
-    replace: "{{ item.replace }}"
-  with_items:
-    - regex: "^NO_START=1.*"
-      replace: 'NO_START=0'
-#    - regex: "^GRUB_CMDLINE_LINUX=.*"
-#      replace: 'GRUB_CMDLINE_LINUX="{{ _grub_cmdline }}"'
-#    - regex: "^#(GRUB_TERMINAL.*)"
-#      replace: "\\1"
-
-#sudo echo "DROPBEAR=y" >> /etc/initramfs-tools/initramfs.conf 
-#m_value='DROPBEAR_OPTIONS="-p 2222 -s -j -k -I 60"' 
-#sudo sed -i "s/.DROPBEAR_OPTIONS./${m_value}/g" /etc/dropbear-initramfs/config
-
-#- shell: "echo 'GRUB_DISABLE_OS_PROBER=true' >> /etc/default/grub"
+- name: Disable GRUB splash
+  lineinfile:
+    path: /etc/default/grub
+    state: present
+    regexp: '^GRUB_CMDLINE_LINUX_DEFAULT=*'
+    line: GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+  notify:
+    - Update GRUB
