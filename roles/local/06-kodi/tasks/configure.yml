@@ -68,13 +68,13 @@
   lineinfile: dest=/etc/security/limits.conf regexp='^kodi' line='kodi             -       nice            -1' create=yes
 
 # Fake display-manager.service to not make plymouth or something else complain.
-- name: check the current symlink /etc/systemd/system/kodi.service
-    stat: path=/etc/systemd/system/kodi.service 
-    register: kodi_service__available
+#- name: check the current symlink /etc/systemd/system/kodi.service
+#    stat: path=/etc/systemd/system/kodi.service 
+#    register: kodi_service__available
 
-- name: remove the folder (only if it is a folder)
-    file: path=/etc/systemd/system/kodi.service state=absent
-    when: kodi_service__available.stat.isdir is defined and kodi_service__available.stat.isdir
+#- name: remove the folder (only if it is a folder)
+#    file: path=/etc/systemd/system/kodi.service state=absent
+#    when: kodi_service__available.stat.isdir is defined and kodi_service__available.stat.isdir
 
 - name: /home/kodi/.config/openbox check directory exists example.
     stat:

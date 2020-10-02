@@ -13696,3 +13696,177 @@ ansible.cfg to get rid of this message.
 
 2020-10-02 12:28:15,825 p=3570 u=root n=ansible | PLAY RECAP *************************************************************************************************************
 2020-10-02 12:28:15,826 p=3570 u=root n=ansible | local_user                 : ok=8    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-02 15:28:05,818 p=73005 u=root n=ansible | PLAY [local] **************************************************************************************************************************************************************************************************
+2020-10-02 15:28:08,114 p=73005 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************
+2020-10-02 15:28:08,114 p=73005 u=root n=ansible | ok: [local_user]
+2020-10-02 15:28:08,441 p=73005 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/install.yml for local_user
+2020-10-02 15:28:10,158 p=73005 u=root n=ansible | TASK [06-kodi : Install Software Properties Common] ***********************************************************************************************************************************************************
+2020-10-02 15:28:10,158 p=73005 u=root n=ansible | ok: [local_user]
+2020-10-02 15:29:28,581 p=73005 u=root n=ansible | TASK [06-kodi : Ensure specified packages are in there desired state] *****************************************************************************************************************************************
+2020-10-02 15:29:28,581 p=73005 u=root n=ansible | changed: [local_user] => (item=kodi)
+2020-10-02 15:29:29,297 p=73005 u=root n=ansible | ok: [local_user] => (item=xorg)
+2020-10-02 15:29:30,047 p=73005 u=root n=ansible | ok: [local_user] => (item=xserver-xorg)
+2020-10-02 15:29:30,789 p=73005 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-10-02 15:29:31,541 p=73005 u=root n=ansible | ok: [local_user] => (item=xinit)
+2020-10-02 15:29:32,295 p=73005 u=root n=ansible | ok: [local_user] => (item=xauth)
+2020-10-02 15:29:33,004 p=73005 u=root n=ansible | ok: [local_user] => (item=xorg)
+2020-10-02 15:29:33,716 p=73005 u=root n=ansible | ok: [local_user] => (item=xserver-xorg)
+2020-10-02 15:29:34,466 p=73005 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-core)
+2020-10-02 15:29:35,155 p=73005 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-10-02 15:29:35,864 p=73005 u=root n=ansible | ok: [local_user] => (item=xinit)
+2020-10-02 15:29:36,562 p=73005 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-legacy)
+2020-10-02 15:29:37,285 p=73005 u=root n=ansible | ok: [local_user] => (item=xserver-common)
+2020-10-02 15:29:38,029 p=73005 u=root n=ansible | ok: [local_user] => (item=pulseaudio)
+2020-10-02 15:29:38,718 p=73005 u=root n=ansible | ok: [local_user] => (item=alsa-utils)
+2020-10-02 15:29:39,416 p=73005 u=root n=ansible | ok: [local_user] => (item=software-properties-common)
+2020-10-02 15:29:40,113 p=73005 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-legacy)
+2020-10-02 15:29:40,816 p=73005 u=root n=ansible | ok: [local_user] => (item=mesa-utils)
+2020-10-02 15:29:41,529 p=73005 u=root n=ansible | ok: [local_user] => (item=git-core)
+2020-10-02 15:29:42,227 p=73005 u=root n=ansible | ok: [local_user] => (item=librtmp1)
+2020-10-02 15:29:42,930 p=73005 u=root n=ansible | ok: [local_user] => (item=libmad0)
+2020-10-02 15:29:43,625 p=73005 u=root n=ansible | ok: [local_user] => (item=lm-sensors)
+2020-10-02 15:29:44,330 p=73005 u=root n=ansible | ok: [local_user] => (item=libmpeg2-4)
+2020-10-02 15:29:45,035 p=73005 u=root n=ansible | ok: [local_user] => (item=avahi-daemon)
+2020-10-02 15:29:45,524 p=73005 u=root n=ansible | failed: [local_user] (item=libnfs11) => {"ansible_loop_var": "item", "changed": false, "item": "libnfs11", "msg": "No package matching 'libnfs11' is available"}
+2020-10-02 15:29:46,223 p=73005 u=root n=ansible | ok: [local_user] => (item=libva2)
+2020-10-02 15:29:46,924 p=73005 u=root n=ansible | ok: [local_user] => (item=vainfo)
+2020-10-02 15:29:47,616 p=73005 u=root n=ansible | ok: [local_user] => (item=i965-va-driver)
+2020-10-02 15:29:48,324 p=73005 u=root n=ansible | ok: [local_user] => (item=linux-firmware)
+2020-10-02 15:29:49,022 p=73005 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-10-02 15:29:49,723 p=73005 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-10-02 15:29:50,431 p=73005 u=root n=ansible | ok: [local_user] => (item=openbox)
+2020-10-02 15:29:51,125 p=73005 u=root n=ansible | ok: [local_user] => (item=pastebinit)
+2020-10-02 15:29:51,826 p=73005 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-10-02 15:29:52,519 p=73005 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-intel)
+2020-10-02 15:29:53,248 p=73005 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-amdgpu)
+2020-10-02 15:29:57,390 p=73005 u=root n=ansible | changed: [local_user] => (item=mesa-va-drivers)
+2020-10-02 15:29:57,398 p=73005 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.6_kodi.retry
+
+2020-10-02 15:29:57,398 p=73005 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
+2020-10-02 15:29:57,398 p=73005 u=root n=ansible | local_user                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-02 15:32:23,619 p=76199 u=root n=ansible | PLAY [local] **************************************************************************************************************************************************************************************************
+2020-10-02 15:32:24,500 p=76199 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************
+2020-10-02 15:32:24,500 p=76199 u=root n=ansible | ok: [local_user]
+2020-10-02 15:32:24,620 p=76199 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/install.yml for local_user
+2020-10-02 15:32:25,455 p=76199 u=root n=ansible | TASK [06-kodi : Install Software Properties Common] ***********************************************************************************************************************************************************
+2020-10-02 15:32:25,455 p=76199 u=root n=ansible | ok: [local_user]
+2020-10-02 15:32:26,218 p=76199 u=root n=ansible | TASK [06-kodi : Ensure specified packages are in there desired state] *****************************************************************************************************************************************
+2020-10-02 15:32:26,219 p=76199 u=root n=ansible | ok: [local_user] => (item=kodi)
+2020-10-02 15:32:26,918 p=76199 u=root n=ansible | ok: [local_user] => (item=xorg)
+2020-10-02 15:32:27,613 p=76199 u=root n=ansible | ok: [local_user] => (item=xserver-xorg)
+2020-10-02 15:32:28,298 p=76199 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-10-02 15:32:28,994 p=76199 u=root n=ansible | ok: [local_user] => (item=xinit)
+2020-10-02 15:32:29,682 p=76199 u=root n=ansible | ok: [local_user] => (item=xauth)
+2020-10-02 15:32:30,381 p=76199 u=root n=ansible | ok: [local_user] => (item=xorg)
+2020-10-02 15:32:31,068 p=76199 u=root n=ansible | ok: [local_user] => (item=xserver-xorg)
+2020-10-02 15:32:31,759 p=76199 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-core)
+2020-10-02 15:32:32,463 p=76199 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-10-02 15:32:33,150 p=76199 u=root n=ansible | ok: [local_user] => (item=xinit)
+2020-10-02 15:32:33,848 p=76199 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-legacy)
+2020-10-02 15:32:34,537 p=76199 u=root n=ansible | ok: [local_user] => (item=xserver-common)
+2020-10-02 15:32:35,226 p=76199 u=root n=ansible | ok: [local_user] => (item=pulseaudio)
+2020-10-02 15:32:35,922 p=76199 u=root n=ansible | ok: [local_user] => (item=alsa-utils)
+2020-10-02 15:32:36,610 p=76199 u=root n=ansible | ok: [local_user] => (item=software-properties-common)
+2020-10-02 15:32:37,312 p=76199 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-legacy)
+2020-10-02 15:32:38,005 p=76199 u=root n=ansible | ok: [local_user] => (item=mesa-utils)
+2020-10-02 15:32:38,690 p=76199 u=root n=ansible | ok: [local_user] => (item=git-core)
+2020-10-02 15:32:39,387 p=76199 u=root n=ansible | ok: [local_user] => (item=librtmp1)
+2020-10-02 15:32:40,070 p=76199 u=root n=ansible | ok: [local_user] => (item=libmad0)
+2020-10-02 15:32:40,764 p=76199 u=root n=ansible | ok: [local_user] => (item=lm-sensors)
+2020-10-02 15:32:41,462 p=76199 u=root n=ansible | ok: [local_user] => (item=libmpeg2-4)
+2020-10-02 15:32:42,146 p=76199 u=root n=ansible | ok: [local_user] => (item=avahi-daemon)
+2020-10-02 15:32:42,835 p=76199 u=root n=ansible | ok: [local_user] => (item=libva2)
+2020-10-02 15:32:43,523 p=76199 u=root n=ansible | ok: [local_user] => (item=vainfo)
+2020-10-02 15:32:44,219 p=76199 u=root n=ansible | ok: [local_user] => (item=i965-va-driver)
+2020-10-02 15:32:44,903 p=76199 u=root n=ansible | ok: [local_user] => (item=linux-firmware)
+2020-10-02 15:32:45,590 p=76199 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-10-02 15:32:46,288 p=76199 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-10-02 15:32:46,971 p=76199 u=root n=ansible | ok: [local_user] => (item=openbox)
+2020-10-02 15:32:47,677 p=76199 u=root n=ansible | ok: [local_user] => (item=pastebinit)
+2020-10-02 15:32:48,367 p=76199 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-10-02 15:32:49,051 p=76199 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-intel)
+2020-10-02 15:32:49,744 p=76199 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-amdgpu)
+2020-10-02 15:32:50,442 p=76199 u=root n=ansible | ok: [local_user] => (item=mesa-va-drivers)
+2020-10-02 15:32:55,047 p=76199 u=root n=ansible | TASK [06-kodi : Add Kodi Repository] **************************************************************************************************************************************************************************
+2020-10-02 15:32:55,047 p=76199 u=root n=ansible | changed: [local_user]
+2020-10-02 15:33:05,232 p=76199 u=root n=ansible | TASK [06-kodi : Install kodi] *********************************************************************************************************************************************************************************
+2020-10-02 15:33:05,232 p=76199 u=root n=ansible | changed: [local_user]
+2020-10-02 15:33:18,992 p=76199 u=root n=ansible | TASK [06-kodi : Install kodi] *********************************************************************************************************************************************************************************
+2020-10-02 15:33:18,992 p=76199 u=root n=ansible | changed: [local_user]
+2020-10-02 15:33:19,009 p=78696 u=root n=ansible | [DEPRECATION WARNING]: evaluating 'is_kodiinstalled' as a bare variable, this behaviour will go away and you might need to add |bool to the expression in the future. Also see CONDITIONAL_BARE_VARS 
+configuration toggle. This feature will be removed in version 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-10-02 15:33:19,354 p=76199 u=root n=ansible | TASK [06-kodi : Create Kodi system group] *********************************************************************************************************************************************************************
+2020-10-02 15:33:19,354 p=76199 u=root n=ansible | changed: [local_user]
+2020-10-02 15:33:19,372 p=78716 u=root n=ansible | [DEPRECATION WARNING]: evaluating 'is_kodiinstalled' as a bare variable, this behaviour will go away and you might need to add |bool to the expression in the future. Also see CONDITIONAL_BARE_VARS 
+configuration toggle. This feature will be removed in version 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-10-02 15:33:19,767 p=76199 u=root n=ansible | TASK [06-kodi : Create Kodi system user] **********************************************************************************************************************************************************************
+2020-10-02 15:33:19,767 p=76199 u=root n=ansible | changed: [local_user]
+2020-10-02 15:33:19,794 p=76199 u=root n=ansible | TASK [06-kodi : include_tasks] ********************************************************************************************************************************************************************************
+2020-10-02 15:33:19,795 p=76199 u=root n=ansible | fatal: [local_user]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  mapping values are not allowed in this context\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/configure.yml': line 72, column 9, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n- name: check the current symlink /etc/systemd/system/kodi.service\n    stat: path=/etc/systemd/system/kodi.service\n        ^ here\n"}
+2020-10-02 15:33:19,800 p=76199 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.6_kodi.retry
+
+2020-10-02 15:33:19,800 p=76199 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
+2020-10-02 15:33:19,801 p=76199 u=root n=ansible | local_user                 : ok=9    changed=5    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-02 15:42:03,803 p=80111 u=root n=ansible | PLAY [local] **************************************************************************************************************************************************************************************************
+2020-10-02 15:42:04,677 p=80111 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************
+2020-10-02 15:42:04,677 p=80111 u=root n=ansible | ok: [local_user]
+2020-10-02 15:42:04,797 p=80111 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/install.yml for local_user
+2020-10-02 15:42:05,640 p=80111 u=root n=ansible | TASK [06-kodi : Install Software Properties Common] ***********************************************************************************************************************************************************
+2020-10-02 15:42:05,640 p=80111 u=root n=ansible | ok: [local_user]
+2020-10-02 15:42:06,420 p=80111 u=root n=ansible | TASK [06-kodi : Ensure specified packages are in there desired state] *****************************************************************************************************************************************
+2020-10-02 15:42:06,421 p=80111 u=root n=ansible | ok: [local_user] => (item=kodi)
+2020-10-02 15:42:07,115 p=80111 u=root n=ansible | ok: [local_user] => (item=xorg)
+2020-10-02 15:42:07,815 p=80111 u=root n=ansible | ok: [local_user] => (item=xserver-xorg)
+2020-10-02 15:42:08,514 p=80111 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-10-02 15:42:09,202 p=80111 u=root n=ansible | ok: [local_user] => (item=xinit)
+2020-10-02 15:42:09,910 p=80111 u=root n=ansible | ok: [local_user] => (item=xauth)
+2020-10-02 15:42:10,602 p=80111 u=root n=ansible | ok: [local_user] => (item=xorg)
+2020-10-02 15:42:11,307 p=80111 u=root n=ansible | ok: [local_user] => (item=xserver-xorg)
+2020-10-02 15:42:12,010 p=80111 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-core)
+2020-10-02 15:42:12,702 p=80111 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-10-02 15:42:13,416 p=80111 u=root n=ansible | ok: [local_user] => (item=xinit)
+2020-10-02 15:42:14,111 p=80111 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-legacy)
+2020-10-02 15:42:14,810 p=80111 u=root n=ansible | ok: [local_user] => (item=xserver-common)
+2020-10-02 15:42:15,499 p=80111 u=root n=ansible | ok: [local_user] => (item=pulseaudio)
+2020-10-02 15:42:16,207 p=80111 u=root n=ansible | ok: [local_user] => (item=alsa-utils)
+2020-10-02 15:42:16,890 p=80111 u=root n=ansible | ok: [local_user] => (item=software-properties-common)
+2020-10-02 15:42:17,590 p=80111 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-legacy)
+2020-10-02 15:42:18,294 p=80111 u=root n=ansible | ok: [local_user] => (item=mesa-utils)
+2020-10-02 15:42:18,986 p=80111 u=root n=ansible | ok: [local_user] => (item=git-core)
+2020-10-02 15:42:19,692 p=80111 u=root n=ansible | ok: [local_user] => (item=librtmp1)
+2020-10-02 15:42:20,387 p=80111 u=root n=ansible | ok: [local_user] => (item=libmad0)
+2020-10-02 15:42:21,081 p=80111 u=root n=ansible | ok: [local_user] => (item=lm-sensors)
+2020-10-02 15:42:21,786 p=80111 u=root n=ansible | ok: [local_user] => (item=libmpeg2-4)
+2020-10-02 15:42:22,485 p=80111 u=root n=ansible | ok: [local_user] => (item=avahi-daemon)
+2020-10-02 15:42:23,183 p=80111 u=root n=ansible | ok: [local_user] => (item=libva2)
+2020-10-02 15:42:23,874 p=80111 u=root n=ansible | ok: [local_user] => (item=vainfo)
+2020-10-02 15:42:24,579 p=80111 u=root n=ansible | ok: [local_user] => (item=i965-va-driver)
+2020-10-02 15:42:25,270 p=80111 u=root n=ansible | ok: [local_user] => (item=linux-firmware)
+2020-10-02 15:42:26,061 p=80111 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-10-02 15:42:26,757 p=80111 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-10-02 15:42:27,446 p=80111 u=root n=ansible | ok: [local_user] => (item=openbox)
+2020-10-02 15:42:28,153 p=80111 u=root n=ansible | ok: [local_user] => (item=pastebinit)
+2020-10-02 15:42:28,843 p=80111 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-10-02 15:42:29,532 p=80111 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-intel)
+2020-10-02 15:42:30,234 p=80111 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-amdgpu)
+2020-10-02 15:42:30,924 p=80111 u=root n=ansible | ok: [local_user] => (item=mesa-va-drivers)
+2020-10-02 15:42:31,338 p=80111 u=root n=ansible | TASK [06-kodi : Add Kodi Repository] **************************************************************************************************************************************************************************
+2020-10-02 15:42:31,338 p=80111 u=root n=ansible | ok: [local_user]
+2020-10-02 15:42:32,057 p=80111 u=root n=ansible | TASK [06-kodi : Install kodi] *********************************************************************************************************************************************************************************
+2020-10-02 15:42:32,057 p=80111 u=root n=ansible | ok: [local_user]
+2020-10-02 15:42:32,763 p=80111 u=root n=ansible | TASK [06-kodi : Install kodi] *********************************************************************************************************************************************************************************
+2020-10-02 15:42:32,763 p=80111 u=root n=ansible | ok: [local_user]
+2020-10-02 15:42:32,779 p=80883 u=root n=ansible | [DEPRECATION WARNING]: evaluating 'is_kodiinstalled' as a bare variable, this behaviour will go away and you might need to add |bool to the expression in the future. Also see CONDITIONAL_BARE_VARS 
+configuration toggle. This feature will be removed in version 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-10-02 15:42:33,038 p=80111 u=root n=ansible | TASK [06-kodi : Create Kodi system group] *********************************************************************************************************************************************************************
+2020-10-02 15:42:33,038 p=80111 u=root n=ansible | ok: [local_user]
+2020-10-02 15:42:33,054 p=80890 u=root n=ansible | [DEPRECATION WARNING]: evaluating 'is_kodiinstalled' as a bare variable, this behaviour will go away and you might need to add |bool to the expression in the future. Also see CONDITIONAL_BARE_VARS 
+configuration toggle. This feature will be removed in version 2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-10-02 15:42:33,381 p=80111 u=root n=ansible | TASK [06-kodi : Create Kodi system user] **********************************************************************************************************************************************************************
+2020-10-02 15:42:33,381 p=80111 u=root n=ansible | ok: [local_user]
+2020-10-02 15:42:33,407 p=80111 u=root n=ansible | TASK [06-kodi : include_tasks] ********************************************************************************************************************************************************************************
+2020-10-02 15:42:33,408 p=80111 u=root n=ansible | fatal: [local_user]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  mapping values are not allowed in this context\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/configure.yml': line 80, column 9, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n- name: /home/kodi/.config/openbox check directory exists example.\n    stat:\n        ^ here\n"}
+2020-10-02 15:42:33,412 p=80111 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.6_kodi.retry
+
+2020-10-02 15:42:33,413 p=80111 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
+2020-10-02 15:42:33,413 p=80111 u=root n=ansible | local_user                 : ok=9    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
