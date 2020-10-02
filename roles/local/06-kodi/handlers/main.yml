@@ -1,2 +1,6 @@
 ---
 # handlers file for kodi
+- name: restart kodi
+  service:
+    name: kodi
+    state: present

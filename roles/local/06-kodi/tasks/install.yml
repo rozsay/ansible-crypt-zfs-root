@@ -59,13 +59,24 @@
 #  become: yes
   become: true
 
+- name: Install kodi
+  apt:
+    pkg: kodi-x11
+    state: latest
+#    update_cache: true
+#  when: is_ppakodi and is_softneedinstalled
+  register: is_kodiinstalled2
+#  become: yes
+  become: true
+
+
 # System user and group [[[
 - name: Create Kodi system group
   group:
     name: '{{ kodi_sysgroup }}'
     state: present
     system: True
-#  when: is_kodiinstalled
+  when: is_kodiinstalled
 
 - name: Create Kodi system user
   user:
@@ -78,7 +89,7 @@
     shell: '{{ kodi_shell }}'
     state: present
     system: True
-#  when: is_kodiinstalled
+  when: is_kodiinstalled
 
 #- name: Users | Create Super User
 #  user:

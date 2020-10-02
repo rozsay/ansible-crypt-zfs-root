@@ -1,0 +1,18 @@
+<advancedsettings>
+  <loglevel hide="false">0</loglevel>
+ <cputempcommand>sensors|sed -ne "s/Core 0: \+[-+]\([0-9]\+\).*/\1 C/p"</cputempcommand>
+ <gui>    
+   <algorithmdirtyregions>3</algorithmdirtyregions>
+   <nofliptimeout>0</nofliptimeout>
+ </gui>    
+<video>
+ <latency>
+   <delay>50</delay>
+   <refresh>
+     <min>23</min>
+     <max>24</max>
+     <delay>175</delay> <!-- set to zero or adjust if audio seems out of sync with 24p movies -->
+    </refresh>
+ </latency>
+</video>
+</advancedsettings>

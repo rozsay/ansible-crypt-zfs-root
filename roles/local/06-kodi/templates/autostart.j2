@@ -1,0 +1,9 @@
+OUTPUT=`xrandr -display :0 -q | sed '/ connected/!d;s/ .*//;q'`
+xrandr -display :0 --output $OUTPUT --set "Broadcast RGB" "Full"
+xsetroot #000000
+xset s off -dpms
+ /usr/bin/kodi --standalone
+while [ $? -ne 0 ]; do
+ /usr/bin/kodi --standalone
+done
+openbox --exit
