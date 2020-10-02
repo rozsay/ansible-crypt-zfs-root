@@ -51,3 +51,11 @@
     state: started
     enabled: yes
 #    masked: no
+
+- name: custom-actions
+  template:
+    src: 'custom-actions.j2'
+    dest: '/etc/polkit-1/localauthority/50-local.d/custom-actions.pkla'
+    mode: 0644
+    owner: root
+    group: root

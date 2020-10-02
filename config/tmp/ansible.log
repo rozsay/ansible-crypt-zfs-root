@@ -13673,3 +13673,26 @@ ansible.cfg to get rid of this message.
 
 2020-09-15 09:22:05,619 p=38756 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
 2020-09-15 09:22:05,620 p=38756 u=root n=ansible | local_user                 : ok=8    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-02 12:28:10,050 p=3570 u=root n=ansible | PLAY [local] ***********************************************************************************************************
+2020-10-02 12:28:13,615 p=3570 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2020-10-02 12:28:13,615 p=3570 u=root n=ansible | ok: [local_user]
+2020-10-02 12:28:14,694 p=3570 u=root n=ansible | TASK [09-remote_unlock : generate SSH key "id_rsa"] ********************************************************************
+2020-10-02 12:28:14,695 p=3570 u=root n=ansible | ok: [local_user]
+2020-10-02 12:28:14,948 p=3570 u=root n=ansible | TASK [09-remote_unlock : Convert dropbearkey] **************************************************************************
+2020-10-02 12:28:14,948 p=3570 u=root n=ansible | ok: [local_user]
+2020-10-02 12:28:15,088 p=3570 u=root n=ansible | TASK [09-remote_unlock : Convert dropbearkey rsa] **********************************************************************
+2020-10-02 12:28:15,089 p=3570 u=root n=ansible | ok: [local_user]
+2020-10-02 12:28:15,245 p=3570 u=root n=ansible | TASK [09-remote_unlock : Convert dropbear SSH key] *********************************************************************
+2020-10-02 12:28:15,246 p=3570 u=root n=ansible | ok: [local_user]
+2020-10-02 12:28:15,375 p=3570 u=root n=ansible | TASK [09-remote_unlock : Convert dropbear key] *************************************************************************
+2020-10-02 12:28:15,375 p=3570 u=root n=ansible | ok: [local_user]
+2020-10-02 12:28:15,506 p=3570 u=root n=ansible | TASK [09-remote_unlock : touch authorized_keys] ************************************************************************
+2020-10-02 12:28:15,506 p=3570 u=root n=ansible | ok: [local_user]
+2020-10-02 12:28:15,635 p=3570 u=root n=ansible | TASK [09-remote_unlock : cat id_rsa.pub] *******************************************************************************
+2020-10-02 12:28:15,635 p=3570 u=root n=ansible | ok: [local_user]
+2020-10-02 12:28:15,820 p=3570 u=root n=ansible | TASK [09-remote_unlock : cp dropbear_] *********************************************************************************
+2020-10-02 12:28:15,821 p=3570 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": true, "cmd": "cp dropbear_* /etc/dropbear-initramfs/", "delta": "0:00:00.042289", "end": "2020-10-02 12:28:15.808440", "msg": "non-zero return code", "rc": 1, "start": "2020-10-02 12:28:15.766151", "stderr": "cp: 'dropbear_dss_host_key' and '/etc/dropbear-initramfs/dropbear_dss_host_key' are the same file\ncp: 'dropbear_ecdsa_host_key' and '/etc/dropbear-initramfs/dropbear_ecdsa_host_key' are the same file\ncp: 'dropbear_rsa_host_key' and '/etc/dropbear-initramfs/dropbear_rsa_host_key' are the same file", "stderr_lines": ["cp: 'dropbear_dss_host_key' and '/etc/dropbear-initramfs/dropbear_dss_host_key' are the same file", "cp: 'dropbear_ecdsa_host_key' and '/etc/dropbear-initramfs/dropbear_ecdsa_host_key' are the same file", "cp: 'dropbear_rsa_host_key' and '/etc/dropbear-initramfs/dropbear_rsa_host_key' are the same file"], "stdout": "", "stdout_lines": []}
+2020-10-02 12:28:15,825 p=3570 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.9.Remote_Unlock.retry
+
+2020-10-02 12:28:15,825 p=3570 u=root n=ansible | PLAY RECAP *************************************************************************************************************
+2020-10-02 12:28:15,826 p=3570 u=root n=ansible | local_user                 : ok=8    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

@@ -1,8 +1,9 @@
 [Unit]
 Description=Kodi standalone (X11)
-After=remote-fs.target systemd-user-sessions.service network-online.target nss-lookup.target sound.target bluetooth.target polkit.service upower.service mysqld.service
-Wants=network-online.target polkit.service upower.service
-Conflicts=getty@tty1.service
+#After=remote-fs.target systemd-user-sessions.service network-online.target nss-lookup.target sound.target bluetooth.target polkit.service upower.service mysqld.service
+After=systemd-user-sessions.service network-online.target sound.target
+#Wants=network-online.target polkit.service upower.service
+#Conflicts=getty@tty1.service
 
 [Service]
 User=kodi
@@ -11,12 +12,13 @@ Group=kodi
 PAMName=login
 TTYPath=/dev/tty1
 Environment=WINDOWING=x11
-# ExecStart = /usr/bin/xinit /usr/bin/dbus-launch --exit-with-session /usr/bin/kodi-standalone -- :0 -nolisten tcp vt1
-ExecStart=/usr/bin/xinit /usr/bin/kodi-standalone -- :0 -nolisten tcp vt1
+ExecStart = /usr/bin/xinit /usr/bin/dbus-launch --exit-with-session /usr/bin/openbox-session -- :0 -nolisten tcp vt7
+#ExecStart = /usr/bin/xinit /usr/bin/dbus-launch --exit-with-session /usr/bin/kodi-standalone -- :0 -nolisten tcp vt7
+#ExecStart=/usr/bin/xinit /usr/bin/kodi-standalone -- :0 -nolisten tcp vt7
 Restart=on-abort
-StandardInput=tty
-StandardOutput=journal
+#StandardInput=tty
+#StandardOutput=journal
 
 [Install]
-WantedBy=graphical.target
+#WantedBy=graphical.target
 WantedBy = multi-user.target

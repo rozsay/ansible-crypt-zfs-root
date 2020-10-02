@@ -20,6 +20,28 @@ kodi_base_packages:
   - 'xserver-common'
   - 'pulseaudio'
   - 'alsa-utils'
+  - software-properties-common 
+  - xserver-xorg-legacy
+  - mesa-utils
+  - git-core 
+  - librtmp1 
+  - libmad0 
+  - lm-sensors 
+  - libmpeg2-4
+  - avahi-daemon
+  - libnfs11
+  - libva2
+  - vainfo
+  - i965-va-driver
+  - linux-firmware
+  - dbus-x11
+  - udisks2
+  - openbox
+  - pastebinit
+  - udisks2
+  - xserver-xorg-video-intel
+  - xserver-xorg-video-amdgpu
+  - mesa-va-drivers
 
 # System user and group
 kodi_sysuser: 'kodi'
