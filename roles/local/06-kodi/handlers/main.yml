@@ -4,3 +4,8 @@
   service:
     name: kodi
     state: present
+
+- name: restart polkitd
+  service:
+    name: polkitd
+    state: present

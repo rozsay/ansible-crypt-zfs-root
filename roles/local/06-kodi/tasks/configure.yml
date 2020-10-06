@@ -40,12 +40,6 @@
     owner: root
     group: root
 
-#- name: start kodi.service
-#  sudo: yes
-#  service:
-#    name: kodi.service
-#    state: started
-#    use: service
 - name: enable service kodi
   systemd:
     name: kodi.service
@@ -55,11 +49,13 @@
 
 - name: custom-actions
   template:
-    src: 'custom-actions.j2'
-    dest: '/etc/polkit-1/localauthority/50-local.d/custom-actions.pkla'
+    src: 'custom-actions.pkla.j2'
+    dest: '/etc/polkit-1/localauthority/50-local.d/kodi.pkla'
     mode: 0644
     owner: root
     group: root
+   notify:
+    - restart polkitd
 
 - name: add string /etc/X11/Xwrapper.config
   lineinfile: dest=/etc/X11/Xwrapper.config regexp='^needs_root_rights' line='needs_root_rights=yes' create=yes
@@ -67,29 +63,9 @@
 - name: add /etc/security/limits.conf
   lineinfile: dest=/etc/security/limits.conf regexp='^kodi' line='kodi             -       nice            -1' create=yes
 
-# Fake display-manager.service to not make plymouth or something else complain.
-#- name: check the current symlink /etc/systemd/system/kodi.service
-#    stat: path=/etc/systemd/system/kodi.service 
-#    register: kodi_service__available
-
-#- name: remove the folder (only if it is a folder)
-#    file: path=/etc/systemd/system/kodi.service state=absent
-#    when: kodi_service__available.stat.isdir is defined and kodi_service__available.stat.isdir
-
-- name: /home/kodi/.config/openbox check directory exists example.
-    stat:
-      path: /home/kodi/.config/openbox
-    register: files_to_delete
-
-- debug:
-    msg: "It is a directory"
-    when: files_to_delete.stat.exists and files_to_delete.stat.isdir
-
-- name: autostart
-  template:
-    src: 'autostart.j2'
-    dest: '/home/kodi/.config/openbox/autostart'
-    mode: 0777
-    owner: kodi
-    group: koid
-  notify: restart kodi
+- name: start kodi.service
+  sudo: yes
+  service:
+    name: kodi.service
+    state: started
+    use: service

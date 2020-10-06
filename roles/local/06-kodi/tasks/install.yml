@@ -4,7 +4,7 @@
     pkg: software-properties-common
 #    update_cache: true
     state: present
-#  register:  is_softpropinstalled
+  register:  is_softpropinstalled
   become: yes
 
 - name: Ensure specified packages are in there desired state
@@ -16,27 +16,6 @@
   register: is_softneedinstalled
 #  become: yes
   become: true
-
-#- name: apt | install kodi packages
-#  apt:
-#    name:
-#      - xauth
-#      - xorg
-#      - xinit
-#      - xserver-xorg-core
-#      - xserver-xorg
-#      - xserver-common
-#      - xserver-xorg-legacy
-#      - dbus-x11
-#      - alsa-utils
-#    state: present
-#    update_cache: true
-#    cache_valid_time: 3600
-#  register:  softneedinstalled
-#  become: yes
-#  become: true
-#  register: apt_out
-#- debug: var=apt_out
 
 - name: Add Kodi Repository
   apt_repository:
@@ -59,15 +38,15 @@
 #  become: yes
   become: true
 
-- name: Install kodi
-  apt:
-    pkg: kodi-x11
-    state: latest
+#- name: Install kodi
+#  apt:
+#    pkg: kodi-x11
+#    state: latest
 #    update_cache: true
 #  when: is_ppakodi and is_softneedinstalled
-  register: is_kodiinstalled2
+#  register: is_kodiinstalled2
 #  become: yes
-  become: true
+#  become: true
 
 
 # System user and group [[[
@@ -76,7 +55,7 @@
     name: '{{ kodi_sysgroup }}'
     state: present
     system: True
-  when: is_kodiinstalled
+#  when: is_kodiinstalled
 
 - name: Create Kodi system user
   user:
@@ -89,7 +68,7 @@
     shell: '{{ kodi_shell }}'
     state: present
     system: True
-  when: is_kodiinstalled
+#  when: is_kodiinstalled
 
 #- name: Users | Create Super User
 #  user:

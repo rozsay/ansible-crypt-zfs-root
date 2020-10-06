@@ -5,20 +5,42 @@
 # Recommended packages:
 # kodi-visualization-spectrum libcec4 libmodplug1 libnfs8 libplist3 udisks2 libaacs0 libgl1-mesa-dri javascript-common va-driver-all | va-driver vdpau-driver-all | vdpau-driver
 kodi_base_packages:
-  - 'xinit'
+  - 'kodi'
   - 'xorg'
-  - 'xserver-xorg-legacy' 
+  - 'xserver-xorg'
   - 'dbus-x11'
-  - 'xserver-xorg-video-amdgpu'
+  - 'xinit'
+  - 'xauth'
+  - 'xorg'
+  - 'xserver-xorg'
+  - 'xserver-xorg-core'
+  - 'dbus-x11'
+  - 'xinit'
+  - 'xserver-xorg-legacy'
+  - 'xserver-common'
   - 'pulseaudio'
   - 'alsa-utils'
-  - 'upower'
-#  - 'xserver-xorg-legacy'
-  - 'mesa-util's
-  - 'mesa-va-drivers'
+  - software-properties-common 
+  - xserver-xorg-legacy
+  - mesa-utils
+  - git-core 
+  - librtmp1 
+  - libmad0 
   - lm-sensors 
   - libmpeg2-4
+  - avahi-daemon
+  - libva2
+  - vainfo
+  - i965-va-driver
+  - linux-firmware
+  - dbus-x11
   - udisks2
+  - openbox
+  - pastebinit
+  - udisks2
+  - xserver-xorg-video-intel
+  - xserver-xorg-video-amdgpu
+  - mesa-va-drivers
 
 # System user and group
 kodi_sysuser: 'kodi'
@@ -34,9 +56,6 @@ kodi_groups:
   - 'audio'
   - 'video'
   - 'plugdev'
-  - 'input'
-  - 'dialout'
-  - 'tty'
 
 # Contents of the GECOS field set for the Kodi account.
 kodi_gecos: 'kodi.org'
@@ -66,7 +85,7 @@ kodi_mysql:
   host: localhost
   port: 3306
   user: kodi
-  pass: kodi
+  pass: password
 
 # Source settings
 kodi_sources_video: []
