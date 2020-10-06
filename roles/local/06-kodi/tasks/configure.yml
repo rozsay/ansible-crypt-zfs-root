@@ -54,8 +54,9 @@
     mode: 0644
     owner: root
     group: root
-   notify:
+  notify:
     - restart polkitd
+    - restart kodi
 
 - name: add string /etc/X11/Xwrapper.config
   lineinfile: dest=/etc/X11/Xwrapper.config regexp='^needs_root_rights' line='needs_root_rights=yes' create=yes
@@ -63,9 +64,9 @@
 - name: add /etc/security/limits.conf
   lineinfile: dest=/etc/security/limits.conf regexp='^kodi' line='kodi             -       nice            -1' create=yes
 
-- name: start kodi.service
-  sudo: yes
-  service:
-    name: kodi.service
-    state: started
-    use: service
+#- name: start kodi.service
+#  sudo: yes
+#  service:
+#    name: kodi.service
+#    state: started
+#    use: service

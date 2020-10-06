@@ -14,7 +14,7 @@ kodi_base_packages:
   - 'alsa-utils'
   - 'upower'
 #  - 'xserver-xorg-legacy'
-  - 'mesa-util's
+  - 'mesa-utils'
   - 'mesa-va-drivers'
   - lm-sensors 
   - libmpeg2-4

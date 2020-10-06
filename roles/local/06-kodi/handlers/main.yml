@@ -3,9 +3,11 @@
 - name: restart kodi
   service:
     name: kodi
-    state: present
+    state: restarted
 
 - name: restart polkitd
   service:
     name: polkitd
-    state: present
+    state: reloaded
+
+#  reloaded, restarted, started, stopped, got: present"}
