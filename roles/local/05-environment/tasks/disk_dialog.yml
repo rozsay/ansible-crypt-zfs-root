@@ -101,3 +101,35 @@
   ignore_errors: yes
 
 #############################################################
+- name: data2000new check directory.
+  stat:
+    path: /mnt/data3000
+  register: my_data3000
+- name: "echo if directory already existed"
+  debug:
+    msg: "the /mnt/data3000 is already existed"
+  when: my_data3000.stat.exists
+
+- name: "Ansible Create directory if not exists 3"
+  file:
+    path: /mnt/data3000
+    state: directory
+    mode: 0755
+    group: root
+    owner: root
+  when: my_data3000.stat.exists == false
+
+#- name: Create a ext4 filesystem on /dev/sdd1 and check disk blocks
+#  filesystem:
+#    fstype: ext4
+#    dev: /dev/sdd1
+#    opts: -cc
+
+- name: Mounts data3000
+  mount:
+    name: /mnt/data3000
+    src: /dev/sde1
+    fstype: ext4
+    state: mounted
+  become: true
+  ignore_errors: yes

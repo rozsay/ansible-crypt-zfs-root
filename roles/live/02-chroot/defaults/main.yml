@@ -38,7 +38,7 @@ _kernel_package: "linux-image-generic linux-headers-generic"
 _root_password_hash: "$2y$10$SPFGSp7upVEKeE81zZzD5eAnSj6oiXjdtyo56JLJIsQM1WSxEGb/q"  # "Password"
 
 sshd_enabled: true
-sshd_port: "22"
+sshd_port: "1992"
 sshd_listen_address: ["::", "0.0.0.0"]
 sshd_allow_groups: []
 sshd_protocol: "2"
