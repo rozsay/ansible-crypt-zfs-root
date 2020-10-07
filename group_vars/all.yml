@@ -15,3 +15,18 @@ disk_additional_disks:
 #   user: www-data
 #   group: www-data
 #   disable_periodic_fsck: false
+
+# Will be added to the docker group to give user command line access to docker
+nas_user: sa
+
+# Your email and domain, used for Let's Encrypt SSL certs
+nas_email: me@info.local
+
+# Applications will have subdomain SSL certificates created if Traefik is enabled, e.g. ansible-nas.<your-domain>, nextcloud.<your-domain>
+nas_domain: info.local
+
+
+transmission_enabled: true
+docker_enabled: true
+samba_enabled: true
+

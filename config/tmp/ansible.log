@@ -14603,3 +14603,238 @@ The offending line appears to be:
 2020-10-07 09:02:43,914 p=5045 u=root n=ansible | changed: [local_user]
 2020-10-07 09:02:43,935 p=5045 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************
 2020-10-07 09:02:43,935 p=5045 u=root n=ansible | local_user                 : ok=16   changed=8    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+2020-10-07 09:07:34,167 p=5918 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************
+2020-10-07 09:07:34,942 p=5918 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************
+2020-10-07 09:07:34,943 p=5918 u=root n=ansible | ok: [local_user]
+2020-10-07 09:07:38,033 p=5918 u=root n=ansible | TASK [raw] *************************************************************************************************************************************************************************************************************
+2020-10-07 09:07:38,033 p=5918 u=root n=ansible | changed: [local_user]
+2020-10-07 09:07:38,303 p=5918 u=root n=ansible | TASK [Test Ansible ping] ***********************************************************************************************************************************************************************************************
+2020-10-07 09:07:38,303 p=5918 u=root n=ansible | ok: [local_user]
+2020-10-07 09:07:38,571 p=5918 u=root n=ansible | TASK [Run a command to get target release] *****************************************************************************************************************************************************************************
+2020-10-07 09:07:38,571 p=5918 u=root n=ansible | ok: [local_user]
+2020-10-07 09:07:38,627 p=5918 u=root n=ansible | TASK [debug] ***********************************************************************************************************************************************************************************************************
+2020-10-07 09:07:38,627 p=5918 u=root n=ansible | ok: [local_user] => {
+    "system_output.stdout_lines": [
+        "Hit:1 http://download.bareos.org/bareos/release/19.2/xUbuntu_18.04  InRelease",
+        "Hit:2 http://ppa.launchpad.net/team-xbmc/ppa/ubuntu focal InRelease",
+        "Get:3 http://security.ubuntu.com/ubuntu focal-security InRelease [107 kB]",
+        "Hit:4 http://archive.ubuntu.com/ubuntu focal InRelease",
+        "Get:5 http://archive.ubuntu.com/ubuntu focal-updates InRelease [111 kB]",
+        "Hit:6 http://ppa.launchpad.net/teejee2008/ppa/ubuntu focal InRelease",
+        "Hit:7 https://download.docker.com/linux/ubuntu focal InRelease",
+        "Get:8 http://security.ubuntu.com/ubuntu focal-security/main Sources [79.0 kB]",
+        "Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main Sources [295 kB]",
+        "Get:10 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [297 kB]",
+        "Get:11 http://security.ubuntu.com/ubuntu focal-security/main Translation-en [70.3 kB]",
+        "Get:12 http://archive.ubuntu.com/ubuntu focal-updates/universe Sources [97.7 kB]",
+        "Get:13 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [93.8 kB]",
+        "Get:14 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [560 kB]",
+        "Get:15 http://archive.ubuntu.com/ubuntu focal-updates/main Translation-en [144 kB]",
+        "Get:16 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [254 kB]",
+        "Get:17 http://archive.ubuntu.com/ubuntu focal-updates/universe Translation-en [96.2 kB]",
+        "Fetched 2,206 kB in 2s (1,117 kB/s)",
+        "Reading package lists..."
+    ]
+}
+2020-10-07 09:07:38,649 p=5918 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************
+2020-10-07 09:07:38,649 p=5918 u=root n=ansible | local_user                 : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-07 09:09:43,331 p=7240 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************
+2020-10-07 09:09:44,136 p=7240 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************
+2020-10-07 09:09:44,137 p=7240 u=root n=ansible | ok: [local_user]
+2020-10-07 09:09:45,825 p=7240 u=root n=ansible | TASK [07-services : Essentials | Ensure that the repositories are update] **********************************************************************************************************************************************
+2020-10-07 09:09:45,826 p=7240 u=root n=ansible | ok: [local_user]
+2020-10-07 09:10:57,437 p=7240 u=root n=ansible | TASK [07-services : Essentials | Upgrade the Server] *******************************************************************************************************************************************************************
+2020-10-07 09:10:57,437 p=7240 u=root n=ansible | changed: [local_user]
+2020-10-07 09:10:57,519 p=12921 u=root n=ansible | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ item }}"`, please use `name: ['build-
+essential', 'python-software-properties', 'git', 'ssh', 'lshw', 'rsync', 'ncdu', 'ethtool', 'wget', 'gparted', 'ssh-askpass', 'net-tools', 'tree', 'htop', 'strace']` and remove the loop. This feature will be removed
+ in version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-10-07 09:10:57,756 p=7240 u=root n=ansible | TASK [07-services : Essentials | Install all the essential packages] ***************************************************************************************************************************************************
+2020-10-07 09:10:57,757 p=7240 u=root n=ansible | failed: [local_user] (item=['build-essential', 'python-software-properties', 'git', 'ssh', 'lshw', 'rsync', 'ncdu', 'ethtool', 'wget', 'gparted', 'ssh-askpass', 'net-tools', 'tree', 'htop', 'strace']) => {"ansible_loop_var": "item", "changed": false, "item": ["build-essential", "python-software-properties", "git", "ssh", "lshw", "rsync", "ncdu", "ethtool", "wget", "gparted", "ssh-askpass", "net-tools", "tree", "htop", "strace"], "msg": "value of state must be one of: absent, build-dep, fixed, latest, present, got: installed"}
+2020-10-07 09:10:57,762 p=7240 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.7_service.retry
+
+2020-10-07 09:10:57,763 p=7240 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************
+2020-10-07 09:10:57,763 p=7240 u=root n=ansible | local_user                 : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-07 09:18:05,433 p=13915 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************
+2020-10-07 09:18:06,244 p=13915 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************
+2020-10-07 09:18:06,245 p=13915 u=root n=ansible | ok: [local_user]
+2020-10-07 09:18:08,127 p=13915 u=root n=ansible | TASK [07-services : Essentials | Ensure that the repositories are update] **********************************************************************************************************************************************
+2020-10-07 09:18:08,128 p=13915 u=root n=ansible | ok: [local_user]
+2020-10-07 09:18:09,068 p=13915 u=root n=ansible | TASK [07-services : Essentials | Upgrade the Server] *******************************************************************************************************************************************************************
+2020-10-07 09:18:09,069 p=13915 u=root n=ansible | ok: [local_user]
+2020-10-07 09:18:09,116 p=14563 u=root n=ansible | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ item }}"`, please use `name: ['build-
+essential', 'python-software-properties', 'git', 'ssh', 'lshw', 'rsync', 'ncdu', 'ethtool', 'wget', 'gparted', 'ssh-askpass', 'net-tools', 'tree', 'htop', 'strace']` and remove the loop. This feature will be removed
+ in version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-10-07 09:18:10,645 p=13915 u=root n=ansible | TASK [07-services : Essentials | Install all the essential packages] ***************************************************************************************************************************************************
+2020-10-07 09:18:10,645 p=13915 u=root n=ansible | failed: [local_user] (item=['build-essential', 'python-software-properties', 'git', 'ssh', 'lshw', 'rsync', 'ncdu', 'ethtool', 'wget', 'gparted', 'ssh-askpass', 'net-tools', 'tree', 'htop', 'strace']) => {"ansible_loop_var": "item", "changed": false, "item": ["build-essential", "python-software-properties", "git", "ssh", "lshw", "rsync", "ncdu", "ethtool", "wget", "gparted", "ssh-askpass", "net-tools", "tree", "htop", "strace"], "msg": "No package matching 'python-software-properties' is available"}
+2020-10-07 09:18:10,651 p=13915 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.7_service.retry
+
+2020-10-07 09:18:10,651 p=13915 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************
+2020-10-07 09:18:10,652 p=13915 u=root n=ansible | local_user                 : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-07 09:18:24,729 p=15146 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************
+2020-10-07 09:18:25,542 p=15146 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************
+2020-10-07 09:18:25,542 p=15146 u=root n=ansible | ok: [local_user]
+2020-10-07 09:18:27,254 p=15146 u=root n=ansible | TASK [07-services : Essentials | Ensure that the repositories are update] **********************************************************************************************************************************************
+2020-10-07 09:18:27,254 p=15146 u=root n=ansible | ok: [local_user]
+2020-10-07 09:18:28,224 p=15146 u=root n=ansible | TASK [07-services : Essentials | Upgrade the Server] *******************************************************************************************************************************************************************
+2020-10-07 09:18:28,225 p=15146 u=root n=ansible | ok: [local_user]
+2020-10-07 09:18:28,272 p=15811 u=root n=ansible | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ item }}"`, please use `name: ['build-
+essential', 'git', 'ssh', 'lshw', 'rsync', 'ncdu', 'ethtool', 'wget', 'gparted', 'ssh-askpass', 'net-tools', 'tree', 'htop', 'strace']` and remove the loop. This feature will be removed in version 2.11. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-10-07 09:18:30,074 p=15146 u=root n=ansible | TASK [07-services : Essentials | Install all the essential packages] ***************************************************************************************************************************************************
+2020-10-07 09:18:30,075 p=15146 u=root n=ansible | ok: [local_user] => (item=['build-essential', 'git', 'ssh', 'lshw', 'rsync', 'ncdu', 'ethtool', 'wget', 'gparted', 'ssh-askpass', 'net-tools', 'tree', 'htop', 'strace'])
+2020-10-07 09:18:31,854 p=15146 u=root n=ansible | TASK [07-services : Security_Updates | Ensure "unattended-upgrades" is at the latest version] **************************************************************************************************************************
+2020-10-07 09:18:31,854 p=15146 u=root n=ansible | ok: [local_user]
+2020-10-07 09:18:32,380 p=15146 u=root n=ansible | TASK [07-services : Security_Updates | Copy the "10periodic.j2" to the "/etc/apt/apt.conf.d/"] *************************************************************************************************************************
+2020-10-07 09:18:32,381 p=15146 u=root n=ansible | changed: [local_user]
+2020-10-07 09:18:32,719 p=15146 u=root n=ansible | TASK [07-services : Security_Updates | Copy the "50unattended-upgrades.j2" to the "/etc/apt/apt.conf.d/"] **************************************************************************************************************
+2020-10-07 09:18:32,719 p=15146 u=root n=ansible | changed: [local_user]
+2020-10-07 09:18:32,742 p=15146 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************
+2020-10-07 09:18:32,743 p=15146 u=root n=ansible | local_user                 : ok=7    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-07 09:37:12,894 p=20154 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************
+2020-10-07 09:37:13,704 p=20154 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************
+2020-10-07 09:37:13,705 p=20154 u=root n=ansible | ok: [local_user]
+2020-10-07 09:37:14,561 p=20154 u=root n=ansible | TASK [20-docker : install python3-pip] *********************************************************************************************************************************************************************************
+2020-10-07 09:37:14,561 p=20154 u=root n=ansible | ok: [local_user]
+2020-10-07 09:37:17,815 p=20154 u=root n=ansible | TASK [20-docker : Remove docker-py python module] **********************************************************************************************************************************************************************
+2020-10-07 09:37:17,815 p=20154 u=root n=ansible | ok: [local_user]
+2020-10-07 09:37:20,409 p=20154 u=root n=ansible | TASK [20-docker : Install docker python module] ************************************************************************************************************************************************************************
+2020-10-07 09:37:20,410 p=20154 u=root n=ansible | changed: [local_user]
+2020-10-07 09:37:20,695 p=20154 u=root n=ansible | TASK [20-docker : create docker home] **********************************************************************************************************************************************************************************
+2020-10-07 09:37:20,695 p=20154 u=root n=ansible | changed: [local_user]
+2020-10-07 09:37:20,743 p=20154 u=root n=ansible | TASK [20-docker : add user account to docker group] ********************************************************************************************************************************************************************
+2020-10-07 09:37:20,743 p=20154 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'ansible_nas_user' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/20-docker/tasks/docker.yml': line 29, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: add user account to docker group\n  ^ here\n"}
+2020-10-07 09:37:20,749 p=20154 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/20_docker.retry
+
+2020-10-07 09:37:20,749 p=20154 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************
+2020-10-07 09:37:20,750 p=20154 u=root n=ansible | local_user                 : ok=5    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-07 09:38:40,497 p=20507 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************
+2020-10-07 09:38:42,305 p=20507 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************
+2020-10-07 09:38:42,306 p=20507 u=root n=ansible | ok: [local_user]
+2020-10-07 09:38:43,148 p=20507 u=root n=ansible | TASK [20-docker : install python3-pip] *********************************************************************************************************************************************************************************
+2020-10-07 09:38:43,148 p=20507 u=root n=ansible | ok: [local_user]
+2020-10-07 09:38:44,324 p=20507 u=root n=ansible | TASK [20-docker : Remove docker-py python module] **********************************************************************************************************************************************************************
+2020-10-07 09:38:44,325 p=20507 u=root n=ansible | ok: [local_user]
+2020-10-07 09:38:45,501 p=20507 u=root n=ansible | TASK [20-docker : Install docker python module] ************************************************************************************************************************************************************************
+2020-10-07 09:38:45,502 p=20507 u=root n=ansible | ok: [local_user]
+2020-10-07 09:38:45,749 p=20507 u=root n=ansible | TASK [20-docker : create docker home] **********************************************************************************************************************************************************************************
+2020-10-07 09:38:45,749 p=20507 u=root n=ansible | ok: [local_user]
+2020-10-07 09:38:45,796 p=20507 u=root n=ansible | TASK [20-docker : add user account to docker group] ********************************************************************************************************************************************************************
+2020-10-07 09:38:45,797 p=20507 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'ansible_nas_user' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/20-docker/tasks/docker.yml': line 29, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: add user account to docker group\n  ^ here\n"}
+2020-10-07 09:38:45,801 p=20507 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/20_docker.retry
+
+2020-10-07 09:38:45,802 p=20507 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************
+2020-10-07 09:38:45,802 p=20507 u=root n=ansible | local_user                 : ok=5    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-07 09:39:04,552 p=20723 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************
+2020-10-07 09:39:05,376 p=20723 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************
+2020-10-07 09:39:05,377 p=20723 u=root n=ansible | ok: [local_user]
+2020-10-07 09:39:06,211 p=20723 u=root n=ansible | TASK [20-docker : install python3-pip] *********************************************************************************************************************************************************************************
+2020-10-07 09:39:06,211 p=20723 u=root n=ansible | ok: [local_user]
+2020-10-07 09:39:07,639 p=20723 u=root n=ansible | TASK [20-docker : Remove docker-py python module] **********************************************************************************************************************************************************************
+2020-10-07 09:39:07,640 p=20723 u=root n=ansible | ok: [local_user]
+2020-10-07 09:39:08,829 p=20723 u=root n=ansible | TASK [20-docker : Install docker python module] ************************************************************************************************************************************************************************
+2020-10-07 09:39:08,829 p=20723 u=root n=ansible | ok: [local_user]
+2020-10-07 09:39:09,078 p=20723 u=root n=ansible | TASK [20-docker : create docker home] **********************************************************************************************************************************************************************************
+2020-10-07 09:39:09,078 p=20723 u=root n=ansible | ok: [local_user]
+2020-10-07 09:39:09,125 p=20723 u=root n=ansible | TASK [20-docker : add user account to docker group] ********************************************************************************************************************************************************************
+2020-10-07 09:39:09,125 p=20723 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'nas_user' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/20-docker/tasks/docker.yml': line 29, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: add user account to docker group\n  ^ here\n"}
+2020-10-07 09:39:09,130 p=20723 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/20_docker.retry
+
+2020-10-07 09:39:09,130 p=20723 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************
+2020-10-07 09:39:09,131 p=20723 u=root n=ansible | local_user                 : ok=5    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-07 09:43:19,761 p=21483 u=root n=ansible | ERROR! the role 'bertvv.samba' was not found in /opt/ansible-crypt-zfs-root/playbooks/roles:/opt/ansible-crypt-zfs-root/roles/local:/opt/ansible-crypt-zfs-root/roles/live:/opt/ansible-crypt-zfs-root/roles/targets:/opt/ansible-crypt-zfs-root/roles/profiles:/opt/ansible-crypt-zfs-root/roles/vendors:/opt/ansible-crypt-zfs-root/playbooks
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/playbooks/20_docker.yml': line 13, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - role: bertvv.samba
+      ^ here
+
+2020-10-07 09:46:07,607 p=21920 u=root n=ansible | ERROR! the role 'bertvv.samba' was not found in /opt/ansible-crypt-zfs-root/playbooks/roles:/opt/ansible-crypt-zfs-root/roles/local:/opt/ansible-crypt-zfs-root/roles/live:/opt/ansible-crypt-zfs-root/roles/targets:/opt/ansible-crypt-zfs-root/roles/profiles:/opt/ansible-crypt-zfs-root/roles/vendors:/opt/ansible-crypt-zfs-root/playbooks
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/playbooks/20_docker.yml': line 13, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - role: bertvv.samba
+      ^ here
+
+2020-10-07 09:47:24,144 p=22082 u=root n=ansible | ERROR! the role 'bertvv.samba' was not found in /opt/ansible-crypt-zfs-root/playbooks/roles:/opt/ansible-crypt-zfs-root/roles/local:/opt/ansible-crypt-zfs-root/roles/live:/opt/ansible-crypt-zfs-root/roles/targets:/opt/ansible-crypt-zfs-root/roles/profiles:/opt/ansible-crypt-zfs-root/roles/vendors:/opt/ansible-crypt-zfs-root/playbooks
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/playbooks/20_docker.yml': line 13, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - role: bertvv.samba
+      ^ here
+
+2020-10-07 09:49:03,910 p=22521 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************
+2020-10-07 09:49:04,737 p=22521 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************
+2020-10-07 09:49:04,738 p=22521 u=root n=ansible | ok: [local_user]
+2020-10-07 09:49:05,626 p=22521 u=root n=ansible | TASK [20-docker : install python3-pip] *********************************************************************************************************************************************************************************
+2020-10-07 09:49:05,626 p=22521 u=root n=ansible | ok: [local_user]
+2020-10-07 09:49:06,901 p=22521 u=root n=ansible | TASK [20-docker : Remove docker-py python module] **********************************************************************************************************************************************************************
+2020-10-07 09:49:06,901 p=22521 u=root n=ansible | ok: [local_user]
+2020-10-07 09:49:08,148 p=22521 u=root n=ansible | TASK [20-docker : Install docker python module] ************************************************************************************************************************************************************************
+2020-10-07 09:49:08,149 p=22521 u=root n=ansible | ok: [local_user]
+2020-10-07 09:49:08,412 p=22521 u=root n=ansible | TASK [20-docker : create docker home] **********************************************************************************************************************************************************************************
+2020-10-07 09:49:08,412 p=22521 u=root n=ansible | ok: [local_user]
+2020-10-07 09:49:08,461 p=22521 u=root n=ansible | TASK [20-docker : add user account to docker group] ********************************************************************************************************************************************************************
+2020-10-07 09:49:08,462 p=22521 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'nas_user' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/20-docker/tasks/docker.yml': line 29, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: add user account to docker group\n  ^ here\n"}
+2020-10-07 09:49:08,466 p=22521 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/20_docker.retry
+
+2020-10-07 09:49:08,466 p=22521 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************
+2020-10-07 09:49:08,467 p=22521 u=root n=ansible | local_user                 : ok=5    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-07 09:49:45,586 p=22840 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************
+2020-10-07 09:49:46,377 p=22840 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************
+2020-10-07 09:49:46,378 p=22840 u=root n=ansible | ok: [local_user]
+2020-10-07 09:49:47,264 p=22840 u=root n=ansible | TASK [20-docker : install python3-pip] *********************************************************************************************************************************************************************************
+2020-10-07 09:49:47,264 p=22840 u=root n=ansible | ok: [local_user]
+2020-10-07 09:49:48,546 p=22840 u=root n=ansible | TASK [20-docker : Remove docker-py python module] **********************************************************************************************************************************************************************
+2020-10-07 09:49:48,546 p=22840 u=root n=ansible | ok: [local_user]
+2020-10-07 09:49:49,768 p=22840 u=root n=ansible | TASK [20-docker : Install docker python module] ************************************************************************************************************************************************************************
+2020-10-07 09:49:49,768 p=22840 u=root n=ansible | ok: [local_user]
+2020-10-07 09:49:50,024 p=22840 u=root n=ansible | TASK [20-docker : create docker home] **********************************************************************************************************************************************************************************
+2020-10-07 09:49:50,024 p=22840 u=root n=ansible | ok: [local_user]
+2020-10-07 09:49:50,388 p=22840 u=root n=ansible | TASK [20-docker : add user account to docker group] ********************************************************************************************************************************************************************
+2020-10-07 09:49:50,388 p=22840 u=root n=ansible | ok: [local_user]
+2020-10-07 09:49:50,904 p=22840 u=root n=ansible | TASK [20-docker : update docker home from install default] *************************************************************************************************************************************************************
+2020-10-07 09:49:50,904 p=22840 u=root n=ansible | changed: [local_user]
+2020-10-07 09:49:51,766 p=22840 u=root n=ansible | TASK [20-docker : restart docker] **************************************************************************************************************************************************************************************
+2020-10-07 09:49:51,766 p=22840 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Unable to restart service docker: Job for docker.service failed because the control process exited with error code.\nSee \"systemctl status docker.service\" and \"journalctl -xe\" for details.\n"}
+2020-10-07 09:49:51,770 p=22840 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/20_docker.retry
+
+2020-10-07 09:49:51,770 p=22840 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************
+2020-10-07 09:49:51,770 p=22840 u=root n=ansible | local_user                 : ok=7    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-07 09:54:15,823 p=23868 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  but found another document
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/20-docker/defaults/main.yml': line 27, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+---
+^ here
+
+2020-10-07 09:54:41,797 p=23963 u=root n=ansible | PLAY [local] ***********************************************************************************************************************************************************************************************************
+2020-10-07 09:54:43,643 p=23963 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************************************************************
+2020-10-07 09:54:43,644 p=23963 u=root n=ansible | ok: [local_user]
+2020-10-07 09:54:43,757 p=23963 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/20-docker/tasks/setup-Debian.yml for local_user
+2020-10-07 09:54:44,484 p=23963 u=root n=ansible | TASK [20-docker : Ensure old versions of Docker are not installed.] ****************************************************************************************************************************************************
+2020-10-07 09:54:44,485 p=23963 u=root n=ansible | ok: [local_user]
+2020-10-07 09:54:45,330 p=23963 u=root n=ansible | TASK [20-docker : Install Docker.] *************************************************************************************************************************************************************************************
+2020-10-07 09:54:45,330 p=23963 u=root n=ansible | ok: [local_user]
+2020-10-07 09:54:45,914 p=23963 u=root n=ansible | TASK [20-docker : Ensure Docker is started and enabled at boot.] *******************************************************************************************************************************************************
+2020-10-07 09:54:45,914 p=23963 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Unable to start service docker: Job for docker.service failed because the control process exited with error code.\nSee \"systemctl status docker.service\" and \"journalctl -xe\" for details.\n"}
+2020-10-07 09:54:45,921 p=23963 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/20_docker.retry
+
+2020-10-07 09:54:45,922 p=23963 u=root n=ansible | PLAY RECAP *************************************************************************************************************************************************************************************************************
+2020-10-07 09:54:45,922 p=23963 u=root n=ansible | local_user                 : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

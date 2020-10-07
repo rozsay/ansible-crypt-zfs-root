@@ -11,10 +11,11 @@
   apt:
     name: "{{ item }}"
     update_cache: yes
-    state: installed
+# absent, build-dep, fixed, latest, present, got: installed
+    state: latest
   with_items:
     - build-essential
-    - python-software-properties
+#    - python-software-properties
     - git
     - ssh
     - lshw

@@ -1,9 +1,9 @@
 ---
+- name: geerlingguy.docker
+  version: 2.5.2
 
-# TODO: Do a better documentation
-# Doc: http://docs.ansible.com/ansible/galaxy.html#id8
+- name: bertvv.samba
+  version: v2.7.0
 
-- src: mrjk.dumpall
-  version: dev
-  name: dumpall
-
+- name: geerlingguy.nfs
+  version: 1.5.0
