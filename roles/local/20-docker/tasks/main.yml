@@ -4,10 +4,13 @@
 
 - include_tasks: docker.yml
 
-- name: Install Docker.
+- name:  Install Docker
   package:
-    name: "{{ docker_package }}"
-    state: "{{ docker_package_state }}"
+    state: '{{ docker_package_state }}'
+  with_flattened: '{{ docker_package }}'
+#  tags: [ 'role::docker:pkgs' ]
+  register: is_softneedinstalled
+  become: true
   notify: restart docker
 
 - name: Ensure Docker is started and enabled at boot.

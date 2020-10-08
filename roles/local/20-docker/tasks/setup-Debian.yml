@@ -6,6 +6,15 @@
       - docker-engine
     state: absent
 
-- name: Install Docker's dependencies
-  apt:
-    name: "{{ docker__package_dependencies + docker__pip_dependencies }}"
+#- name: Install Docker's dependencies
+#  apt:
+#    name: "{{ docker__package_dependencies + docker__pip_dependencies }}"
+
+- name:  Install Docker's dependencies
+  package:
+    name: '{{ item }}'
+    state: present
+  with_flattened: '{{ docker__package_dependencies }}'
+#  tags: [ 'role::docker:pkgs' ]
+  register: is_softneedinstalled
+  become: true
