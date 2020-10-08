@@ -1,14 +1,10 @@
 ---
-- name: old versions of Docker are not installed.
+- name: Ensure old versions of Docker are not installed.
   package:
     name:
       - docker
       - docker-engine
     state: absent
-
-#- name: Install Docker's dependencies
-#  apt:
-#    name: "{{ docker__package_dependencies + docker__pip_dependencies }}"
 
 - name:  Install Docker's dependencies
   package:
@@ -18,7 +14,6 @@
 #  tags: [ 'role::docker:pkgs' ]
   register: is_softneedinstalled
   become: true
-
 
 - name: Add Docker apt key.
   apt_key:
