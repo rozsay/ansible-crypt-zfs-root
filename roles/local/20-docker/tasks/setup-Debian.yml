@@ -5,3 +5,7 @@
       - docker
       - docker-engine
     state: absent
+
+- name: Install Docker's dependencies
+  apt:
+    name: "{{ docker__package_dependencies + docker__pip_dependencies }}"
