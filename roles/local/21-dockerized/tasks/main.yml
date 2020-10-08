@@ -1,0 +1,8 @@
+---
+- include_tasks: calibre.yml
+  when: (calibre_enabled | default(False))
+  tags: portainer
+
+- include_tasks: portainer.yml
+  when: (portainer_enabled | default(False))
+  tags: portainer

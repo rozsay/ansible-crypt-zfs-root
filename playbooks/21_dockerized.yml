@@ -1,0 +1,37 @@
+---
+
+# TODO: 
+# - should install the default utils: screen, vim, htop, etc ...
+# - Should make the user happy to use the vm: bashrc, gitconfig, screenrc, etc ...
+
+- hosts: local
+#- hosts: targets
+  connection: local
+  user: root
+
+  roles:
+#    - role: bertvv.samba
+#      tags:
+#        - samba
+#        - skip_ansible_lint
+
+#    - role: geerlingguy.nfs
+#      tags:
+#        - nfs
+#        - skip_ansible_lint
+
+#    - role: geerlingguy.docker
+#      tags:
+#        - docker
+#        - skip_ansible_lint
+
+#  roles:
+    - role: 21-dockerized
+      tags: ["docker"]
+ 
+#  tasks:
+#  - import_tasks: tasks/general.yml
+#    tags: general#
+
+#  - import_tasks: tasks/docker.yml
+#    tags: docker
