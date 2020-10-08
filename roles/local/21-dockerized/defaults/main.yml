@@ -25,10 +25,10 @@ sonarr_enabled: false         # tv
 
 # System Management
 portainer_enabled: yes
-glances_enabled: false
+glances_enabled: yes
 stats_enabled: false
 netdata_enabled: false
-watchtower_enabled: false
+watchtower_enabled: yes
 heimdall_enabled: false
 organizr_enabled: false
 cloudflare_ddns_enabled: false

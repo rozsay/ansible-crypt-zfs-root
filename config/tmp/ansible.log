@@ -15661,3 +15661,15 @@ The offending line appears to be:
 2020-10-08 11:03:30,056 p=19926 u=root n=ansible | ok: [local_user] => (item={'name': 'Docker disk clean up', 'job': 'docker system prune -af > /dev/null 2>&1', 'schedule': ['0', '0', '*', '*', '0'], 'cron_file': 'docker-disk-clean-up', 'user': 'sa'})
 2020-10-08 11:03:30,077 p=19926 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
 2020-10-08 11:03:30,078 p=19926 u=root n=ansible | local_user                 : ok=16   changed=4    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+2020-10-08 11:07:15,790 p=21457 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-10-08 11:07:16,618 p=21457 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-08 11:07:16,620 p=21457 u=root n=ansible | ok: [local_user]
+2020-10-08 11:07:16,796 p=21457 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/portainer.yml for local_user
+2020-10-08 11:07:17,090 p=21457 u=root n=ansible | TASK [21-dockerized : Create Portainer Directories] *****************************************************************************************************************************************************************************************
+2020-10-08 11:07:17,090 p=21457 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/portainer/config)
+2020-10-08 11:07:27,801 p=21457 u=root n=ansible | TASK [21-dockerized : Portainer Docker Container] *******************************************************************************************************************************************************************************************
+2020-10-08 11:07:27,802 p=21457 u=root n=ansible | [WARNING]: Docker warning: Your kernel does not support swap limit capabilities or the cgroup is not mounted. Memory limited without swap.
+
+2020-10-08 11:07:27,802 p=21457 u=root n=ansible | changed: [local_user]
+2020-10-08 11:07:27,841 p=21457 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-08 11:07:27,841 p=21457 u=root n=ansible | local_user                 : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
