@@ -6,21 +6,28 @@
 
 - name:  Install Docker
   package:
-    state: '{{ docker_package_state }}'
+    name: '{{ item }}'
+    state: present
+#    state: '{{ docker_package_state }}'
   with_flattened: '{{ docker_package }}'
 #  tags: [ 'role::docker:pkgs' ]
   register: is_softneedinstalled
   become: true
   notify: restart docker
+#    - systemd daemon reload
+
+- name: Ensure handlers are notified now to avoid firewall conflicts.
+  meta: flush_handlers
 
 - name: Ensure Docker is started and enabled at boot.
   service:
     name: docker
     state: "{{ docker_service_state }}"
     enabled: "{{ docker_service_enabled }}"
+  notify: systemd daemon reload
 
-- name: Ensure handlers are notified now to avoid firewall conflicts.
-  meta: flush_handlers
+#- name: Ensure handlers are notified now to avoid firewall conflicts.
+#  meta: flush_handlers
 
 - include_tasks: docker-compose.yml
   when: docker_install_compose | bool
