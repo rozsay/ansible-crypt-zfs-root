@@ -15673,3 +15673,23 @@ The offending line appears to be:
 2020-10-08 11:07:27,802 p=21457 u=root n=ansible | changed: [local_user]
 2020-10-08 11:07:27,841 p=21457 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
 2020-10-08 11:07:27,841 p=21457 u=root n=ansible | local_user                 : ok=4    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-10-08 11:11:39,885 p=22927 u=root n=ansible | PLAY [local] ************************************************************************************************************************************************************************************************
+2020-10-08 11:11:40,681 p=22927 u=root n=ansible | TASK [Gathering Facts] **************************************************************************************************************************************************************************************
+2020-10-08 11:11:40,681 p=22927 u=root n=ansible | ok: [local_user]
+2020-10-08 11:11:40,849 p=22927 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/portainer.yml for local_user
+2020-10-08 11:11:41,137 p=22927 u=root n=ansible | TASK [21-dockerized : Create Portainer Directories] *********************************************************************************************************************************************************
+2020-10-08 11:11:41,137 p=22927 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/portainer/config)
+2020-10-08 11:11:45,011 p=22927 u=root n=ansible | TASK [21-dockerized : Portainer Docker Container] ***********************************************************************************************************************************************************
+2020-10-08 11:11:45,012 p=22927 u=root n=ansible | ok: [local_user]
+2020-10-08 11:11:45,075 p=22927 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/watchtower.yml for local_user
+2020-10-08 11:11:50,512 p=22927 u=root n=ansible | TASK [21-dockerized : Watchtower Docker Container] **********************************************************************************************************************************************************
+2020-10-08 11:11:50,513 p=22927 u=root n=ansible | [WARNING]: Docker warning: Your kernel does not support swap limit capabilities or the cgroup is not mounted. Memory limited without swap.
+
+2020-10-08 11:11:50,514 p=22927 u=root n=ansible | changed: [local_user]
+2020-10-08 11:11:50,687 p=22927 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/glances.yml for local_user
+2020-10-08 11:12:28,783 p=22927 u=root n=ansible | TASK [21-dockerized : Glances Docker Container] *************************************************************************************************************************************************************
+2020-10-08 11:12:28,784 p=22927 u=root n=ansible | [WARNING]: Docker warning: Published ports are discarded when using host network mode
+
+2020-10-08 11:12:28,785 p=22927 u=root n=ansible | changed: [local_user]
+2020-10-08 11:12:28,922 p=22927 u=root n=ansible | PLAY RECAP **************************************************************************************************************************************************************************************************
+2020-10-08 11:12:28,922 p=22927 u=root n=ansible | local_user                 : ok=8    changed=2    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   

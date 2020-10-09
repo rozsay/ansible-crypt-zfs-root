@@ -8,6 +8,13 @@
 #- hosts: targets
   connection: local
   user: root
+  
+  pre_tasks:
+    # Copy custom/custom.yml.sample to custom/custom.yml
+    # Update variable values
+    - name: Load custom variables from custom.yml
+      include_vars: custom/custom.yml
+      failed_when: false
 
   roles:
 #    - role: bertvv.samba
