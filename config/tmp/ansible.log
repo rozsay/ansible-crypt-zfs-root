@@ -15802,3 +15802,542 @@ Should be written as:
 2020-10-12 07:19:26,636 p=8472 u=root n=ansible | changed: [local_user]
 2020-10-12 07:19:26,651 p=8472 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
 2020-10-12 07:19:26,651 p=8472 u=root n=ansible | local_user                 : ok=11   changed=3    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-10-12 09:27:55,369 p=3722 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-10-12 09:27:56,368 p=3722 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-12 09:27:56,369 p=3722 u=root n=ansible | ok: [local_user]
+2020-10-12 09:27:58,012 p=3722 u=root n=ansible | TASK [09-remote_unlock2 : Install required packages] ****************************************************************************************************************************************************************************************
+2020-10-12 09:27:58,013 p=3722 u=root n=ansible | ok: [local_user] => (item=busybox)
+2020-10-12 09:27:58,736 p=3722 u=root n=ansible | ok: [local_user] => (item=dropbear)
+2020-10-12 09:27:58,956 p=3722 u=root n=ansible | TASK [09-remote_unlock2 : Enable busybox in initramfs] **************************************************************************************************************************************************************************************
+2020-10-12 09:27:58,956 p=3722 u=root n=ansible | ok: [local_user]
+2020-10-12 09:27:59,124 p=3722 u=root n=ansible | TASK [09-remote_unlock2 : Setup static ip in initramfs] *************************************************************************************************************************************************************************************
+2020-10-12 09:27:59,124 p=3722 u=root n=ansible | ok: [local_user]
+2020-10-12 09:27:59,380 p=3722 u=root n=ansible | TASK [09-remote_unlock2 : Convert dropbear SSH key] *****************************************************************************************************************************************************************************************
+2020-10-12 09:27:59,381 p=3722 u=root n=ansible | ok: [local_user]
+2020-10-12 09:27:59,752 p=3722 u=root n=ansible | TASK [09-remote_unlock2 : Copy SSH public key to the remote server] *************************************************************************************************************************************************************************
+2020-10-12 09:27:59,753 p=3722 u=root n=ansible | ok: [local_user]
+2020-10-12 09:27:59,906 p=3722 u=root n=ansible | TASK [09-remote_unlock2 : Enable dropbear start] ********************************************************************************************************************************************************************************************
+2020-10-12 09:27:59,906 p=3722 u=root n=ansible | ok: [local_user]
+2020-10-12 09:28:00,453 p=3722 u=root n=ansible | TASK [09-remote_unlock2 : Copy crypt unlock script] *****************************************************************************************************************************************************************************************
+2020-10-12 09:28:00,454 p=3722 u=root n=ansible | ok: [local_user]
+2020-10-12 09:28:00,965 p=3722 u=root n=ansible | TASK [09-remote_unlock2 : Disable dropbear service] *****************************************************************************************************************************************************************************************
+2020-10-12 09:28:00,965 p=3722 u=root n=ansible | ok: [local_user]
+2020-10-12 09:28:01,102 p=3722 u=root n=ansible | TASK [09-remote_unlock2 : Disable GRUB splash] **********************************************************************************************************************************************************************************************
+2020-10-12 09:28:01,102 p=3722 u=root n=ansible | ok: [local_user]
+2020-10-12 09:28:01,124 p=3722 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-12 09:28:01,125 p=3722 u=root n=ansible | local_user                 : ok=10   changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-10-12 09:28:33,247 p=4047 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/defaults/main.yml': line 3, column 20, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+remote_unlcok_gw.ip= 192.168.100.2
+                   ^ here
+
+There appears to be both 'k=v' shorthand syntax and YAML in this task. Only one syntax may be used.
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-10-12 09:29:16,734 p=4200 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/defaults/main.yml': line 3, column 20, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+remote_unlcok_gw_ip= 192.168.100.2
+                   ^ here
+
+There appears to be both 'k=v' shorthand syntax and YAML in this task. Only one syntax may be used.
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-10-12 09:29:44,698 p=4337 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected <document start>
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/defaults/main.yml': line 3, column 21, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+#remote_unlcok_gw_ip= 192.168.100.2
+                    ^ here
+
+There appears to be both 'k=v' shorthand syntax and YAML in this task. Only one syntax may be used.
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-10-12 09:30:31,310 p=4549 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/defaults/main.yml': line 4, column 20, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+remote_unlcok_gw_ip= 192.168.100.2
+                   ^ here
+
+There appears to be both 'k=v' shorthand syntax and YAML in this task. Only one syntax may be used.
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-10-12 09:31:09,851 p=4736 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-10-12 09:31:10,652 p=4736 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-12 09:31:10,653 p=4736 u=root n=ansible | ok: [local_user]
+2020-10-12 09:31:11,554 p=4736 u=root n=ansible | TASK [09-remote_unlock : Install dependencies] **********************************************************************************************************************************************************************************************
+2020-10-12 09:31:11,554 p=4736 u=root n=ansible | ok: [local_user]
+2020-10-12 09:31:11,577 p=4736 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-12 09:31:11,578 p=4736 u=root n=ansible | local_user                 : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-12 09:32:51,359 p=5084 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-10-12 09:32:52,167 p=5084 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-12 09:32:52,168 p=5084 u=root n=ansible | ok: [local_user]
+2020-10-12 09:32:53,010 p=5084 u=root n=ansible | TASK [09-remote_unlock : Install dependencies] **********************************************************************************************************************************************************************************************
+2020-10-12 09:32:53,011 p=5084 u=root n=ansible | ok: [local_user]
+2020-10-12 09:32:53,256 p=5084 u=root n=ansible | TASK [09-remote_unlock : Ensure dropbear is disabled after boot] ****************************************************************************************************************************************************************************
+2020-10-12 09:32:53,256 p=5084 u=root n=ansible | changed: [local_user]
+2020-10-12 09:32:53,786 p=5084 u=root n=ansible | TASK [09-remote_unlock : Copy unlock script] ************************************************************************************************************************************************************************************************
+2020-10-12 09:32:53,786 p=5084 u=root n=ansible | changed: [local_user]
+2020-10-12 09:32:54,090 p=5084 u=root n=ansible | TASK [09-remote_unlock : Copy cleanup script] ***********************************************************************************************************************************************************************************************
+2020-10-12 09:32:54,091 p=5084 u=root n=ansible | changed: [local_user]
+2020-10-12 09:32:54,113 p=5084 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-12 09:32:54,113 p=5084 u=root n=ansible | local_user                 : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-12 09:35:11,660 p=5687 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-10-12 09:35:12,464 p=5687 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-12 09:35:12,464 p=5687 u=root n=ansible | ok: [local_user]
+2020-10-12 09:35:13,397 p=5687 u=root n=ansible | TASK [09-remote_unlock : install unlock tools] **********************************************************************************************************************************************************************************************
+2020-10-12 09:35:13,398 p=5687 u=root n=ansible | ok: [local_user] => (item=cryptsetup)
+2020-10-12 09:35:14,087 p=5687 u=root n=ansible | ok: [local_user] => (item=initramfs-tools)
+2020-10-12 09:35:14,755 p=5687 u=root n=ansible | ok: [local_user] => (item=dropbear)
+2020-10-12 09:35:15,435 p=5687 u=root n=ansible | ok: [local_user] => (item=busybox)
+2020-10-12 09:35:15,649 p=5687 u=root n=ansible | TASK [09-remote_unlock : Ensure dropbear is disabled after boot] ****************************************************************************************************************************************************************************
+2020-10-12 09:35:15,649 p=5687 u=root n=ansible | ok: [local_user]
+2020-10-12 09:35:16,136 p=5687 u=root n=ansible | TASK [09-remote_unlock : Copy unlock script] ************************************************************************************************************************************************************************************************
+2020-10-12 09:35:16,136 p=5687 u=root n=ansible | ok: [local_user]
+2020-10-12 09:35:16,439 p=5687 u=root n=ansible | TASK [09-remote_unlock : Copy cleanup script] ***********************************************************************************************************************************************************************************************
+2020-10-12 09:35:16,439 p=5687 u=root n=ansible | ok: [local_user]
+2020-10-12 09:35:16,460 p=5687 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-12 09:35:16,461 p=5687 u=root n=ansible | local_user                 : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-12 09:36:51,898 p=6216 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-10-12 09:36:52,691 p=6216 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-12 09:36:52,692 p=6216 u=root n=ansible | ok: [local_user]
+2020-10-12 09:36:53,600 p=6216 u=root n=ansible | TASK [09-remote_unlock : install unlock tools] **********************************************************************************************************************************************************************************************
+2020-10-12 09:36:53,600 p=6216 u=root n=ansible | ok: [local_user] => (item=cryptsetup)
+2020-10-12 09:36:54,277 p=6216 u=root n=ansible | ok: [local_user] => (item=initramfs-tools)
+2020-10-12 09:36:54,951 p=6216 u=root n=ansible | ok: [local_user] => (item=dropbear)
+2020-10-12 09:36:55,624 p=6216 u=root n=ansible | ok: [local_user] => (item=busybox)
+2020-10-12 09:36:55,836 p=6216 u=root n=ansible | TASK [09-remote_unlock : Ensure dropbear is disabled after boot] ****************************************************************************************************************************************************************************
+2020-10-12 09:36:55,837 p=6216 u=root n=ansible | ok: [local_user]
+2020-10-12 09:36:56,321 p=6216 u=root n=ansible | TASK [09-remote_unlock : Copy unlock script] ************************************************************************************************************************************************************************************************
+2020-10-12 09:36:56,321 p=6216 u=root n=ansible | ok: [local_user]
+2020-10-12 09:36:56,621 p=6216 u=root n=ansible | TASK [09-remote_unlock : Copy cleanup script] ***********************************************************************************************************************************************************************************************
+2020-10-12 09:36:56,622 p=6216 u=root n=ansible | ok: [local_user]
+2020-10-12 09:36:57,006 p=6216 u=root n=ansible | TASK [09-remote_unlock : configure dropbear] ************************************************************************************************************************************************************************************************
+2020-10-12 09:36:57,007 p=6216 u=root n=ansible | changed: [local_user]
+2020-10-12 09:36:57,031 p=6216 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-12 09:36:57,031 p=6216 u=root n=ansible | local_user                 : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-12 10:05:20,781 p=10841 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/defaults/main.yml, line 4, column 1, found a duplicate dict key (remote_unlock_static_ip). Using last defined value only.
+
+2020-10-12 10:05:20,783 p=10841 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  found a tab character that violate indentation
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/main.yml': line 22, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    path: /etc/default/dropbear
+	state: present
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+
+2020-10-12 10:05:58,844 p=10990 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/defaults/main.yml, line 4, column 1, found a duplicate dict key (remote_unlock_static_ip). Using last defined value only.
+
+2020-10-12 10:05:58,845 p=10990 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  found character that cannot start any token
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/main.yml': line 25, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    line: "'^DROPBEAR_PORT={{ remote_unlcok_ssh_port }}'"
+
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+
+2020-10-12 10:06:54,253 p=11161 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/defaults/main.yml, line 4, column 1, found a duplicate dict key (remote_unlock_static_ip). Using last defined value only.
+
+2020-10-12 10:06:54,255 p=11161 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  found character that cannot start any token
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/main.yml': line 25, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    line: "'^DROPBEAR_PORT={{ remote_unlcok_ssh_port }}'"
+
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+
+2020-10-12 10:07:52,231 p=11290 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/defaults/main.yml, line 4, column 1, found a duplicate dict key (remote_unlock_static_ip). Using last defined value only.
+
+2020-10-12 10:07:52,232 p=11290 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  found character that cannot start any token
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/main.yml': line 25, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    line: 'DROPBEAR_PORT={{ remote_unlcok_ssh_port }}'
+
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+
+2020-10-12 10:08:18,621 p=11372 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/defaults/main.yml, line 4, column 1, found a duplicate dict key (remote_unlock_static_ip). Using last defined value only.
+
+2020-10-12 10:08:18,622 p=11372 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  found character that cannot start any token
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/main.yml': line 25, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    line: "'DROPBEAR_PORT={{ remote_unlcok_ssh_port }}'"
+
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+
+2020-10-12 10:08:50,335 p=11471 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  found character that cannot start any token
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/main.yml': line 25, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    line: "'DROPBEAR_PORT={{ remote_unlcok_ssh_port }}'"
+
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+
+2020-10-12 10:09:14,780 p=11622 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  found character that cannot start any token
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/main.yml': line 25, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+#    line: "'DROPBEAR_PORT={{ remote_unlcok_ssh_port }}'"
+
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+
+2020-10-12 10:09:54,836 p=11807 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  found character that cannot start any token
+
+The error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/main.yml': line 45, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+#    path: /etc/initramfs-tools/initramfs.conf
+	path: /etc/dropbear-initramfs/config
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+
+2020-10-12 10:11:10,390 p=11989 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-10-12 10:11:11,219 p=11989 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-12 10:11:11,219 p=11989 u=root n=ansible | ok: [local_user]
+2020-10-12 10:11:12,165 p=11989 u=root n=ansible | TASK [09-remote_unlock : install unlock tools] **********************************************************************************************************************************************************************************************
+2020-10-12 10:11:12,165 p=11989 u=root n=ansible | ok: [local_user] => (item=cryptsetup)
+2020-10-12 10:11:12,865 p=11989 u=root n=ansible | ok: [local_user] => (item=initramfs-tools)
+2020-10-12 10:11:13,539 p=11989 u=root n=ansible | ok: [local_user] => (item=dropbear)
+2020-10-12 10:11:14,207 p=11989 u=root n=ansible | ok: [local_user] => (item=busybox)
+2020-10-12 10:11:14,421 p=11989 u=root n=ansible | TASK [09-remote_unlock : Ensure dropbear is disabled after boot] ****************************************************************************************************************************************************************************
+2020-10-12 10:11:14,421 p=11989 u=root n=ansible | ok: [local_user]
+2020-10-12 10:11:14,559 p=11989 u=root n=ansible | TASK [09-remote_unlock : Enable busybox in initramfs] ***************************************************************************************************************************************************************************************
+2020-10-12 10:11:14,559 p=11989 u=root n=ansible | ok: [local_user]
+2020-10-12 10:11:14,694 p=11989 u=root n=ansible | TASK [09-remote_unlock : Enable busybox in initramfs] ***************************************************************************************************************************************************************************************
+2020-10-12 10:11:14,694 p=11989 u=root n=ansible | changed: [local_user]
+2020-10-12 10:11:14,743 p=11989 u=root n=ansible | TASK [09-remote_unlock : Setup static ip in initramfs] **************************************************************************************************************************************************************************************
+2020-10-12 10:11:14,743 p=11989 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'remote_ip' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/main.yml': line 32, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Setup static ip in initramfs\n  ^ here\n"}
+2020-10-12 10:11:14,748 p=11989 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.9.Remote_Unlock.retry
+
+2020-10-12 10:11:14,749 p=11989 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-12 10:11:14,749 p=11989 u=root n=ansible | local_user                 : ok=5    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-12 10:11:52,238 p=12264 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-10-12 10:11:53,227 p=12264 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-12 10:11:53,227 p=12264 u=root n=ansible | ok: [local_user]
+2020-10-12 10:11:54,218 p=12264 u=root n=ansible | TASK [09-remote_unlock : install unlock tools] **********************************************************************************************************************************************************************************************
+2020-10-12 10:11:54,218 p=12264 u=root n=ansible | ok: [local_user] => (item=cryptsetup)
+2020-10-12 10:11:54,889 p=12264 u=root n=ansible | ok: [local_user] => (item=initramfs-tools)
+2020-10-12 10:11:55,570 p=12264 u=root n=ansible | ok: [local_user] => (item=dropbear)
+2020-10-12 10:11:56,275 p=12264 u=root n=ansible | ok: [local_user] => (item=busybox)
+2020-10-12 10:11:56,490 p=12264 u=root n=ansible | TASK [09-remote_unlock : Ensure dropbear is disabled after boot] ****************************************************************************************************************************************************************************
+2020-10-12 10:11:56,490 p=12264 u=root n=ansible | ok: [local_user]
+2020-10-12 10:11:56,630 p=12264 u=root n=ansible | TASK [09-remote_unlock : Enable busybox in initramfs] ***************************************************************************************************************************************************************************************
+2020-10-12 10:11:56,631 p=12264 u=root n=ansible | ok: [local_user]
+2020-10-12 10:11:56,767 p=12264 u=root n=ansible | TASK [09-remote_unlock : Enable busybox in initramfs] ***************************************************************************************************************************************************************************************
+2020-10-12 10:11:56,767 p=12264 u=root n=ansible | ok: [local_user]
+2020-10-12 10:11:56,930 p=12264 u=root n=ansible | TASK [09-remote_unlock : Setup static ip in initramfs] **************************************************************************************************************************************************************************************
+2020-10-12 10:11:56,930 p=12264 u=root n=ansible | changed: [local_user]
+2020-10-12 10:11:56,975 p=12264 u=root n=ansible | TASK [09-remote_unlock : Ensure dropbear is disabled after boot] ****************************************************************************************************************************************************************************
+2020-10-12 10:11:56,976 p=12264 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'remote_unlcok_ssh_port' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/main.yml': line 42, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Ensure dropbear is disabled after boot\n  ^ here\n"}
+2020-10-12 10:11:56,981 p=12264 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.9.Remote_Unlock.retry
+
+2020-10-12 10:11:56,981 p=12264 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-12 10:11:56,982 p=12264 u=root n=ansible | local_user                 : ok=6    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-12 10:12:24,504 p=12488 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-10-12 10:12:25,295 p=12488 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-12 10:12:25,295 p=12488 u=root n=ansible | ok: [local_user]
+2020-10-12 10:12:26,217 p=12488 u=root n=ansible | TASK [09-remote_unlock : install unlock tools] **********************************************************************************************************************************************************************************************
+2020-10-12 10:12:26,218 p=12488 u=root n=ansible | ok: [local_user] => (item=cryptsetup)
+2020-10-12 10:12:26,889 p=12488 u=root n=ansible | ok: [local_user] => (item=initramfs-tools)
+2020-10-12 10:12:27,568 p=12488 u=root n=ansible | ok: [local_user] => (item=dropbear)
+2020-10-12 10:12:28,232 p=12488 u=root n=ansible | ok: [local_user] => (item=busybox)
+2020-10-12 10:12:28,448 p=12488 u=root n=ansible | TASK [09-remote_unlock : Ensure dropbear is disabled after boot] ****************************************************************************************************************************************************************************
+2020-10-12 10:12:28,449 p=12488 u=root n=ansible | ok: [local_user]
+2020-10-12 10:12:28,588 p=12488 u=root n=ansible | TASK [09-remote_unlock : Enable busybox in initramfs] ***************************************************************************************************************************************************************************************
+2020-10-12 10:12:28,588 p=12488 u=root n=ansible | ok: [local_user]
+2020-10-12 10:12:28,727 p=12488 u=root n=ansible | TASK [09-remote_unlock : Enable busybox in initramfs] ***************************************************************************************************************************************************************************************
+2020-10-12 10:12:28,727 p=12488 u=root n=ansible | ok: [local_user]
+2020-10-12 10:12:28,892 p=12488 u=root n=ansible | TASK [09-remote_unlock : Setup static ip in initramfs] **************************************************************************************************************************************************************************************
+2020-10-12 10:12:28,892 p=12488 u=root n=ansible | ok: [local_user]
+2020-10-12 10:12:29,053 p=12488 u=root n=ansible | TASK [09-remote_unlock : Ensure dropbear is disabled after boot] ****************************************************************************************************************************************************************************
+2020-10-12 10:12:29,053 p=12488 u=root n=ansible | changed: [local_user]
+2020-10-12 10:12:29,101 p=12488 u=root n=ansible | TASK [09-remote_unlock : Configure dropbear options] ****************************************************************************************************************************************************************************************
+2020-10-12 10:12:29,102 p=12488 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The conditional check 'dropbear_options is defined' failed. The error was: error while evaluating conditional (dropbear_options is defined): 'remote_unlcok_ssh_port' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/09-remote_unlock/tasks/main.yml': line 49, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Configure dropbear options\n  ^ here\n"}
+2020-10-12 10:12:29,107 p=12488 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.9.Remote_Unlock.retry
+
+2020-10-12 10:12:29,107 p=12488 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-12 10:12:29,107 p=12488 u=root n=ansible | local_user                 : ok=7    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-12 10:13:00,509 p=12794 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-10-12 10:13:02,324 p=12794 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-12 10:13:02,325 p=12794 u=root n=ansible | ok: [local_user]
+2020-10-12 10:13:03,233 p=12794 u=root n=ansible | TASK [09-remote_unlock : install unlock tools] **********************************************************************************************************************************************************************************************
+2020-10-12 10:13:03,233 p=12794 u=root n=ansible | ok: [local_user] => (item=cryptsetup)
+2020-10-12 10:13:03,918 p=12794 u=root n=ansible | ok: [local_user] => (item=initramfs-tools)
+2020-10-12 10:13:04,607 p=12794 u=root n=ansible | ok: [local_user] => (item=dropbear)
+2020-10-12 10:13:05,283 p=12794 u=root n=ansible | ok: [local_user] => (item=busybox)
+2020-10-12 10:13:05,497 p=12794 u=root n=ansible | TASK [09-remote_unlock : Ensure dropbear is disabled after boot] ****************************************************************************************************************************************************************************
+2020-10-12 10:13:05,497 p=12794 u=root n=ansible | ok: [local_user]
+2020-10-12 10:13:05,633 p=12794 u=root n=ansible | TASK [09-remote_unlock : Enable busybox in initramfs] ***************************************************************************************************************************************************************************************
+2020-10-12 10:13:05,633 p=12794 u=root n=ansible | ok: [local_user]
+2020-10-12 10:13:05,768 p=12794 u=root n=ansible | TASK [09-remote_unlock : Enable busybox in initramfs] ***************************************************************************************************************************************************************************************
+2020-10-12 10:13:05,768 p=12794 u=root n=ansible | ok: [local_user]
+2020-10-12 10:13:05,929 p=12794 u=root n=ansible | TASK [09-remote_unlock : Setup static ip in initramfs] **************************************************************************************************************************************************************************************
+2020-10-12 10:13:05,929 p=12794 u=root n=ansible | ok: [local_user]
+2020-10-12 10:13:06,090 p=12794 u=root n=ansible | TASK [09-remote_unlock : Ensure dropbear is disabled after boot] ****************************************************************************************************************************************************************************
+2020-10-12 10:13:06,090 p=12794 u=root n=ansible | ok: [local_user]
+2020-10-12 10:13:06,251 p=12794 u=root n=ansible | TASK [09-remote_unlock : Configure dropbear options] ****************************************************************************************************************************************************************************************
+2020-10-12 10:13:06,252 p=12794 u=root n=ansible | changed: [local_user]
+2020-10-12 10:13:06,413 p=12794 u=root n=ansible | TASK [09-remote_unlock : Setup DEVICE ip in initramfs] **************************************************************************************************************************************************************************************
+2020-10-12 10:13:06,413 p=12794 u=root n=ansible | ok: [local_user]
+2020-10-12 10:13:06,574 p=12794 u=root n=ansible | TASK [09-remote_unlock : Setup DEVICE ifonfig] **********************************************************************************************************************************************************************************************
+2020-10-12 10:13:06,574 p=12794 u=root n=ansible | changed: [local_user]
+2020-10-12 10:13:06,711 p=12794 u=root n=ansible | TASK [09-remote_unlock : Enable dropbear start] *********************************************************************************************************************************************************************************************
+2020-10-12 10:13:06,712 p=12794 u=root n=ansible | changed: [local_user]
+2020-10-12 10:13:07,201 p=12794 u=root n=ansible | TASK [09-remote_unlock : Copy cleanup script] ***********************************************************************************************************************************************************************************************
+2020-10-12 10:13:07,202 p=12794 u=root n=ansible | ok: [local_user]
+2020-10-12 10:13:07,501 p=12794 u=root n=ansible | TASK [09-remote_unlock : Copy unlock script] ************************************************************************************************************************************************************************************************
+2020-10-12 10:13:07,501 p=12794 u=root n=ansible | ok: [local_user]
+2020-10-12 10:13:07,964 p=12794 u=root n=ansible | TASK [09-remote_unlock : Disable dropbear service] ******************************************************************************************************************************************************************************************
+2020-10-12 10:13:07,965 p=12794 u=root n=ansible | ok: [local_user]
+2020-10-12 10:13:07,986 p=12794 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-12 10:13:07,987 p=12794 u=root n=ansible | local_user                 : ok=14   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-12 10:20:41,607 p=14449 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-10-12 10:20:42,411 p=14449 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-12 10:20:42,412 p=14449 u=root n=ansible | ok: [local_user]
+2020-10-12 10:20:42,505 p=14449 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-12 10:20:42,505 p=14449 u=root n=ansible | local_user                 : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-10-12 10:20:57,628 p=14601 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2020-10-12 10:20:58,445 p=14601 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-12 10:20:58,446 p=14601 u=root n=ansible | ok: [local_user]
+2020-10-12 10:20:59,405 p=14601 u=root n=ansible | TASK [09-remote_unlock : install unlock tools] **********************************************************************************************************************************************************************************************
+2020-10-12 10:20:59,405 p=14601 u=root n=ansible | ok: [local_user] => (item=cryptsetup)
+2020-10-12 10:21:00,077 p=14601 u=root n=ansible | ok: [local_user] => (item=initramfs-tools)
+2020-10-12 10:21:00,751 p=14601 u=root n=ansible | ok: [local_user] => (item=dropbear)
+2020-10-12 10:21:01,419 p=14601 u=root n=ansible | ok: [local_user] => (item=busybox)
+2020-10-12 10:21:01,629 p=14601 u=root n=ansible | TASK [09-remote_unlock : Ensure dropbear is disabled after boot] ****************************************************************************************************************************************************************************
+2020-10-12 10:21:01,629 p=14601 u=root n=ansible | changed: [local_user]
+2020-10-12 10:21:01,767 p=14601 u=root n=ansible | TASK [09-remote_unlock : Enable busybox in initramfs] ***************************************************************************************************************************************************************************************
+2020-10-12 10:21:01,768 p=14601 u=root n=ansible | ok: [local_user]
+2020-10-12 10:21:01,904 p=14601 u=root n=ansible | TASK [09-remote_unlock : Enable busybox in initramfs] ***************************************************************************************************************************************************************************************
+2020-10-12 10:21:01,904 p=14601 u=root n=ansible | ok: [local_user]
+2020-10-12 10:21:02,070 p=14601 u=root n=ansible | TASK [09-remote_unlock : Setup static ip in initramfs] **************************************************************************************************************************************************************************************
+2020-10-12 10:21:02,070 p=14601 u=root n=ansible | ok: [local_user]
+2020-10-12 10:21:02,230 p=14601 u=root n=ansible | TASK [09-remote_unlock : Ensure dropbear is disabled after boot] ****************************************************************************************************************************************************************************
+2020-10-12 10:21:02,230 p=14601 u=root n=ansible | ok: [local_user]
+2020-10-12 10:21:02,393 p=14601 u=root n=ansible | TASK [09-remote_unlock : Configure dropbear options] ****************************************************************************************************************************************************************************************
+2020-10-12 10:21:02,393 p=14601 u=root n=ansible | ok: [local_user]
+2020-10-12 10:21:02,555 p=14601 u=root n=ansible | TASK [09-remote_unlock : Setup DEVICE ip in initramfs] **************************************************************************************************************************************************************************************
+2020-10-12 10:21:02,556 p=14601 u=root n=ansible | ok: [local_user]
+2020-10-12 10:21:02,715 p=14601 u=root n=ansible | TASK [09-remote_unlock : Setup DEVICE ifonfig] **********************************************************************************************************************************************************************************************
+2020-10-12 10:21:02,715 p=14601 u=root n=ansible | ok: [local_user]
+2020-10-12 10:21:02,851 p=14601 u=root n=ansible | TASK [09-remote_unlock : Enable dropbear start] *********************************************************************************************************************************************************************************************
+2020-10-12 10:21:02,852 p=14601 u=root n=ansible | changed: [local_user]
+2020-10-12 10:21:03,332 p=14601 u=root n=ansible | TASK [09-remote_unlock : Copy cleanup script] ***********************************************************************************************************************************************************************************************
+2020-10-12 10:21:03,332 p=14601 u=root n=ansible | ok: [local_user]
+2020-10-12 10:21:03,632 p=14601 u=root n=ansible | TASK [09-remote_unlock : Copy unlock script] ************************************************************************************************************************************************************************************************
+2020-10-12 10:21:03,632 p=14601 u=root n=ansible | ok: [local_user]
+2020-10-12 10:21:04,101 p=14601 u=root n=ansible | TASK [09-remote_unlock : Disable dropbear service] ******************************************************************************************************************************************************************************************
+2020-10-12 10:21:04,101 p=14601 u=root n=ansible | ok: [local_user]
+2020-10-12 10:21:04,123 p=14601 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-12 10:21:04,123 p=14601 u=root n=ansible | local_user                 : ok=14   changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   

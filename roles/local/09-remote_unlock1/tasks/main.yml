@@ -1,0 +1,9 @@
+---
+# tasks file for 09-remote
+#- debug:
+#    var: _efi|default(false)|bool == true
+
+- import_tasks: ssh_keys.yml
+#  when: sshd_enabled
+- import_tasks: dropbear_busybox.yml
+#  when: encrypted_rootfs

@@ -1,8 +1,7 @@
 ---
-# handlers file for sigio-dropbear-initramfs
 
 - name: Update initramfs
-  command: update-initramfs -u {{ dropbear_initramfs__update_options }}
+  command: update-initramfs -u
 
-- name: Update Grub
+- name: Update GRUB
   command: update-grub

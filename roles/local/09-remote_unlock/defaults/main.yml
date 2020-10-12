@@ -1,53 +1,56 @@
 ---
-# defaults file for 09-
-your_email: your@email.hu
-your_domain: test_domain
 
-ssh_key_filename: id_rsa
+
+remote_unlock_ssh_port: 22
+remote_unlock_static_ip: 192.168.100.10
+remote_ip:
+remote_unlock_gw_ip: 192.168.100.2
+remote_netmask: 255.255.255.0
+remote_hostname:
+remote_unlock_network_interface: "{{ ansible_default_ipv4.interface }}"
+# remote_unlock_network_interface: eth0
+remote_unlock_initramfs_conf_ip: ":::::{{ remote_unlock_network_interface }}:dhcp"
+remote_unlock_authorized_keys: {}
+dropbear_options: "-R -E -s -j -k -K 20 -I 120 -p {{remote_unlock_ssh_port}}
+# -c /usr/bin/cryptroot-unlock"
 
 # Authorized ssh keys [[[
 # -----------------------
 
+# See :ref:`dropbear_initramfs__ref_authorized_keys` for more details.
+
+# .. envvar:: dropbear_initramfs__authorized_keys [[[
+#
 # List of authorized ssh keys configured on all hosts in the Ansible inventory.
 dropbear_initramfs__authorized_keys: []
 
+                                                                   # ]]]
+# .. envvar:: dropbear_initramfs__group_authorized_keys [[[
+#
 # List of authorized ssh keys configured on a group of hosts in the Ansible inventory.
 dropbear_initramfs__group_authorized_keys: []
 
+                                                                   # ]]]
+# .. envvar:: dropbear_initramfs__host_authorized_keys [[[
+#
 # List of authorized ssh keys configured on specific hosts in the Ansible inventory.
 dropbear_initramfs__host_authorized_keys: []
 
                                                                    # ]]]
+# .. envvar:: dropbear_initramfs__combined_authorized_keys [[[
+#
 # Combines list of authorized ssh keys as used in the role tasks.
 dropbear_initramfs__combined_authorized_keys: '{{ dropbear_initramfs__authorized_keys +
                                                   dropbear_initramfs__group_authorized_keys +
                                                   dropbear_initramfs__host_authorized_keys }}'
 
+                                                                   # ]]]
+# .. envvar:: dropbear_initramfs__authorized_keys_options [[[
+#
 # List of default SSH options added to all public keys. If it's set to
 # ``{{ omit }}``, no options will be added automatically. The list of options can be
 # overridden by the ``item.options`` parameter.
 # Refer to :manpage:`dropbear(8)` for details.
 dropbear_initramfs__authorized_keys_options: '{{ omit }}'
-
-# Additional options for the :command:`update-initramfs` command.
-# The default is to regenerate the initramfs for all installed kernel versions.
-dropbear_initramfs__update_options: '-k all'
-
-
-dropbear_packages:
-  - 'dropbear'
-  - ' busybox'
-encrypted_rootfs: true
-dropbear_port: 2222
-dropbear_options: "-R -E -s -j -k -K 20 -I 120 -p {{dropbear_port}} -c /usr/bin/cryptroot-unlock"
-grub_cmdline_linux: "net.ifnames=0 biosdevname=0 ip=1.2.3.4::1.2.3.1:255.255.255.0::ens33:off"
-
-ssh_pub_key: ~/.ssh/id_rsa.pub  # Local path to your public SSH key
-
-static_ip: 192.168.226.153
-gateway: 192.168.100.2
-netmask: 255:255:255:0
-hostname: local
-remote_ip: 
-network_interface: "{{ ansible_default_ipv4.interface }}"
-
+                                                                   # ]]]
+                                                                   # ]]]

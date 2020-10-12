@@ -1,0 +1,103 @@
+---
+- name: install unlock tools
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - cryptsetup
+    - initramfs-tools
+    - dropbear
+    - busybox
+
+- name: Ensure dropbear is disabled after boot
+  lineinfile:
+    path: /etc/default/dropbear
+    state: present
+    regexp: '^NO_START='
+    line: 'NO_START=1'
+
+- name: Enable busybox in initramfs
+  lineinfile:
+    path: /etc/initramfs-tools/initramfs.conf
+    state: present
+    regexp: '^BUSYBOX=*'
+    line: BUSYBOX=y
+
+- name: Enable busybox in initramfs
+  lineinfile:
+    path: /etc/initramfs-tools/initramfs.conf
+    regexp: '^DROPBEAR=*'
+    line: DROPBEAR=y
+
+- name: Setup static ip in initramfs
+  lineinfile:
+    path: /etc/initramfs-tools/initramfs.conf
+    state: present
+    insertafter: '^DEVICE=*'
+    regexp: '^IP=*'
+    line: "'IP={{ remote_unlock_static_ip }}:{{ remote_ip }}:{{ remote_unlock_gw_ip }}:{{ remote_netmask }}:{{ remote_hostname }}:{{ remote_unlock_network_interface }}:off'"
+  when:
+    - remote_unlock_static_ip is defined and (remote_unlock_static_ip | length>0)
+
+- name: Ensure dropbear is disabled after boot
+  lineinfile:
+    path: /etc/default/dropbear
+    state: present
+    regexp: '^DROPBEAR_PORT=1'
+    line: "DROPBEAR_PORT={{ remote_unlock_ssh_port }}"
+
+- name: Configure dropbear options
+  lineinfile:
+#    path: /etc/initramfs-tools/initramfs.conf
+    path: /etc/dropbear-initramfs/config
+    state: present
+    regexp: '^.?DROPBEAR_OPTIONS=*'
+    line: "'DROPBEAR_OPTIONS='{{ dropbear_options }}'"
+  when:
+    - dropbear_options is defined
+
+- name: Setup DEVICE ip in initramfs
+  lineinfile:
+    path: /etc/initramfs-tools/initramfs.conf
+    state: present
+    regexp: '^DEVICE=*'
+    line: "DEVICE={{ remote_unlock_network_interface }}"
+
+- name: Setup DEVICE ifonfig
+  lineinfile:
+    path: /usr/share/initramfs-tools/scripts/init-bottom/dropbear
+    regexp: '^ifconfig*'
+    line: "ifocnfig {{ remote_unlock_network_interface }} 0.0.0.0 down"
+
+- name: Enable dropbear start
+  lineinfile:
+    path: /etc/default/dropbear
+    state: present
+    regexp: '^NO_START=*'
+    line: NO_START=0
+#  notify:
+#    - Update initramfs
+
+- name: Copy cleanup script
+  copy:
+    src: "{{ role_path }}/files/cleanup.sh"
+    dest: /etc/initramfs-tools/scripts/init-bottom/cleanup.sh
+    owner: root
+    group: root
+    mode: "0750"
+
+- name: Copy unlock script
+  copy:
+    src: "{{ role_path }}/files/crypt_unlock.sh"
+#    dest: /etc/initramfs-tools/hooks/crypt_unlock.sh
+    dest: /usr/share/initramfs-tools/hooks/crypt_unlock.sh
+    owner: root
+    group: root
+    mode: "0750"
+  notify: [ 'Update initramfs' ]
+
+- name: Disable dropbear service
+  service:
+    name: dropbear
+    enabled: false
+  notify: [ 'Update GRUB' ]
