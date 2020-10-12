@@ -1,3 +1,13 @@
 ---
 - import_tasks: ssh.yml
 - import_tasks: dropbear.yml
+
+- name: Manage dropbear authorized keys
+  authorized_key:
+    user: root
+    state: present
+    key: "{{ item.value }}"
+    path: /etc/dropbear-initramfs/authorized_keys
+    manage_dir: false
+  with_dict: "{{ remote_unlock_authorized_keys }}"
+  notify: Update initramfs
