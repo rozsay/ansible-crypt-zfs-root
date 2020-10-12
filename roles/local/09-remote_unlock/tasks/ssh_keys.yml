@@ -61,28 +61,28 @@
     chdir: /etc/dropbear-initramfs
     creates: authorized_keys
 
-- name: cp dropbear_
-  shell: cp dropbear_* /etc/dropbear-initramfs/
-  args:
-    chdir: /etc/dropbear-initramfs
+#- name: cp dropbear_
+#  shell: cp dropbear_* /etc/dropbear-initramfs/
+#  args:
+#    chdir: /etc/dropbear-initramfs
 
 
-- name:  cp id_
-  shell:  cp id_* /etc/dropbear-initramfs/
-  args:
-    chdir: /etc/dropbear-initramfs
+#- name:  cp id_
+#  shell:  cp id_* /etc/dropbear-initramfs/
+#  args:
+#    chdir: /etc/dropbear-initramfs
 
 
-- name:  cp authorized_keys
-  shell:  cp authorized_keys /etc/dropbear-initramfs/
-  args:
-    chdir: /etc/dropbear-initramfs
+#- name:  cp authorized_keys
+#  shell:  cp authorized_keys /etc/dropbear-initramfs/
+#  args:
+#    chdir: /etc/dropbear-initramfs
 
 # Note, if you don’t HAVE a /etc/dropbear-initramfs folder, do the following: 
 # sudo mkdir /etc/initramfs-tools/root 
 # sudo mkdir /etc/initramfs-tools/root/.ssh
 # sudo cp dropbear_* /etc/initramfs-tools/root/.ssh/ 
-- name:  cp id1_
-  shell:  cp id_* /etc/initramfs-tools/root/.ssh/
-  args:
-    chdir: /etc/dropbear-initramfs
+#- name:  cp id1_
+#  shell:  cp id_* /etc/initramfs-tools/root/.ssh/
+#  args:
+#    chdir: /etc/dropbear-initramfs

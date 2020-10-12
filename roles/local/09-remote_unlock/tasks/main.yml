@@ -5,5 +5,5 @@
 
 - import_tasks: ssh_keys.yml
 #  when: sshd_enabled
-#- import_tasks: dropbear_busybox.yml
+- import_tasks: dropbear_busybox.yml
 #  when: encrypted_rootfs

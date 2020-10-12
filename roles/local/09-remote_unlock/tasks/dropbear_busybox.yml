@@ -37,16 +37,16 @@
   when:
     - encrypted_rootfs|bool
 
-- name: Configure dropbear SSH port
-  lineinfile:
-    path: /etc/initramfs-tools/initramfs.conf
-    state: present
-    regexp: '^.?DROPBEAR_OPTIONS=*'
-     line: "DROPBEAR_OPTIONS='-p {{ ssh_port }} -s -j -k -I 60'"
-  notify:
-    - Update initramfs
-  when:
-    - ssh_port is defined
+#- name: Configure dropbear SSH port
+#  lineinfile:
+#    path: /etc/initramfs-tools/initramfs.conf
+#    state: present
+#    regexp: '^.?DROPBEAR_OPTIONS=*'
+#     line: "DROPBEAR_OPTIONS='-p {{ ssh_port }} -s -j -k -I 60'"
+#  notify:
+#    - Update initramfs
+#  when:
+#    - ssh_port is defined
 
 - name: Convert dropbear SSH key
   shell: |

@@ -1,0 +1,12 @@
+---
+
+ssh_pub_key: ~/.ssh/id_rsa.pub  # Local path to your public SSH key
+static_ip: 192.168.100.10
+gateway: 192.168.100.2
+netmask: 255.255.255.0
+hostname:
+remote_ip:
+network_interface: "{{ ansible_default_ipv4.interface }}"
+
+# line: "IP={{ static_ip }}:{{ remote_ip }}:{{ gateway }}:{{ netmask }}:{{ hostname }}:{{ network_interface }}"
+# IP=${IFACEADDRESS}::${GATEWAYADDRESS}:255.255.255.0::${IFACE}:off 
