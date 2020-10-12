@@ -35,7 +35,7 @@
     state: present
     insertafter: '^DEVICE=*'
     regexp: '^IP=*'
-    line: "'IP={{ remote_unlock_static_ip }}:{{ remote_ip }}:{{ remote_unlock_gw_ip }}:{{ remote_netmask }}:{{ remote_hostname }}:{{ remote_unlock_network_interface }}:off'"
+    line: "IP={{ remote_unlock_static_ip }}:{{ remote_ip }}:{{ remote_unlock_gw_ip }}:{{ remote_netmask }}:{{ remote_hostname }}:{{ remote_unlock_network_interface }}:off"
   when:
     - remote_unlock_static_ip is defined and (remote_unlock_static_ip | length>0)
 

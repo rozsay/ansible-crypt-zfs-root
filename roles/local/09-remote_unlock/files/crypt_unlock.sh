@@ -26,7 +26,7 @@ kill `ps | grep zfs | grep -v "grep" | awk '{print $1}'`
 /sbin/zfs load-key -a
 # rpool/root
 # your zpool name and root zfs name and the mountpoint
-mount -o zfsutil -t zfs rpool/root /
+mount -o zfsutil -t zfs r_system/root /
 kill `ps | grep plymouth | grep -v "grep" | awk '{print $1}'`
 kill `ps | grep cryptroot | grep -v "grep" | awk '{print $1}'`
 # following line kill the remote shell right after the passphrase has been entered.
