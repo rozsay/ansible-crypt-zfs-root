@@ -32,7 +32,7 @@
   apt:
     pkg: kodi
     state: latest
-#    update_cache: true
+    update_cache: true
 #  when: is_ppakodi and is_softneedinstalled
   register: is_kodiinstalled
 #  become: yes
