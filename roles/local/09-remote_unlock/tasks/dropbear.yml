@@ -89,7 +89,15 @@
 - name: Copy unlock script
   copy:
     src: "{{ role_path }}/files/crypt_unlock.sh"
-#    dest: /etc/initramfs-tools/hooks/crypt_unlock.sh
+    dest: /etc/initramfs-tools/hooks/crypt_unlock.sh
+#    dest: /usr/share/initramfs-tools/hooks/crypt_unlock.sh
+    owner: root
+    group: root
+    mode: "0750"
+  notify: [ 'Update initramfs' ]
+- name: Copy unlock script2
+  copy:
+    src: "{{ role_path }}/files/crypt_unlock.sh"
     dest: /usr/share/initramfs-tools/hooks/crypt_unlock.sh
     owner: root
     group: root

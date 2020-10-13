@@ -23,10 +23,14 @@ cat > "${DESTDIR}/bin/unlock" << EOF
 #!/bin/sh
 if PATH=/lib/unlock:/bin:/sbin /scripts/local-top/cryptroot; then
 kill `ps | grep zfs | grep -v "grep" | awk '{print $1}'`
-/sbin/zfs load-key -a
+systemd-ask-password --id="zfs:$dataset" \
+            "Enter passphrase for '$dataset':" | \
+            zfs load-key "$dataset"
+#/sbin/zfs load-key -a
 # rpool/root
 # your zpool name and root zfs name and the mountpoint
 mount -o zfsutil -t zfs r_system/root /
+kill `ps | grep zfs | grep -v "grep" | awk '{print $1}'`
 kill `ps | grep plymouth | grep -v "grep" | awk '{print $1}'`
 kill `ps | grep cryptroot | grep -v "grep" | awk '{print $1}'`
 # following line kill the remote shell right after the passphrase has been entered.
