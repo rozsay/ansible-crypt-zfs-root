@@ -33,11 +33,11 @@ _boot_part_append: "{{ _legacy_device_nodes | ternary('2', '-part2') }}"
 _cryptstore_part_append: "{{ _legacy_device_nodes | ternary('3', '-part3') }}"
 _root_part_append: "{{ _legacy_device_nodes | ternary('4', '-part4') }}"
 
-_mbr_partition_flags: " -a1 -n2:34:2047  -t2:EF02"
-_efi_partition_flags: " -n1:1M:+512M -t1:EF00"
-_boot_partition_flags: "-n2:0:+1024M  -t2:8300"
-_cryptstore_partition_flags: "-n3:0:+1024M  -t3:8300"
-_root_partition_flags: "-n4:0:0 -t4:BF01"
+_mbr_partition_flags: "-a1 -n2:34:2047 -t2:EF02"
+_efi_partition_flags: "-n1:1M:+512M -t1:EF00 -c1:EFI"
+_boot_partition_flags: "-n2:0:+1024M -t2:8300 -c2:Boot"
+_cryptstore_partition_flags: "-n3:0:+2048M -t3:8300 -c3:Cryptsore"
+_root_partition_flags: "-n4:0:0 -t4:BF01 -c4:Ubuntu"
 
 #_crypt_flags: "-c aes-xts-plain64 -s 256 -h sha256"
 #_crypt_flags: " -O encryption=aes-256-gcm -O keylocation=prompt -O keyformat=passphrase"
@@ -47,7 +47,7 @@ _crypt_flags:
   - " -O keyformat=passphrase "
 _lukscrypt_flags:
   - " -O encryption=aes-256-gcm"
-  - " -O keylocation=file:///boot/cryptstore/{{ _root_pool }}.key"
+  - " -O keylocation=file:///boot/{{ _root_pool }}.key"
   - " -O keyformat=raw"
 
 _crypt_passphrase: "Password"

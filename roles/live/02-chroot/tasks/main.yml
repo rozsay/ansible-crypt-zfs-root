@@ -89,6 +89,11 @@
     state: present
   when: _efi|default(false)|bool == true
 
+- apt:
+    name: cryptsetup
+    state: present
+  when: _lukscrypt | default(false) | bool == true
+
 - name: update fstab with /boot volume
   shell: "echo UUID=$(blkid -s UUID -o value {{ item }}) /boot ext2 noatime,nofail,x-systemd.device-timeout=1 0 1 >> /etc/fstab"
   with_items:
@@ -100,6 +105,17 @@
   with_items:
     - "{{ _root_device_list }}{{ _efi_part_append }}"
   when: _efi|default(false)|bool == true
+
+- name: update crypttab with cryptsetup partitions
+  shell: "echo "cryptstore UUID=$(blkid -s UUID -o value {{ item }}) none luks,discard,initramfs" >> /etc/crypttab"
+  with_items:
+    - "{{ _root_device_list }}{{ _cryptstore_part_append }}"
+  when: _lukscrypt|default(false)|bool == true
+
+
+- name: update fstab with cryptsetup partitions
+  shell: "/dev/mapper/cryptstore  /boot/cryptstore ext4 defaults 0 2 >> /etc/fstab"
+  when: _lukscrypt|default(false)|bool == true
 
 - name: install grub-efi-amd64
   apt:
@@ -167,8 +183,14 @@
       replace: 'GRUB_CMDLINE_LINUX="{{ _grub_cmdline }}"'
     - regex: "^#(GRUB_TERMINAL.*)"
       replace: "\\1"
+
 - shell: "echo 'GRUB_DISABLE_OS_PROBER=true' >> /etc/default/grub"
+
+- shell: "echo GRUB_ENABLE_CRYPTODISK=y >> /etc/default/grub"
+  when: _lukscrypt|default(false)|bool == true
+
 - shell: update-grub
+
 - shell: "grub-install {{ item }}"
   with_items:
     - "{{ _root_device_list }}"

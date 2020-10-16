@@ -1,0 +1,14 @@
+---
+
+
+- name: format and mount {{ _installdir }}boot/cryptstore
+  shell: "mkfs.msdos -F 32 -n EFI {{ item }} && mkdir {{ _installdir }}boot/cryptstore && mount {{ item }} {{ _installdir }}boot/cryptstore"
+  with_items:
+    -  - "{{ _root_device_list }}{{ _cryptstore_part_append }}"
+  when: _lukscrypt | default(false) | bool == true
+
+- name: copy file from local host to remote host (relative path, ./files/)
+  copy:
+    src: "/boot/{{ _root_pool }}.key"
+    dest: "{{ _installdir }}boot/cryptstore/{{ _root_pool }}.key"
+  when: _lukscrypt | default(false) | bool == true

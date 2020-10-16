@@ -1,0 +1,32 @@
+---
+- name: ensure live system has necessary packages installed
+  apt:
+    name:
+      - mdadm
+      - debootstrap
+      - dosfstools
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+#    upgrade: safe
+#    update_cache: true
+  become: true
+  register: apt_out
+- debug: var=apt_out
+
+- name: Necessary efi
+  apt:
+    name:
+    state: present
+  with_items:
+    - dosfstools
+#  when: _crypt | default(false) | bool == true
+
+- name: Necessary cryptsetup
+  apt:
+    name:
+    state: present
+  with_items:
+    - cryptsetup
+  when: _lukscrypt | default(false) | bool == true
+

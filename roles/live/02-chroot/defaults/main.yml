@@ -2,7 +2,7 @@
 # defaults file for 02-chroot
 _efi: true
 _swap: true
-_root_pool: r_system
+_root_pool: rpool
 _installdir: /mnt/install/
 _root_disks:
   - sda
@@ -16,6 +16,9 @@ _swap_opts:
   secondarycache: none
   com.sun:auto-snapshot: false
 
+_lukscrypt: true
+_lukscryptkey: "/boot/cryptstore/{{ _root_pool }}.key"
+
 _timezone: "UTC"
 #_grub_cmdline: "elevator=noop"
 _grub_cmdline: "root=ZFS={{ _root_pool }}/root"
@@ -26,7 +29,8 @@ _root_device_list: "{{ _legacy_device_nodes | ternary((_root_disks | map('regex_
 
 _efi_part_append: "{{ _legacy_device_nodes | ternary('1', '-part1') }}"
 _boot_part_append: "{{ _legacy_device_nodes | ternary('2', '-part2') }}"
-_root_part_append: "{{ _legacy_device_nodes | ternary('3', '-part3') }}"
+_cryptstore_part_append: "{{ _legacy_device_nodes | ternary('3', '-part3') }}"
+_root_part_append: "{{ _legacy_device_nodes | ternary('4', '-part4') }}"
 
 _crypt_passphrase: "Password"
 

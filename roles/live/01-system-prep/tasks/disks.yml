@@ -1,0 +1,37 @@
+---
+- name: forcibly zap disks
+  shell: "sgdisk --zap-all {{ item }}"
+  with_items:
+    - "{{ _root_disks_by_id }}"
+
+- name: set up efi disk partitions
+  shell: "sgdisk {{ _efi_partition_flags }} {{ item }}"
+  with_items:
+    - "{{ _root_device_list }}"
+
+- name: set up boot disk partitions
+  shell: "sgdisk {{ _boot_partition_flags }} {{ item }}"
+  with_items:
+    - "{{ _root_device_list }}"
+
+- name: set up cryptstore partitions
+  shell: "sgdisk {{ _cryptstore_partition_flags }} {{ item }}"
+  with_items:
+    - "{{ _root_device_list }}"
+  when: _lukscrypt | default(false) | bool == true
+
+- name: set up root disk partitions
+  shell: "sgdisk {{ _root_partition_flags }} {{ item }}"
+  with_items:
+    - "{{ _root_device_list }}"
+
+- name: print info disk
+  shell: "sgdisk --print {{ item }}"
+  register: r
+  with_items:
+    - "{{ _root_disks_by_id }}"
+
+- name: debug directory output
+  debug:
+    msg: "{{r.results|map(attribute='stdout_lines')|list}}"
+
