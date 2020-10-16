@@ -167,15 +167,30 @@
 #    state: present
 #  when: _swap|default(false)|bool == true
 
-- name: create 
-  template:
-    src: 'etc/initramfs-tools/hooks/decryptkey'
-    dest: '/etc/initramfs-tools/hooks/decryptkey'
-    mode: 0777
-    owner: root
-    group: root
+#- name: create 
+#  template:
+#    src: 'etc/initramfs-tools/hooks/decryptkey'
+#    dest: '/etc/initramfs-tools/hooks/decryptkey'
+#    mode: 0777
+#    owner: root
+#    group: root
 
-
+- name: "Example1: Validate if a String or line is present in the file"
+  become: yes
+  become_user: root
+  tags: lineinfileexample
+  lineinfile:
+    path:  /usr/share/initramfs-tools/scripts/zfs
+#if [ "$(zpool list -H -o feature@encryption $(echo "${fs}" | awk -F\/ '{print $1}'))" = 'active' ]; then 
+    insertafter: "^if [ "$(zpool list -H -o feature@encryption [0-9]+" 
+    firstmatch: yes
+    state: present
+    line: "{{ item }}"
+  loop:
+    - "mkdir /boot/cryptstore -p"
+    - "mount /dev/sda3 /boot/cryptstore"
+    - "$ZFS load-key rpool"
+  register: lineinfileexample
 # initramfs_zfs
 
 - shell: "update-initramfs -c -k all"
