@@ -16,8 +16,12 @@ _swap_opts:
   secondarycache: none
   com.sun:auto-snapshot: false
 
+_crypt_passphrase: "Password"
+_luksname: cryptstore
 _lukscrypt: true
-_lukscryptkey: "/boot/cryptstore/{{ _root_pool }}.key"
+_lukscryptkey: "/boot/{{ _luksname }}/{{ _root_pool }}.key"
+_luksoptions: "--type=luks1 -qc aes-xts-plain64 -s 512 -h sha256"
+
 
 _timezone: "UTC"
 #_grub_cmdline: "elevator=noop"

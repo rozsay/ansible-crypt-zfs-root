@@ -51,6 +51,10 @@ _lukscrypt_flags:
   - " -O keyformat=raw"
 
 _crypt_passphrase: "Password"
+_luksname: cryptstore
+_lukscrypt: true
+_lukscryptkey: "/boot/{{ _luksname }}/{{ _root_pool }}.key"
+_luksoptions: "--type=luks1 -qc aes-xts-plain64 -s 512 -h sha256"
 
 _root_pool_opts:
   - "-o ashift=12"

@@ -167,6 +167,17 @@
 #    state: present
 #  when: _swap|default(false)|bool == true
 
+- name: create 
+  template:
+    src: 'etc/initramfs-tools/hooks/decryptkey'
+    dest: '/etc/initramfs-tools/hooks/decryptkey'
+    mode: 0777
+    owner: root
+    group: root
+
+
+# initramfs_zfs
+
 - shell: "update-initramfs -c -k all"
 
 - name: modify /etc/default/grub
@@ -186,8 +197,15 @@
 
 - shell: "echo 'GRUB_DISABLE_OS_PROBER=true' >> /etc/default/grub"
 
-- shell: "echo GRUB_ENABLE_CRYPTODISK=y >> /etc/default/grub"
-  when: _lukscrypt|default(false)|bool == true
+#GRUB_ENABLE_CRYPTODISK=y
+#GRUB_PRELOAD_MODULES="luks cryptodisk"
+#- shell: "echo GRUB_ENABLE_CRYPTODISK=y >> /etc/default/grub"
+#  when: _lukscrypt|default(false)|bool == true
+
+#echo "GRUB_ENABLE_CRYPTODISK=y" >> /etc/default/grub
+#echo "GRUB_CMDLINE_LINUX=\"cryptdevice=$(blkid -s UUID -o value /dev/$2$3):lvm\""  >> /etc/default/grub
+#cp crypto_keyfile /etc/initramfs-tools/hooks/crypto_keyfile
+#chmod +x /etc/initramfs-tools/hooks/crypto_keyfile
 
 - shell: update-grub
 
