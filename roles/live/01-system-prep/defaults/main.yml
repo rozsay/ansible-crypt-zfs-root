@@ -50,7 +50,7 @@ _lukscrypt_flags:
   - " -O keylocation=file:///boot/{{ _root_pool }}.key"
   - " -O keyformat=raw"
 
-_crypt_passphrase: "Password"
+_crypt_passphrase: Password
 _luksname: cryptstore
 _lukscrypt: true
 _lukscryptkey: "/boot/{{ _luksname }}/{{ _root_pool }}.key"

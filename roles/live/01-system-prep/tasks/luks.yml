@@ -7,27 +7,62 @@
 # _lukscryptkey: "/boot/{{ _luksname }}/{{ _root_pool }}.key"
 # _luksoptions: "--type=luks1 -qc aes-xts-plain64 -s 512 -h sha256"
 
-- name: 'Encrypting the cryptstore device(s) with LUKS'
-  shell: echo "{{ _crypt_passphrase }}" | cryptsetup luksFormat {{ _luksoptions }} "{{ item }}"
+#- name: cat pwd
+#  shell: "cat {{ _crypt_passphrase }}"
+#  register: luks_pw
+- debug:
+    msg: LUKS > {{ _crypt_passphrase }}
+
+- name: Check if LUKS
+  shell: cryptsetup isLuks "{{ _root_device_list }}{{ _cryptstore_part_append }}" && echo "true" || echo "false"
+  register: is_luks
+
+- name: is LUKS device
+  debug: var=is_luks
+
+#- name: create temp file
+#  command: mktemp /tmp/encdisk
+#  register: tmp
+
+#- name: Setup DEVICE ip in initramfs
+#  lineinfile:
+#    path: /tmp/encdisk
+#    line: "{{ _crypt_passphrase }}"
+
+- debug:
+    msg: LUKS33 > "{{tmp.stdout}}"
+
+- name: encrypt disk
+  shell: cat {{tmp.stdout}} | cryptsetup --verbose  {{ _luksoptions }} --batch-mode luksFormat {{ _root_device_list }}{{ _cryptstore_part_append }}
+
+- name: open encrypted disk
+  shell: cat {{tmp.stdout}} | cryptsetup luksOpen "/dev/mapper/{{ _luksname }}"
+
+     
+#- name: Encrypting the cryptstore device(s) with LUKS {{ _root_device_list }}{{ _cryptstore_part_append }}
+#  shell: echo {{ _crypt_passphrase }} | cryptsetup " {{ _luksoptions }} " luksFormat "{{ _root_device_list }}{{ _cryptstore_part_append }}"
+#  when: 
+#    - is_luks.stdout=="false"
+#    - _lukscrypt | default(false) | bool == true
 # --type=luks1 -qc aes-xts-plain64 -s 512 -h sha256
-  with_items:
-    - "{{ _root_device_list }}{{ _cryptstore_part_append }}"
-  when: _lukscrypt | default(false) | bool == true
 
-- name: 'Open encrypted disk'
-  shell: echo "{{ _crypt_passphrase }}" | cryptsetup luksOpen "{{ item.0 }} {{ item.1 }}"
-  with_together:
-    - "{{ _root_device_list }}{{ _cryptstore_part_append }}"
-    - "{{ _luksname }}"
+#- name: Open encrypted disk
+#  shell: echo {{ _crypt_passphrase }} | cryptsetup luksOpen "{{ _root_device_list }}{{ _cryptstore_part_append }} {{ _luksname }}"
+#  shell: "echo {{ _crypt_passphrase }} | cryptsetup luksOpen {{ item }}
+#  with items: 
+#    - "/dev/mapper/{{ _luksname }}"
+#  with_together:
+#    - "{{ _root_device_list }}{{ _cryptstore_part_append }}"
+#    - "{{ _luksname }}"
 
-- name: 'Check for existing keyfile.'
-  stat: "path={{_lukscryptkey}}"
-  register: keyfile
+#- name: 'Check for existing keyfile.'
+#  stat: "path={{_lukscryptkey}}"
+#  register: keyfile
 
 - name: 'Add keyfile to LUKS volume'
-  shell: echo "{{ password }}" | cryptsetup luksAddKey "{{item}}" "{{ _lukscryptkey}}"
+  shell: echo {{ _crypt_passphrase }} | cryptsetup luksAddKey "{{item}}" "{{ _lukscryptkey}}"
   with_items:
-    -  "{{ _root_device_list }}{{ _cryptstore_part_append }}"
+    - "/dev/mappaer/{{ _luksname }}"
 
 #- name: 'Making filesystem'
 #  command: 'mkfs.{{ item.0 }} /dev/mapper/{{ vgname }}-{{ item.1 }}'

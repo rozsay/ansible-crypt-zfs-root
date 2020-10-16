@@ -17117,3 +17117,993 @@ Or equivalently:
 }
 2020-10-15 06:51:11,079 p=60642 u=root n=ansible |  [ERROR]: User interrupted execution
 
+2020-10-16 08:54:35,816 p=70897 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last defined value only.
+
+2020-10-16 08:54:35,924 p=70897 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-10-16 08:54:36,978 p=70897 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-16 08:54:36,979 p=70897 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 08:54:37,014 p=70897 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2020-10-16 08:54:52,288 p=70897 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *****************************************************************************************************************************************************************
+2020-10-16 08:54:52,288 p=70897 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 08:54:52,339 p=70897 u=root n=ansible | TASK [01-system-prep : debug] ***************************************************************************************************************************************************************************************************************
+2020-10-16 08:54:52,340 p=70897 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1602838480,
+        "cache_updated": true,
+        "changed": false,
+        "failed": false
+    }
+}
+2020-10-16 08:54:52,825 p=70897 u=root n=ansible | TASK [01-system-prep : Necessary efi] *******************************************************************************************************************************************************************************************************
+2020-10-16 08:54:52,825 p=70897 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-10-16 08:54:53,338 p=70897 u=root n=ansible | TASK [01-system-prep : Necessary cryptsetup] ************************************************************************************************************************************************************************************************
+2020-10-16 08:54:53,338 p=70897 u=root n=ansible | ok: [local_zfs_root] => (item=cryptsetup)
+2020-10-16 08:54:53,370 p=70897 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2020-10-16 08:54:54,731 p=70897 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] **************************************************************************************************************************************************************************************************
+2020-10-16 08:54:54,731 p=70897 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-16 08:54:55,973 p=70897 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ******************************************************************************************************************************************************************************************
+2020-10-16 08:54:55,974 p=70897 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-16 08:54:57,195 p=70897 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *****************************************************************************************************************************************************************************************
+2020-10-16 08:54:57,196 p=70897 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-16 08:54:58,449 p=70897 u=root n=ansible | TASK [01-system-prep : set up cryptstore partitions] ****************************************************************************************************************************************************************************************
+2020-10-16 08:54:58,449 p=70897 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-16 08:54:59,704 p=70897 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *****************************************************************************************************************************************************************************************
+2020-10-16 08:54:59,704 p=70897 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-16 08:54:59,963 p=70897 u=root n=ansible | TASK [01-system-prep : print info disk] *****************************************************************************************************************************************************************************************************
+2020-10-16 08:54:59,964 p=70897 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-16 08:55:00,040 p=70897 u=root n=ansible | TASK [01-system-prep : debug directory output] **********************************************************************************************************************************************************************************************
+2020-10-16 08:55:00,040 p=70897 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 06199F42-CE3C-4110-AEE9-D8D0B6895056",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   3         3147776         7342079   2.0 GiB     8300  Cryptsore",
+            "   4         7342080        41943006   16.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2020-10-16 09:02:15,621 p=70897 u=root n=ansible | TASK [01-system-prep : Create key file] *****************************************************************************************************************************************************************************************************
+2020-10-16 09:02:15,622 p=70897 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:02:15,664 p=70897 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/create_zfs.yml for local_zfs_root
+2020-10-16 09:02:15,972 p=70897 u=root n=ansible | TASK [01-system-prep : set up root zfs luks crypt devices] **********************************************************************************************************************************************************************************
+2020-10-16 09:02:15,972 p=70897 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:02:16,444 p=70897 u=root n=ansible | TASK [01-system-prep : create root dataset] *************************************************************************************************************************************************************************************************
+2020-10-16 09:02:16,445 p=70897 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:02:16,661 p=70897 u=root n=ansible | TASK [01-system-prep : manually mount rpool/root before creating other mountpoints] *********************************************************************************************************************************************************
+2020-10-16 09:02:16,662 p=70897 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:02:16,976 p=70897 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] **********************************************************************************************************************************************************************************
+2020-10-16 09:02:16,977 p=70897 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2)
+2020-10-16 09:02:17,217 p=70897 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/efi] ******************************************************************************************************************************************************************************
+2020-10-16 09:02:17,217 p=70897 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part1)
+2020-10-16 09:02:17,250 p=70897 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:02:20,862 p=70897 u=root n=ansible | TASK [01-system-prep : Encrypting the cryptstore device(s) with LUKS] ***********************************************************************************************************************************************************************
+2020-10-16 09:02:20,862 p=70897 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3)
+2020-10-16 09:02:21,080 p=70897 u=root n=ansible | TASK [01-system-prep : Open encrypted disk] *************************************************************************************************************************************************************************************************
+2020-10-16 09:02:21,081 p=70897 u=root n=ansible | failed: [local_zfs_root] (item=['/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3', 'cryptstore']) => {"ansible_loop_var": "item", "changed": true, "cmd": "echo \"Password\" | cryptsetup luksOpen \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3 cryptstore\"", "delta": "0:00:00.015260", "end": "2020-10-16 09:02:21.060417", "item": ["/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3", "cryptstore"], "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:02:21.045157", "stderr": "Command requires device and mapped name as arguments.", "stderr_lines": ["Command requires device and mapped name as arguments."], "stdout": "", "stdout_lines": []}
+2020-10-16 09:02:21,087 p=70897 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:02:21,087 p=70897 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-16 09:02:21,088 p=70897 u=root n=ansible | local_zfs_root             : ok=23   changed=13   unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-10-16 09:08:59,431 p=71980 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:08:59,512 p=71980 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:09:00,462 p=71980 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:09:00,462 p=71980 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:09:00,497 p=71980 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2020-10-16 09:09:01,292 p=71980 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] **********************************************************************************************
+2020-10-16 09:09:01,292 p=71980 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:09:01,340 p=71980 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:09:01,341 p=71980 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1602838480,
+        "cache_updated": false,
+        "changed": false,
+        "failed": false
+    }
+}
+2020-10-16 09:09:01,831 p=71980 u=root n=ansible | TASK [01-system-prep : Necessary efi] ************************************************************************************************************************************
+2020-10-16 09:09:01,832 p=71980 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-10-16 09:09:02,325 p=71980 u=root n=ansible | TASK [01-system-prep : Necessary cryptsetup] *****************************************************************************************************************************
+2020-10-16 09:09:02,325 p=71980 u=root n=ansible | ok: [local_zfs_root] => (item=cryptsetup)
+2020-10-16 09:09:02,353 p=71980 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2020-10-16 09:09:03,652 p=71980 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] *******************************************************************************************************************************
+2020-10-16 09:09:03,652 p=71980 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-16 09:09:04,890 p=71980 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ***********************************************************************************************************************
+2020-10-16 09:09:04,890 p=71980 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-16 09:09:06,133 p=71980 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] **********************************************************************************************************************
+2020-10-16 09:09:06,133 p=71980 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-16 09:09:07,370 p=71980 u=root n=ansible | TASK [01-system-prep : set up cryptstore partitions] *********************************************************************************************************************
+2020-10-16 09:09:07,371 p=71980 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-16 09:09:08,641 p=71980 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] **********************************************************************************************************************
+2020-10-16 09:09:08,641 p=71980 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-16 09:09:08,903 p=71980 u=root n=ansible | TASK [01-system-prep : print info disk] **********************************************************************************************************************************
+2020-10-16 09:09:08,903 p=71980 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-16 09:09:08,972 p=71980 u=root n=ansible | TASK [01-system-prep : debug directory output] ***************************************************************************************************************************
+2020-10-16 09:09:08,972 p=71980 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 10A78044-B0D7-4D7E-A5AF-E0543D785FFD",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   3         3147776         7342079   2.0 GiB     8300  Cryptsore",
+            "   4         7342080        41943006   16.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2020-10-16 09:09:09,172 p=71980 u=root n=ansible | TASK [01-system-prep : Create key file] **********************************************************************************************************************************
+2020-10-16 09:09:09,172 p=71980 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:09:09,200 p=71980 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/create_zfs.yml for local_zfs_root
+2020-10-16 09:09:09,483 p=71980 u=root n=ansible | TASK [01-system-prep : set up root zfs luks crypt devices] ***************************************************************************************************************
+2020-10-16 09:09:09,484 p=71980 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:09:09,866 p=71980 u=root n=ansible | TASK [01-system-prep : create root dataset] ******************************************************************************************************************************
+2020-10-16 09:09:09,866 p=71980 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:09:10,069 p=71980 u=root n=ansible | TASK [01-system-prep : manually mount rpool/root before creating other mountpoints] **************************************************************************************
+2020-10-16 09:09:10,069 p=71980 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:09:10,291 p=71980 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] ***************************************************************************************************************
+2020-10-16 09:09:10,292 p=71980 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2)
+2020-10-16 09:09:10,541 p=71980 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/efi] ***********************************************************************************************************
+2020-10-16 09:09:10,541 p=71980 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part1)
+2020-10-16 09:09:10,574 p=71980 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:09:14,149 p=71980 u=root n=ansible | TASK [01-system-prep : Encrypting the cryptstore device(s) with LUKS] ****************************************************************************************************
+2020-10-16 09:09:14,150 p=71980 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3)
+2020-10-16 09:09:14,405 p=71980 u=root n=ansible | TASK [01-system-prep : Open encrypted disk] ******************************************************************************************************************************
+2020-10-16 09:09:14,406 p=71980 u=root n=ansible | failed: [local_zfs_root] (item=['/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3', 'cryptstore']) => {"ansible_loop_var": "item", "changed": true, "cmd": "echo \"Password\" | cryptsetup luksOpen \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3 cryptstore\"", "delta": "0:00:00.015315", "end": "2020-10-16 09:09:14.384794", "item": ["/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3", "cryptstore"], "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:09:14.369479", "stderr": "Command requires device and mapped name as arguments.", "stderr_lines": ["Command requires device and mapped name as arguments."], "stdout": "", "stdout_lines": []}
+2020-10-16 09:09:14,413 p=71980 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:09:14,414 p=71980 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:09:14,414 p=71980 u=root n=ansible | local_zfs_root             : ok=23   changed=13   unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-10-16 09:10:26,599 p=72721 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:10:26,674 p=72721 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:10:27,671 p=72721 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:10:27,672 p=72721 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:10:27,706 p=72721 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:10:31,361 p=72721 u=root n=ansible | TASK [01-system-prep : Encrypting the cryptstore device(s) with LUKS] ****************************************************************************************************
+2020-10-16 09:10:31,362 p=72721 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3)
+2020-10-16 09:10:31,553 p=72721 u=root n=ansible | TASK [01-system-prep : Open encrypted disk] ******************************************************************************************************************************
+2020-10-16 09:10:31,553 p=72721 u=root n=ansible | failed: [local_zfs_root] (item=['/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3', 'cryptstore']) => {"ansible_loop_var": "item", "changed": true, "cmd": "echo \"Password\" | cryptsetup luksOpen \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3 cryptstore\"", "delta": "0:00:00.012010", "end": "2020-10-16 09:10:31.537253", "item": ["/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3", "cryptstore"], "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:10:31.525243", "stderr": "Command requires device and mapped name as arguments.", "stderr_lines": ["Command requires device and mapped name as arguments."], "stdout": "", "stdout_lines": []}
+2020-10-16 09:10:31,559 p=72721 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:10:31,559 p=72721 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:10:31,559 p=72721 u=root n=ansible | local_zfs_root             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:11:38,939 p=72803 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:11:39,014 p=72803 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:11:40,018 p=72803 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:11:40,018 p=72803 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:11:40,055 p=72803 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:11:43,677 p=72803 u=root n=ansible | TASK [01-system-prep : Encrypting the cryptstore device(s) with LUKS] ****************************************************************************************************
+2020-10-16 09:11:43,677 p=72803 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3)
+2020-10-16 09:11:43,723 p=72803 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:11:43,724 p=72803 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'item' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 17, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug:\n  ^ here\n"}
+2020-10-16 09:11:43,729 p=72803 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:11:43,729 p=72803 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:11:43,729 p=72803 u=root n=ansible | local_zfs_root             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:12:45,729 p=72880 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:12:45,805 p=72880 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:12:46,829 p=72880 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:12:46,829 p=72880 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:12:46,863 p=72880 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:12:50,488 p=72880 u=root n=ansible | TASK [01-system-prep : Encrypting the cryptstore device(s) with LUKS] ****************************************************************************************************
+2020-10-16 09:12:50,488 p=72880 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3)
+2020-10-16 09:12:50,535 p=72880 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:12:50,535 p=72880 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'item' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 17, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- debug:\n  ^ here\n"}
+2020-10-16 09:12:50,540 p=72880 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:12:50,540 p=72880 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:12:50,540 p=72880 u=root n=ansible | local_zfs_root             : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:13:29,379 p=72954 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:13:29,453 p=72954 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:13:30,365 p=72954 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:13:30,366 p=72954 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:13:30,400 p=72954 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:13:34,026 p=72954 u=root n=ansible | TASK [01-system-prep : Encrypting the cryptstore device(s) with LUKS] ****************************************************************************************************
+2020-10-16 09:13:34,026 p=72954 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3)
+2020-10-16 09:13:34,087 p=72954 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:13:34,088 p=72954 u=root n=ansible | ok: [local_zfs_root] => (item=['/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3', 'cryptstore']) => {
+    "msg": "System echo \"Password\" | cryptsetup luksOpen \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3 cryptstore\""
+}
+2020-10-16 09:13:34,265 p=72954 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/cryptstore] ****************************************************************************************************
+2020-10-16 09:13:34,265 p=72954 u=root n=ansible | failed: [local_zfs_root] (item=/dev/mapper/cryptstore) => {"ansible_loop_var": "item", "changed": true, "cmd": "mkfs.msdos -F 32 -n EFI /dev/mapper/cryptstore && mkdir /mnt/install/boot/cryptstore && mount /dev/mapper/cryptstore /mnt/install/boot/cryptstore", "delta": "0:00:00.003747", "end": "2020-10-16 09:13:34.249413", "item": "/dev/mapper/cryptstore", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:13:34.245666", "stderr": "mkfs.msdos: unable to open /dev/mapper/cryptstore: No such file or directory", "stderr_lines": ["mkfs.msdos: unable to open /dev/mapper/cryptstore: No such file or directory"], "stdout": "mkfs.fat 4.1 (2017-01-24)", "stdout_lines": ["mkfs.fat 4.1 (2017-01-24)"]}
+2020-10-16 09:13:34,271 p=72954 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:13:34,271 p=72954 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:13:34,271 p=72954 u=root n=ansible | local_zfs_root             : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:26:26,052 p=73297 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:26:26,130 p=73297 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:26:27,135 p=73297 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:26:27,136 p=73297 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:26:27,170 p=73297 u=root n=ansible | TASK [01-system-prep : include_tasks] ************************************************************************************************************************************
+2020-10-16 09:26:27,171 p=73297 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  mapping values are not allowed in this context\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 11, column 11, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n- name: cat pwd\n     shell: cat \"{{ _crypt_passphrase }}\"\n          ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-10-16 09:26:27,176 p=73297 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:26:27,176 p=73297 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:26:27,176 p=73297 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:30:53,129 p=73363 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:30:53,205 p=73363 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:30:54,166 p=73363 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:30:54,166 p=73363 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:30:54,200 p=73363 u=root n=ansible | TASK [01-system-prep : include_tasks] ************************************************************************************************************************************
+2020-10-16 09:30:54,200 p=73363 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  mapping values are not allowed in this context\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 11, column 11, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n- name: cat pwd\n     shell: cat \"{{ _crypt_passphrase }}\"\n          ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-10-16 09:30:54,205 p=73363 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:30:54,205 p=73363 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:30:54,205 p=73363 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:31:37,500 p=73422 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:31:37,575 p=73422 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:31:38,535 p=73422 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:31:38,535 p=73422 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:31:38,568 p=73422 u=root n=ansible | TASK [01-system-prep : include_tasks] ************************************************************************************************************************************
+2020-10-16 09:31:38,568 p=73422 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  mapping values are not allowed in this context\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 11, column 10, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n- name: cat pwd\n    shell: cat {{ _crypt_passphrase }}\n         ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-10-16 09:31:38,573 p=73422 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:31:38,573 p=73422 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:31:38,573 p=73422 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:31:56,974 p=73480 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:31:57,049 p=73480 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:31:58,041 p=73480 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:31:58,041 p=73480 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:31:58,076 p=73480 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:31:58,361 p=73480 u=root n=ansible | TASK [01-system-prep : cat pwd] ******************************************************************************************************************************************
+2020-10-16 09:31:58,361 p=73480 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "cat Password", "delta": "0:00:00.004203", "end": "2020-10-16 09:31:58.346697", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:31:58.342494", "stderr": "cat: Password: No such file or directory", "stderr_lines": ["cat: Password: No such file or directory"], "stdout": "", "stdout_lines": []}
+2020-10-16 09:31:58,365 p=73480 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:31:58,366 p=73480 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:31:58,366 p=73480 u=root n=ansible | local_zfs_root             : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:32:17,522 p=73546 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:32:17,596 p=73546 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:32:18,579 p=73546 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:32:18,579 p=73546 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:32:18,613 p=73546 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:32:18,897 p=73546 u=root n=ansible | TASK [01-system-prep : cat pwd] ******************************************************************************************************************************************
+2020-10-16 09:32:18,897 p=73546 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "cat \"Password\"", "delta": "0:00:00.004167", "end": "2020-10-16 09:32:18.882518", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:32:18.878351", "stderr": "cat: Password: No such file or directory", "stderr_lines": ["cat: Password: No such file or directory"], "stdout": "", "stdout_lines": []}
+2020-10-16 09:32:18,902 p=73546 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:32:18,902 p=73546 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:32:18,903 p=73546 u=root n=ansible | local_zfs_root             : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:33:32,259 p=73635 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:33:32,337 p=73635 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:33:33,317 p=73635 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:33:33,318 p=73635 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:33:33,355 p=73635 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:33:33,645 p=73635 u=root n=ansible | TASK [01-system-prep : cat pwd] ******************************************************************************************************************************************
+2020-10-16 09:33:33,646 p=73635 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "cat Password", "delta": "0:00:00.004073", "end": "2020-10-16 09:33:33.632841", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:33:33.628768", "stderr": "cat: Password: No such file or directory", "stderr_lines": ["cat: Password: No such file or directory"], "stdout": "", "stdout_lines": []}
+2020-10-16 09:33:33,651 p=73635 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:33:33,652 p=73635 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:33:33,652 p=73635 u=root n=ansible | local_zfs_root             : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:35:00,762 p=73704 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:35:00,840 p=73704 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:35:01,783 p=73704 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:35:01,783 p=73704 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:35:01,819 p=73704 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:35:01,901 p=73704 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:35:01,902 p=73704 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS Password"
+}
+2020-10-16 09:35:01,994 p=73704 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:35:01,994 p=73704 u=root n=ansible | ok: [local_zfs_root] => (item=['/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3', 'cryptstore']) => {
+    "msg": "System echo \"Password\" | cryptsetup luksOpen \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3 cryptstore\""
+}
+2020-10-16 09:35:02,272 p=73704 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/cryptstore] ****************************************************************************************************
+2020-10-16 09:35:02,273 p=73704 u=root n=ansible | failed: [local_zfs_root] (item=/dev/mapper/cryptstore) => {"ansible_loop_var": "item", "changed": true, "cmd": "mkfs.msdos -F 32 -n EFI /dev/mapper/cryptstore && mkdir /mnt/install/boot/cryptstore && mount /dev/mapper/cryptstore /mnt/install/boot/cryptstore", "delta": "0:00:00.003741", "end": "2020-10-16 09:35:02.257279", "item": "/dev/mapper/cryptstore", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:35:02.253538", "stderr": "mkfs.msdos: unable to open /dev/mapper/cryptstore: No such file or directory", "stderr_lines": ["mkfs.msdos: unable to open /dev/mapper/cryptstore: No such file or directory"], "stdout": "mkfs.fat 4.1 (2017-01-24)", "stdout_lines": ["mkfs.fat 4.1 (2017-01-24)"]}
+2020-10-16 09:35:02,278 p=73704 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:35:02,278 p=73704 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:35:02,279 p=73704 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:35:26,164 p=73775 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:35:26,238 p=73775 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:35:27,223 p=73775 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:35:27,223 p=73775 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:35:27,258 p=73775 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:35:27,339 p=73775 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:35:27,340 p=73775 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 09:35:27,433 p=73775 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:35:27,433 p=73775 u=root n=ansible | ok: [local_zfs_root] => (item=['/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3', 'cryptstore']) => {
+    "msg": "System echo \"Password\" | cryptsetup luksOpen \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3 cryptstore\""
+}
+2020-10-16 09:35:27,708 p=73775 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/cryptstore] ****************************************************************************************************
+2020-10-16 09:35:27,709 p=73775 u=root n=ansible | failed: [local_zfs_root] (item=/dev/mapper/cryptstore) => {"ansible_loop_var": "item", "changed": true, "cmd": "mkfs.msdos -F 32 -n EFI /dev/mapper/cryptstore && mkdir /mnt/install/boot/cryptstore && mount /dev/mapper/cryptstore /mnt/install/boot/cryptstore", "delta": "0:00:00.003821", "end": "2020-10-16 09:35:27.693205", "item": "/dev/mapper/cryptstore", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:35:27.689384", "stderr": "mkfs.msdos: unable to open /dev/mapper/cryptstore: No such file or directory", "stderr_lines": ["mkfs.msdos: unable to open /dev/mapper/cryptstore: No such file or directory"], "stdout": "mkfs.fat 4.1 (2017-01-24)", "stdout_lines": ["mkfs.fat 4.1 (2017-01-24)"]}
+2020-10-16 09:35:27,714 p=73775 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:35:27,715 p=73775 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:35:27,715 p=73775 u=root n=ansible | local_zfs_root             : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:35:57,355 p=73848 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:35:57,429 p=73848 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:35:58,401 p=73848 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:35:58,401 p=73848 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:35:58,433 p=73848 u=root n=ansible | TASK [01-system-prep : include_tasks] ************************************************************************************************************************************
+2020-10-16 09:35:58,433 p=73848 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  did not find expected key\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 20, column 11, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: \"\"{{ _root_device_list }}{{ _cryptstore_part_append }}\"\" is LUKS device\n          ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-10-16 09:35:58,439 p=73848 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:35:58,439 p=73848 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:35:58,439 p=73848 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:36:24,647 p=73906 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:36:24,723 p=73906 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:36:27,672 p=73906 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:36:27,672 p=73906 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:36:27,707 p=73906 u=root n=ansible | TASK [01-system-prep : include_tasks] ************************************************************************************************************************************
+2020-10-16 09:36:27,707 p=73906 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  did not find expected key\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 20, column 64, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: \"{{ _root_device_list }}{{ _cryptstore_part_append }}\" is LUKS device\n                                                               ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-10-16 09:36:27,712 p=73906 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:36:27,712 p=73906 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:36:27,712 p=73906 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:36:49,876 p=73964 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:36:49,951 p=73964 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:36:51,916 p=73964 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:36:51,917 p=73964 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:36:51,951 p=73964 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:36:51,999 p=73964 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:36:52,000 p=73964 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 09:36:52,270 p=73964 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ************************************************************************************************************************************
+2020-10-16 09:36:52,271 p=73964 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:36:52,318 p=73964 u=root n=ansible | TASK [01-system-prep : is LUKS device] ***********************************************************************************************************************************
+2020-10-16 09:36:52,318 p=73964 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.005879",
+        "end": "2020-10-16 09:36:52.253958",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-16 09:36:52.248079",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-16 09:36:52,382 p=73964 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:36:52,382 p=73964 u=root n=ansible | ok: [local_zfs_root] => (item=['/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3', 'cryptstore']) => {
+    "msg": "System echo \"Password\" | cryptsetup luksOpen \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3 cryptstore\""
+}
+2020-10-16 09:36:52,558 p=73964 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/cryptstore] ****************************************************************************************************
+2020-10-16 09:36:52,559 p=73964 u=root n=ansible | failed: [local_zfs_root] (item=/dev/mapper/cryptstore) => {"ansible_loop_var": "item", "changed": true, "cmd": "mkfs.msdos -F 32 -n EFI /dev/mapper/cryptstore && mkdir /mnt/install/boot/cryptstore && mount /dev/mapper/cryptstore /mnt/install/boot/cryptstore", "delta": "0:00:00.003692", "end": "2020-10-16 09:36:52.543564", "item": "/dev/mapper/cryptstore", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:36:52.539872", "stderr": "mkfs.msdos: unable to open /dev/mapper/cryptstore: No such file or directory", "stderr_lines": ["mkfs.msdos: unable to open /dev/mapper/cryptstore: No such file or directory"], "stdout": "mkfs.fat 4.1 (2017-01-24)", "stdout_lines": ["mkfs.fat 4.1 (2017-01-24)"]}
+2020-10-16 09:36:52,564 p=73964 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:36:52,564 p=73964 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:36:52,564 p=73964 u=root n=ansible | local_zfs_root             : ok=6    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:38:52,922 p=74047 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:38:52,999 p=74047 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:38:55,000 p=74047 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:38:55,000 p=74047 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:38:55,036 p=74047 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:38:55,088 p=74047 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:38:55,089 p=74047 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 09:38:55,349 p=74047 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ************************************************************************************************************************************
+2020-10-16 09:38:55,350 p=74047 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:38:55,399 p=74047 u=root n=ansible | TASK [01-system-prep : is LUKS device] ***********************************************************************************************************************************
+2020-10-16 09:38:55,399 p=74047 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.005534",
+        "end": "2020-10-16 09:38:55.335924",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-16 09:38:55.330390",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-16 09:38:55,492 p=74047 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:38:55,492 p=74047 u=root n=ansible | ok: [local_zfs_root] => (item=['/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3', 'cryptstore']) => {
+    "msg": "System 111 echo \"Password\" | cryptsetup luksOpen \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3 cryptstore\""
+}
+2020-10-16 09:38:55,650 p=74047 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/cryptstore] ****************************************************************************************************
+2020-10-16 09:38:55,650 p=74047 u=root n=ansible | failed: [local_zfs_root] (item=/dev/mapper/cryptstore) => {"ansible_loop_var": "item", "changed": true, "cmd": "mkfs.msdos -F 32 -n EFI /dev/mapper/cryptstore && mkdir /mnt/install/boot/cryptstore && mount /dev/mapper/cryptstore /mnt/install/boot/cryptstore", "delta": "0:00:00.003493", "end": "2020-10-16 09:38:55.633649", "item": "/dev/mapper/cryptstore", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:38:55.630156", "stderr": "mkfs.msdos: unable to open /dev/mapper/cryptstore: No such file or directory", "stderr_lines": ["mkfs.msdos: unable to open /dev/mapper/cryptstore: No such file or directory"], "stdout": "mkfs.fat 4.1 (2017-01-24)", "stdout_lines": ["mkfs.fat 4.1 (2017-01-24)"]}
+2020-10-16 09:38:55,656 p=74047 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:38:55,656 p=74047 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:38:55,656 p=74047 u=root n=ansible | local_zfs_root             : ok=6    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-10-16 09:40:40,579 p=74162 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:40:40,657 p=74162 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:40:41,693 p=74162 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:40:41,694 p=74162 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:40:41,730 p=74162 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:40:41,815 p=74162 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:40:41,815 p=74162 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 09:40:42,115 p=74162 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ************************************************************************************************************************************
+2020-10-16 09:40:42,115 p=74162 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:40:42,163 p=74162 u=root n=ansible | TASK [01-system-prep : is LUKS device] ***********************************************************************************************************************************
+2020-10-16 09:40:42,165 p=74162 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.006025",
+        "end": "2020-10-16 09:40:42.100471",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-16 09:40:42.094446",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-16 09:40:42,258 p=74162 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:40:42,258 p=74162 u=root n=ansible | ok: [local_zfs_root] => (item=['/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3', 'cryptstore']) => {
+    "msg": "System 111 echo \"Password\" | cryptsetup luksOpen \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3 cryptstore\""
+}
+2020-10-16 09:40:42,426 p=74162 u=root n=ansible | TASK [01-system-prep : Open encrypted disk] ******************************************************************************************************************************
+2020-10-16 09:40:42,426 p=74162 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "echo Password | cryptsetup luksOpen \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\"", "delta": "0:00:00.012139", "end": "2020-10-16 09:40:42.412481", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:40:42.400342", "stderr": "Command requires device and mapped name as arguments.", "stderr_lines": ["Command requires device and mapped name as arguments."], "stdout": "", "stdout_lines": []}
+2020-10-16 09:40:42,432 p=74162 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:40:42,432 p=74162 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:40:42,432 p=74162 u=root n=ansible | local_zfs_root             : ok=6    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-10-16 09:43:42,293 p=74276 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key
+(_lukscrypt). Using last defined value only.
+
+2020-10-16 09:43:42,371 p=74276 u=root n=ansible | PLAY [live] **************************************************************************************************************************************************************
+2020-10-16 09:43:43,312 p=74276 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************
+2020-10-16 09:43:43,312 p=74276 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:43:43,348 p=74276 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:43:43,432 p=74276 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:43:43,432 p=74276 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 09:43:43,733 p=74276 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ************************************************************************************************************************************
+2020-10-16 09:43:43,734 p=74276 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:43:43,783 p=74276 u=root n=ansible | TASK [01-system-prep : is LUKS device] ***********************************************************************************************************************************
+2020-10-16 09:43:43,783 p=74276 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.006022",
+        "end": "2020-10-16 09:43:43.716840",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-16 09:43:43.710818",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-16 09:43:43,880 p=74276 u=root n=ansible | TASK [01-system-prep : debug] ********************************************************************************************************************************************
+2020-10-16 09:43:43,880 p=74276 u=root n=ansible | ok: [local_zfs_root] => (item=['/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3', 'cryptstore']) => {
+    "msg": "System 111 echo \"Password\" | cryptsetup luksOpen \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3 cryptstore\""
+}
+2020-10-16 09:43:44,047 p=74276 u=root n=ansible | TASK [01-system-prep : Open encrypted disk] ******************************************************************************************************************************
+2020-10-16 09:43:44,048 p=74276 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "echo Password | cryptsetup luksOpen \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3 cryptstore\"", "delta": "0:00:00.012131", "end": "2020-10-16 09:43:44.034131", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:43:44.022000", "stderr": "Command requires device and mapped name as arguments.", "stderr_lines": ["Command requires device and mapped name as arguments."], "stdout": "", "stdout_lines": []}
+2020-10-16 09:43:44,053 p=74276 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:43:44,053 p=74276 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************
+2020-10-16 09:43:44,054 p=74276 u=root n=ansible | local_zfs_root             : ok=6    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-10-16 09:46:01,773 p=74394 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 09:46:01,852 p=74394 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 09:46:02,868 p=74394 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 09:46:02,868 p=74394 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:46:02,901 p=74394 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml, line 30, column 3, found a duplicate dict key (shell). Using
+last defined value only.
+
+2020-10-16 09:46:02,904 p=74394 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:46:02,987 p=74394 u=root n=ansible | TASK [01-system-prep : debug] ****************************************************************************************************************************************************
+2020-10-16 09:46:02,987 p=74394 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 09:46:03,286 p=74394 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ********************************************************************************************************************************************
+2020-10-16 09:46:03,286 p=74394 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:46:03,334 p=74394 u=root n=ansible | TASK [01-system-prep : is LUKS device] *******************************************************************************************************************************************
+2020-10-16 09:46:03,334 p=74394 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.005402",
+        "end": "2020-10-16 09:46:03.270647",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-16 09:46:03.265245",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-16 09:46:03,543 p=74394 u=root n=ansible | TASK [01-system-prep : Open encrypted disk] **************************************************************************************************************************************
+2020-10-16 09:46:03,544 p=74394 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "echo Password | cryptsetup luksOpen \"cryptstore\"", "delta": "0:00:00.012253", "end": "2020-10-16 09:46:03.530680", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:46:03.518427", "stderr": "Command requires device and mapped name as arguments.", "stderr_lines": ["Command requires device and mapped name as arguments."], "stdout": "", "stdout_lines": []}
+2020-10-16 09:46:03,549 p=74394 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:46:03,549 p=74394 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 09:46:03,549 p=74394 u=root n=ansible | local_zfs_root             : ok=5    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-10-16 09:46:45,944 p=74478 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 09:46:46,022 p=74478 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 09:46:46,978 p=74478 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 09:46:46,979 p=74478 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:46:47,016 p=74478 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:46:47,100 p=74478 u=root n=ansible | TASK [01-system-prep : debug] ****************************************************************************************************************************************************
+2020-10-16 09:46:47,101 p=74478 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 09:46:47,400 p=74478 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ********************************************************************************************************************************************
+2020-10-16 09:46:47,401 p=74478 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:46:47,450 p=74478 u=root n=ansible | TASK [01-system-prep : is LUKS device] *******************************************************************************************************************************************
+2020-10-16 09:46:47,450 p=74478 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.005893",
+        "end": "2020-10-16 09:46:47.385115",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-16 09:46:47.379222",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-16 09:46:47,663 p=74478 u=root n=ansible | TASK [01-system-prep : Open encrypted disk] **************************************************************************************************************************************
+2020-10-16 09:46:47,663 p=74478 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "echo Password | cryptsetup luksOpen \"/de/vmapper/\"cryptstore", "delta": "0:00:00.011810", "end": "2020-10-16 09:46:47.648936", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:46:47.637126", "stderr": "Command requires device and mapped name as arguments.", "stderr_lines": ["Command requires device and mapped name as arguments."], "stdout": "", "stdout_lines": []}
+2020-10-16 09:46:47,668 p=74478 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:46:47,668 p=74478 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 09:46:47,669 p=74478 u=root n=ansible | local_zfs_root             : ok=5    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-10-16 09:47:01,913 p=74560 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 09:47:01,989 p=74560 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 09:47:02,944 p=74560 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 09:47:02,945 p=74560 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:47:02,980 p=74560 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:47:03,063 p=74560 u=root n=ansible | TASK [01-system-prep : debug] ****************************************************************************************************************************************************
+2020-10-16 09:47:03,064 p=74560 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 09:47:03,363 p=74560 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ********************************************************************************************************************************************
+2020-10-16 09:47:03,363 p=74560 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:47:03,412 p=74560 u=root n=ansible | TASK [01-system-prep : is LUKS device] *******************************************************************************************************************************************
+2020-10-16 09:47:03,412 p=74560 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.005901",
+        "end": "2020-10-16 09:47:03.347412",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-16 09:47:03.341511",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-16 09:47:03,626 p=74560 u=root n=ansible | TASK [01-system-prep : Open encrypted disk] **************************************************************************************************************************************
+2020-10-16 09:47:03,626 p=74560 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "echo Password | cryptsetup luksOpen \"/dev/mapper/\"cryptstore", "delta": "0:00:00.011690", "end": "2020-10-16 09:47:03.611237", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:47:03.599547", "stderr": "Command requires device and mapped name as arguments.", "stderr_lines": ["Command requires device and mapped name as arguments."], "stdout": "", "stdout_lines": []}
+2020-10-16 09:47:03,632 p=74560 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:47:03,632 p=74560 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 09:47:03,632 p=74560 u=root n=ansible | local_zfs_root             : ok=5    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-10-16 09:47:24,313 p=74644 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 09:47:24,388 p=74644 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 09:47:25,410 p=74644 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 09:47:25,410 p=74644 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:47:25,445 p=74644 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:47:25,527 p=74644 u=root n=ansible | TASK [01-system-prep : debug] ****************************************************************************************************************************************************
+2020-10-16 09:47:25,528 p=74644 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 09:47:25,822 p=74644 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ********************************************************************************************************************************************
+2020-10-16 09:47:25,822 p=74644 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:47:25,871 p=74644 u=root n=ansible | TASK [01-system-prep : is LUKS device] *******************************************************************************************************************************************
+2020-10-16 09:47:25,871 p=74644 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.005602",
+        "end": "2020-10-16 09:47:25.806457",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-16 09:47:25.800855",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-16 09:47:26,081 p=74644 u=root n=ansible | TASK [01-system-prep : Open encrypted disk] **************************************************************************************************************************************
+2020-10-16 09:47:26,082 p=74644 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "echo Password | cryptsetup luksOpen /dev/mapper/cryptstore", "delta": "0:00:00.012025", "end": "2020-10-16 09:47:26.067588", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:47:26.055563", "stderr": "Command requires device and mapped name as arguments.", "stderr_lines": ["Command requires device and mapped name as arguments."], "stdout": "", "stdout_lines": []}
+2020-10-16 09:47:26,087 p=74644 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:47:26,088 p=74644 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 09:47:26,088 p=74644 u=root n=ansible | local_zfs_root             : ok=5    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-10-16 09:47:49,101 p=74726 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 09:47:49,175 p=74726 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 09:47:50,196 p=74726 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 09:47:50,196 p=74726 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:47:50,232 p=74726 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:47:50,314 p=74726 u=root n=ansible | TASK [01-system-prep : debug] ****************************************************************************************************************************************************
+2020-10-16 09:47:50,314 p=74726 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 09:47:50,608 p=74726 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ********************************************************************************************************************************************
+2020-10-16 09:47:50,608 p=74726 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:47:50,656 p=74726 u=root n=ansible | TASK [01-system-prep : is LUKS device] *******************************************************************************************************************************************
+2020-10-16 09:47:50,657 p=74726 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.005636",
+        "end": "2020-10-16 09:47:50.594024",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-16 09:47:50.588388",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-16 09:47:50,868 p=74726 u=root n=ansible | TASK [01-system-prep : Open encrypted disk] **************************************************************************************************************************************
+2020-10-16 09:47:50,869 p=74726 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "echo Password | cryptsetup luksOpen /dev/mapper/cryptstore", "delta": "0:00:00.011791", "end": "2020-10-16 09:47:50.855118", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 09:47:50.843327", "stderr": "Command requires device and mapped name as arguments.", "stderr_lines": ["Command requires device and mapped name as arguments."], "stdout": "", "stdout_lines": []}
+2020-10-16 09:47:50,874 p=74726 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:47:50,874 p=74726 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 09:47:50,874 p=74726 u=root n=ansible | local_zfs_root             : ok=5    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-10-16 09:49:09,819 p=74810 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 09:49:09,896 p=74810 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 09:49:10,823 p=74810 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 09:49:10,823 p=74810 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:49:10,857 p=74810 u=root n=ansible | TASK [01-system-prep : include_tasks] ********************************************************************************************************************************************
+2020-10-16 09:49:10,858 p=74810 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  did not find expected key\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 34, column 8, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  with items:\n    - \"/dev/mapper/{{ _luksname }}\"\n       ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-10-16 09:49:10,863 p=74810 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:49:10,863 p=74810 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 09:49:10,863 p=74810 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:49:41,805 p=74870 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 09:49:41,882 p=74870 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 09:49:42,843 p=74870 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 09:49:42,844 p=74870 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:49:42,881 p=74870 u=root n=ansible | TASK [01-system-prep : include_tasks] ********************************************************************************************************************************************
+2020-10-16 09:49:42,882 p=74870 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  did not find expected key\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 33, column 16, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  shell: \"echo {{ _crypt_passphrase }} | cryptsetup luksOpen {{ item }}\n  with items: \"/dev/mapper/\"{{ _luksname }}\n               ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-10-16 09:49:42,886 p=74870 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:49:42,887 p=74870 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 09:49:42,887 p=74870 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:50:29,826 p=74928 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 09:50:29,903 p=74928 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 09:50:30,883 p=74928 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 09:50:30,883 p=74928 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:50:30,916 p=74928 u=root n=ansible | TASK [01-system-prep : include_tasks] ********************************************************************************************************************************************
+2020-10-16 09:50:30,916 p=74928 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  did not find expected key\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 34, column 8, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  with items:\n    - \"/dev/mapper/{{ _luksname }}\"\n       ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-10-16 09:50:30,921 p=74928 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:50:30,921 p=74928 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 09:50:30,921 p=74928 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:57:48,429 p=74992 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 09:57:48,507 p=74992 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 09:57:49,471 p=74992 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 09:57:49,471 p=74992 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:57:49,505 p=74992 u=root n=ansible | TASK [01-system-prep : include_tasks] ********************************************************************************************************************************************
+2020-10-16 09:57:49,506 p=74992 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  did not find expected key\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 45, column 8, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  with items:\n    - \"/dev/mapper/{{ _luksname }}\"\n       ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-10-16 09:57:49,511 p=74992 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:57:49,511 p=74992 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 09:57:49,511 p=74992 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:58:15,802 p=75051 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 09:58:15,878 p=75051 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 09:58:17,856 p=75051 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 09:58:17,856 p=75051 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:58:17,891 p=75051 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:58:17,942 p=75051 u=root n=ansible | TASK [01-system-prep : debug] ****************************************************************************************************************************************************
+2020-10-16 09:58:17,943 p=75051 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 09:58:18,203 p=75051 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ********************************************************************************************************************************************
+2020-10-16 09:58:18,203 p=75051 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:58:18,251 p=75051 u=root n=ansible | TASK [01-system-prep : is LUKS device] *******************************************************************************************************************************************
+2020-10-16 09:58:18,252 p=75051 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.005727",
+        "end": "2020-10-16 09:58:18.188674",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-16 09:58:18.182947",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-16 09:58:18,300 p=75051 u=root n=ansible | TASK [01-system-prep : copy] *****************************************************************************************************************************************************
+2020-10-16 09:58:18,301 p=75051 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'tmp' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 23, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- copy:\n  ^ here\n"}
+2020-10-16 09:58:18,306 p=75051 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:58:18,306 p=75051 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 09:58:18,306 p=75051 u=root n=ansible | local_zfs_root             : ok=5    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 09:59:12,782 p=75127 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 09:59:12,857 p=75127 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 09:59:13,798 p=75127 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 09:59:13,798 p=75127 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 09:59:13,837 p=75127 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 09:59:13,920 p=75127 u=root n=ansible | TASK [01-system-prep : debug] ****************************************************************************************************************************************************
+2020-10-16 09:59:13,920 p=75127 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 09:59:14,218 p=75127 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ********************************************************************************************************************************************
+2020-10-16 09:59:14,218 p=75127 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 09:59:14,266 p=75127 u=root n=ansible | TASK [01-system-prep : is LUKS device] *******************************************************************************************************************************************
+2020-10-16 09:59:14,266 p=75127 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.005506",
+        "end": "2020-10-16 09:59:14.203159",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-16 09:59:14.197653",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-16 09:59:14,313 p=75127 u=root n=ansible | TASK [01-system-prep : copy] *****************************************************************************************************************************************************
+2020-10-16 09:59:14,314 p=75127 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'tmp' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 23, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- copy:\n  ^ here\n"}
+2020-10-16 09:59:14,319 p=75127 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 09:59:14,319 p=75127 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 09:59:14,320 p=75127 u=root n=ansible | local_zfs_root             : ok=5    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 10:00:55,318 p=75202 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 10:00:55,393 p=75202 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 10:00:56,349 p=75202 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 10:00:56,350 p=75202 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 10:00:56,382 p=75202 u=root n=ansible | TASK [01-system-prep : include_tasks] ********************************************************************************************************************************************
+2020-10-16 10:00:56,382 p=75202 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  mapping values are not allowed in this context\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 24, column 16, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n- name: create temp file\n        command: mktemp /tmp/encdisk.XXXXXXX\n               ^ here\n"}
+2020-10-16 10:00:56,387 p=75202 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 10:00:56,387 p=75202 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 10:00:56,387 p=75202 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 10:01:17,735 p=75260 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 10:01:17,811 p=75260 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 10:01:19,819 p=75260 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 10:01:19,819 p=75260 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 10:01:19,857 p=75260 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 10:01:19,908 p=75260 u=root n=ansible | TASK [01-system-prep : debug] ****************************************************************************************************************************************************
+2020-10-16 10:01:19,908 p=75260 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 10:01:20,167 p=75260 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ********************************************************************************************************************************************
+2020-10-16 10:01:20,168 p=75260 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 10:01:20,216 p=75260 u=root n=ansible | TASK [01-system-prep : is LUKS device] *******************************************************************************************************************************************
+2020-10-16 10:01:20,216 p=75260 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.005857",
+        "end": "2020-10-16 10:01:20.152610",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-16 10:01:20.146753",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-16 10:01:20,360 p=75260 u=root n=ansible | TASK [01-system-prep : create temp file] *****************************************************************************************************************************************
+2020-10-16 10:01:20,360 p=75260 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 10:01:20,881 p=75260 u=root n=ansible | TASK [01-system-prep : copy] *****************************************************************************************************************************************************
+2020-10-16 10:01:20,882 p=75260 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 10:01:20,932 p=75260 u=root n=ansible | TASK [01-system-prep : debug] ****************************************************************************************************************************************************
+2020-10-16 10:01:20,932 p=75260 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS33 > \"/tmp/encdisk.IpsSRf0\""
+}
+2020-10-16 10:01:24,452 p=75260 u=root n=ansible | TASK [01-system-prep : encrypt disk] *********************************************************************************************************************************************
+2020-10-16 10:01:24,452 p=75260 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 10:01:24,633 p=75260 u=root n=ansible | TASK [01-system-prep : open encrypted disk] **************************************************************************************************************************************
+2020-10-16 10:01:24,633 p=75260 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "cat /tmp/encdisk.IpsSRf0 | cryptsetup luksOpen \"/dev/mapper/cryptstore\"", "delta": "0:00:00.012730", "end": "2020-10-16 10:01:24.619379", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 10:01:24.606649", "stderr": "Command requires device and mapped name as arguments.", "stderr_lines": ["Command requires device and mapped name as arguments."], "stdout": "", "stdout_lines": []}
+2020-10-16 10:01:24,638 p=75260 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 10:01:24,639 p=75260 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 10:01:24,639 p=75260 u=root n=ansible | local_zfs_root             : ok=9    changed=4    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 10:06:32,909 p=75451 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 10:06:33,007 p=75451 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 10:06:34,214 p=75451 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 10:06:34,214 p=75451 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 10:06:34,261 p=75451 u=root n=ansible | TASK [01-system-prep : include_tasks] ********************************************************************************************************************************************
+2020-10-16 10:06:34,262 p=75451 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  mapping values are not allowed in this context\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 28, column 9, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n- name: Ansible create file with content example\n    copy:\n        ^ here\n"}
+2020-10-16 10:06:34,268 p=75451 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 10:06:34,268 p=75451 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 10:06:34,269 p=75451 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 10:07:18,858 p=75510 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 10:07:18,965 p=75510 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 10:07:20,163 p=75510 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 10:07:20,163 p=75510 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 10:07:20,205 p=75510 u=root n=ansible | TASK [01-system-prep : include_tasks] ********************************************************************************************************************************************
+2020-10-16 10:07:20,206 p=75510 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  mapping values are not allowed in this context\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 28, column 9, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n- name: Ansible create file with content example\n    copy:\n        ^ here\n"}
+2020-10-16 10:07:20,211 p=75510 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 10:07:20,211 p=75510 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 10:07:20,212 p=75510 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 10:10:59,720 p=75578 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 10:10:59,796 p=75578 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 10:11:00,742 p=75578 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 10:11:00,743 p=75578 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 10:11:00,777 p=75578 u=root n=ansible | TASK [01-system-prep : include_tasks] ********************************************************************************************************************************************
+2020-10-16 10:11:00,777 p=75578 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  found unacceptable key (unhashable type: 'AnsibleMapping')\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 29, column 12, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  lineinfile:\n    dest: {{tmp}}\n           ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-10-16 10:11:00,783 p=75578 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 10:11:00,783 p=75578 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 10:11:00,783 p=75578 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 10:11:37,916 p=75636 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 10:11:37,999 p=75636 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 10:11:39,027 p=75636 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 10:11:39,028 p=75636 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 10:11:39,071 p=75636 u=root n=ansible | TASK [01-system-prep : include_tasks] ********************************************************************************************************************************************
+2020-10-16 10:11:39,072 p=75636 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  found unacceptable key (unhashable type: 'AnsibleMapping')\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 29, column 12, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  lineinfile:\n    dest: {{tmp}}\n           ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-10-16 10:11:39,079 p=75636 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 10:11:39,079 p=75636 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 10:11:39,079 p=75636 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 10:13:32,834 p=75709 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 10:13:32,909 p=75709 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 10:13:33,930 p=75709 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 10:13:33,930 p=75709 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 10:13:33,962 p=75709 u=root n=ansible | TASK [01-system-prep : include_tasks] ********************************************************************************************************************************************
+2020-10-16 10:13:33,962 p=75709 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  found unacceptable key (unhashable type: 'AnsibleMapping')\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml': line 29, column 13, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n  lineinfile:\n    path:  {{tmp}}\n            ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-10-16 10:13:33,968 p=75709 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 10:13:33,968 p=75709 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 10:13:33,968 p=75709 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-16 10:14:11,268 p=75767 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt).
+Using last defined value only.
+
+2020-10-16 10:14:11,345 p=75767 u=root n=ansible | PLAY [live] **********************************************************************************************************************************************************************
+2020-10-16 10:14:12,331 p=75767 u=root n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************
+2020-10-16 10:14:12,332 p=75767 u=root n=ansible | ok: [local_zfs_root]
+2020-10-16 10:14:12,370 p=75767 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-16 10:14:12,452 p=75767 u=root n=ansible | TASK [01-system-prep : debug] ****************************************************************************************************************************************************
+2020-10-16 10:14:12,452 p=75767 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-16 10:14:12,743 p=75767 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ********************************************************************************************************************************************
+2020-10-16 10:14:12,743 p=75767 u=root n=ansible | changed: [local_zfs_root]
+2020-10-16 10:14:12,791 p=75767 u=root n=ansible | TASK [01-system-prep : is LUKS device] *******************************************************************************************************************************************
+2020-10-16 10:14:12,792 p=75767 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.005638",
+        "end": "2020-10-16 10:14:12.729200",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-16 10:14:12.723562",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-16 10:14:12,934 p=75767 u=root n=ansible | TASK [01-system-prep : create temp file] *****************************************************************************************************************************************
+2020-10-16 10:14:12,934 p=75767 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": ["mktemp", "/tmp/encdisk"], "delta": "0:00:00.002791", "end": "2020-10-16 10:14:12.919634", "msg": "non-zero return code", "rc": 1, "start": "2020-10-16 10:14:12.916843", "stderr": "mktemp: too few X's in template ‘/tmp/encdisk’", "stderr_lines": ["mktemp: too few X's in template ‘/tmp/encdisk’"], "stdout": "", "stdout_lines": []}
+2020-10-16 10:14:12,939 p=75767 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-16 10:14:12,939 p=75767 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
+2020-10-16 10:14:12,939 p=75767 u=root n=ansible | local_zfs_root             : ok=5    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
