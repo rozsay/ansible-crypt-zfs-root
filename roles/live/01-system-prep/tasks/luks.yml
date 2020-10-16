@@ -20,13 +20,13 @@
 - name: is LUKS device
   debug: var=is_luks
 
-#- name: create temp file
-#  command: mktemp /tmp/encdisk
-#  register: tmp
+- name: create temp file
+  command: mktemp /tmp/encdisk.XXXXXX
+  register: tmp
 
 #- name: Setup DEVICE ip in initramfs
 #  lineinfile:
-#    path: /tmp/encdisk
+#    path: {{ tmp }}
 #    line: "{{ _crypt_passphrase }}"
 
 - debug:
@@ -59,10 +59,10 @@
 #  stat: "path={{_lukscryptkey}}"
 #  register: keyfile
 
-- name: 'Add keyfile to LUKS volume'
-  shell: echo {{ _crypt_passphrase }} | cryptsetup luksAddKey "{{item}}" "{{ _lukscryptkey}}"
-  with_items:
-    - "/dev/mappaer/{{ _luksname }}"
+#- name: 'Add keyfile to LUKS volume'
+#+  shell: echo {{ _crypt_passphrase }} | cryptsetup luksAddKey "{{item}}" "{{ _lukscryptkey}}"
+#3 with_items:
+#    - "/dev/mappaer/{{ _luksname }}"
 
 #- name: 'Making filesystem'
 #  command: 'mkfs.{{ item.0 }} /dev/mapper/{{ vgname }}-{{ item.1 }}'
