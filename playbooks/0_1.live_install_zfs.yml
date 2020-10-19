@@ -2,7 +2,7 @@
 - hosts: live
   connection: local
   vars_prompt:
-    - name: pass
+    - name: crypt_passphrase
       prompt: "Enter passphrase"
       default: "Password"
 #      encrypt: "sha512_crypt"
