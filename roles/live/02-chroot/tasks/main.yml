@@ -181,8 +181,7 @@
   tags: lineinfileexample
   lineinfile:
     path:  /usr/share/initramfs-tools/scripts/zfs
-#if [ "$(zpool list -H -o feature@encryption $(echo "${fs}" | awk -F\/ '{print $1}'))" = 'active' ]; then 
-    insertafter: "^if [ "$(zpool list -H -o feature@encryption [0-9]+" 
+    insertafter: "^if [ $(zpool list -H -o feature@encryption [0-9]+" 
     firstmatch: yes
     state: present
     line: "{{ item }}"

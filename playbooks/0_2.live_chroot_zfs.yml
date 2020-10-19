@@ -17,4 +17,4 @@
 
   roles:
     - role: 02-chroot
-    - role: 03-chroot-final
+#    - role: 03-chroot-final
