@@ -19199,3 +19199,54 @@ defined value only.
 
 2020-10-19 08:52:30,345 p=45681 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
 2020-10-19 08:52:30,346 p=45681 u=root n=ansible | local_zfs_root             : ok=5    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-19 09:02:46,312 p=46289 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 09:02:49,737 p=46289 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 09:02:50,708 p=46289 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 09:02:50,709 p=46289 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 09:02:50,982 p=46289 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 09:02:50,982 p=46289 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 09:02:51,011 p=46289 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-19 09:02:51,085 p=46289 u=root n=ansible | TASK [01-system-prep : debug] *****************************************************************************************************************************************************************
+2020-10-19 09:02:51,086 p=46289 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-19 09:02:51,340 p=46289 u=root n=ansible | TASK [01-system-prep : Check if LUKS] *********************************************************************************************************************************************************
+2020-10-19 09:02:51,341 p=46289 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 09:02:51,388 p=46289 u=root n=ansible | TASK [01-system-prep : is LUKS device] ********************************************************************************************************************************************************
+2020-10-19 09:02:51,389 p=46289 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.006862",
+        "end": "2020-10-19 09:02:51.324775",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-19 09:02:51.317913",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-19 09:02:52,556 p=46289 u=root n=ansible | TASK [01-system-prep : create temp file] ******************************************************************************************************************************************************
+2020-10-19 09:02:52,557 p=46289 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 09:02:52,977 p=46289 u=root n=ansible | TASK [01-system-prep : write password to temp file] *******************************************************************************************************************************************
+2020-10-19 09:02:52,978 p=46289 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 09:03:01,176 p=46289 u=root n=ansible | TASK [01-system-prep : encrypt disk] **********************************************************************************************************************************************************
+2020-10-19 09:03:01,176 p=46289 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 09:03:03,472 p=46289 u=root n=ansible | TASK [01-system-prep : open encrypted disk] ***************************************************************************************************************************************************
+2020-10-19 09:03:03,472 p=46289 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 09:03:03,518 p=46289 u=root n=ansible | TASK [01-system-prep : debug] *****************************************************************************************************************************************************************
+2020-10-19 09:03:03,519 p=46289 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS33 > \"/tmp/encdisk.cCWKfjo\""
+}
+2020-10-19 09:03:03,917 p=46289 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/cryptstore] *************************************************************************************************************************
+2020-10-19 09:03:03,917 p=46289 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/mapper/cryptstore)
+2020-10-19 09:03:04,206 p=46289 u=root n=ansible | TASK [01-system-prep : copy file from local host to remote host (relative path, ./files/)] ****************************************************************************************************
+2020-10-19 09:03:04,206 p=46289 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 09:03:04,225 p=46289 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 09:03:04,225 p=46289 u=root n=ansible | local_zfs_root             : ok=13   changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
