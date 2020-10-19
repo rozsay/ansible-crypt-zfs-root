@@ -19079,3 +19079,123 @@ defined value only.
 
 2020-10-19 08:42:54,192 p=42812 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
 2020-10-19 08:42:54,193 p=42812 u=root n=ansible | local_zfs_root             : ok=18   changed=9    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-19 08:45:10,044 p=43492 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 08:45:12,136 p=43492 u=root n=ansible | [WARNING]: Found variable using reserved name: name
+
+2020-10-19 08:45:12,137 p=43492 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 08:45:13,274 p=43492 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 08:45:13,275 p=43492 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:45:13,556 p=43492 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 08:45:13,556 p=43492 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:45:13,605 p=43492 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks1.yml for local_zfs_root
+2020-10-19 08:45:13,832 p=43492 u=root n=ansible | TASK [01-system-prep : create temp file] ******************************************************************************************************************************************************
+2020-10-19 08:45:13,833 p=43492 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:45:14,259 p=43492 u=root n=ansible | TASK [01-system-prep : write password to temp file] *******************************************************************************************************************************************
+2020-10-19 08:45:14,260 p=43492 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:45:14,279 p=43492 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 08:45:14,280 p=43492 u=root n=ansible | local_zfs_root             : ok=5    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-19 08:45:34,574 p=43597 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 08:45:36,075 p=43597 u=root n=ansible | [WARNING]: Found variable using reserved name: name
+
+2020-10-19 08:45:36,075 p=43597 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 08:45:36,991 p=43597 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 08:45:36,991 p=43597 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:45:37,278 p=43597 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 08:45:37,278 p=43597 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:45:37,305 p=43597 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks1.yml for local_zfs_root
+2020-10-19 08:45:37,564 p=43597 u=root n=ansible | TASK [01-system-prep : create temp file] ******************************************************************************************************************************************************
+2020-10-19 08:45:37,565 p=43597 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:45:37,983 p=43597 u=root n=ansible | TASK [01-system-prep : write password to temp file] *******************************************************************************************************************************************
+2020-10-19 08:45:37,983 p=43597 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:45:48,385 p=43597 u=root n=ansible | TASK [01-system-prep : encrypt disk] **********************************************************************************************************************************************************
+2020-10-19 08:45:48,385 p=43597 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:45:48,405 p=43597 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 08:45:48,406 p=43597 u=root n=ansible | local_zfs_root             : ok=6    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-19 08:46:23,305 p=44101 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 08:46:36,995 p=44101 u=root n=ansible | [WARNING]: Found variable using reserved name: name
+
+2020-10-19 08:46:36,996 p=44101 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 08:46:37,979 p=44101 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 08:46:37,979 p=44101 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:46:38,261 p=44101 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 08:46:38,262 p=44101 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:46:38,288 p=44101 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks1.yml for local_zfs_root
+2020-10-19 08:46:38,533 p=44101 u=root n=ansible | TASK [01-system-prep : create temp file] ******************************************************************************************************************************************************
+2020-10-19 08:46:38,533 p=44101 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:46:38,947 p=44101 u=root n=ansible | TASK [01-system-prep : write password to temp file] *******************************************************************************************************************************************
+2020-10-19 08:46:38,947 p=44101 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:46:47,592 p=44101 u=root n=ansible | TASK [01-system-prep : encrypt disk] **********************************************************************************************************************************************************
+2020-10-19 08:46:47,592 p=44101 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:46:47,612 p=44101 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 08:46:47,613 p=44101 u=root n=ansible | local_zfs_root             : ok=6    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-19 08:47:41,776 p=44617 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 08:47:51,716 p=44617 u=root n=ansible | [WARNING]: Found variable using reserved name: name
+
+2020-10-19 08:47:51,716 p=44617 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 08:47:52,627 p=44617 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 08:47:52,628 p=44617 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:47:52,913 p=44617 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 08:47:52,914 p=44617 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:47:52,940 p=44617 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks1.yml for local_zfs_root
+2020-10-19 08:47:53,221 p=44617 u=root n=ansible | TASK [01-system-prep : create temp file] ******************************************************************************************************************************************************
+2020-10-19 08:47:53,221 p=44617 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:47:53,629 p=44617 u=root n=ansible | TASK [01-system-prep : write password to temp file] *******************************************************************************************************************************************
+2020-10-19 08:47:53,629 p=44617 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:48:00,031 p=44617 u=root n=ansible | TASK [01-system-prep : encrypt disk] **********************************************************************************************************************************************************
+2020-10-19 08:48:00,031 p=44617 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:48:00,050 p=44617 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 08:48:00,050 p=44617 u=root n=ansible | local_zfs_root             : ok=6    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-19 08:49:45,685 p=45127 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 08:49:54,813 p=45127 u=root n=ansible | [WARNING]: Found variable using reserved name: name
+
+2020-10-19 08:49:54,813 p=45127 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 08:49:55,754 p=45127 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 08:49:55,754 p=45127 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:49:56,029 p=45127 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 08:49:56,030 p=45127 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:49:56,056 p=45127 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks1.yml for local_zfs_root
+2020-10-19 08:49:56,315 p=45127 u=root n=ansible | TASK [01-system-prep : create temp file] ******************************************************************************************************************************************************
+2020-10-19 08:49:56,315 p=45127 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:49:57,723 p=45127 u=root n=ansible | TASK [01-system-prep : write password to temp file] *******************************************************************************************************************************************
+2020-10-19 08:49:57,723 p=45127 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:50:05,775 p=45127 u=root n=ansible | TASK [01-system-prep : encrypt disk] **********************************************************************************************************************************************************
+2020-10-19 08:50:05,775 p=45127 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:50:08,051 p=45127 u=root n=ansible | TASK [01-system-prep : open encrypted disk] ***************************************************************************************************************************************************
+2020-10-19 08:50:08,051 p=45127 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:50:08,097 p=45127 u=root n=ansible | TASK [01-system-prep : mkfs on /dev/sda3] *****************************************************************************************************************************************************
+2020-10-19 08:50:08,098 p=45127 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'mkfs' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks1.yml': line 16, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: mkfs on {{dev}}\n  ^ here\nWe could be wrong, but this one looks like it might be an issue with\nmissing quotes. Always quote template expression brackets when they\nstart a value. For instance:\n\n    with_items:\n      - {{ foo }}\n\nShould be written as:\n\n    with_items:\n      - \"{{ foo }}\"\n"}
+2020-10-19 08:50:08,103 p=45127 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:50:08,104 p=45127 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 08:50:08,104 p=45127 u=root n=ansible | local_zfs_root             : ok=7    changed=4    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-19 08:52:16,175 p=45681 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 08:52:27,270 p=45681 u=root n=ansible | [WARNING]: Found variable using reserved name: name
+
+2020-10-19 08:52:27,271 p=45681 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 08:52:29,244 p=45681 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 08:52:29,244 p=45681 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:52:29,497 p=45681 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 08:52:29,497 p=45681 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:52:29,523 p=45681 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks1.yml for local_zfs_root
+2020-10-19 08:52:29,745 p=45681 u=root n=ansible | TASK [01-system-prep : create temp file] ******************************************************************************************************************************************************
+2020-10-19 08:52:29,745 p=45681 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:52:30,155 p=45681 u=root n=ansible | TASK [01-system-prep : write password to temp file] *******************************************************************************************************************************************
+2020-10-19 08:52:30,155 p=45681 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:52:30,340 p=45681 u=root n=ansible | TASK [01-system-prep : encrypt disk] **********************************************************************************************************************************************************
+2020-10-19 08:52:30,340 p=45681 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "cat /tmp/encdisk.GVYySd4 | cryptsetup --verbose --batch-mode luksFormat /dev/sda3", "delta": "0:00:00.015448", "end": "2020-10-19 08:52:30.327163", "msg": "non-zero return code", "rc": 1, "start": "2020-10-19 08:52:30.311715", "stderr": "Device /dev/sda3 is in use. Can not proceed with format operation.", "stderr_lines": ["Device /dev/sda3 is in use. Can not proceed with format operation."], "stdout": "Command failed with code -1 (wrong or missing parameters).", "stdout_lines": ["Command failed with code -1 (wrong or missing parameters)."]}
+2020-10-19 08:52:30,345 p=45681 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:52:30,345 p=45681 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 08:52:30,346 p=45681 u=root n=ansible | local_zfs_root             : ok=5    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

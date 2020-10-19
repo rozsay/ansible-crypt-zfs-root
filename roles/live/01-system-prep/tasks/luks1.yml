@@ -7,15 +7,14 @@
 - name: write password to temp file
   template: src=templates/encrypt-pass.j2 dest={{tmp.stdout}}
 
-#- name: encrypt disk
-#  shell: cat {{tmp.stdout}} |
-#  cryptsetup --verbose --batch-mode luksFormat /dev/sda3
+- name: encrypt disk
+  shell: cat {{tmp.stdout}} | cryptsetup --verbose --batch-mode luksFormat /dev/sda3
 
-#- name: open encrypted disk
-#  shell: cat {{tmp.stdout}} | cryptsetup luksOpen  /dev/sda3 crypt1
+- name: open encrypted disk
+  shell: cat {{tmp.stdout}} | cryptsetup luksOpen  /dev/sda3 crypt1
 
-#- name: mkfs on {{dev}}
-#  command: '{{mkfs}} -L {{name}} /dev/mapper/crypt1'
+- name: mkfs on
+  command: 'mkfs.xfs -L crypt1 /dev/mapper/crypt1'
 
-#- name: purge temp file
-#  command: shred -z -u {{tmp.stdout}}
+- name: purge temp file
+  command: shred -z -u {{tmp.stdout}}
