@@ -29,10 +29,7 @@
     -  - "{{ _root_device_list }}{{ _efi_part_append }}"
   when: _efi | default(false) | bool == true
 
-#- include_tasks: luks1.yml
 - include_tasks: luks.yml
-
-- include tasks: finish.yml
-
+- include_tasks: finish.yml
 - import_tasks: netplan.yml
   when: netplan_enabled

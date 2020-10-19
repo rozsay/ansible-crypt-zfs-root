@@ -107,14 +107,14 @@
   when: _efi|default(false)|bool == true
 
 - name: update crypttab with cryptsetup partitions
-  shell: "echo "cryptstore UUID=$(blkid -s UUID -o value {{ item }}) none luks,discard,initramfs" >> /etc/crypttab"
+  shell: "echo cryptstore UUID=$(blkid -s UUID -o value {{ item }}) none luks,discard,initramfs >> /etc/crypttab"
   with_items:
     - "{{ _root_device_list }}{{ _cryptstore_part_append }}"
   when: _lukscrypt|default(false)|bool == true
 
 
 - name: update fstab with cryptsetup partitions
-  shell: "/dev/mapper/cryptstore  /boot/cryptstore ext4 defaults 0 2 >> /etc/fstab"
+  shell: "echo /dev/mapper/cryptstore  /boot/cryptstore ext4 defaults 0 2 >> /etc/fstab"
   when: _lukscrypt|default(false)|bool == true
 
 - name: install grub-efi-amd64

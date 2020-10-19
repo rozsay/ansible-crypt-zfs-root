@@ -7,8 +7,8 @@
 # _lukscryptkey: "/boot/{{ _luksname }}/{{ _root_pool }}.key"
 # _luksoptions: "--type=luks1 -qc aes-xts-plain64 -s 512 -h sha256"
 
-- debug:
-    msg: LUKS > {{ _crypt_passphrase }}
+#- debug:
+#    msg: LUKS > {{ _crypt_passphrase }}
 
 - name: Check if LUKS
   shell: cryptsetup isLuks "{{ _root_device_list }}{{ _cryptstore_part_append }}" && echo "true" || echo "false"

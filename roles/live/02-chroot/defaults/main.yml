@@ -36,8 +36,6 @@ _boot_part_append: "{{ _legacy_device_nodes | ternary('2', '-part2') }}"
 _cryptstore_part_append: "{{ _legacy_device_nodes | ternary('3', '-part3') }}"
 _root_part_append: "{{ _legacy_device_nodes | ternary('4', '-part4') }}"
 
-_crypt_passphrase: "Password"
-
 _extra_locales: []
 _locales: "{{ _extra_locales + ['en_US.UTF-8'] }}"
 _lang: "en_US.UTF-8"

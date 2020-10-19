@@ -5,7 +5,6 @@ _ubuntu_release: focal
 _zap_disks: true
 _efi: true
 _crypt: true
-_lukscrypt: true
 _data_disks: false
 
 _hostname:

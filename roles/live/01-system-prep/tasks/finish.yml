@@ -1,6 +1,5 @@
 ---
 ##############################################################################################################################################3
-
 - name: run debootstrap and set devices=off for root pool
   shell: "debootstrap {{ _ubuntu_release }} {{ _installdir }} && zfs set devices=off {{ _root_pool }}"
 
