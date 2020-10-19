@@ -1,0 +1,49 @@
+---
+##############################################################################################################################################3
+
+- name: run debootstrap and set devices=off for root pool
+  shell: "debootstrap {{ _ubuntu_release }} {{ _installdir }} && zfs set devices=off {{ _root_pool }}"
+
+#- name: set devices=off for data pool
+#  shell: "zfs set devices=off {{ _data_pool }}"
+
+- name: write /etc/hostname in chroot
+  copy:
+    content: "{{ _hostname.short }}"
+    dest: "{{ _installdir }}etc/hostname"
+
+- name: write {{ _installdir }}apt/sources.list in chroot
+  template:
+    src: etc/apt/sources.j2
+    dest: "{{ _installdir }}etc/apt/sources.list"
+
+- name: add hostname entries to {{ _installdir }}hosts in chroot
+  lineinfile:
+    line: "127.0.0.1 {{ _hostname.short }} {{ _hostname.long }}"
+    path: "{{ _installdir }}etc/hosts"
+    state: present
+    insertbefore: BOF
+
+- name: mount special filesystems for chroot
+  shell: "mount --rbind {{ item }}"
+  with_items:
+    - /dev "{{ _installdir }}dev"
+    - /proc "{{ _installdir }}proc"
+    - /sys "{{ _installdir }}sys"
+  args:
+    warn: false
+
+- name: Get physical interfaces names
+  command: find /sys/class/net -type l -not -lname '*virtual*' -printf '%f\n'
+  register: physical_interfaces_name
+  changed_when: false
+  check_mode: false
+
+- name: Show interfaces details
+  debug:
+    msg: "{{ lookup('vars', 'ansible_' + item) }}"
+  loop: "{{ physical_interfaces_name.stdout_lines }}"
+
+
+
+

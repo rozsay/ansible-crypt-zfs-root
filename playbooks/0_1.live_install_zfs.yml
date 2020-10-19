@@ -1,6 +1,15 @@
 ---
 - hosts: live
   connection: local
-
+  vars_prompt:
+    - name: dev
+      prompt: "Device? "
+      private: no
+    - name: name
+      prompt: "Name? "
+      private: no
+    - name: pass
+      prompt: "Passphrase? "
+      private: yes
   roles:
     - role: 01-system-prep

@@ -18162,3 +18162,920 @@ Using last defined value only.
 
 2020-10-16 10:46:03,558 p=75958 u=root n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************
 2020-10-16 10:46:03,558 p=75958 u=root n=ansible | local_zfs_root             : ok=7    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-19 08:03:32,845 p=35705 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1,
+found a duplicate dict key (_lukscrypt). Using last defined value only.
+
+2020-10-19 08:03:32,932 p=35705 u=root n=ansible | PLAY [live] *****************************************************************************************************************************
+2020-10-19 08:03:33,977 p=35705 u=root n=ansible |  [ERROR]: User interrupted execution
+
+2020-10-19 08:03:47,564 p=35770 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1,
+found a duplicate dict key (_lukscrypt). Using last defined value only.
+
+2020-10-19 08:03:47,639 p=35770 u=root n=ansible | PLAY [live] *****************************************************************************************************************************
+2020-10-19 08:03:49,642 p=35770 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************
+2020-10-19 08:03:49,642 p=35770 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:03:49,679 p=35770 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-19 08:03:49,735 p=35770 u=root n=ansible | TASK [01-system-prep : debug] ***********************************************************************************************************
+2020-10-19 08:03:49,737 p=35770 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-19 08:03:50,001 p=35770 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ***************************************************************************************************
+2020-10-19 08:03:50,001 p=35770 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:03:50,049 p=35770 u=root n=ansible | TASK [01-system-prep : is LUKS device] **************************************************************************************************
+2020-10-19 08:03:50,050 p=35770 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.008299",
+        "end": "2020-10-19 08:03:49.985385",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-19 08:03:49.977086",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-19 08:03:50,202 p=35770 u=root n=ansible | TASK [01-system-prep : create temp file] ************************************************************************************************
+2020-10-19 08:03:50,202 p=35770 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:03:50,250 p=35770 u=root n=ansible | TASK [01-system-prep : debug] ***********************************************************************************************************
+2020-10-19 08:03:50,251 p=35770 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS33 > \"/tmp/encdisk.SpxYPN\""
+}
+2020-10-19 08:03:50,449 p=35770 u=root n=ansible | TASK [01-system-prep : encrypt disk] ****************************************************************************************************
+2020-10-19 08:03:50,450 p=35770 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "cat /tmp/encdisk.SpxYPN | cryptsetup --verbose  --type=luks1 -qc aes-xts-plain64 -s 512 -h sha256 --batch-mode luksFormat /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3", "delta": "0:00:00.021445", "end": "2020-10-19 08:03:50.437679", "msg": "non-zero return code", "rc": 1, "start": "2020-10-19 08:03:50.416234", "stderr": "Nothing to read on input.", "stderr_lines": ["Nothing to read on input."], "stdout": "Command failed with code -1 (wrong or missing parameters).", "stdout_lines": ["Command failed with code -1 (wrong or missing parameters)."]}
+2020-10-19 08:03:50,455 p=35770 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:03:50,456 p=35770 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************
+2020-10-19 08:03:50,456 p=35770 u=root n=ansible | local_zfs_root             : ok=7    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-19 08:05:34,491 p=35942 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1,
+found a duplicate dict key (_lukscrypt). Using last defined value only.
+
+2020-10-19 08:05:34,570 p=35942 u=root n=ansible | PLAY [live] *****************************************************************************************************************************
+2020-10-19 08:05:35,503 p=35942 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************
+2020-10-19 08:05:35,504 p=35942 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:05:35,539 p=35942 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2020-10-19 08:05:41,248 p=35942 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *************************************************************
+2020-10-19 08:05:41,249 p=35942 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:05:41,296 p=35942 u=root n=ansible | TASK [01-system-prep : debug] ***********************************************************************************************************
+2020-10-19 08:05:41,297 p=35942 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1603094010,
+        "cache_updated": false,
+        "changed": true,
+        "diff": {},
+        "failed": false,
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nSuggested packages:\n  default-mta | mail-transport-agent dracut-core\nThe following NEW packages will be installed:\n  mdadm\n0 upgraded, 1 newly installed, 0 to remove and 468 not upgraded.\nNeed to get 417 kB of archives.\nAfter this operation, 1255 kB of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 mdadm amd64 4.1-5ubuntu1.2 [417 kB]\nPreconfiguring packages ...\nFetched 417 kB in 1s (797 kB/s)\nSelecting previously unselected package mdadm.\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 207483 files and directories currently installed.)\r\nPreparing to unpack .../mdadm_4.1-5ubuntu1.2_amd64.deb ...\r\nUnpacking mdadm (4.1-5ubuntu1.2) ...\r\nSetting up mdadm (4.1-5ubuntu1.2) ...\r\nGenerating mdadm.conf... done.\r\nupdate-initramfs is disabled since running on read-only media\r\n/usr/sbin/grub-probe: error: failed to get canonical path of `/cow'.\r\nCreated symlink /etc/systemd/system/mdmonitor.service.wants/mdcheck_continue.timer -> /lib/systemd/system/mdcheck_continue.timer.\r\nCreated symlink /etc/systemd/system/mdmonitor.service.wants/mdcheck_start.timer -> /lib/systemd/system/mdcheck_start.timer.\r\nCreated symlink /etc/systemd/system/mdmonitor.service.wants/mdmonitor-oneshot.timer -> /lib/systemd/system/mdmonitor-oneshot.timer.\r\nProcessing triggers for man-db (2.9.1-1) ...\r\n",
+        "stdout_lines": [
+            "Reading package lists...",
+            "Building dependency tree...",
+            "Reading state information...",
+            "Suggested packages:",
+            "  default-mta | mail-transport-agent dracut-core",
+            "The following NEW packages will be installed:",
+            "  mdadm",
+            "0 upgraded, 1 newly installed, 0 to remove and 468 not upgraded.",
+            "Need to get 417 kB of archives.",
+            "After this operation, 1255 kB of additional disk space will be used.",
+            "Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 mdadm amd64 4.1-5ubuntu1.2 [417 kB]",
+            "Preconfiguring packages ...",
+            "Fetched 417 kB in 1s (797 kB/s)",
+            "Selecting previously unselected package mdadm.",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 207483 files and directories currently installed.)",
+            "Preparing to unpack .../mdadm_4.1-5ubuntu1.2_amd64.deb ...",
+            "Unpacking mdadm (4.1-5ubuntu1.2) ...",
+            "Setting up mdadm (4.1-5ubuntu1.2) ...",
+            "Generating mdadm.conf... done.",
+            "update-initramfs is disabled since running on read-only media",
+            "/usr/sbin/grub-probe: error: failed to get canonical path of `/cow'.",
+            "Created symlink /etc/systemd/system/mdmonitor.service.wants/mdcheck_continue.timer -> /lib/systemd/system/mdcheck_continue.timer.",
+            "Created symlink /etc/systemd/system/mdmonitor.service.wants/mdcheck_start.timer -> /lib/systemd/system/mdcheck_start.timer.",
+            "Created symlink /etc/systemd/system/mdmonitor.service.wants/mdmonitor-oneshot.timer -> /lib/systemd/system/mdmonitor-oneshot.timer.",
+            "Processing triggers for man-db (2.9.1-1) ..."
+        ]
+    }
+}
+2020-10-19 08:05:41,799 p=35942 u=root n=ansible | TASK [01-system-prep : Necessary efi] ***************************************************************************************************
+2020-10-19 08:05:41,800 p=35942 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-10-19 08:05:42,299 p=35942 u=root n=ansible | TASK [01-system-prep : Necessary cryptsetup] ********************************************************************************************
+2020-10-19 08:05:42,300 p=35942 u=root n=ansible | ok: [local_zfs_root] => (item=cryptsetup)
+2020-10-19 08:05:42,328 p=35942 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2020-10-19 08:05:43,710 p=35942 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] **********************************************************************************************
+2020-10-19 08:05:43,711 p=35942 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:05:44,929 p=35942 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] **************************************************************************************
+2020-10-19 08:05:44,930 p=35942 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:05:46,168 p=35942 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *************************************************************************************
+2020-10-19 08:05:46,168 p=35942 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:05:47,423 p=35942 u=root n=ansible | TASK [01-system-prep : set up cryptstore partitions] ************************************************************************************
+2020-10-19 08:05:47,424 p=35942 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:05:48,717 p=35942 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *************************************************************************************
+2020-10-19 08:05:48,717 p=35942 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:05:48,979 p=35942 u=root n=ansible | TASK [01-system-prep : print info disk] *************************************************************************************************
+2020-10-19 08:05:48,979 p=35942 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:05:49,058 p=35942 u=root n=ansible | TASK [01-system-prep : debug directory output] ******************************************************************************************
+2020-10-19 08:05:49,062 p=35942 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 26CA55AB-A93A-4777-A434-F1974FDC6F0A",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   3         3147776         7342079   2.0 GiB     8300  Cryptsore",
+            "   4         7342080        41943006   16.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2020-10-19 08:05:49,379 p=35942 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *************************************************************************************
+2020-10-19 08:05:49,380 p=35942 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:05:49,678 p=35942 u=root n=ansible | TASK [01-system-prep : Create keyfile] **************************************************************************************************
+2020-10-19 08:05:49,678 p=35942 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": false, "msg": "Error, could not touch target: [Errno 2] No such file or directory: b''", "path": ""}
+2020-10-19 08:05:49,683 p=35942 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:05:49,683 p=35942 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************
+2020-10-19 08:05:49,683 p=35942 u=root n=ansible | local_zfs_root             : ok=15   changed=7    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-19 08:08:18,693 p=36930 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1,
+found a duplicate dict key (_lukscrypt). Using last defined value only.
+
+2020-10-19 08:08:18,771 p=36930 u=root n=ansible | PLAY [live] *****************************************************************************************************************************
+2020-10-19 08:08:19,735 p=36930 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************
+2020-10-19 08:08:19,736 p=36930 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:08:20,021 p=36930 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *************************************************************************************
+2020-10-19 08:08:20,022 p=36930 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:08:20,316 p=36930 u=root n=ansible | TASK [01-system-prep : Create keyfile] **************************************************************************************************
+2020-10-19 08:08:20,316 p=36930 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": false, "msg": "Error, could not touch target: [Errno 2] No such file or directory: b''", "path": ""}
+2020-10-19 08:08:20,322 p=36930 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:08:20,322 p=36930 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************
+2020-10-19 08:08:20,322 p=36930 u=root n=ansible | local_zfs_root             : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-19 08:08:45,433 p=36998 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1,
+found a duplicate dict key (_lukscrypt). Using last defined value only.
+
+2020-10-19 08:08:45,510 p=36998 u=root n=ansible | PLAY [live] *****************************************************************************************************************************
+2020-10-19 08:08:46,463 p=36998 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************
+2020-10-19 08:08:46,463 p=36998 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:08:46,552 p=36998 u=root n=ansible | TASK [01-system-prep : Create keyfile] **************************************************************************************************
+2020-10-19 08:08:46,552 p=36998 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "The conditional check 'keyfile.stat.exists == false' failed. The error was: error while evaluating conditional (keyfile.stat.exists == false): 'keyfile' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/main.yml': line 9, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: 'Create keyfile'\n  ^ here\n"}
+2020-10-19 08:08:46,563 p=36998 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:08:46,563 p=36998 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************
+2020-10-19 08:08:46,564 p=36998 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-19 08:09:11,068 p=37055 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1,
+found a duplicate dict key (_lukscrypt). Using last defined value only.
+
+2020-10-19 08:09:11,146 p=37055 u=root n=ansible | PLAY [live] *****************************************************************************************************************************
+2020-10-19 08:09:12,116 p=37055 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************
+2020-10-19 08:09:12,116 p=37055 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:09:12,401 p=37055 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *************************************************************************************
+2020-10-19 08:09:12,402 p=37055 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:09:12,689 p=37055 u=root n=ansible | TASK [01-system-prep : Create key file1] ************************************************************************************************
+2020-10-19 08:09:12,690 p=37055 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:09:12,717 p=37055 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/create_zfs.yml for local_zfs_root
+2020-10-19 08:09:13,037 p=37055 u=root n=ansible | TASK [01-system-prep : set up root zfs luks crypt devices] ******************************************************************************
+2020-10-19 08:09:13,038 p=37055 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:09:13,398 p=37055 u=root n=ansible | TASK [01-system-prep : create root dataset] *********************************************************************************************
+2020-10-19 08:09:13,398 p=37055 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:09:13,626 p=37055 u=root n=ansible | TASK [01-system-prep : manually mount rpool/root before creating other mountpoints] *****************************************************
+2020-10-19 08:09:13,627 p=37055 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:09:13,677 p=37055 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] ******************************************************************************
+2020-10-19 08:09:13,677 p=37055 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "template error while templating string: expected token 'name', got '('. String: {{ (_root_device_list | length > 1) | (_root_device_list | map('regex_replace', '(.*)', '\\\\g<1>' + _boot_part_append) | list).0 }}"}
+2020-10-19 08:09:13,682 p=37055 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:09:13,682 p=37055 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************
+2020-10-19 08:09:13,683 p=37055 u=root n=ansible | local_zfs_root             : ok=7    changed=4    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-10-19 08:10:41,251 p=37367 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1,
+found a duplicate dict key (_lukscrypt). Using last defined value only.
+
+2020-10-19 08:10:41,327 p=37367 u=root n=ansible | PLAY [live] *****************************************************************************************************************************
+2020-10-19 08:10:43,288 p=37367 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************
+2020-10-19 08:10:43,289 p=37367 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:10:43,543 p=37367 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *************************************************************************************
+2020-10-19 08:10:43,543 p=37367 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:10:43,793 p=37367 u=root n=ansible | TASK [01-system-prep : Create key file1] ************************************************************************************************
+2020-10-19 08:10:43,794 p=37367 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:10:43,821 p=37367 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/create_zfs.yml for local_zfs_root
+2020-10-19 08:10:44,115 p=37367 u=root n=ansible | TASK [01-system-prep : set up root zfs luks crypt devices] ******************************************************************************
+2020-10-19 08:10:44,115 p=37367 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:10:44,470 p=37367 u=root n=ansible | TASK [01-system-prep : create root dataset] *********************************************************************************************
+2020-10-19 08:10:44,470 p=37367 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:10:44,676 p=37367 u=root n=ansible | TASK [01-system-prep : manually mount rpool/root before creating other mountpoints] *****************************************************
+2020-10-19 08:10:44,677 p=37367 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:10:44,724 p=37367 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] ******************************************************************************
+2020-10-19 08:10:44,725 p=37367 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "template error while templating string: expected token 'name', got '('. String: {{ (_root_device_list | length > 1) | (_root_device_list | map('regex_replace', '(.*)', '\\\\g<1>' + _boot_part_append) | list).0 }}"}
+2020-10-19 08:10:44,729 p=37367 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:10:44,730 p=37367 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************
+2020-10-19 08:10:44,730 p=37367 u=root n=ansible | local_zfs_root             : ok=7    changed=4    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-10-19 08:14:18,722 p=37661 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last defined value only.
+
+2020-10-19 08:14:18,788 p=37661 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-10-19 08:14:19,722 p=37661 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-19 08:14:19,723 p=37661 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:14:19,769 p=37661 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2020-10-19 08:14:20,590 p=37661 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *****************************************************************************************************************************************************************
+2020-10-19 08:14:20,590 p=37661 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:14:20,641 p=37661 u=root n=ansible | TASK [01-system-prep : debug] ***************************************************************************************************************************************************************************************************************
+2020-10-19 08:14:20,641 p=37661 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1603094010,
+        "cache_updated": false,
+        "changed": false,
+        "failed": false
+    }
+}
+2020-10-19 08:14:21,165 p=37661 u=root n=ansible | TASK [01-system-prep : Necessary efi] *******************************************************************************************************************************************************************************************************
+2020-10-19 08:14:21,166 p=37661 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-10-19 08:14:21,686 p=37661 u=root n=ansible | TASK [01-system-prep : Necessary cryptsetup] ************************************************************************************************************************************************************************************************
+2020-10-19 08:14:21,687 p=37661 u=root n=ansible | ok: [local_zfs_root] => (item=cryptsetup)
+2020-10-19 08:14:21,715 p=37661 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2020-10-19 08:14:23,003 p=37661 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] **************************************************************************************************************************************************************************************************
+2020-10-19 08:14:23,003 p=37661 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:14:24,253 p=37661 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ******************************************************************************************************************************************************************************************
+2020-10-19 08:14:24,254 p=37661 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:14:25,468 p=37661 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *****************************************************************************************************************************************************************************************
+2020-10-19 08:14:25,469 p=37661 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:14:26,722 p=37661 u=root n=ansible | TASK [01-system-prep : set up cryptstore partitions] ****************************************************************************************************************************************************************************************
+2020-10-19 08:14:26,723 p=37661 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:14:27,960 p=37661 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *****************************************************************************************************************************************************************************************
+2020-10-19 08:14:27,961 p=37661 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:14:28,174 p=37661 u=root n=ansible | TASK [01-system-prep : print info disk] *****************************************************************************************************************************************************************************************************
+2020-10-19 08:14:28,176 p=37661 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:14:28,246 p=37661 u=root n=ansible | TASK [01-system-prep : debug directory output] **********************************************************************************************************************************************************************************************
+2020-10-19 08:14:28,246 p=37661 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 998ABCED-8F46-4D24-B91B-6A2EC7F63849",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   3         3147776         7342079   2.0 GiB     8300  Cryptsore",
+            "   4         7342080        41943006   16.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2020-10-19 08:14:28,532 p=37661 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *****************************************************************************************************************************************************************************************
+2020-10-19 08:14:28,532 p=37661 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:14:28,712 p=37661 u=root n=ansible | TASK [01-system-prep : Create key file1] ****************************************************************************************************************************************************************************************************
+2020-10-19 08:14:28,712 p=37661 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:14:28,740 p=37661 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/create_zfs.yml for local_zfs_root
+2020-10-19 08:14:28,989 p=37661 u=root n=ansible | TASK [01-system-prep : set up root zfs luks crypt devices] **********************************************************************************************************************************************************************************
+2020-10-19 08:14:28,990 p=37661 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "zpool create  -O encryption=aes-256-gcm  -O keylocation=file:///boot/rpool.key  -O keyformat=raw -o ashift=12 -O atime=off -O canmount=off -O compression=lz4 -O normalization=formD -O acltype=posixacl -O dnodesize=auto -O xattr=sa -O mountpoint=none -R /mnt/install/ rpool  /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part4 -f", "delta": "0:00:00.008560", "end": "2020-10-19 08:14:28.974063", "msg": "non-zero return code", "rc": 1, "start": "2020-10-19 08:14:28.965503", "stderr": "invalid vdev specification\nthe following errors must be manually repaired:\n/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part4 is part of active pool 'rpool'", "stderr_lines": ["invalid vdev specification", "the following errors must be manually repaired:", "/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part4 is part of active pool 'rpool'"], "stdout": "", "stdout_lines": []}
+2020-10-19 08:14:28,996 p=37661 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:14:28,996 p=37661 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-19 08:14:28,996 p=37661 u=root n=ansible | local_zfs_root             : ok=17   changed=7    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-10-19 08:15:44,731 p=37996 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last defined value only.
+
+2020-10-19 08:15:44,798 p=37996 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************************************
+2020-10-19 08:15:45,729 p=37996 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2020-10-19 08:15:45,729 p=37996 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:15:45,773 p=37996 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2020-10-19 08:15:46,584 p=37996 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *****************************************************************************************************************************************************************
+2020-10-19 08:15:46,585 p=37996 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:15:46,634 p=37996 u=root n=ansible | TASK [01-system-prep : debug] ***************************************************************************************************************************************************************************************************************
+2020-10-19 08:15:46,634 p=37996 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1603094010,
+        "cache_updated": false,
+        "changed": false,
+        "failed": false
+    }
+}
+2020-10-19 08:15:47,150 p=37996 u=root n=ansible | TASK [01-system-prep : Necessary efi] *******************************************************************************************************************************************************************************************************
+2020-10-19 08:15:47,150 p=37996 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-10-19 08:15:47,654 p=37996 u=root n=ansible | TASK [01-system-prep : Necessary cryptsetup] ************************************************************************************************************************************************************************************************
+2020-10-19 08:15:47,655 p=37996 u=root n=ansible | ok: [local_zfs_root] => (item=cryptsetup)
+2020-10-19 08:15:47,682 p=37996 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2020-10-19 08:15:49,006 p=37996 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] **************************************************************************************************************************************************************************************************
+2020-10-19 08:15:49,007 p=37996 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:15:50,262 p=37996 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ******************************************************************************************************************************************************************************************
+2020-10-19 08:15:50,263 p=37996 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:15:51,491 p=37996 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *****************************************************************************************************************************************************************************************
+2020-10-19 08:15:51,491 p=37996 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:15:52,778 p=37996 u=root n=ansible | TASK [01-system-prep : set up cryptstore partitions] ****************************************************************************************************************************************************************************************
+2020-10-19 08:15:52,778 p=37996 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:15:54,046 p=37996 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *****************************************************************************************************************************************************************************************
+2020-10-19 08:15:54,047 p=37996 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:15:54,313 p=37996 u=root n=ansible | TASK [01-system-prep : print info disk] *****************************************************************************************************************************************************************************************************
+2020-10-19 08:15:54,313 p=37996 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:15:54,391 p=37996 u=root n=ansible | TASK [01-system-prep : debug directory output] **********************************************************************************************************************************************************************************************
+2020-10-19 08:15:54,392 p=37996 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 06C86C00-D929-4FD5-B1C1-91B6B3D0F7BF",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   3         3147776         7342079   2.0 GiB     8300  Cryptsore",
+            "   4         7342080        41943006   16.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2020-10-19 08:15:54,708 p=37996 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *****************************************************************************************************************************************************************************************
+2020-10-19 08:15:54,709 p=37996 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:15:54,887 p=37996 u=root n=ansible | TASK [01-system-prep : Create key file1] ****************************************************************************************************************************************************************************************************
+2020-10-19 08:15:54,887 p=37996 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:15:54,915 p=37996 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/create_zfs.yml for local_zfs_root
+2020-10-19 08:15:55,211 p=37996 u=root n=ansible | TASK [01-system-prep : set up root zfs luks crypt devices] **********************************************************************************************************************************************************************************
+2020-10-19 08:15:55,211 p=37996 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:15:55,612 p=37996 u=root n=ansible | TASK [01-system-prep : create root dataset] *************************************************************************************************************************************************************************************************
+2020-10-19 08:15:55,613 p=37996 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:15:55,816 p=37996 u=root n=ansible | TASK [01-system-prep : manually mount rpool/root before creating other mountpoints] *********************************************************************************************************************************************************
+2020-10-19 08:15:55,817 p=37996 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:15:55,867 p=37996 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] **********************************************************************************************************************************************************************************
+2020-10-19 08:15:55,868 p=37996 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "template error while templating string: expected token 'name', got '('. String: {{ (_root_device_list | length > 1) | (_root_device_list | map('regex_replace', '(.*)', '\\\\g<1>' + _boot_part_append) | list).0 }}"}
+2020-10-19 08:15:55,874 p=37996 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:15:55,874 p=37996 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2020-10-19 08:15:55,875 p=37996 u=root n=ansible | local_zfs_root             : ok=20   changed=10   unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-10-19 08:18:20,005 p=38867 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 08:18:20,071 p=38867 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 08:18:22,120 p=38867 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 08:18:22,121 p=38867 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:18:22,162 p=38867 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2020-10-19 08:18:22,960 p=38867 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *******************************************************************************************************************
+2020-10-19 08:18:22,960 p=38867 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:18:23,008 p=38867 u=root n=ansible | TASK [01-system-prep : debug] *****************************************************************************************************************************************************************
+2020-10-19 08:18:23,011 p=38867 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1603094010,
+        "cache_updated": false,
+        "changed": false,
+        "failed": false
+    }
+}
+2020-10-19 08:18:23,505 p=38867 u=root n=ansible | TASK [01-system-prep : Necessary efi] *********************************************************************************************************************************************************
+2020-10-19 08:18:23,506 p=38867 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-10-19 08:18:24,029 p=38867 u=root n=ansible | TASK [01-system-prep : Necessary cryptsetup] **************************************************************************************************************************************************
+2020-10-19 08:18:24,030 p=38867 u=root n=ansible | ok: [local_zfs_root] => (item=cryptsetup)
+2020-10-19 08:18:24,060 p=38867 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2020-10-19 08:18:25,357 p=38867 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] ****************************************************************************************************************************************************
+2020-10-19 08:18:25,357 p=38867 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:18:26,578 p=38867 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ********************************************************************************************************************************************
+2020-10-19 08:18:26,578 p=38867 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:18:27,817 p=38867 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:18:27,817 p=38867 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:18:29,083 p=38867 u=root n=ansible | TASK [01-system-prep : set up cryptstore partitions] ******************************************************************************************************************************************
+2020-10-19 08:18:29,084 p=38867 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:18:30,354 p=38867 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:18:30,355 p=38867 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:18:30,612 p=38867 u=root n=ansible | TASK [01-system-prep : print info disk] *******************************************************************************************************************************************************
+2020-10-19 08:18:30,613 p=38867 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:18:30,699 p=38867 u=root n=ansible | TASK [01-system-prep : debug directory output] ************************************************************************************************************************************************
+2020-10-19 08:18:30,732 p=38867 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 84FEEEB3-8E94-4BAA-8EEE-A272F711C17B",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   3         3147776         7342079   2.0 GiB     8300  Cryptsore",
+            "   4         7342080        41943006   16.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2020-10-19 08:18:31,026 p=38867 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 08:18:31,026 p=38867 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:18:31,203 p=38867 u=root n=ansible | TASK [01-system-prep : Create key file1] ******************************************************************************************************************************************************
+2020-10-19 08:18:31,204 p=38867 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:18:31,231 p=38867 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/create_zfs.yml for local_zfs_root
+2020-10-19 08:18:31,530 p=38867 u=root n=ansible | TASK [01-system-prep : set up root zfs luks crypt devices] ************************************************************************************************************************************
+2020-10-19 08:18:31,531 p=38867 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:18:31,931 p=38867 u=root n=ansible | TASK [01-system-prep : create root dataset] ***************************************************************************************************************************************************
+2020-10-19 08:18:31,931 p=38867 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:18:32,142 p=38867 u=root n=ansible | TASK [01-system-prep : manually mount rpool/root before creating other mountpoints] ***********************************************************************************************************
+2020-10-19 08:18:32,142 p=38867 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:18:32,191 p=38867 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] ************************************************************************************************************************************
+2020-10-19 08:18:32,191 p=38867 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"msg": "template error while templating string: expected token 'name', got '('. String: {{ (_root_device_list | length > 1) | (_root_device_list | map('regex_replace', '(.*)', '\\\\g<1>' + _boot_part_append) | list).0 }}"}
+2020-10-19 08:18:32,197 p=38867 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:18:32,198 p=38867 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 08:18:32,198 p=38867 u=root n=ansible | local_zfs_root             : ok=20   changed=10   unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-10-19 08:20:27,502 p=39669 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 08:20:27,567 p=39669 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 08:20:29,555 p=39669 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 08:20:29,555 p=39669 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:20:29,599 p=39669 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2020-10-19 08:20:30,368 p=39669 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *******************************************************************************************************************
+2020-10-19 08:20:30,368 p=39669 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:20:30,417 p=39669 u=root n=ansible | TASK [01-system-prep : debug] *****************************************************************************************************************************************************************
+2020-10-19 08:20:30,420 p=39669 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1603094010,
+        "cache_updated": false,
+        "changed": false,
+        "failed": false
+    }
+}
+2020-10-19 08:20:30,915 p=39669 u=root n=ansible | TASK [01-system-prep : Necessary efi] *********************************************************************************************************************************************************
+2020-10-19 08:20:30,915 p=39669 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-10-19 08:20:31,419 p=39669 u=root n=ansible | TASK [01-system-prep : Necessary cryptsetup] **************************************************************************************************************************************************
+2020-10-19 08:20:31,420 p=39669 u=root n=ansible | ok: [local_zfs_root] => (item=cryptsetup)
+2020-10-19 08:20:31,448 p=39669 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2020-10-19 08:20:32,738 p=39669 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] ****************************************************************************************************************************************************
+2020-10-19 08:20:32,738 p=39669 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:20:33,963 p=39669 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ********************************************************************************************************************************************
+2020-10-19 08:20:33,963 p=39669 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:20:35,183 p=39669 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:20:35,183 p=39669 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:20:36,420 p=39669 u=root n=ansible | TASK [01-system-prep : set up cryptstore partitions] ******************************************************************************************************************************************
+2020-10-19 08:20:36,421 p=39669 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:20:37,671 p=39669 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:20:37,671 p=39669 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:20:37,947 p=39669 u=root n=ansible | TASK [01-system-prep : print info disk] *******************************************************************************************************************************************************
+2020-10-19 08:20:37,948 p=39669 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:20:38,084 p=39669 u=root n=ansible | TASK [01-system-prep : debug directory output] ************************************************************************************************************************************************
+2020-10-19 08:20:38,091 p=39669 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 09BBD599-E1BF-4623-902C-96DA211BB2A0",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   3         3147776         7342079   2.0 GiB     8300  Cryptsore",
+            "   4         7342080        41943006   16.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2020-10-19 08:20:38,382 p=39669 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 08:20:38,382 p=39669 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:20:38,560 p=39669 u=root n=ansible | TASK [01-system-prep : Create key file1] ******************************************************************************************************************************************************
+2020-10-19 08:20:38,560 p=39669 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:20:38,588 p=39669 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/create_zfs.yml for local_zfs_root
+2020-10-19 08:20:38,878 p=39669 u=root n=ansible | TASK [01-system-prep : set up root zfs luks crypt devices] ************************************************************************************************************************************
+2020-10-19 08:20:38,879 p=39669 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:20:39,325 p=39669 u=root n=ansible | TASK [01-system-prep : create root dataset] ***************************************************************************************************************************************************
+2020-10-19 08:20:39,325 p=39669 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:20:39,542 p=39669 u=root n=ansible | TASK [01-system-prep : manually mount rpool/root before creating other mountpoints] ***********************************************************************************************************
+2020-10-19 08:20:39,542 p=39669 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:20:39,787 p=39669 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] ************************************************************************************************************************************
+2020-10-19 08:20:39,788 p=39669 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2)
+2020-10-19 08:20:40,035 p=39669 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/efi] ********************************************************************************************************************************
+2020-10-19 08:20:40,035 p=39669 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part1)
+2020-10-19 08:20:40,058 p=39669 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 08:20:40,058 p=39669 u=root n=ansible | local_zfs_root             : ok=22   changed=12   unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2020-10-19 08:21:21,287 p=40490 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 08:21:21,353 p=40490 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 08:21:22,358 p=40490 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 08:21:22,359 p=40490 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:21:22,403 p=40490 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2020-10-19 08:21:23,204 p=40490 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *******************************************************************************************************************
+2020-10-19 08:21:23,204 p=40490 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:21:23,256 p=40490 u=root n=ansible | TASK [01-system-prep : debug] *****************************************************************************************************************************************************************
+2020-10-19 08:21:23,256 p=40490 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1603094010,
+        "cache_updated": false,
+        "changed": false,
+        "failed": false
+    }
+}
+2020-10-19 08:21:23,749 p=40490 u=root n=ansible | TASK [01-system-prep : Necessary efi] *********************************************************************************************************************************************************
+2020-10-19 08:21:23,750 p=40490 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-10-19 08:21:24,258 p=40490 u=root n=ansible | TASK [01-system-prep : Necessary cryptsetup] **************************************************************************************************************************************************
+2020-10-19 08:21:24,259 p=40490 u=root n=ansible | ok: [local_zfs_root] => (item=cryptsetup)
+2020-10-19 08:21:24,288 p=40490 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2020-10-19 08:21:25,608 p=40490 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] ****************************************************************************************************************************************************
+2020-10-19 08:21:25,609 p=40490 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:21:26,840 p=40490 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ********************************************************************************************************************************************
+2020-10-19 08:21:26,840 p=40490 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:21:28,093 p=40490 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:21:28,093 p=40490 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:21:29,360 p=40490 u=root n=ansible | TASK [01-system-prep : set up cryptstore partitions] ******************************************************************************************************************************************
+2020-10-19 08:21:29,360 p=40490 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:21:30,614 p=40490 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:21:30,614 p=40490 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:21:30,892 p=40490 u=root n=ansible | TASK [01-system-prep : print info disk] *******************************************************************************************************************************************************
+2020-10-19 08:21:30,892 p=40490 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:21:30,965 p=40490 u=root n=ansible | TASK [01-system-prep : debug directory output] ************************************************************************************************************************************************
+2020-10-19 08:21:30,965 p=40490 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 8636CAB9-CEB4-4A2F-A804-BA9C9A18E1C6",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   3         3147776         7342079   2.0 GiB     8300  Cryptsore",
+            "   4         7342080        41943006   16.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2020-10-19 08:21:31,279 p=40490 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 08:21:31,279 p=40490 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:21:31,456 p=40490 u=root n=ansible | TASK [01-system-prep : Create key file1] ******************************************************************************************************************************************************
+2020-10-19 08:21:31,456 p=40490 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:21:31,484 p=40490 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/create_zfs.yml for local_zfs_root
+2020-10-19 08:21:31,792 p=40490 u=root n=ansible | TASK [01-system-prep : set up root zfs luks crypt devices] ************************************************************************************************************************************
+2020-10-19 08:21:31,792 p=40490 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:21:32,199 p=40490 u=root n=ansible | TASK [01-system-prep : create root dataset] ***************************************************************************************************************************************************
+2020-10-19 08:21:32,200 p=40490 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:21:32,418 p=40490 u=root n=ansible | TASK [01-system-prep : manually mount rpool/root before creating other mountpoints] ***********************************************************************************************************
+2020-10-19 08:21:32,419 p=40490 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:21:32,657 p=40490 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] ************************************************************************************************************************************
+2020-10-19 08:21:32,657 p=40490 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2)
+2020-10-19 08:21:32,905 p=40490 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/efi] ********************************************************************************************************************************
+2020-10-19 08:21:32,906 p=40490 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part1)
+2020-10-19 08:21:32,939 p=40490 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-19 08:21:32,973 p=40490 u=root n=ansible | TASK [01-system-prep : debug] *****************************************************************************************************************************************************************
+2020-10-19 08:21:32,974 p=40490 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS > Password"
+}
+2020-10-19 08:21:33,173 p=40490 u=root n=ansible | TASK [01-system-prep : Check if LUKS] *********************************************************************************************************************************************************
+2020-10-19 08:21:33,174 p=40490 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:21:33,203 p=40490 u=root n=ansible | TASK [01-system-prep : is LUKS device] ********************************************************************************************************************************************************
+2020-10-19 08:21:33,203 p=40490 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.005832",
+        "end": "2020-10-19 08:21:33.157409",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-19 08:21:33.151577",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-19 08:21:33,369 p=40490 u=root n=ansible | TASK [01-system-prep : create temp file] ******************************************************************************************************************************************************
+2020-10-19 08:21:33,370 p=40490 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:21:33,397 p=40490 u=root n=ansible | TASK [01-system-prep : debug] *****************************************************************************************************************************************************************
+2020-10-19 08:21:33,398 p=40490 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS33 > \"/tmp/encdisk.uBx4OP\""
+}
+2020-10-19 08:21:33,594 p=40490 u=root n=ansible | TASK [01-system-prep : encrypt disk] **********************************************************************************************************************************************************
+2020-10-19 08:21:33,595 p=40490 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "cat /tmp/encdisk.uBx4OP | cryptsetup --verbose  --type=luks1 -qc aes-xts-plain64 -s 512 -h sha256 --batch-mode luksFormat /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3", "delta": "0:00:00.017986", "end": "2020-10-19 08:21:33.580694", "msg": "non-zero return code", "rc": 1, "start": "2020-10-19 08:21:33.562708", "stderr": "Nothing to read on input.", "stderr_lines": ["Nothing to read on input."], "stdout": "Command failed with code -1 (wrong or missing parameters).", "stdout_lines": ["Command failed with code -1 (wrong or missing parameters)."]}
+2020-10-19 08:21:33,600 p=40490 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:21:33,600 p=40490 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 08:21:33,601 p=40490 u=root n=ansible | local_zfs_root             : ok=28   changed=14   unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-10-19 08:31:40,134 p=41306 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 08:31:54,828 p=41306 u=root n=ansible | [WARNING]: Found variable using reserved name: name
+
+2020-10-19 08:31:54,829 p=41306 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 08:31:55,797 p=41306 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 08:31:55,797 p=41306 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:31:55,841 p=41306 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2020-10-19 08:31:56,646 p=41306 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *******************************************************************************************************************
+2020-10-19 08:31:56,646 p=41306 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:31:56,698 p=41306 u=root n=ansible | TASK [01-system-prep : debug] *****************************************************************************************************************************************************************
+2020-10-19 08:31:56,699 p=41306 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1603094010,
+        "cache_updated": false,
+        "changed": false,
+        "failed": false
+    }
+}
+2020-10-19 08:31:57,191 p=41306 u=root n=ansible | TASK [01-system-prep : Necessary efi] *********************************************************************************************************************************************************
+2020-10-19 08:31:57,191 p=41306 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-10-19 08:31:57,686 p=41306 u=root n=ansible | TASK [01-system-prep : Necessary cryptsetup] **************************************************************************************************************************************************
+2020-10-19 08:31:57,686 p=41306 u=root n=ansible | ok: [local_zfs_root] => (item=cryptsetup)
+2020-10-19 08:31:57,714 p=41306 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2020-10-19 08:31:58,991 p=41306 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] ****************************************************************************************************************************************************
+2020-10-19 08:31:58,991 p=41306 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:32:00,233 p=41306 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ********************************************************************************************************************************************
+2020-10-19 08:32:00,234 p=41306 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:32:01,477 p=41306 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:32:01,477 p=41306 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:32:02,719 p=41306 u=root n=ansible | TASK [01-system-prep : set up cryptstore partitions] ******************************************************************************************************************************************
+2020-10-19 08:32:02,720 p=41306 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:32:03,925 p=41306 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:32:03,925 p=41306 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:32:04,117 p=41306 u=root n=ansible | TASK [01-system-prep : print info disk] *******************************************************************************************************************************************************
+2020-10-19 08:32:04,117 p=41306 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:32:04,186 p=41306 u=root n=ansible | TASK [01-system-prep : debug directory output] ************************************************************************************************************************************************
+2020-10-19 08:32:04,187 p=41306 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 1F211056-56D9-44E4-ABCD-6730401AD7C4",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   3         3147776         7342079   2.0 GiB     8300  Cryptsore",
+            "   4         7342080        41943006   16.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2020-10-19 08:32:04,474 p=41306 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 08:32:04,474 p=41306 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:32:04,653 p=41306 u=root n=ansible | TASK [01-system-prep : Create key file1] ******************************************************************************************************************************************************
+2020-10-19 08:32:04,653 p=41306 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:32:04,680 p=41306 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/create_zfs.yml for local_zfs_root
+2020-10-19 08:32:04,925 p=41306 u=root n=ansible | TASK [01-system-prep : set up root zfs luks crypt devices] ************************************************************************************************************************************
+2020-10-19 08:32:04,926 p=41306 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": true, "cmd": "zpool create  -O encryption=aes-256-gcm  -O keylocation=file:///boot/rpool.key  -O keyformat=raw -o ashift=12 -O atime=off -O canmount=off -O compression=lz4 -O normalization=formD -O acltype=posixacl -O dnodesize=auto -O xattr=sa -O mountpoint=none -R /mnt/install/ rpool  /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part4 -f", "delta": "0:00:00.008462", "end": "2020-10-19 08:32:04.911611", "msg": "non-zero return code", "rc": 1, "start": "2020-10-19 08:32:04.903149", "stderr": "invalid vdev specification\nthe following errors must be manually repaired:\n/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part4 is part of active pool 'rpool'", "stderr_lines": ["invalid vdev specification", "the following errors must be manually repaired:", "/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part4 is part of active pool 'rpool'"], "stdout": "", "stdout_lines": []}
+2020-10-19 08:32:04,930 p=41306 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:32:04,931 p=41306 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 08:32:04,931 p=41306 u=root n=ansible | local_zfs_root             : ok=17   changed=7    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-10-19 08:32:23,299 p=41614 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 08:32:34,844 p=41614 u=root n=ansible | [WARNING]: Found variable using reserved name: name
+
+2020-10-19 08:32:34,845 p=41614 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 08:32:35,806 p=41614 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 08:32:35,806 p=41614 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:32:35,849 p=41614 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2020-10-19 08:32:36,649 p=41614 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *******************************************************************************************************************
+2020-10-19 08:32:36,650 p=41614 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:32:36,699 p=41614 u=root n=ansible | TASK [01-system-prep : debug] *****************************************************************************************************************************************************************
+2020-10-19 08:32:36,699 p=41614 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1603094010,
+        "cache_updated": false,
+        "changed": false,
+        "failed": false
+    }
+}
+2020-10-19 08:32:37,199 p=41614 u=root n=ansible | TASK [01-system-prep : Necessary efi] *********************************************************************************************************************************************************
+2020-10-19 08:32:37,200 p=41614 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-10-19 08:32:37,703 p=41614 u=root n=ansible | TASK [01-system-prep : Necessary cryptsetup] **************************************************************************************************************************************************
+2020-10-19 08:32:37,704 p=41614 u=root n=ansible | ok: [local_zfs_root] => (item=cryptsetup)
+2020-10-19 08:32:37,731 p=41614 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2020-10-19 08:32:39,056 p=41614 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] ****************************************************************************************************************************************************
+2020-10-19 08:32:39,056 p=41614 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:32:40,288 p=41614 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ********************************************************************************************************************************************
+2020-10-19 08:32:40,289 p=41614 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:32:41,518 p=41614 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:32:41,519 p=41614 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:32:42,775 p=41614 u=root n=ansible | TASK [01-system-prep : set up cryptstore partitions] ******************************************************************************************************************************************
+2020-10-19 08:32:42,776 p=41614 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:32:44,037 p=41614 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:32:44,037 p=41614 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:32:44,294 p=41614 u=root n=ansible | TASK [01-system-prep : print info disk] *******************************************************************************************************************************************************
+2020-10-19 08:32:44,294 p=41614 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:32:44,380 p=41614 u=root n=ansible | TASK [01-system-prep : debug directory output] ************************************************************************************************************************************************
+2020-10-19 08:32:44,381 p=41614 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 40B8E4BA-CA64-4B63-9C06-48B64F815BDA",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   3         3147776         7342079   2.0 GiB     8300  Cryptsore",
+            "   4         7342080        41943006   16.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2020-10-19 08:32:44,704 p=41614 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 08:32:44,705 p=41614 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:35:09,907 p=41614 u=root n=ansible | TASK [01-system-prep : Create key file1] ******************************************************************************************************************************************************
+2020-10-19 08:35:09,907 p=41614 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:35:09,950 p=41614 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/create_zfs.yml for local_zfs_root
+2020-10-19 08:35:10,266 p=41614 u=root n=ansible | TASK [01-system-prep : set up root zfs luks crypt devices] ************************************************************************************************************************************
+2020-10-19 08:35:10,267 p=41614 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:35:10,705 p=41614 u=root n=ansible | TASK [01-system-prep : create root dataset] ***************************************************************************************************************************************************
+2020-10-19 08:35:10,706 p=41614 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:35:10,913 p=41614 u=root n=ansible | TASK [01-system-prep : manually mount rpool/root before creating other mountpoints] ***********************************************************************************************************
+2020-10-19 08:35:10,914 p=41614 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:35:11,165 p=41614 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] ************************************************************************************************************************************
+2020-10-19 08:35:11,165 p=41614 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2)
+2020-10-19 08:35:11,483 p=41614 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/efi] ********************************************************************************************************************************
+2020-10-19 08:35:11,484 p=41614 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part1)
+2020-10-19 08:35:11,514 p=41614 u=root n=ansible | TASK [01-system-prep : include_tasks] *********************************************************************************************************************************************************
+2020-10-19 08:35:11,515 p=41614 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  could not find expected ':'\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks1.yml': line 13, column 1, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: open encrypted disk\n^ here\n"}
+2020-10-19 08:35:11,520 p=41614 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:35:11,520 p=41614 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 08:35:11,520 p=41614 u=root n=ansible | local_zfs_root             : ok=22   changed=12   unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-10-19 08:38:07,836 p=42482 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 08:38:13,803 p=42482 u=root n=ansible | [WARNING]: Found variable using reserved name: name
+
+2020-10-19 08:38:13,804 p=42482 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 08:38:14,807 p=42482 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 08:38:14,807 p=42482 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:38:14,854 p=42482 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2020-10-19 08:38:15,803 p=42482 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *******************************************************************************************************************
+2020-10-19 08:38:15,804 p=42482 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:38:15,864 p=42482 u=root n=ansible | TASK [01-system-prep : debug] *****************************************************************************************************************************************************************
+2020-10-19 08:38:15,864 p=42482 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1603094010,
+        "cache_updated": false,
+        "changed": false,
+        "failed": false
+    }
+}
+2020-10-19 08:38:16,383 p=42482 u=root n=ansible | TASK [01-system-prep : Necessary efi] *********************************************************************************************************************************************************
+2020-10-19 08:38:16,383 p=42482 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-10-19 08:38:16,901 p=42482 u=root n=ansible | TASK [01-system-prep : Necessary cryptsetup] **************************************************************************************************************************************************
+2020-10-19 08:38:16,901 p=42482 u=root n=ansible | ok: [local_zfs_root] => (item=cryptsetup)
+2020-10-19 08:38:16,930 p=42482 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2020-10-19 08:38:18,217 p=42482 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] ****************************************************************************************************************************************************
+2020-10-19 08:38:18,217 p=42482 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:38:19,461 p=42482 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ********************************************************************************************************************************************
+2020-10-19 08:38:19,462 p=42482 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:38:20,674 p=42482 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:38:20,674 p=42482 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:38:21,892 p=42482 u=root n=ansible | TASK [01-system-prep : set up cryptstore partitions] ******************************************************************************************************************************************
+2020-10-19 08:38:21,893 p=42482 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:38:23,093 p=42482 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:38:23,093 p=42482 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:38:23,281 p=42482 u=root n=ansible | TASK [01-system-prep : print info disk] *******************************************************************************************************************************************************
+2020-10-19 08:38:23,281 p=42482 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:38:23,351 p=42482 u=root n=ansible | TASK [01-system-prep : debug directory output] ************************************************************************************************************************************************
+2020-10-19 08:38:23,351 p=42482 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 60AAB13A-CA11-40AD-9260-E7F49FF4AD2C",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   3         3147776         7342079   2.0 GiB     8300  Cryptsore",
+            "   4         7342080        41943006   16.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2020-10-19 08:38:23,634 p=42482 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 08:38:23,634 p=42482 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:39:32,042 p=42482 u=root n=ansible | TASK [01-system-prep : Create key file1] ******************************************************************************************************************************************************
+2020-10-19 08:39:32,043 p=42482 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:39:32,235 p=42482 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] ************************************************************************************************************************************
+2020-10-19 08:39:32,236 p=42482 u=root n=ansible | failed: [local_zfs_root] (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2) => {"ansible_loop_var": "item", "changed": true, "cmd": "mke2fs -t ext2 /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2 && mkdir /mnt/install/boot && mount /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2 /mnt/install/boot", "delta": "0:00:00.005193", "end": "2020-10-19 08:39:32.220454", "item": "/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2", "msg": "non-zero return code", "rc": 1, "start": "2020-10-19 08:39:32.215261", "stderr": "mke2fs 1.45.5 (07-Jan-2020)\n/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2 is mounted; will not make a filesystem here!", "stderr_lines": ["mke2fs 1.45.5 (07-Jan-2020)", "/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2 is mounted; will not make a filesystem here!"], "stdout": "", "stdout_lines": []}
+2020-10-19 08:39:32,241 p=42482 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:39:32,241 p=42482 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 08:39:32,241 p=42482 u=root n=ansible | local_zfs_root             : ok=16   changed=7    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-19 08:40:21,076 p=42812 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/defaults/main.yml, line 3, column 1, found a duplicate dict key (_lukscrypt). Using last
+defined value only.
+
+2020-10-19 08:40:30,136 p=42812 u=root n=ansible | [WARNING]: Found variable using reserved name: name
+
+2020-10-19 08:40:30,136 p=42812 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************************************
+2020-10-19 08:40:31,081 p=42812 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************************************
+2020-10-19 08:40:31,081 p=42812 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:40:31,124 p=42812 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2020-10-19 08:40:31,985 p=42812 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *******************************************************************************************************************
+2020-10-19 08:40:31,985 p=42812 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:40:32,034 p=42812 u=root n=ansible | TASK [01-system-prep : debug] *****************************************************************************************************************************************************************
+2020-10-19 08:40:32,035 p=42812 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1603094010,
+        "cache_updated": false,
+        "changed": false,
+        "failed": false
+    }
+}
+2020-10-19 08:40:32,527 p=42812 u=root n=ansible | TASK [01-system-prep : Necessary efi] *********************************************************************************************************************************************************
+2020-10-19 08:40:32,527 p=42812 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-10-19 08:40:33,024 p=42812 u=root n=ansible | TASK [01-system-prep : Necessary cryptsetup] **************************************************************************************************************************************************
+2020-10-19 08:40:33,024 p=42812 u=root n=ansible | ok: [local_zfs_root] => (item=cryptsetup)
+2020-10-19 08:40:33,052 p=42812 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2020-10-19 08:40:34,378 p=42812 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] ****************************************************************************************************************************************************
+2020-10-19 08:40:34,378 p=42812 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:40:35,615 p=42812 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ********************************************************************************************************************************************
+2020-10-19 08:40:35,615 p=42812 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:40:36,866 p=42812 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:40:36,868 p=42812 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:40:38,184 p=42812 u=root n=ansible | TASK [01-system-prep : set up cryptstore partitions] ******************************************************************************************************************************************
+2020-10-19 08:40:38,185 p=42812 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:40:39,443 p=42812 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *******************************************************************************************************************************************
+2020-10-19 08:40:39,444 p=42812 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:40:39,725 p=42812 u=root n=ansible | TASK [01-system-prep : print info disk] *******************************************************************************************************************************************************
+2020-10-19 08:40:39,725 p=42812 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-19 08:40:39,804 p=42812 u=root n=ansible | TASK [01-system-prep : debug directory output] ************************************************************************************************************************************************
+2020-10-19 08:40:39,804 p=42812 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 26835A6D-3D98-4BB2-BD27-C70CDB82D341",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   3         3147776         7342079   2.0 GiB     8300  Cryptsore",
+            "   4         7342080        41943006   16.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2020-10-19 08:40:40,124 p=42812 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *******************************************************************************************************************************************
+2020-10-19 08:40:40,124 p=42812 u=root n=ansible | ok: [local_zfs_root]
+2020-10-19 08:42:53,690 p=42812 u=root n=ansible | TASK [01-system-prep : Create key file1] ******************************************************************************************************************************************************
+2020-10-19 08:42:53,691 p=42812 u=root n=ansible | changed: [local_zfs_root]
+2020-10-19 08:42:53,941 p=42812 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] ************************************************************************************************************************************
+2020-10-19 08:42:53,941 p=42812 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2)
+2020-10-19 08:42:54,160 p=42812 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/efi] ********************************************************************************************************************************
+2020-10-19 08:42:54,160 p=42812 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part1)
+2020-10-19 08:42:54,187 p=42812 u=root n=ansible | TASK [01-system-prep : include_tasks] *********************************************************************************************************************************************************
+2020-10-19 08:42:54,187 p=42812 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  could not find expected ':'\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks1.yml': line 13, column 1, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: open encrypted disk\n^ here\n"}
+2020-10-19 08:42:54,192 p=42812 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2020-10-19 08:42:54,192 p=42812 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
+2020-10-19 08:42:54,193 p=42812 u=root n=ansible | local_zfs_root             : ok=18   changed=9    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
