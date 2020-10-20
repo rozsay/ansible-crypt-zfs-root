@@ -1,0 +1,117 @@
+---
+- name: update fstab with /boot volume
+  shell: "echo UUID=$(blkid -s UUID -o value {{ item }}) /boot ext2 noatime,nofail,x-systemd.device-timeout=1 0 1 >> /etc/fstab"
+  with_items:
+    - "{{ _root_device_list }}{{ _boot_part_append }}"
+#- "{{ (_root_device_list | length > 1) | ternary('/dev/md0', (_root_device_list | map('regex_replace', '(.*)', '\\g<1>' + _boot_part_append) | list).0) }}"
+
+- name: update fstab with efi partitions
+  shell: "echo UUID=$(blkid -s UUID -o value {{ item }})  /boot/efi vfat nofail,x-systemd.device-timeout=1 0 1 >> /etc/fstab"
+  with_items:
+    - "{{ _root_device_list }}{{ _efi_part_append }}"
+  when: _efi|default(false)|bool == true
+
+- name: update crypttab with cryptsetup partitions
+  shell: "echo cryptstore UUID=$(blkid -s UUID -o value {{ item }}) none luks,discard,initramfs >> /etc/crypttab"
+  with_items:
+    - "{{ _root_device_list }}{{ _cryptstore_part_append }}"
+  when: _lukscrypt|default(false)|bool == true
+
+- name: update fstab with cryptsetup partitions
+  shell: "echo /dev/mapper/cryptstore  /boot/cryptstore ext4 defaults 0 2 >> /etc/fstab"
+  when: _lukscrypt|default(false)|bool == true
+
+- name: install grub-efi-amd64
+  apt:
+    name: grub-efi-amd64
+    state: present
+  when: _efi|default(false)|bool == true
+  
+- name: set root password
+  user:
+    name: root
+    password: "{{ _root_password_hash }}"
+
+- name: zfs-import-scan.service start and enabled
+  systemd:
+    name:  zfs-import-scan.service
+    state: started
+    enabled: yes
+    daemon-reload: yes
+
+#- name: create swap zvol
+#  zfs:
+#    name: "{{ _root_pool }}/swap "
+#    state: present
+#    extra_zfs_properties:
+#      "{{ _swap_opts }}"
+
+#- name: mkswap
+#  shell: "mkswap -f /dev/zvol/{{ _root_pool }}/swap && echo /dev/zvol/{{ _root_pool }}/swap none swap defaults 0 0 >> /etc/fstab && swapon -av"
+#  when: _swap|default(false)|bool == true
+
+#- lineinfile:
+#    line: "RESUME=none"
+#    path: /etc/initramfs-tools/conf.d/resume
+#    create: yes
+#    state: present
+#  when: _swap|default(false)|bool == true
+
+#- name: create 
+#  template:
+#    src: 'etc/initramfs-tools/hooks/decryptkey'
+#    dest: '/etc/initramfs-tools/hooks/decryptkey'
+#    mode: 0777
+#    owner: root
+#    group: root
+
+- name: "Example1: Validate if a String or line is present in the file"
+  become: yes
+  become_user: root
+  tags: lineinfileexample
+  lineinfile:
+    path:  /usr/share/initramfs-tools/scripts/zfs
+    insertafter: "^if [ $(zpool list -H -o feature@encryption [0-9]+" 
+    firstmatch: yes
+    state: present
+    line: "{{ item }}"
+  loop:
+    - "mkdir /boot/cryptstore -p"
+    - "mount /dev/sda3 /boot/cryptstore"
+    - "$ZFS load-key rpool"
+  register: lineinfileexample
+
+- name: modify /etc/default/grub
+  replace:
+    path: /etc/default/grub
+    regexp: "{{ item.regex }}"
+    replace: "{{ item.replace }}"
+  with_items:
+    - regex: "^(GRUB_HIDDEN_TIMEOUT.*)"
+      replace: "#\\1"
+    - regex: "^GRUB_CMDLINE_LINUX_DEFAULT=.*"
+      replace: 'GRUB_CMDLINE_LINUX_DEFAULT=""'
+    - regex: "^GRUB_CMDLINE_LINUX=.*"
+      replace: 'GRUB_CMDLINE_LINUX="{{ _grub_cmdline }}"'
+    - regex: "^#(GRUB_TERMINAL.*)"
+      replace: "\\1"
+
+- shell: "echo 'GRUB_DISABLE_OS_PROBER=true' >> /etc/default/grub"
+
+#GRUB_ENABLE_CRYPTODISK=y
+#GRUB_PRELOAD_MODULES="luks cryptodisk"
+#- shell: "echo GRUB_ENABLE_CRYPTODISK=y >> /etc/default/grub"
+#  when: _lukscrypt|default(false)|bool == true
+
+#echo "GRUB_ENABLE_CRYPTODISK=y" >> /etc/default/grub
+#echo "GRUB_CMDLINE_LINUX=\"cryptdevice=$(blkid -s UUID -o value /dev/$2$3):lvm\""  >> /etc/default/grub
+#cp crypto_keyfile /etc/initramfs-tools/hooks/crypto_keyfile
+#chmod +x /etc/initramfs-tools/hooks/crypto_keyfile
+
+- name: Creates an entry like "@reboot /some/job.sh"
+  cron:
+    name: "a job for reboot"
+    special_time: reboot
+    job: " mount /boot ; mount /boot/efi"
+#- shell: "( crontab -l ; echo '"'@reboot mount /boot ; mount /boot/efi'"' ) | crontab -"
+

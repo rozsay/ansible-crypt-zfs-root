@@ -1,0 +1,115 @@
+---
+# tasks file for 02-chroot
+- debug:
+    var: _efi|default(false)|bool == true
+
+- apt:
+    name: software-properties-common
+    state: present
+
+- shell: add-apt-repository universe
+
+- name: install locales
+  locale_gen:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "{{ _locales }}"
+
+- name: set LANG in /etc/default/locale
+  lineinfile:
+    line: "LANG={{ _lang }}"
+    path: /etc/default/locale
+    insertafter: EOF
+
+- name: set timezone
+  shell: "echo {{ _timezone }} > /etc/timezone && rm /etc/localtime && dpkg-reconfigure -f noninteractive tzdata"
+
+- name: ln -s /proc/self/mounts /etc/mtab
+  file:
+    src: /proc/self/mounts
+    dest: /etc/mtab
+    state: link
+
+- name: ensure live system has necessary packages installed
+  apt:
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+    upgrade: safe
+  become: true
+  register: apt_out
+
+- debug: var=apt_out
+- debug: var={{ apt_out.stdout.split('\n')[:-1] }}
+
+- name: update apt cache
+  become: true
+  apt:
+    update_cache: yes
+    upgrade: 'yes'
+
+- name: install linux-image-generic
+  apt:
+    name: linux-image-generic
+    install_recommends: no
+    state: present
+- name: install linux-headers-generic
+  apt:
+    name: linux-headers-generic
+    state: present
+
+- name: zfs-dkms note-incompatible-licenses note true
+  shell: "zfs-dkms zfs-dkms/note-incompatible-licenses note true | debconf-set-selections"
+
+- name: install zfs-dkms
+  apt:
+    name: zfs-dkms
+    state: present
+
+- name: install zfs-initramfs
+  apt:
+    name: zfs-initramfs
+    state: present
+
+- name: install grub-pc
+  apt:
+    name: grub-pc
+    state: present
+  when: _efi|default(false)|bool != true
+
+- apt:
+    name: dosfstools
+    state: present
+  when: _efi|default(false)|bool == true
+
+- name: install grub-efi-amd64
+  apt:
+    name: grub-efi-amd64
+    state: present
+  when: _efi|default(false)|bool == true
+
+- apt:
+    name: grub-efi-amd64-signed
+    state: present
+  when: _efi|default(false)|bool == true
+
+- apt:
+    name: shim-signed
+    state: present
+  when: _efi|default(false)|bool == true
+
+- apt:
+    name: cryptsetup
+    state: present
+  when: _lukscrypt | default(false) | bool == true
+
+- name: Ensure specified packages are in there desired state
+  package:
+    name: '{{ item }}'
+    state: present
+  with_flattened: '{{ default_packages }}'
+#  tags: [ 'role::kodi:pkgs' ]
+#  register: is_softneedinstalled
+#  become: yes
+  become: true

@@ -1,0 +1,23 @@
+---
+# tasks file for 02-chroot
+- debug:
+    var: _efi|default(false)|bool == true
+
+- shell: "update-initramfs -c -k all"
+
+- shell: update-grub
+
+- shell: "grub-install {{ item }}"
+  with_items:
+    - "{{ _root_device_list }}"
+  when: _efi|default(false)|bool != true
+- name: install grub efi on primary disk
+  shell: "grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ubuntu --recheck --no-floppy"
+  when: _efi|default(false)|bool == true
+
+- name: Creates an entry like "@reboot /some/job.sh"
+  cron:
+    name: "a job for reboot"
+    special_time: reboot
+    job: " mount /boot ; mount /boot/efi"
+#- shell: "( crontab -l ; echo '"'@reboot mount /boot ; mount /boot/efi'"' ) | crontab -"

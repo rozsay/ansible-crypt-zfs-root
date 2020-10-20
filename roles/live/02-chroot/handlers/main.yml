@@ -9,3 +9,6 @@
   service:
     name: "ssh"
     state: "restarted"
+
+- name: reload systemctl
+  command: systemctl daemon-reload

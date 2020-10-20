@@ -20794,3 +20794,1408 @@ dir with the correct permissions manually
 2020-10-19 09:37:52,607 p=125334 u=root n=ansible | changed: [local_zfs_root]
 2020-10-19 09:37:52,627 p=125334 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************************************
 2020-10-19 09:37:52,627 p=125334 u=root n=ansible | local_zfs_root             : ok=8    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-20 04:36:08,411 p=35810 u=root n=ansible | PLAY [live] *****************************************************************************************************************************
+2020-10-20 04:36:09,322 p=35810 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************
+2020-10-20 04:36:09,323 p=35810 u=root n=ansible | ok: [local_zfs_root]
+2020-10-20 04:36:09,356 p=35810 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2020-10-20 04:36:14,682 p=35810 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *************************************************************
+2020-10-20 04:36:14,682 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:36:14,735 p=35810 u=root n=ansible | TASK [01-system-prep : debug] ***********************************************************************************************************
+2020-10-20 04:36:14,736 p=35810 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1603168270,
+        "cache_updated": false,
+        "changed": true,
+        "diff": {},
+        "failed": false,
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nSuggested packages:\n  default-mta | mail-transport-agent dracut-core\nThe following NEW packages will be installed:\n  mdadm\n0 upgraded, 1 newly installed, 0 to remove and 468 not upgraded.\nNeed to get 417 kB of archives.\nAfter this operation, 1255 kB of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 mdadm amd64 4.1-5ubuntu1.2 [417 kB]\nPreconfiguring packages ...\nFetched 417 kB in 0s (857 kB/s)\nSelecting previously unselected package mdadm.\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 207483 files and directories currently installed.)\r\nPreparing to unpack .../mdadm_4.1-5ubuntu1.2_amd64.deb ...\r\nUnpacking mdadm (4.1-5ubuntu1.2) ...\r\nSetting up mdadm (4.1-5ubuntu1.2) ...\r\nGenerating mdadm.conf... done.\r\nupdate-initramfs is disabled since running on read-only media\r\n/usr/sbin/grub-probe: error: failed to get canonical path of `/cow'.\r\nCreated symlink /etc/systemd/system/mdmonitor.service.wants/mdcheck_continue.timer -> /lib/systemd/system/mdcheck_continue.timer.\r\nCreated symlink /etc/systemd/system/mdmonitor.service.wants/mdcheck_start.timer -> /lib/systemd/system/mdcheck_start.timer.\r\nCreated symlink /etc/systemd/system/mdmonitor.service.wants/mdmonitor-oneshot.timer -> /lib/systemd/system/mdmonitor-oneshot.timer.\r\nProcessing triggers for man-db (2.9.1-1) ...\r\n",
+        "stdout_lines": [
+            "Reading package lists...",
+            "Building dependency tree...",
+            "Reading state information...",
+            "Suggested packages:",
+            "  default-mta | mail-transport-agent dracut-core",
+            "The following NEW packages will be installed:",
+            "  mdadm",
+            "0 upgraded, 1 newly installed, 0 to remove and 468 not upgraded.",
+            "Need to get 417 kB of archives.",
+            "After this operation, 1255 kB of additional disk space will be used.",
+            "Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 mdadm amd64 4.1-5ubuntu1.2 [417 kB]",
+            "Preconfiguring packages ...",
+            "Fetched 417 kB in 0s (857 kB/s)",
+            "Selecting previously unselected package mdadm.",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 207483 files and directories currently installed.)",
+            "Preparing to unpack .../mdadm_4.1-5ubuntu1.2_amd64.deb ...",
+            "Unpacking mdadm (4.1-5ubuntu1.2) ...",
+            "Setting up mdadm (4.1-5ubuntu1.2) ...",
+            "Generating mdadm.conf... done.",
+            "update-initramfs is disabled since running on read-only media",
+            "/usr/sbin/grub-probe: error: failed to get canonical path of `/cow'.",
+            "Created symlink /etc/systemd/system/mdmonitor.service.wants/mdcheck_continue.timer -> /lib/systemd/system/mdcheck_continue.timer.",
+            "Created symlink /etc/systemd/system/mdmonitor.service.wants/mdcheck_start.timer -> /lib/systemd/system/mdcheck_start.timer.",
+            "Created symlink /etc/systemd/system/mdmonitor.service.wants/mdmonitor-oneshot.timer -> /lib/systemd/system/mdmonitor-oneshot.timer.",
+            "Processing triggers for man-db (2.9.1-1) ..."
+        ]
+    }
+}
+2020-10-20 04:36:15,220 p=35810 u=root n=ansible | TASK [01-system-prep : Necessary efi] ***************************************************************************************************
+2020-10-20 04:36:15,221 p=35810 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2020-10-20 04:36:15,736 p=35810 u=root n=ansible | TASK [01-system-prep : Necessary cryptsetup] ********************************************************************************************
+2020-10-20 04:36:15,737 p=35810 u=root n=ansible | ok: [local_zfs_root] => (item=cryptsetup)
+2020-10-20 04:36:15,768 p=35810 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2020-10-20 04:36:17,144 p=35810 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] **********************************************************************************************
+2020-10-20 04:36:17,144 p=35810 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-20 04:36:18,353 p=35810 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] **************************************************************************************
+2020-10-20 04:36:18,354 p=35810 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-20 04:36:19,574 p=35810 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *************************************************************************************
+2020-10-20 04:36:19,575 p=35810 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-20 04:36:20,828 p=35810 u=root n=ansible | TASK [01-system-prep : set up cryptstore partitions] ************************************************************************************
+2020-10-20 04:36:20,828 p=35810 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-20 04:36:22,133 p=35810 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *************************************************************************************
+2020-10-20 04:36:22,135 p=35810 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-20 04:36:22,413 p=35810 u=root n=ansible | TASK [01-system-prep : print info disk] *************************************************************************************************
+2020-10-20 04:36:22,414 p=35810 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71)
+2020-10-20 04:36:22,515 p=35810 u=root n=ansible | TASK [01-system-prep : debug directory output] ******************************************************************************************
+2020-10-20 04:36:22,516 p=35810 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): 7C50262D-3A34-4DC3-A6A6-1EDEF8308478",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   3         3147776         7342079   2.0 GiB     8300  Cryptsore",
+            "   4         7342080        41943006   16.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2020-10-20 04:36:22,821 p=35810 u=root n=ansible | TASK [01-system-prep : Check for existing keyfile.] *************************************************************************************
+2020-10-20 04:36:22,822 p=35810 u=root n=ansible | ok: [local_zfs_root]
+2020-10-20 04:36:23,002 p=35810 u=root n=ansible | TASK [01-system-prep : Create key file1] ************************************************************************************************
+2020-10-20 04:36:23,002 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:36:23,031 p=35810 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/create_zfs.yml for local_zfs_root
+2020-10-20 04:36:23,360 p=35810 u=root n=ansible | TASK [01-system-prep : set up root zfs luks crypt devices] ******************************************************************************
+2020-10-20 04:36:23,361 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:36:23,788 p=35810 u=root n=ansible | TASK [01-system-prep : create root dataset] *********************************************************************************************
+2020-10-20 04:36:23,789 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:36:24,014 p=35810 u=root n=ansible | TASK [01-system-prep : manually mount rpool/root before creating other mountpoints] *****************************************************
+2020-10-20 04:36:24,014 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:36:24,285 p=35810 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot] ******************************************************************************
+2020-10-20 04:36:24,285 p=35810 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2)
+2020-10-20 04:36:24,509 p=35810 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/efi] **************************************************************************
+2020-10-20 04:36:24,509 p=35810 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part1)
+2020-10-20 04:36:24,545 p=35810 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/luks.yml for local_zfs_root
+2020-10-20 04:36:24,743 p=35810 u=root n=ansible | TASK [01-system-prep : Check if LUKS] ***************************************************************************************************
+2020-10-20 04:36:24,744 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:36:24,773 p=35810 u=root n=ansible | TASK [01-system-prep : is LUKS device] **************************************************************************************************
+2020-10-20 04:36:24,773 p=35810 u=root n=ansible | ok: [local_zfs_root] => {
+    "is_luks": {
+        "changed": true,
+        "cmd": "cryptsetup isLuks \"/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3\" && echo \"true\" || echo \"false\"",
+        "delta": "0:00:00.015264",
+        "end": "2020-10-20 04:36:24.727570",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-10-20 04:36:24.712306",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "true",
+        "stdout_lines": [
+            "true"
+        ]
+    }
+}
+2020-10-20 04:36:24,937 p=35810 u=root n=ansible | TASK [01-system-prep : create temp file] ************************************************************************************************
+2020-10-20 04:36:24,938 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:36:25,386 p=35810 u=root n=ansible | TASK [01-system-prep : write password to temp file] *************************************************************************************
+2020-10-20 04:36:25,386 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:36:33,435 p=35810 u=root n=ansible | TASK [01-system-prep : encrypt disk] ****************************************************************************************************
+2020-10-20 04:36:33,436 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:36:35,066 p=35810 u=root n=ansible | TASK [01-system-prep : open encrypted disk] *********************************************************************************************
+2020-10-20 04:36:35,066 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:36:35,093 p=35810 u=root n=ansible | TASK [01-system-prep : debug] ***********************************************************************************************************
+2020-10-20 04:36:35,094 p=35810 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "LUKS33 > \"/tmp/encdisk.ZF8ewoY\""
+}
+2020-10-20 04:36:35,437 p=35810 u=root n=ansible | TASK [01-system-prep : format and mount /mnt/install/boot/cryptstore] *******************************************************************
+2020-10-20 04:36:35,438 p=35810 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/mapper/cryptstore)
+2020-10-20 04:36:35,789 p=35810 u=root n=ansible | TASK [01-system-prep : copy file from local host to remote host (relative path, ./files/)] **********************************************
+2020-10-20 04:36:35,790 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:36:35,820 p=35810 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/finish.yml for local_zfs_root
+2020-10-20 04:38:37,768 p=35810 u=root n=ansible | TASK [01-system-prep : run debootstrap and set devices=off for root pool] ***************************************************************
+2020-10-20 04:38:37,769 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:38:38,108 p=35810 u=root n=ansible | TASK [01-system-prep : write /etc/hostname in chroot] ***********************************************************************************
+2020-10-20 04:38:38,108 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:38:38,412 p=35810 u=root n=ansible | TASK [01-system-prep : write /mnt/install/apt/sources.list in chroot] *******************************************************************
+2020-10-20 04:38:38,412 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:38:38,677 p=35810 u=root n=ansible | TASK [01-system-prep : add hostname entries to /mnt/install/hosts in chroot] ************************************************************
+2020-10-20 04:38:38,677 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:38:38,843 p=35810 u=root n=ansible | TASK [01-system-prep : mount special filesystems for chroot] ****************************************************************************
+2020-10-20 04:38:38,844 p=35810 u=root n=ansible | changed: [local_zfs_root] => (item=/dev "/mnt/install/dev")
+2020-10-20 04:38:38,981 p=35810 u=root n=ansible | changed: [local_zfs_root] => (item=/proc "/mnt/install/proc")
+2020-10-20 04:38:39,128 p=35810 u=root n=ansible | changed: [local_zfs_root] => (item=/sys "/mnt/install/sys")
+2020-10-20 04:38:39,276 p=35810 u=root n=ansible | TASK [01-system-prep : Get physical interfaces names] ***********************************************************************************
+2020-10-20 04:38:39,277 p=35810 u=root n=ansible | ok: [local_zfs_root]
+2020-10-20 04:38:39,309 p=35810 u=root n=ansible | TASK [01-system-prep : Show interfaces details] *****************************************************************************************
+2020-10-20 04:38:39,310 p=35810 u=root n=ansible | ok: [local_zfs_root] => (item=ens33) => {
+    "msg": {
+        "active": true,
+        "device": "ens33",
+        "ipv4": {
+            "address": "192.168.100.105",
+            "broadcast": "192.168.100.255",
+            "netmask": "255.255.255.0",
+            "network": "192.168.100.0"
+        },
+        "ipv6": [
+            {
+                "address": "fe80::db9:7eef:5bcf:d580",
+                "prefix": "64",
+                "scope": "link"
+            }
+        ],
+        "macaddress": "00:0c:29:c9:5d:81",
+        "module": "e1000",
+        "mtu": 1500,
+        "pciid": "0000:02:01.0",
+        "promisc": false,
+        "speed": 1000,
+        "type": "ether"
+    }
+}
+2020-10-20 04:38:39,994 p=35810 u=root n=ansible | TASK [01-system-prep : Install netplan] *************************************************************************************************
+2020-10-20 04:38:39,995 p=35810 u=root n=ansible | ok: [local_zfs_root]
+2020-10-20 04:38:40,046 p=35810 u=root n=ansible | TASK [01-system-prep : define traditional ethernet facts] *******************************************************************************
+2020-10-20 04:38:40,047 p=35810 u=root n=ansible | ok: [local_zfs_root] => (item=ens33)
+2020-10-20 04:38:40,357 p=35810 u=root n=ansible | TASK [01-system-prep : Configuring Netplan] *********************************************************************************************
+2020-10-20 04:38:40,358 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:38:40,587 p=35810 u=root n=ansible | RUNNING HANDLER [01-system-prep : Generating Netplan Configuration] *********************************************************************
+2020-10-20 04:38:40,587 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:38:40,819 p=35810 u=root n=ansible | RUNNING HANDLER [01-system-prep : Applying Netplan Configuration] ***********************************************************************
+2020-10-20 04:38:40,819 p=35810 u=root n=ansible | changed: [local_zfs_root]
+2020-10-20 04:38:40,832 p=35810 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************
+2020-10-20 04:38:40,833 p=35810 u=root n=ansible | local_zfs_root             : ok=45   changed=28   unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2020-10-20 04:42:45,021 p=54711 u=root n=ansible | PLAY [chroot] ***************************************************************************************************************************
+2020-10-20 04:42:46,016 p=54711 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************
+2020-10-20 04:42:46,017 p=54711 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 04:42:46,094 p=54711 u=root n=ansible | TASK [02-chroot : debug] ****************************************************************************************************************
+2020-10-20 04:42:46,095 p=54711 u=root n=ansible | ok: [/mnt/install/] => {
+    "_efi|default(false)|bool == true": true
+}
+2020-10-20 04:43:26,422 p=54711 u=root n=ansible | TASK [02-chroot : apt] ******************************************************************************************************************
+2020-10-20 04:43:26,422 p=54711 u=root n=ansible | [WARNING]: Updating cache and auto-installing missing dependency: python3-apt
+
+2020-10-20 04:43:26,423 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:43:27,028 p=54711 u=root n=ansible | TASK [02-chroot : command] **************************************************************************************************************
+2020-10-20 04:43:27,029 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:43:28,833 p=54711 u=root n=ansible | TASK [02-chroot : install locales] ******************************************************************************************************
+2020-10-20 04:43:28,834 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=en_US.UTF-8)
+2020-10-20 04:43:29,134 p=54711 u=root n=ansible | TASK [02-chroot : set LANG in /etc/default/locale] **************************************************************************************
+2020-10-20 04:43:29,135 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:43:29,740 p=54711 u=root n=ansible | TASK [02-chroot : set timezone] *********************************************************************************************************
+2020-10-20 04:43:29,740 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:43:30,019 p=54711 u=root n=ansible | TASK [02-chroot : ln -s /proc/self/mounts /etc/mtab] ************************************************************************************
+2020-10-20 04:43:30,020 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:44:12,590 p=54711 u=root n=ansible | TASK [02-chroot : ensure live system has necessary packages installed] ******************************************************************
+2020-10-20 04:44:12,590 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:44:12,668 p=54711 u=root n=ansible | TASK [02-chroot : debug] ****************************************************************************************************************
+2020-10-20 04:44:12,689 p=54711 u=root n=ansible | ok: [/mnt/install/] => {
+    "apt_out": {
+        "changed": true,
+        "diff": {},
+        "failed": false,
+        "msg": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nCalculating upgrade...\nThe following packages will be upgraded:\n  apt apt-utils base-files bash bsdutils ca-certificates distro-info-data\n  fdisk gcc-10-base gir1.2-glib-2.0 less libapparmor1 libapt-pkg6.0 libblkid1\n  libc-bin libc6 libcryptsetup12 libdns-export1109 libfdisk1 libgcc-s1\n  libgirepository-1.0-1 libglib2.0-data libgnutls30 libisc-export1105\n  libjson-c4 liblzma5 libmount1 libnetplan0 libnss-systemd libpam-modules\n  libpam-modules-bin libpam-runtime libpam-systemd libpam0g\n  libpython3.8-minimal libpython3.8-stdlib libseccomp2 libsmartcols1\n  libsqlite3-0 libstdc++6 libsystemd0 libudev1 libuuid1 locales login mount\n  netplan.io passwd python3.8 python3.8-minimal rsyslog sudo systemd\n  systemd-sysv systemd-timesyncd tzdata ubuntu-minimal udev util-linux\n  xz-utils zlib1g\n61 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\nNeed to get 29.3 MB of archives.\nAfter this operation, 196 kB of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc6 amd64 2.31-0ubuntu9.1 [2712 kB]\nGet:2 http://security.ubuntu.com/ubuntu focal-security/main amd64 gcc-10-base amd64 10.2.0-5ubuntu1~20.04 [19.7 kB]\nGet:3 http://security.ubuntu.com/ubuntu focal-security/main amd64 libgcc-s1 amd64 10.2.0-5ubuntu1~20.04 [41.6 kB]\nGet:4 http://security.ubuntu.com/ubuntu focal-security/main amd64 libstdc++6 amd64 10.2.0-5ubuntu1~20.04 [503 kB]\nGet:5 http://security.ubuntu.com/ubuntu focal-security/main amd64 libjson-c4 amd64 0.13.1+dfsg-7ubuntu0.3 [29.3 kB]\nGet:6 http://security.ubuntu.com/ubuntu focal-security/main amd64 libcryptsetup12 amd64 2:2.2.2-3ubuntu2.2 [182 kB]\nGet:7 http://security.ubuntu.com/ubuntu focal-security/main amd64 libgnutls30 amd64 3.6.13-2ubuntu1.3 [828 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 base-files amd64 11ubuntu5.2 [60.7 kB]\nGet:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 bash amd64 5.0-6ubuntu1.1 [638 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 bsdutils amd64 1:2.34-0.1ubuntu9.1 [63.1 kB]\nGet:11 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 login amd64 1:4.8.1-1ubuntu5.20.04 [221 kB]\nGet:12 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libblkid1 amd64 2.34-0.1ubuntu9.1 [137 kB]\nGet:13 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libuuid1 amd64 2.34-0.1ubuntu9.1 [20.0 kB]\nGet:14 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libfdisk1 amd64 2.34-0.1ubuntu9.1 [175 kB]\nGet:15 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libmount1 amd64 2.34-0.1ubuntu9.1 [149 kB]\nGet:16 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libsmartcols1 amd64 2.34-0.1ubuntu9.1 [100 kB]\nGet:17 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 fdisk amd64 2.34-0.1ubuntu9.1 [119 kB]\nGet:18 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 util-linux amd64 2.34-0.1ubuntu9.1 [1021 kB]\nGet:19 http://security.ubuntu.com/ubuntu focal-security/main amd64 libseccomp2 amd64 2.4.3-1ubuntu3.20.04.3 [42.4 kB]\nGet:20 http://security.ubuntu.com/ubuntu focal-security/main amd64 libapt-pkg6.0 amd64 2.0.2ubuntu0.1 [832 kB]\nGet:21 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 locales all 2.31-0ubuntu9.1 [3868 kB]\nGet:22 http://security.ubuntu.com/ubuntu focal-security/main amd64 apt amd64 2.0.2ubuntu0.1 [1290 kB]\nGet:23 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc-bin amd64 2.31-0ubuntu9.1 [637 kB]\nGet:24 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 liblzma5 amd64 5.2.4-1ubuntu1 [91.7 kB]\nGet:25 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 udev amd64 245.4-4ubuntu3.2 [1363 kB]\nGet:26 http://security.ubuntu.com/ubuntu focal-security/main amd64 apt-utils amd64 2.0.2ubuntu0.1 [214 kB]\nGet:27 http://security.ubuntu.com/ubuntu focal-security/main amd64 python3.8 amd64 3.8.5-1~20.04 [373 kB]\nGet:28 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libudev1 amd64 245.4-4ubuntu3.2 [78.9 kB]\nGet:29 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd-sysv amd64 245.4-4ubuntu3.2 [10.3 kB]\nGet:30 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd-timesyncd amd64 245.4-4ubuntu3.2 [28.0 kB]\nGet:31 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnss-systemd amd64 245.4-4ubuntu3.2 [95.6 kB]\nGet:32 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam0g amd64 1.3.1-5ubuntu4.1 [55.4 kB]\nGet:33 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-modules-bin amd64 1.3.1-5ubuntu4.1 [37.6 kB]\nGet:34 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-modules amd64 1.3.1-5ubuntu4.1 [250 kB]\nGet:35 http://security.ubuntu.com/ubuntu focal-security/main amd64 libpython3.8-stdlib amd64 3.8.5-1~20.04 [1671 kB]\nGet:36 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-runtime all 1.3.1-5ubuntu4.1 [37.3 kB]\nGet:37 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-systemd amd64 245.4-4ubuntu3.2 [186 kB]\nGet:38 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libapparmor1 amd64 2.13.3-7ubuntu5.1 [34.1 kB]\nGet:39 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 mount amd64 2.34-0.1ubuntu9.1 [115 kB]\nGet:40 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd amd64 245.4-4ubuntu3.2 [3796 kB]\nGet:41 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libsystemd0 amd64 245.4-4ubuntu3.2 [271 kB]\nGet:42 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 zlib1g amd64 1:1.2.11.dfsg-2ubuntu1.1 [53.5 kB]\nGet:43 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 rsyslog amd64 8.2001.0-1ubuntu1.1 [427 kB]\nGet:44 http://security.ubuntu.com/ubuntu focal-security/main amd64 python3.8-minimal amd64 3.8.5-1~20.04 [1898 kB]\nGet:45 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 passwd amd64 1:4.8.1-1ubuntu5.20.04 [797 kB]\nGet:46 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 distro-info-data all 0.43ubuntu1.1 [4584 B]\nGet:47 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgirepository-1.0-1 amd64 1.64.1-1~ubuntu20.04.1 [85.7 kB]\nGet:48 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 gir1.2-glib-2.0 amd64 1.64.1-1~ubuntu20.04.1 [134 kB]\nGet:49 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 less amd64 551-1ubuntu0.1 [123 kB]\nGet:50 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libisc-export1105 amd64 1:9.11.16+dfsg-3~ubuntu1 [175 kB]\nGet:51 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libdns-export1109 amd64 1:9.11.16+dfsg-3~ubuntu1 [765 kB]\nGet:52 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libglib2.0-data all 2.64.3-1~ubuntu20.04.1 [5752 B]\nGet:53 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnetplan0 amd64 0.99-0ubuntu3~20.04.2 [22.7 kB]\nGet:54 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 netplan.io amd64 0.99-0ubuntu3~20.04.2 [70.9 kB]\nGet:55 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 sudo amd64 1.8.31-1ubuntu1.1 [513 kB]\nGet:56 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 ubuntu-minimal amd64 1.450.2 [2752 B]\nGet:57 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 xz-utils amd64 5.2.4-1ubuntu1 [82.5 kB]\nGet:58 http://security.ubuntu.com/ubuntu focal-security/main amd64 libpython3.8-minimal amd64 3.8.5-1~20.04 [714 kB]\nGet:59 http://security.ubuntu.com/ubuntu focal-security/main amd64 libsqlite3-0 amd64 3.31.1-4ubuntu0.2 [549 kB]\nGet:60 http://security.ubuntu.com/ubuntu focal-security/main amd64 ca-certificates all 20190110ubuntu1.1 [145 kB]\nGet:61 http://security.ubuntu.com/ubuntu focal-security/main amd64 tzdata all 2020a-0ubuntu0.20.04 [293 kB]\nPreconfiguring packages ...\nFetched 29.3 MB in 18s (1606 kB/s)\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../gcc-10-base_10.2.0-5ubuntu1~20.04_amd64.deb ...\r\nUnpacking gcc-10-base:amd64 (10.2.0-5ubuntu1~20.04) over (10-20200411-0ubuntu1) ...\r\nSetting up gcc-10-base:amd64 (10.2.0-5ubuntu1~20.04) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../libgcc-s1_10.2.0-5ubuntu1~20.04_amd64.deb ...\r\nUnpacking libgcc-s1:amd64 (10.2.0-5ubuntu1~20.04) over (10-20200411-0ubuntu1) ...\r\nSetting up libgcc-s1:amd64 (10.2.0-5ubuntu1~20.04) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../libstdc++6_10.2.0-5ubuntu1~20.04_amd64.deb ...\r\nUnpacking libstdc++6:amd64 (10.2.0-5ubuntu1~20.04) over (10-20200411-0ubuntu1) ...\r\nSetting up libstdc++6:amd64 (10.2.0-5ubuntu1~20.04) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../libc6_2.31-0ubuntu9.1_amd64.deb ...\r\nUnpacking libc6:amd64 (2.31-0ubuntu9.1) over (2.31-0ubuntu9) ...\r\nSetting up libc6:amd64 (2.31-0ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../base-files_11ubuntu5.2_amd64.deb ...\r\nUnpacking base-files (11ubuntu5.2) over (11ubuntu5) ...\r\nSetting up base-files (11ubuntu5.2) ...\r\nInstalling new version of config file /etc/issue ...\r\nInstalling new version of config file /etc/issue.net ...\r\nInstalling new version of config file /etc/lsb-release ...\r\nInstalling new version of config file /etc/update-motd.d/50-motd-news ...\r\nRemoving obsolete conffile /etc/default/motd-news ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../bash_5.0-6ubuntu1.1_amd64.deb ...\r\nUnpacking bash (5.0-6ubuntu1.1) over (5.0-6ubuntu1) ...\r\nSetting up bash (5.0-6ubuntu1.1) ...\r\nupdate-alternatives: using /usr/share/man/man7/bash-builtins.7.gz to provide /usr/share/man/man7/builtins.7.gz (builtins.7.gz) in auto mode\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../bsdutils_1%3a2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking bsdutils (1:2.34-0.1ubuntu9.1) over (1:2.34-0.1ubuntu9) ...\r\nSetting up bsdutils (1:2.34-0.1ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../login_1%3a4.8.1-1ubuntu5.20.04_amd64.deb ...\r\nUnpacking login (1:4.8.1-1ubuntu5.20.04) over (1:4.8.1-1ubuntu5) ...\r\nSetting up login (1:4.8.1-1ubuntu5.20.04) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libblkid1_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking libblkid1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nSetting up libblkid1:amd64 (2.34-0.1ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libuuid1_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking libuuid1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nSetting up libuuid1:amd64 (2.34-0.1ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libfdisk1_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking libfdisk1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nPreparing to unpack .../libmount1_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking libmount1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nSetting up libmount1:amd64 (2.34-0.1ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libsmartcols1_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking libsmartcols1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nSetting up libsmartcols1:amd64 (2.34-0.1ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../fdisk_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking fdisk (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nPreparing to unpack .../util-linux_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking util-linux (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nSetting up util-linux (2.34-0.1ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../locales_2.31-0ubuntu9.1_all.deb ...\r\nUnpacking locales (2.31-0ubuntu9.1) over (2.31-0ubuntu9) ...\r\nPreparing to unpack .../libc-bin_2.31-0ubuntu9.1_amd64.deb ...\r\nUnpacking libc-bin (2.31-0ubuntu9.1) over (2.31-0ubuntu9) ...\r\nSetting up libc-bin (2.31-0ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../liblzma5_5.2.4-1ubuntu1_amd64.deb ...\r\nUnpacking liblzma5:amd64 (5.2.4-1ubuntu1) over (5.2.4-1) ...\r\nSetting up liblzma5:amd64 (5.2.4-1ubuntu1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../udev_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking udev (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libudev1_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking libudev1:amd64 (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nSetting up libudev1:amd64 (245.4-4ubuntu3.2) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../systemd-sysv_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking systemd-sysv (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../systemd-timesyncd_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking systemd-timesyncd (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libnss-systemd_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking libnss-systemd:amd64 (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libpam0g_1.3.1-5ubuntu4.1_amd64.deb ...\r\nUnpacking libpam0g:amd64 (1.3.1-5ubuntu4.1) over (1.3.1-5ubuntu4) ...\r\nSetting up libpam0g:amd64 (1.3.1-5ubuntu4.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libpam-modules-bin_1.3.1-5ubuntu4.1_amd64.deb ...\r\nUnpacking libpam-modules-bin (1.3.1-5ubuntu4.1) over (1.3.1-5ubuntu4) ...\r\nSetting up libpam-modules-bin (1.3.1-5ubuntu4.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libpam-modules_1.3.1-5ubuntu4.1_amd64.deb ...\r\nUnpacking libpam-modules:amd64 (1.3.1-5ubuntu4.1) over (1.3.1-5ubuntu4) ...\r\nSetting up libpam-modules:amd64 (1.3.1-5ubuntu4.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libpam-runtime_1.3.1-5ubuntu4.1_all.deb ...\r\nUnpacking libpam-runtime (1.3.1-5ubuntu4.1) over (1.3.1-5ubuntu4) ...\r\nSetting up libpam-runtime (1.3.1-5ubuntu4.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libpam-systemd_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking libpam-systemd:amd64 (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libapparmor1_2.13.3-7ubuntu5.1_amd64.deb ...\r\nUnpacking libapparmor1:amd64 (2.13.3-7ubuntu5.1) over (2.13.3-7ubuntu5) ...\r\nPreparing to unpack .../libjson-c4_0.13.1+dfsg-7ubuntu0.3_amd64.deb ...\r\nUnpacking libjson-c4:amd64 (0.13.1+dfsg-7ubuntu0.3) over (0.13.1+dfsg-7) ...\r\nPreparing to unpack .../libcryptsetup12_2%3a2.2.2-3ubuntu2.2_amd64.deb ...\r\nUnpacking libcryptsetup12:amd64 (2:2.2.2-3ubuntu2.2) over (2:2.2.2-3ubuntu2) ...\r\nPreparing to unpack .../libgnutls30_3.6.13-2ubuntu1.3_amd64.deb ...\r\nUnpacking libgnutls30:amd64 (3.6.13-2ubuntu1.3) over (3.6.13-2ubuntu1) ...\r\nSetting up libgnutls30:amd64 (3.6.13-2ubuntu1.3) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libseccomp2_2.4.3-1ubuntu3.20.04.3_amd64.deb ...\r\nUnpacking libseccomp2:amd64 (2.4.3-1ubuntu3.20.04.3) over (2.4.3-1ubuntu1) ...\r\nSetting up libseccomp2:amd64 (2.4.3-1ubuntu3.20.04.3) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../mount_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking mount (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nPreparing to unpack .../systemd_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking systemd (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libsystemd0_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking libsystemd0:amd64 (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nSetting up libsystemd0:amd64 (245.4-4ubuntu3.2) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../zlib1g_1%3a1.2.11.dfsg-2ubuntu1.1_amd64.deb ...\r\nUnpacking zlib1g:amd64 (1:1.2.11.dfsg-2ubuntu1.1) over (1:1.2.11.dfsg-2ubuntu1) ...\r\nSetting up zlib1g:amd64 (1:1.2.11.dfsg-2ubuntu1.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libapt-pkg6.0_2.0.2ubuntu0.1_amd64.deb ...\r\nUnpacking libapt-pkg6.0:amd64 (2.0.2ubuntu0.1) over (2.0.2) ...\r\nSetting up libapt-pkg6.0:amd64 (2.0.2ubuntu0.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../apt_2.0.2ubuntu0.1_amd64.deb ...\r\nUnpacking apt (2.0.2ubuntu0.1) over (2.0.2) ...\r\nSetting up apt (2.0.2ubuntu0.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../0-apt-utils_2.0.2ubuntu0.1_amd64.deb ...\r\nUnpacking apt-utils (2.0.2ubuntu0.1) over (2.0.2) ...\r\nPreparing to unpack .../1-python3.8_3.8.5-1~20.04_amd64.deb ...\r\nUnpacking python3.8 (3.8.5-1~20.04) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../2-libpython3.8-stdlib_3.8.5-1~20.04_amd64.deb ...\r\nUnpacking libpython3.8-stdlib:amd64 (3.8.5-1~20.04) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../3-python3.8-minimal_3.8.5-1~20.04_amd64.deb ...\r\nUnpacking python3.8-minimal (3.8.5-1~20.04) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../4-libpython3.8-minimal_3.8.5-1~20.04_amd64.deb ...\r\nUnpacking libpython3.8-minimal:amd64 (3.8.5-1~20.04) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../5-libsqlite3-0_3.31.1-4ubuntu0.2_amd64.deb ...\r\nUnpacking libsqlite3-0:amd64 (3.31.1-4ubuntu0.2) over (3.31.1-4) ...\r\nPreparing to unpack .../6-rsyslog_8.2001.0-1ubuntu1.1_amd64.deb ...\r\nUnpacking rsyslog (8.2001.0-1ubuntu1.1) over (8.2001.0-1ubuntu1) ...\r\nPreparing to unpack .../7-passwd_1%3a4.8.1-1ubuntu5.20.04_amd64.deb ...\r\nUnpacking passwd (1:4.8.1-1ubuntu5.20.04) over (1:4.8.1-1ubuntu5) ...\r\nSetting up passwd (1:4.8.1-1ubuntu5.20.04) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../00-ca-certificates_20190110ubuntu1.1_all.deb ...\r\nUnpacking ca-certificates (20190110ubuntu1.1) over (20190110ubuntu1) ...\r\nPreparing to unpack .../01-distro-info-data_0.43ubuntu1.1_all.deb ...\r\nUnpacking distro-info-data (0.43ubuntu1.1) over (0.43ubuntu1) ...\r\nPreparing to unpack .../02-libgirepository-1.0-1_1.64.1-1~ubuntu20.04.1_amd64.deb ...\r\nUnpacking libgirepository-1.0-1:amd64 (1.64.1-1~ubuntu20.04.1) over (1.64.0-2) ...\r\nPreparing to unpack .../03-gir1.2-glib-2.0_1.64.1-1~ubuntu20.04.1_amd64.deb ...\r\nUnpacking gir1.2-glib-2.0:amd64 (1.64.1-1~ubuntu20.04.1) over (1.64.0-2) ...\r\nPreparing to unpack .../04-less_551-1ubuntu0.1_amd64.deb ...\r\nUnpacking less (551-1ubuntu0.1) over (551-1) ...\r\nPreparing to unpack .../05-libisc-export1105_1%3a9.11.16+dfsg-3~ubuntu1_amd64.deb ...\r\nUnpacking libisc-export1105:amd64 (1:9.11.16+dfsg-3~ubuntu1) over (1:9.11.16+dfsg-3~build1) ...\r\nPreparing to unpack .../06-libdns-export1109_1%3a9.11.16+dfsg-3~ubuntu1_amd64.deb ...\r\nUnpacking libdns-export1109 (1:9.11.16+dfsg-3~ubuntu1) over (1:9.11.16+dfsg-3~build1) ...\r\nPreparing to unpack .../07-libglib2.0-data_2.64.3-1~ubuntu20.04.1_all.deb ...\r\nUnpacking libglib2.0-data (2.64.3-1~ubuntu20.04.1) over (2.64.2-1~fakesync1) ...\r\nPreparing to unpack .../08-libnetplan0_0.99-0ubuntu3~20.04.2_amd64.deb ...\r\nUnpacking libnetplan0:amd64 (0.99-0ubuntu3~20.04.2) over (0.99-0ubuntu1) ...\r\nPreparing to unpack .../09-netplan.io_0.99-0ubuntu3~20.04.2_amd64.deb ...\r\nUnpacking netplan.io (0.99-0ubuntu3~20.04.2) over (0.99-0ubuntu1) ...\r\nPreparing to unpack .../10-sudo_1.8.31-1ubuntu1.1_amd64.deb ...\r\nUnpacking sudo (1.8.31-1ubuntu1.1) over (1.8.31-1ubuntu1) ...\r\nPreparing to unpack .../11-tzdata_2020a-0ubuntu0.20.04_all.deb ...\r\nUnpacking tzdata (2020a-0ubuntu0.20.04) over (2019c-3ubuntu1) ...\r\nPreparing to unpack .../12-ubuntu-minimal_1.450.2_amd64.deb ...\r\nUnpacking ubuntu-minimal (1.450.2) over (1.450) ...\r\nPreparing to unpack .../13-xz-utils_5.2.4-1ubuntu1_amd64.deb ...\r\nUnpacking xz-utils (5.2.4-1ubuntu1) over (5.2.4-1) ...\r\nSetting up libapparmor1:amd64 (2.13.3-7ubuntu5.1) ...\r\nSetting up libpython3.8-minimal:amd64 (3.8.5-1~20.04) ...\r\nSetting up apt-utils (2.0.2ubuntu0.1) ...\r\nSetting up distro-info-data (0.43ubuntu1.1) ...\r\nSetting up libsqlite3-0:amd64 (3.31.1-4ubuntu0.2) ...\r\nSetting up rsyslog (8.2001.0-1ubuntu1.1) ...\r\nThe user `syslog' is already a member of `adm'.\r\nAdding user `syslog' to group `tty' ...\r\nAdding user syslog to group tty\r\nDone.\r\nRunning in chroot, ignoring request.\r\nSetting up less (551-1ubuntu0.1) ...\r\nSetting up libnetplan0:amd64 (0.99-0ubuntu3~20.04.2) ...\r\nSetting up locales (2.31-0ubuntu9.1) ...\r\nGenerating locales (this might take a while)...\r\n  en_US.UTF-8... done\r\nGeneration complete.\r\nSetting up tzdata (2020a-0ubuntu0.20.04) ...\r\n\r\nCurrent default time zone: 'Etc/UTC'\r\nLocal time is now:      Tue Oct 20 04:44:07 UTC 2020.\r\nUniversal Time is now:  Tue Oct 20 04:44:07 UTC 2020.\r\nRun 'dpkg-reconfigure tzdata' if you wish to change it.\r\n\r\nSetting up ca-certificates (20190110ubuntu1.1) ...\r\nUpdating certificates in /etc/ssl/certs...\r\n0 added, 1 removed; done.\r\nSetting up libisc-export1105:amd64 (1:9.11.16+dfsg-3~ubuntu1) ...\r\nSetting up libglib2.0-data (2.64.3-1~ubuntu20.04.1) ...\r\nSetting up xz-utils (5.2.4-1ubuntu1) ...\r\nSetting up udev (245.4-4ubuntu3.2) ...\r\nA chroot environment has been detected, udev not started.\r\nSetting up sudo (1.8.31-1ubuntu1.1) ...\r\nSetting up libfdisk1:amd64 (2.34-0.1ubuntu9.1) ...\r\nSetting up python3.8-minimal (3.8.5-1~20.04) ...\r\nSetting up mount (2.34-0.1ubuntu9.1) ...\r\nSetting up libgirepository-1.0-1:amd64 (1.64.1-1~ubuntu20.04.1) ...\r\nSetting up libjson-c4:amd64 (0.13.1+dfsg-7ubuntu0.3) ...\r\nSetting up libpython3.8-stdlib:amd64 (3.8.5-1~20.04) ...\r\nSetting up python3.8 (3.8.5-1~20.04) ...\r\nSetting up libdns-export1109 (1:9.11.16+dfsg-3~ubuntu1) ...\r\nSetting up fdisk (2.34-0.1ubuntu9.1) ...\r\nSetting up gir1.2-glib-2.0:amd64 (1.64.1-1~ubuntu20.04.1) ...\r\nSetting up libcryptsetup12:amd64 (2:2.2.2-3ubuntu2.2) ...\r\nSetting up systemd (245.4-4ubuntu3.2) ...\r\nSetting up netplan.io (0.99-0ubuntu3~20.04.2) ...\r\nSetting up systemd-timesyncd (245.4-4ubuntu3.2) ...\r\nSetting up systemd-sysv (245.4-4ubuntu3.2) ...\r\nSetting up ubuntu-minimal (1.450.2) ...\r\nSetting up libnss-systemd:amd64 (245.4-4ubuntu3.2) ...\r\nSetting up libpam-systemd:amd64 (245.4-4ubuntu3.2) ...\r\nProcessing triggers for mime-support (3.64ubuntu1) ...\r\nProcessing triggers for libc-bin (2.31-0ubuntu9.1) ...\r\nProcessing triggers for dbus (1.12.16-2ubuntu2.1) ...\r\nProcessing triggers for ca-certificates (20190110ubuntu1.1) ...\r\nUpdating certificates in /etc/ssl/certs...\r\n0 added, 0 removed; done.\r\nRunning hooks in /etc/ca-certificates/update.d...\r\ndone.\r\n",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nCalculating upgrade...\nThe following packages will be upgraded:\n  apt apt-utils base-files bash bsdutils ca-certificates distro-info-data\n  fdisk gcc-10-base gir1.2-glib-2.0 less libapparmor1 libapt-pkg6.0 libblkid1\n  libc-bin libc6 libcryptsetup12 libdns-export1109 libfdisk1 libgcc-s1\n  libgirepository-1.0-1 libglib2.0-data libgnutls30 libisc-export1105\n  libjson-c4 liblzma5 libmount1 libnetplan0 libnss-systemd libpam-modules\n  libpam-modules-bin libpam-runtime libpam-systemd libpam0g\n  libpython3.8-minimal libpython3.8-stdlib libseccomp2 libsmartcols1\n  libsqlite3-0 libstdc++6 libsystemd0 libudev1 libuuid1 locales login mount\n  netplan.io passwd python3.8 python3.8-minimal rsyslog sudo systemd\n  systemd-sysv systemd-timesyncd tzdata ubuntu-minimal udev util-linux\n  xz-utils zlib1g\n61 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\nNeed to get 29.3 MB of archives.\nAfter this operation, 196 kB of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc6 amd64 2.31-0ubuntu9.1 [2712 kB]\nGet:2 http://security.ubuntu.com/ubuntu focal-security/main amd64 gcc-10-base amd64 10.2.0-5ubuntu1~20.04 [19.7 kB]\nGet:3 http://security.ubuntu.com/ubuntu focal-security/main amd64 libgcc-s1 amd64 10.2.0-5ubuntu1~20.04 [41.6 kB]\nGet:4 http://security.ubuntu.com/ubuntu focal-security/main amd64 libstdc++6 amd64 10.2.0-5ubuntu1~20.04 [503 kB]\nGet:5 http://security.ubuntu.com/ubuntu focal-security/main amd64 libjson-c4 amd64 0.13.1+dfsg-7ubuntu0.3 [29.3 kB]\nGet:6 http://security.ubuntu.com/ubuntu focal-security/main amd64 libcryptsetup12 amd64 2:2.2.2-3ubuntu2.2 [182 kB]\nGet:7 http://security.ubuntu.com/ubuntu focal-security/main amd64 libgnutls30 amd64 3.6.13-2ubuntu1.3 [828 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 base-files amd64 11ubuntu5.2 [60.7 kB]\nGet:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 bash amd64 5.0-6ubuntu1.1 [638 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 bsdutils amd64 1:2.34-0.1ubuntu9.1 [63.1 kB]\nGet:11 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 login amd64 1:4.8.1-1ubuntu5.20.04 [221 kB]\nGet:12 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libblkid1 amd64 2.34-0.1ubuntu9.1 [137 kB]\nGet:13 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libuuid1 amd64 2.34-0.1ubuntu9.1 [20.0 kB]\nGet:14 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libfdisk1 amd64 2.34-0.1ubuntu9.1 [175 kB]\nGet:15 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libmount1 amd64 2.34-0.1ubuntu9.1 [149 kB]\nGet:16 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libsmartcols1 amd64 2.34-0.1ubuntu9.1 [100 kB]\nGet:17 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 fdisk amd64 2.34-0.1ubuntu9.1 [119 kB]\nGet:18 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 util-linux amd64 2.34-0.1ubuntu9.1 [1021 kB]\nGet:19 http://security.ubuntu.com/ubuntu focal-security/main amd64 libseccomp2 amd64 2.4.3-1ubuntu3.20.04.3 [42.4 kB]\nGet:20 http://security.ubuntu.com/ubuntu focal-security/main amd64 libapt-pkg6.0 amd64 2.0.2ubuntu0.1 [832 kB]\nGet:21 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 locales all 2.31-0ubuntu9.1 [3868 kB]\nGet:22 http://security.ubuntu.com/ubuntu focal-security/main amd64 apt amd64 2.0.2ubuntu0.1 [1290 kB]\nGet:23 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc-bin amd64 2.31-0ubuntu9.1 [637 kB]\nGet:24 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 liblzma5 amd64 5.2.4-1ubuntu1 [91.7 kB]\nGet:25 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 udev amd64 245.4-4ubuntu3.2 [1363 kB]\nGet:26 http://security.ubuntu.com/ubuntu focal-security/main amd64 apt-utils amd64 2.0.2ubuntu0.1 [214 kB]\nGet:27 http://security.ubuntu.com/ubuntu focal-security/main amd64 python3.8 amd64 3.8.5-1~20.04 [373 kB]\nGet:28 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libudev1 amd64 245.4-4ubuntu3.2 [78.9 kB]\nGet:29 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd-sysv amd64 245.4-4ubuntu3.2 [10.3 kB]\nGet:30 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd-timesyncd amd64 245.4-4ubuntu3.2 [28.0 kB]\nGet:31 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnss-systemd amd64 245.4-4ubuntu3.2 [95.6 kB]\nGet:32 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam0g amd64 1.3.1-5ubuntu4.1 [55.4 kB]\nGet:33 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-modules-bin amd64 1.3.1-5ubuntu4.1 [37.6 kB]\nGet:34 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-modules amd64 1.3.1-5ubuntu4.1 [250 kB]\nGet:35 http://security.ubuntu.com/ubuntu focal-security/main amd64 libpython3.8-stdlib amd64 3.8.5-1~20.04 [1671 kB]\nGet:36 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-runtime all 1.3.1-5ubuntu4.1 [37.3 kB]\nGet:37 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-systemd amd64 245.4-4ubuntu3.2 [186 kB]\nGet:38 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libapparmor1 amd64 2.13.3-7ubuntu5.1 [34.1 kB]\nGet:39 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 mount amd64 2.34-0.1ubuntu9.1 [115 kB]\nGet:40 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd amd64 245.4-4ubuntu3.2 [3796 kB]\nGet:41 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libsystemd0 amd64 245.4-4ubuntu3.2 [271 kB]\nGet:42 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 zlib1g amd64 1:1.2.11.dfsg-2ubuntu1.1 [53.5 kB]\nGet:43 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 rsyslog amd64 8.2001.0-1ubuntu1.1 [427 kB]\nGet:44 http://security.ubuntu.com/ubuntu focal-security/main amd64 python3.8-minimal amd64 3.8.5-1~20.04 [1898 kB]\nGet:45 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 passwd amd64 1:4.8.1-1ubuntu5.20.04 [797 kB]\nGet:46 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 distro-info-data all 0.43ubuntu1.1 [4584 B]\nGet:47 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgirepository-1.0-1 amd64 1.64.1-1~ubuntu20.04.1 [85.7 kB]\nGet:48 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 gir1.2-glib-2.0 amd64 1.64.1-1~ubuntu20.04.1 [134 kB]\nGet:49 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 less amd64 551-1ubuntu0.1 [123 kB]\nGet:50 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libisc-export1105 amd64 1:9.11.16+dfsg-3~ubuntu1 [175 kB]\nGet:51 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libdns-export1109 amd64 1:9.11.16+dfsg-3~ubuntu1 [765 kB]\nGet:52 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libglib2.0-data all 2.64.3-1~ubuntu20.04.1 [5752 B]\nGet:53 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnetplan0 amd64 0.99-0ubuntu3~20.04.2 [22.7 kB]\nGet:54 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 netplan.io amd64 0.99-0ubuntu3~20.04.2 [70.9 kB]\nGet:55 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 sudo amd64 1.8.31-1ubuntu1.1 [513 kB]\nGet:56 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 ubuntu-minimal amd64 1.450.2 [2752 B]\nGet:57 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 xz-utils amd64 5.2.4-1ubuntu1 [82.5 kB]\nGet:58 http://security.ubuntu.com/ubuntu focal-security/main amd64 libpython3.8-minimal amd64 3.8.5-1~20.04 [714 kB]\nGet:59 http://security.ubuntu.com/ubuntu focal-security/main amd64 libsqlite3-0 amd64 3.31.1-4ubuntu0.2 [549 kB]\nGet:60 http://security.ubuntu.com/ubuntu focal-security/main amd64 ca-certificates all 20190110ubuntu1.1 [145 kB]\nGet:61 http://security.ubuntu.com/ubuntu focal-security/main amd64 tzdata all 2020a-0ubuntu0.20.04 [293 kB]\nPreconfiguring packages ...\nFetched 29.3 MB in 18s (1606 kB/s)\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../gcc-10-base_10.2.0-5ubuntu1~20.04_amd64.deb ...\r\nUnpacking gcc-10-base:amd64 (10.2.0-5ubuntu1~20.04) over (10-20200411-0ubuntu1) ...\r\nSetting up gcc-10-base:amd64 (10.2.0-5ubuntu1~20.04) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../libgcc-s1_10.2.0-5ubuntu1~20.04_amd64.deb ...\r\nUnpacking libgcc-s1:amd64 (10.2.0-5ubuntu1~20.04) over (10-20200411-0ubuntu1) ...\r\nSetting up libgcc-s1:amd64 (10.2.0-5ubuntu1~20.04) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../libstdc++6_10.2.0-5ubuntu1~20.04_amd64.deb ...\r\nUnpacking libstdc++6:amd64 (10.2.0-5ubuntu1~20.04) over (10-20200411-0ubuntu1) ...\r\nSetting up libstdc++6:amd64 (10.2.0-5ubuntu1~20.04) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../libc6_2.31-0ubuntu9.1_amd64.deb ...\r\nUnpacking libc6:amd64 (2.31-0ubuntu9.1) over (2.31-0ubuntu9) ...\r\nSetting up libc6:amd64 (2.31-0ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13486 files and directories currently installed.)\r\nPreparing to unpack .../base-files_11ubuntu5.2_amd64.deb ...\r\nUnpacking base-files (11ubuntu5.2) over (11ubuntu5) ...\r\nSetting up base-files (11ubuntu5.2) ...\r\nInstalling new version of config file /etc/issue ...\r\nInstalling new version of config file /etc/issue.net ...\r\nInstalling new version of config file /etc/lsb-release ...\r\nInstalling new version of config file /etc/update-motd.d/50-motd-news ...\r\nRemoving obsolete conffile /etc/default/motd-news ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../bash_5.0-6ubuntu1.1_amd64.deb ...\r\nUnpacking bash (5.0-6ubuntu1.1) over (5.0-6ubuntu1) ...\r\nSetting up bash (5.0-6ubuntu1.1) ...\r\nupdate-alternatives: using /usr/share/man/man7/bash-builtins.7.gz to provide /usr/share/man/man7/builtins.7.gz (builtins.7.gz) in auto mode\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../bsdutils_1%3a2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking bsdutils (1:2.34-0.1ubuntu9.1) over (1:2.34-0.1ubuntu9) ...\r\nSetting up bsdutils (1:2.34-0.1ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../login_1%3a4.8.1-1ubuntu5.20.04_amd64.deb ...\r\nUnpacking login (1:4.8.1-1ubuntu5.20.04) over (1:4.8.1-1ubuntu5) ...\r\nSetting up login (1:4.8.1-1ubuntu5.20.04) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libblkid1_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking libblkid1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nSetting up libblkid1:amd64 (2.34-0.1ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libuuid1_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking libuuid1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nSetting up libuuid1:amd64 (2.34-0.1ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libfdisk1_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking libfdisk1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nPreparing to unpack .../libmount1_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking libmount1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nSetting up libmount1:amd64 (2.34-0.1ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libsmartcols1_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking libsmartcols1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nSetting up libsmartcols1:amd64 (2.34-0.1ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../fdisk_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking fdisk (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nPreparing to unpack .../util-linux_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking util-linux (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nSetting up util-linux (2.34-0.1ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../locales_2.31-0ubuntu9.1_all.deb ...\r\nUnpacking locales (2.31-0ubuntu9.1) over (2.31-0ubuntu9) ...\r\nPreparing to unpack .../libc-bin_2.31-0ubuntu9.1_amd64.deb ...\r\nUnpacking libc-bin (2.31-0ubuntu9.1) over (2.31-0ubuntu9) ...\r\nSetting up libc-bin (2.31-0ubuntu9.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../liblzma5_5.2.4-1ubuntu1_amd64.deb ...\r\nUnpacking liblzma5:amd64 (5.2.4-1ubuntu1) over (5.2.4-1) ...\r\nSetting up liblzma5:amd64 (5.2.4-1ubuntu1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../udev_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking udev (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libudev1_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking libudev1:amd64 (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nSetting up libudev1:amd64 (245.4-4ubuntu3.2) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../systemd-sysv_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking systemd-sysv (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../systemd-timesyncd_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking systemd-timesyncd (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libnss-systemd_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking libnss-systemd:amd64 (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libpam0g_1.3.1-5ubuntu4.1_amd64.deb ...\r\nUnpacking libpam0g:amd64 (1.3.1-5ubuntu4.1) over (1.3.1-5ubuntu4) ...\r\nSetting up libpam0g:amd64 (1.3.1-5ubuntu4.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libpam-modules-bin_1.3.1-5ubuntu4.1_amd64.deb ...\r\nUnpacking libpam-modules-bin (1.3.1-5ubuntu4.1) over (1.3.1-5ubuntu4) ...\r\nSetting up libpam-modules-bin (1.3.1-5ubuntu4.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libpam-modules_1.3.1-5ubuntu4.1_amd64.deb ...\r\nUnpacking libpam-modules:amd64 (1.3.1-5ubuntu4.1) over (1.3.1-5ubuntu4) ...\r\nSetting up libpam-modules:amd64 (1.3.1-5ubuntu4.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libpam-runtime_1.3.1-5ubuntu4.1_all.deb ...\r\nUnpacking libpam-runtime (1.3.1-5ubuntu4.1) over (1.3.1-5ubuntu4) ...\r\nSetting up libpam-runtime (1.3.1-5ubuntu4.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libpam-systemd_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking libpam-systemd:amd64 (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libapparmor1_2.13.3-7ubuntu5.1_amd64.deb ...\r\nUnpacking libapparmor1:amd64 (2.13.3-7ubuntu5.1) over (2.13.3-7ubuntu5) ...\r\nPreparing to unpack .../libjson-c4_0.13.1+dfsg-7ubuntu0.3_amd64.deb ...\r\nUnpacking libjson-c4:amd64 (0.13.1+dfsg-7ubuntu0.3) over (0.13.1+dfsg-7) ...\r\nPreparing to unpack .../libcryptsetup12_2%3a2.2.2-3ubuntu2.2_amd64.deb ...\r\nUnpacking libcryptsetup12:amd64 (2:2.2.2-3ubuntu2.2) over (2:2.2.2-3ubuntu2) ...\r\nPreparing to unpack .../libgnutls30_3.6.13-2ubuntu1.3_amd64.deb ...\r\nUnpacking libgnutls30:amd64 (3.6.13-2ubuntu1.3) over (3.6.13-2ubuntu1) ...\r\nSetting up libgnutls30:amd64 (3.6.13-2ubuntu1.3) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libseccomp2_2.4.3-1ubuntu3.20.04.3_amd64.deb ...\r\nUnpacking libseccomp2:amd64 (2.4.3-1ubuntu3.20.04.3) over (2.4.3-1ubuntu1) ...\r\nSetting up libseccomp2:amd64 (2.4.3-1ubuntu3.20.04.3) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../mount_2.34-0.1ubuntu9.1_amd64.deb ...\r\nUnpacking mount (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...\r\nPreparing to unpack .../systemd_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking systemd (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nPreparing to unpack .../libsystemd0_245.4-4ubuntu3.2_amd64.deb ...\r\nUnpacking libsystemd0:amd64 (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...\r\nSetting up libsystemd0:amd64 (245.4-4ubuntu3.2) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../zlib1g_1%3a1.2.11.dfsg-2ubuntu1.1_amd64.deb ...\r\nUnpacking zlib1g:amd64 (1:1.2.11.dfsg-2ubuntu1.1) over (1:1.2.11.dfsg-2ubuntu1) ...\r\nSetting up zlib1g:amd64 (1:1.2.11.dfsg-2ubuntu1.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../libapt-pkg6.0_2.0.2ubuntu0.1_amd64.deb ...\r\nUnpacking libapt-pkg6.0:amd64 (2.0.2ubuntu0.1) over (2.0.2) ...\r\nSetting up libapt-pkg6.0:amd64 (2.0.2ubuntu0.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../apt_2.0.2ubuntu0.1_amd64.deb ...\r\nUnpacking apt (2.0.2ubuntu0.1) over (2.0.2) ...\r\nSetting up apt (2.0.2ubuntu0.1) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../0-apt-utils_2.0.2ubuntu0.1_amd64.deb ...\r\nUnpacking apt-utils (2.0.2ubuntu0.1) over (2.0.2) ...\r\nPreparing to unpack .../1-python3.8_3.8.5-1~20.04_amd64.deb ...\r\nUnpacking python3.8 (3.8.5-1~20.04) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../2-libpython3.8-stdlib_3.8.5-1~20.04_amd64.deb ...\r\nUnpacking libpython3.8-stdlib:amd64 (3.8.5-1~20.04) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../3-python3.8-minimal_3.8.5-1~20.04_amd64.deb ...\r\nUnpacking python3.8-minimal (3.8.5-1~20.04) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../4-libpython3.8-minimal_3.8.5-1~20.04_amd64.deb ...\r\nUnpacking libpython3.8-minimal:amd64 (3.8.5-1~20.04) over (3.8.2-1ubuntu1) ...\r\nPreparing to unpack .../5-libsqlite3-0_3.31.1-4ubuntu0.2_amd64.deb ...\r\nUnpacking libsqlite3-0:amd64 (3.31.1-4ubuntu0.2) over (3.31.1-4) ...\r\nPreparing to unpack .../6-rsyslog_8.2001.0-1ubuntu1.1_amd64.deb ...\r\nUnpacking rsyslog (8.2001.0-1ubuntu1.1) over (8.2001.0-1ubuntu1) ...\r\nPreparing to unpack .../7-passwd_1%3a4.8.1-1ubuntu5.20.04_amd64.deb ...\r\nUnpacking passwd (1:4.8.1-1ubuntu5.20.04) over (1:4.8.1-1ubuntu5) ...\r\nSetting up passwd (1:4.8.1-1ubuntu5.20.04) ...\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 13485 files and directories currently installed.)\r\nPreparing to unpack .../00-ca-certificates_20190110ubuntu1.1_all.deb ...\r\nUnpacking ca-certificates (20190110ubuntu1.1) over (20190110ubuntu1) ...\r\nPreparing to unpack .../01-distro-info-data_0.43ubuntu1.1_all.deb ...\r\nUnpacking distro-info-data (0.43ubuntu1.1) over (0.43ubuntu1) ...\r\nPreparing to unpack .../02-libgirepository-1.0-1_1.64.1-1~ubuntu20.04.1_amd64.deb ...\r\nUnpacking libgirepository-1.0-1:amd64 (1.64.1-1~ubuntu20.04.1) over (1.64.0-2) ...\r\nPreparing to unpack .../03-gir1.2-glib-2.0_1.64.1-1~ubuntu20.04.1_amd64.deb ...\r\nUnpacking gir1.2-glib-2.0:amd64 (1.64.1-1~ubuntu20.04.1) over (1.64.0-2) ...\r\nPreparing to unpack .../04-less_551-1ubuntu0.1_amd64.deb ...\r\nUnpacking less (551-1ubuntu0.1) over (551-1) ...\r\nPreparing to unpack .../05-libisc-export1105_1%3a9.11.16+dfsg-3~ubuntu1_amd64.deb ...\r\nUnpacking libisc-export1105:amd64 (1:9.11.16+dfsg-3~ubuntu1) over (1:9.11.16+dfsg-3~build1) ...\r\nPreparing to unpack .../06-libdns-export1109_1%3a9.11.16+dfsg-3~ubuntu1_amd64.deb ...\r\nUnpacking libdns-export1109 (1:9.11.16+dfsg-3~ubuntu1) over (1:9.11.16+dfsg-3~build1) ...\r\nPreparing to unpack .../07-libglib2.0-data_2.64.3-1~ubuntu20.04.1_all.deb ...\r\nUnpacking libglib2.0-data (2.64.3-1~ubuntu20.04.1) over (2.64.2-1~fakesync1) ...\r\nPreparing to unpack .../08-libnetplan0_0.99-0ubuntu3~20.04.2_amd64.deb ...\r\nUnpacking libnetplan0:amd64 (0.99-0ubuntu3~20.04.2) over (0.99-0ubuntu1) ...\r\nPreparing to unpack .../09-netplan.io_0.99-0ubuntu3~20.04.2_amd64.deb ...\r\nUnpacking netplan.io (0.99-0ubuntu3~20.04.2) over (0.99-0ubuntu1) ...\r\nPreparing to unpack .../10-sudo_1.8.31-1ubuntu1.1_amd64.deb ...\r\nUnpacking sudo (1.8.31-1ubuntu1.1) over (1.8.31-1ubuntu1) ...\r\nPreparing to unpack .../11-tzdata_2020a-0ubuntu0.20.04_all.deb ...\r\nUnpacking tzdata (2020a-0ubuntu0.20.04) over (2019c-3ubuntu1) ...\r\nPreparing to unpack .../12-ubuntu-minimal_1.450.2_amd64.deb ...\r\nUnpacking ubuntu-minimal (1.450.2) over (1.450) ...\r\nPreparing to unpack .../13-xz-utils_5.2.4-1ubuntu1_amd64.deb ...\r\nUnpacking xz-utils (5.2.4-1ubuntu1) over (5.2.4-1) ...\r\nSetting up libapparmor1:amd64 (2.13.3-7ubuntu5.1) ...\r\nSetting up libpython3.8-minimal:amd64 (3.8.5-1~20.04) ...\r\nSetting up apt-utils (2.0.2ubuntu0.1) ...\r\nSetting up distro-info-data (0.43ubuntu1.1) ...\r\nSetting up libsqlite3-0:amd64 (3.31.1-4ubuntu0.2) ...\r\nSetting up rsyslog (8.2001.0-1ubuntu1.1) ...\r\nThe user `syslog' is already a member of `adm'.\r\nAdding user `syslog' to group `tty' ...\r\nAdding user syslog to group tty\r\nDone.\r\nRunning in chroot, ignoring request.\r\nSetting up less (551-1ubuntu0.1) ...\r\nSetting up libnetplan0:amd64 (0.99-0ubuntu3~20.04.2) ...\r\nSetting up locales (2.31-0ubuntu9.1) ...\r\nGenerating locales (this might take a while)...\r\n  en_US.UTF-8... done\r\nGeneration complete.\r\nSetting up tzdata (2020a-0ubuntu0.20.04) ...\r\n\r\nCurrent default time zone: 'Etc/UTC'\r\nLocal time is now:      Tue Oct 20 04:44:07 UTC 2020.\r\nUniversal Time is now:  Tue Oct 20 04:44:07 UTC 2020.\r\nRun 'dpkg-reconfigure tzdata' if you wish to change it.\r\n\r\nSetting up ca-certificates (20190110ubuntu1.1) ...\r\nUpdating certificates in /etc/ssl/certs...\r\n0 added, 1 removed; done.\r\nSetting up libisc-export1105:amd64 (1:9.11.16+dfsg-3~ubuntu1) ...\r\nSetting up libglib2.0-data (2.64.3-1~ubuntu20.04.1) ...\r\nSetting up xz-utils (5.2.4-1ubuntu1) ...\r\nSetting up udev (245.4-4ubuntu3.2) ...\r\nA chroot environment has been detected, udev not started.\r\nSetting up sudo (1.8.31-1ubuntu1.1) ...\r\nSetting up libfdisk1:amd64 (2.34-0.1ubuntu9.1) ...\r\nSetting up python3.8-minimal (3.8.5-1~20.04) ...\r\nSetting up mount (2.34-0.1ubuntu9.1) ...\r\nSetting up libgirepository-1.0-1:amd64 (1.64.1-1~ubuntu20.04.1) ...\r\nSetting up libjson-c4:amd64 (0.13.1+dfsg-7ubuntu0.3) ...\r\nSetting up libpython3.8-stdlib:amd64 (3.8.5-1~20.04) ...\r\nSetting up python3.8 (3.8.5-1~20.04) ...\r\nSetting up libdns-export1109 (1:9.11.16+dfsg-3~ubuntu1) ...\r\nSetting up fdisk (2.34-0.1ubuntu9.1) ...\r\nSetting up gir1.2-glib-2.0:amd64 (1.64.1-1~ubuntu20.04.1) ...\r\nSetting up libcryptsetup12:amd64 (2:2.2.2-3ubuntu2.2) ...\r\nSetting up systemd (245.4-4ubuntu3.2) ...\r\nSetting up netplan.io (0.99-0ubuntu3~20.04.2) ...\r\nSetting up systemd-timesyncd (245.4-4ubuntu3.2) ...\r\nSetting up systemd-sysv (245.4-4ubuntu3.2) ...\r\nSetting up ubuntu-minimal (1.450.2) ...\r\nSetting up libnss-systemd:amd64 (245.4-4ubuntu3.2) ...\r\nSetting up libpam-systemd:amd64 (245.4-4ubuntu3.2) ...\r\nProcessing triggers for mime-support (3.64ubuntu1) ...\r\nProcessing triggers for libc-bin (2.31-0ubuntu9.1) ...\r\nProcessing triggers for dbus (1.12.16-2ubuntu2.1) ...\r\nProcessing triggers for ca-certificates (20190110ubuntu1.1) ...\r\nUpdating certificates in /etc/ssl/certs...\r\n0 added, 0 removed; done.\r\nRunning hooks in /etc/ca-certificates/update.d...\r\ndone.\r\n",
+        "stdout_lines": [
+            "Reading package lists...",
+            "Building dependency tree...",
+            "Reading state information...",
+            "Calculating upgrade...",
+            "The following packages will be upgraded:",
+            "  apt apt-utils base-files bash bsdutils ca-certificates distro-info-data",
+            "  fdisk gcc-10-base gir1.2-glib-2.0 less libapparmor1 libapt-pkg6.0 libblkid1",
+            "  libc-bin libc6 libcryptsetup12 libdns-export1109 libfdisk1 libgcc-s1",
+            "  libgirepository-1.0-1 libglib2.0-data libgnutls30 libisc-export1105",
+            "  libjson-c4 liblzma5 libmount1 libnetplan0 libnss-systemd libpam-modules",
+            "  libpam-modules-bin libpam-runtime libpam-systemd libpam0g",
+            "  libpython3.8-minimal libpython3.8-stdlib libseccomp2 libsmartcols1",
+            "  libsqlite3-0 libstdc++6 libsystemd0 libudev1 libuuid1 locales login mount",
+            "  netplan.io passwd python3.8 python3.8-minimal rsyslog sudo systemd",
+            "  systemd-sysv systemd-timesyncd tzdata ubuntu-minimal udev util-linux",
+            "  xz-utils zlib1g",
+            "61 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.",
+            "Need to get 29.3 MB of archives.",
+            "After this operation, 196 kB of additional disk space will be used.",
+            "Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc6 amd64 2.31-0ubuntu9.1 [2712 kB]",
+            "Get:2 http://security.ubuntu.com/ubuntu focal-security/main amd64 gcc-10-base amd64 10.2.0-5ubuntu1~20.04 [19.7 kB]",
+            "Get:3 http://security.ubuntu.com/ubuntu focal-security/main amd64 libgcc-s1 amd64 10.2.0-5ubuntu1~20.04 [41.6 kB]",
+            "Get:4 http://security.ubuntu.com/ubuntu focal-security/main amd64 libstdc++6 amd64 10.2.0-5ubuntu1~20.04 [503 kB]",
+            "Get:5 http://security.ubuntu.com/ubuntu focal-security/main amd64 libjson-c4 amd64 0.13.1+dfsg-7ubuntu0.3 [29.3 kB]",
+            "Get:6 http://security.ubuntu.com/ubuntu focal-security/main amd64 libcryptsetup12 amd64 2:2.2.2-3ubuntu2.2 [182 kB]",
+            "Get:7 http://security.ubuntu.com/ubuntu focal-security/main amd64 libgnutls30 amd64 3.6.13-2ubuntu1.3 [828 kB]",
+            "Get:8 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 base-files amd64 11ubuntu5.2 [60.7 kB]",
+            "Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 bash amd64 5.0-6ubuntu1.1 [638 kB]",
+            "Get:10 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 bsdutils amd64 1:2.34-0.1ubuntu9.1 [63.1 kB]",
+            "Get:11 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 login amd64 1:4.8.1-1ubuntu5.20.04 [221 kB]",
+            "Get:12 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libblkid1 amd64 2.34-0.1ubuntu9.1 [137 kB]",
+            "Get:13 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libuuid1 amd64 2.34-0.1ubuntu9.1 [20.0 kB]",
+            "Get:14 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libfdisk1 amd64 2.34-0.1ubuntu9.1 [175 kB]",
+            "Get:15 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libmount1 amd64 2.34-0.1ubuntu9.1 [149 kB]",
+            "Get:16 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libsmartcols1 amd64 2.34-0.1ubuntu9.1 [100 kB]",
+            "Get:17 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 fdisk amd64 2.34-0.1ubuntu9.1 [119 kB]",
+            "Get:18 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 util-linux amd64 2.34-0.1ubuntu9.1 [1021 kB]",
+            "Get:19 http://security.ubuntu.com/ubuntu focal-security/main amd64 libseccomp2 amd64 2.4.3-1ubuntu3.20.04.3 [42.4 kB]",
+            "Get:20 http://security.ubuntu.com/ubuntu focal-security/main amd64 libapt-pkg6.0 amd64 2.0.2ubuntu0.1 [832 kB]",
+            "Get:21 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 locales all 2.31-0ubuntu9.1 [3868 kB]",
+            "Get:22 http://security.ubuntu.com/ubuntu focal-security/main amd64 apt amd64 2.0.2ubuntu0.1 [1290 kB]",
+            "Get:23 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libc-bin amd64 2.31-0ubuntu9.1 [637 kB]",
+            "Get:24 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 liblzma5 amd64 5.2.4-1ubuntu1 [91.7 kB]",
+            "Get:25 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 udev amd64 245.4-4ubuntu3.2 [1363 kB]",
+            "Get:26 http://security.ubuntu.com/ubuntu focal-security/main amd64 apt-utils amd64 2.0.2ubuntu0.1 [214 kB]",
+            "Get:27 http://security.ubuntu.com/ubuntu focal-security/main amd64 python3.8 amd64 3.8.5-1~20.04 [373 kB]",
+            "Get:28 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libudev1 amd64 245.4-4ubuntu3.2 [78.9 kB]",
+            "Get:29 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd-sysv amd64 245.4-4ubuntu3.2 [10.3 kB]",
+            "Get:30 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd-timesyncd amd64 245.4-4ubuntu3.2 [28.0 kB]",
+            "Get:31 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnss-systemd amd64 245.4-4ubuntu3.2 [95.6 kB]",
+            "Get:32 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam0g amd64 1.3.1-5ubuntu4.1 [55.4 kB]",
+            "Get:33 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-modules-bin amd64 1.3.1-5ubuntu4.1 [37.6 kB]",
+            "Get:34 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-modules amd64 1.3.1-5ubuntu4.1 [250 kB]",
+            "Get:35 http://security.ubuntu.com/ubuntu focal-security/main amd64 libpython3.8-stdlib amd64 3.8.5-1~20.04 [1671 kB]",
+            "Get:36 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-runtime all 1.3.1-5ubuntu4.1 [37.3 kB]",
+            "Get:37 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libpam-systemd amd64 245.4-4ubuntu3.2 [186 kB]",
+            "Get:38 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libapparmor1 amd64 2.13.3-7ubuntu5.1 [34.1 kB]",
+            "Get:39 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 mount amd64 2.34-0.1ubuntu9.1 [115 kB]",
+            "Get:40 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 systemd amd64 245.4-4ubuntu3.2 [3796 kB]",
+            "Get:41 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libsystemd0 amd64 245.4-4ubuntu3.2 [271 kB]",
+            "Get:42 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 zlib1g amd64 1:1.2.11.dfsg-2ubuntu1.1 [53.5 kB]",
+            "Get:43 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 rsyslog amd64 8.2001.0-1ubuntu1.1 [427 kB]",
+            "Get:44 http://security.ubuntu.com/ubuntu focal-security/main amd64 python3.8-minimal amd64 3.8.5-1~20.04 [1898 kB]",
+            "Get:45 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 passwd amd64 1:4.8.1-1ubuntu5.20.04 [797 kB]",
+            "Get:46 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 distro-info-data all 0.43ubuntu1.1 [4584 B]",
+            "Get:47 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libgirepository-1.0-1 amd64 1.64.1-1~ubuntu20.04.1 [85.7 kB]",
+            "Get:48 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 gir1.2-glib-2.0 amd64 1.64.1-1~ubuntu20.04.1 [134 kB]",
+            "Get:49 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 less amd64 551-1ubuntu0.1 [123 kB]",
+            "Get:50 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libisc-export1105 amd64 1:9.11.16+dfsg-3~ubuntu1 [175 kB]",
+            "Get:51 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libdns-export1109 amd64 1:9.11.16+dfsg-3~ubuntu1 [765 kB]",
+            "Get:52 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libglib2.0-data all 2.64.3-1~ubuntu20.04.1 [5752 B]",
+            "Get:53 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libnetplan0 amd64 0.99-0ubuntu3~20.04.2 [22.7 kB]",
+            "Get:54 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 netplan.io amd64 0.99-0ubuntu3~20.04.2 [70.9 kB]",
+            "Get:55 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 sudo amd64 1.8.31-1ubuntu1.1 [513 kB]",
+            "Get:56 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 ubuntu-minimal amd64 1.450.2 [2752 B]",
+            "Get:57 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 xz-utils amd64 5.2.4-1ubuntu1 [82.5 kB]",
+            "Get:58 http://security.ubuntu.com/ubuntu focal-security/main amd64 libpython3.8-minimal amd64 3.8.5-1~20.04 [714 kB]",
+            "Get:59 http://security.ubuntu.com/ubuntu focal-security/main amd64 libsqlite3-0 amd64 3.31.1-4ubuntu0.2 [549 kB]",
+            "Get:60 http://security.ubuntu.com/ubuntu focal-security/main amd64 ca-certificates all 20190110ubuntu1.1 [145 kB]",
+            "Get:61 http://security.ubuntu.com/ubuntu focal-security/main amd64 tzdata all 2020a-0ubuntu0.20.04 [293 kB]",
+            "Preconfiguring packages ...",
+            "Fetched 29.3 MB in 18s (1606 kB/s)",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13486 files and directories currently installed.)",
+            "Preparing to unpack .../gcc-10-base_10.2.0-5ubuntu1~20.04_amd64.deb ...",
+            "Unpacking gcc-10-base:amd64 (10.2.0-5ubuntu1~20.04) over (10-20200411-0ubuntu1) ...",
+            "Setting up gcc-10-base:amd64 (10.2.0-5ubuntu1~20.04) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13486 files and directories currently installed.)",
+            "Preparing to unpack .../libgcc-s1_10.2.0-5ubuntu1~20.04_amd64.deb ...",
+            "Unpacking libgcc-s1:amd64 (10.2.0-5ubuntu1~20.04) over (10-20200411-0ubuntu1) ...",
+            "Setting up libgcc-s1:amd64 (10.2.0-5ubuntu1~20.04) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13486 files and directories currently installed.)",
+            "Preparing to unpack .../libstdc++6_10.2.0-5ubuntu1~20.04_amd64.deb ...",
+            "Unpacking libstdc++6:amd64 (10.2.0-5ubuntu1~20.04) over (10-20200411-0ubuntu1) ...",
+            "Setting up libstdc++6:amd64 (10.2.0-5ubuntu1~20.04) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13486 files and directories currently installed.)",
+            "Preparing to unpack .../libc6_2.31-0ubuntu9.1_amd64.deb ...",
+            "Unpacking libc6:amd64 (2.31-0ubuntu9.1) over (2.31-0ubuntu9) ...",
+            "Setting up libc6:amd64 (2.31-0ubuntu9.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13486 files and directories currently installed.)",
+            "Preparing to unpack .../base-files_11ubuntu5.2_amd64.deb ...",
+            "Unpacking base-files (11ubuntu5.2) over (11ubuntu5) ...",
+            "Setting up base-files (11ubuntu5.2) ...",
+            "Installing new version of config file /etc/issue ...",
+            "Installing new version of config file /etc/issue.net ...",
+            "Installing new version of config file /etc/lsb-release ...",
+            "Installing new version of config file /etc/update-motd.d/50-motd-news ...",
+            "Removing obsolete conffile /etc/default/motd-news ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../bash_5.0-6ubuntu1.1_amd64.deb ...",
+            "Unpacking bash (5.0-6ubuntu1.1) over (5.0-6ubuntu1) ...",
+            "Setting up bash (5.0-6ubuntu1.1) ...",
+            "update-alternatives: using /usr/share/man/man7/bash-builtins.7.gz to provide /usr/share/man/man7/builtins.7.gz (builtins.7.gz) in auto mode",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../bsdutils_1%3a2.34-0.1ubuntu9.1_amd64.deb ...",
+            "Unpacking bsdutils (1:2.34-0.1ubuntu9.1) over (1:2.34-0.1ubuntu9) ...",
+            "Setting up bsdutils (1:2.34-0.1ubuntu9.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../login_1%3a4.8.1-1ubuntu5.20.04_amd64.deb ...",
+            "Unpacking login (1:4.8.1-1ubuntu5.20.04) over (1:4.8.1-1ubuntu5) ...",
+            "Setting up login (1:4.8.1-1ubuntu5.20.04) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../libblkid1_2.34-0.1ubuntu9.1_amd64.deb ...",
+            "Unpacking libblkid1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...",
+            "Setting up libblkid1:amd64 (2.34-0.1ubuntu9.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../libuuid1_2.34-0.1ubuntu9.1_amd64.deb ...",
+            "Unpacking libuuid1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...",
+            "Setting up libuuid1:amd64 (2.34-0.1ubuntu9.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../libfdisk1_2.34-0.1ubuntu9.1_amd64.deb ...",
+            "Unpacking libfdisk1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...",
+            "Preparing to unpack .../libmount1_2.34-0.1ubuntu9.1_amd64.deb ...",
+            "Unpacking libmount1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...",
+            "Setting up libmount1:amd64 (2.34-0.1ubuntu9.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../libsmartcols1_2.34-0.1ubuntu9.1_amd64.deb ...",
+            "Unpacking libsmartcols1:amd64 (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...",
+            "Setting up libsmartcols1:amd64 (2.34-0.1ubuntu9.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../fdisk_2.34-0.1ubuntu9.1_amd64.deb ...",
+            "Unpacking fdisk (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...",
+            "Preparing to unpack .../util-linux_2.34-0.1ubuntu9.1_amd64.deb ...",
+            "Unpacking util-linux (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...",
+            "Setting up util-linux (2.34-0.1ubuntu9.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../locales_2.31-0ubuntu9.1_all.deb ...",
+            "Unpacking locales (2.31-0ubuntu9.1) over (2.31-0ubuntu9) ...",
+            "Preparing to unpack .../libc-bin_2.31-0ubuntu9.1_amd64.deb ...",
+            "Unpacking libc-bin (2.31-0ubuntu9.1) over (2.31-0ubuntu9) ...",
+            "Setting up libc-bin (2.31-0ubuntu9.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../liblzma5_5.2.4-1ubuntu1_amd64.deb ...",
+            "Unpacking liblzma5:amd64 (5.2.4-1ubuntu1) over (5.2.4-1) ...",
+            "Setting up liblzma5:amd64 (5.2.4-1ubuntu1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../udev_245.4-4ubuntu3.2_amd64.deb ...",
+            "Unpacking udev (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...",
+            "Preparing to unpack .../libudev1_245.4-4ubuntu3.2_amd64.deb ...",
+            "Unpacking libudev1:amd64 (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...",
+            "Setting up libudev1:amd64 (245.4-4ubuntu3.2) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../systemd-sysv_245.4-4ubuntu3.2_amd64.deb ...",
+            "Unpacking systemd-sysv (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...",
+            "Preparing to unpack .../systemd-timesyncd_245.4-4ubuntu3.2_amd64.deb ...",
+            "Unpacking systemd-timesyncd (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...",
+            "Preparing to unpack .../libnss-systemd_245.4-4ubuntu3.2_amd64.deb ...",
+            "Unpacking libnss-systemd:amd64 (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...",
+            "Preparing to unpack .../libpam0g_1.3.1-5ubuntu4.1_amd64.deb ...",
+            "Unpacking libpam0g:amd64 (1.3.1-5ubuntu4.1) over (1.3.1-5ubuntu4) ...",
+            "Setting up libpam0g:amd64 (1.3.1-5ubuntu4.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../libpam-modules-bin_1.3.1-5ubuntu4.1_amd64.deb ...",
+            "Unpacking libpam-modules-bin (1.3.1-5ubuntu4.1) over (1.3.1-5ubuntu4) ...",
+            "Setting up libpam-modules-bin (1.3.1-5ubuntu4.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../libpam-modules_1.3.1-5ubuntu4.1_amd64.deb ...",
+            "Unpacking libpam-modules:amd64 (1.3.1-5ubuntu4.1) over (1.3.1-5ubuntu4) ...",
+            "Setting up libpam-modules:amd64 (1.3.1-5ubuntu4.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../libpam-runtime_1.3.1-5ubuntu4.1_all.deb ...",
+            "Unpacking libpam-runtime (1.3.1-5ubuntu4.1) over (1.3.1-5ubuntu4) ...",
+            "Setting up libpam-runtime (1.3.1-5ubuntu4.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../libpam-systemd_245.4-4ubuntu3.2_amd64.deb ...",
+            "Unpacking libpam-systemd:amd64 (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...",
+            "Preparing to unpack .../libapparmor1_2.13.3-7ubuntu5.1_amd64.deb ...",
+            "Unpacking libapparmor1:amd64 (2.13.3-7ubuntu5.1) over (2.13.3-7ubuntu5) ...",
+            "Preparing to unpack .../libjson-c4_0.13.1+dfsg-7ubuntu0.3_amd64.deb ...",
+            "Unpacking libjson-c4:amd64 (0.13.1+dfsg-7ubuntu0.3) over (0.13.1+dfsg-7) ...",
+            "Preparing to unpack .../libcryptsetup12_2%3a2.2.2-3ubuntu2.2_amd64.deb ...",
+            "Unpacking libcryptsetup12:amd64 (2:2.2.2-3ubuntu2.2) over (2:2.2.2-3ubuntu2) ...",
+            "Preparing to unpack .../libgnutls30_3.6.13-2ubuntu1.3_amd64.deb ...",
+            "Unpacking libgnutls30:amd64 (3.6.13-2ubuntu1.3) over (3.6.13-2ubuntu1) ...",
+            "Setting up libgnutls30:amd64 (3.6.13-2ubuntu1.3) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../libseccomp2_2.4.3-1ubuntu3.20.04.3_amd64.deb ...",
+            "Unpacking libseccomp2:amd64 (2.4.3-1ubuntu3.20.04.3) over (2.4.3-1ubuntu1) ...",
+            "Setting up libseccomp2:amd64 (2.4.3-1ubuntu3.20.04.3) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../mount_2.34-0.1ubuntu9.1_amd64.deb ...",
+            "Unpacking mount (2.34-0.1ubuntu9.1) over (2.34-0.1ubuntu9) ...",
+            "Preparing to unpack .../systemd_245.4-4ubuntu3.2_amd64.deb ...",
+            "Unpacking systemd (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...",
+            "Preparing to unpack .../libsystemd0_245.4-4ubuntu3.2_amd64.deb ...",
+            "Unpacking libsystemd0:amd64 (245.4-4ubuntu3.2) over (245.4-4ubuntu3) ...",
+            "Setting up libsystemd0:amd64 (245.4-4ubuntu3.2) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../zlib1g_1%3a1.2.11.dfsg-2ubuntu1.1_amd64.deb ...",
+            "Unpacking zlib1g:amd64 (1:1.2.11.dfsg-2ubuntu1.1) over (1:1.2.11.dfsg-2ubuntu1) ...",
+            "Setting up zlib1g:amd64 (1:1.2.11.dfsg-2ubuntu1.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../libapt-pkg6.0_2.0.2ubuntu0.1_amd64.deb ...",
+            "Unpacking libapt-pkg6.0:amd64 (2.0.2ubuntu0.1) over (2.0.2) ...",
+            "Setting up libapt-pkg6.0:amd64 (2.0.2ubuntu0.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../apt_2.0.2ubuntu0.1_amd64.deb ...",
+            "Unpacking apt (2.0.2ubuntu0.1) over (2.0.2) ...",
+            "Setting up apt (2.0.2ubuntu0.1) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../0-apt-utils_2.0.2ubuntu0.1_amd64.deb ...",
+            "Unpacking apt-utils (2.0.2ubuntu0.1) over (2.0.2) ...",
+            "Preparing to unpack .../1-python3.8_3.8.5-1~20.04_amd64.deb ...",
+            "Unpacking python3.8 (3.8.5-1~20.04) over (3.8.2-1ubuntu1) ...",
+            "Preparing to unpack .../2-libpython3.8-stdlib_3.8.5-1~20.04_amd64.deb ...",
+            "Unpacking libpython3.8-stdlib:amd64 (3.8.5-1~20.04) over (3.8.2-1ubuntu1) ...",
+            "Preparing to unpack .../3-python3.8-minimal_3.8.5-1~20.04_amd64.deb ...",
+            "Unpacking python3.8-minimal (3.8.5-1~20.04) over (3.8.2-1ubuntu1) ...",
+            "Preparing to unpack .../4-libpython3.8-minimal_3.8.5-1~20.04_amd64.deb ...",
+            "Unpacking libpython3.8-minimal:amd64 (3.8.5-1~20.04) over (3.8.2-1ubuntu1) ...",
+            "Preparing to unpack .../5-libsqlite3-0_3.31.1-4ubuntu0.2_amd64.deb ...",
+            "Unpacking libsqlite3-0:amd64 (3.31.1-4ubuntu0.2) over (3.31.1-4) ...",
+            "Preparing to unpack .../6-rsyslog_8.2001.0-1ubuntu1.1_amd64.deb ...",
+            "Unpacking rsyslog (8.2001.0-1ubuntu1.1) over (8.2001.0-1ubuntu1) ...",
+            "Preparing to unpack .../7-passwd_1%3a4.8.1-1ubuntu5.20.04_amd64.deb ...",
+            "Unpacking passwd (1:4.8.1-1ubuntu5.20.04) over (1:4.8.1-1ubuntu5) ...",
+            "Setting up passwd (1:4.8.1-1ubuntu5.20.04) ...",
+            "(Reading database ... ",
+            "(Reading database ... 5%",
+            "(Reading database ... 10%",
+            "(Reading database ... 15%",
+            "(Reading database ... 20%",
+            "(Reading database ... 25%",
+            "(Reading database ... 30%",
+            "(Reading database ... 35%",
+            "(Reading database ... 40%",
+            "(Reading database ... 45%",
+            "(Reading database ... 50%",
+            "(Reading database ... 55%",
+            "(Reading database ... 60%",
+            "(Reading database ... 65%",
+            "(Reading database ... 70%",
+            "(Reading database ... 75%",
+            "(Reading database ... 80%",
+            "(Reading database ... 85%",
+            "(Reading database ... 90%",
+            "(Reading database ... 95%",
+            "(Reading database ... 100%",
+            "(Reading database ... 13485 files and directories currently installed.)",
+            "Preparing to unpack .../00-ca-certificates_20190110ubuntu1.1_all.deb ...",
+            "Unpacking ca-certificates (20190110ubuntu1.1) over (20190110ubuntu1) ...",
+            "Preparing to unpack .../01-distro-info-data_0.43ubuntu1.1_all.deb ...",
+            "Unpacking distro-info-data (0.43ubuntu1.1) over (0.43ubuntu1) ...",
+            "Preparing to unpack .../02-libgirepository-1.0-1_1.64.1-1~ubuntu20.04.1_amd64.deb ...",
+            "Unpacking libgirepository-1.0-1:amd64 (1.64.1-1~ubuntu20.04.1) over (1.64.0-2) ...",
+            "Preparing to unpack .../03-gir1.2-glib-2.0_1.64.1-1~ubuntu20.04.1_amd64.deb ...",
+            "Unpacking gir1.2-glib-2.0:amd64 (1.64.1-1~ubuntu20.04.1) over (1.64.0-2) ...",
+            "Preparing to unpack .../04-less_551-1ubuntu0.1_amd64.deb ...",
+            "Unpacking less (551-1ubuntu0.1) over (551-1) ...",
+            "Preparing to unpack .../05-libisc-export1105_1%3a9.11.16+dfsg-3~ubuntu1_amd64.deb ...",
+            "Unpacking libisc-export1105:amd64 (1:9.11.16+dfsg-3~ubuntu1) over (1:9.11.16+dfsg-3~build1) ...",
+            "Preparing to unpack .../06-libdns-export1109_1%3a9.11.16+dfsg-3~ubuntu1_amd64.deb ...",
+            "Unpacking libdns-export1109 (1:9.11.16+dfsg-3~ubuntu1) over (1:9.11.16+dfsg-3~build1) ...",
+            "Preparing to unpack .../07-libglib2.0-data_2.64.3-1~ubuntu20.04.1_all.deb ...",
+            "Unpacking libglib2.0-data (2.64.3-1~ubuntu20.04.1) over (2.64.2-1~fakesync1) ...",
+            "Preparing to unpack .../08-libnetplan0_0.99-0ubuntu3~20.04.2_amd64.deb ...",
+            "Unpacking libnetplan0:amd64 (0.99-0ubuntu3~20.04.2) over (0.99-0ubuntu1) ...",
+            "Preparing to unpack .../09-netplan.io_0.99-0ubuntu3~20.04.2_amd64.deb ...",
+            "Unpacking netplan.io (0.99-0ubuntu3~20.04.2) over (0.99-0ubuntu1) ...",
+            "Preparing to unpack .../10-sudo_1.8.31-1ubuntu1.1_amd64.deb ...",
+            "Unpacking sudo (1.8.31-1ubuntu1.1) over (1.8.31-1ubuntu1) ...",
+            "Preparing to unpack .../11-tzdata_2020a-0ubuntu0.20.04_all.deb ...",
+            "Unpacking tzdata (2020a-0ubuntu0.20.04) over (2019c-3ubuntu1) ...",
+            "Preparing to unpack .../12-ubuntu-minimal_1.450.2_amd64.deb ...",
+            "Unpacking ubuntu-minimal (1.450.2) over (1.450) ...",
+            "Preparing to unpack .../13-xz-utils_5.2.4-1ubuntu1_amd64.deb ...",
+            "Unpacking xz-utils (5.2.4-1ubuntu1) over (5.2.4-1) ...",
+            "Setting up libapparmor1:amd64 (2.13.3-7ubuntu5.1) ...",
+            "Setting up libpython3.8-minimal:amd64 (3.8.5-1~20.04) ...",
+            "Setting up apt-utils (2.0.2ubuntu0.1) ...",
+            "Setting up distro-info-data (0.43ubuntu1.1) ...",
+            "Setting up libsqlite3-0:amd64 (3.31.1-4ubuntu0.2) ...",
+            "Setting up rsyslog (8.2001.0-1ubuntu1.1) ...",
+            "The user `syslog' is already a member of `adm'.",
+            "Adding user `syslog' to group `tty' ...",
+            "Adding user syslog to group tty",
+            "Done.",
+            "Running in chroot, ignoring request.",
+            "Setting up less (551-1ubuntu0.1) ...",
+            "Setting up libnetplan0:amd64 (0.99-0ubuntu3~20.04.2) ...",
+            "Setting up locales (2.31-0ubuntu9.1) ...",
+            "Generating locales (this might take a while)...",
+            "  en_US.UTF-8... done",
+            "Generation complete.",
+            "Setting up tzdata (2020a-0ubuntu0.20.04) ...",
+            "",
+            "Current default time zone: 'Etc/UTC'",
+            "Local time is now:      Tue Oct 20 04:44:07 UTC 2020.",
+            "Universal Time is now:  Tue Oct 20 04:44:07 UTC 2020.",
+            "Run 'dpkg-reconfigure tzdata' if you wish to change it.",
+            "",
+            "Setting up ca-certificates (20190110ubuntu1.1) ...",
+            "Updating certificates in /etc/ssl/certs...",
+            "0 added, 1 removed; done.",
+            "Setting up libisc-export1105:amd64 (1:9.11.16+dfsg-3~ubuntu1) ...",
+            "Setting up libglib2.0-data (2.64.3-1~ubuntu20.04.1) ...",
+            "Setting up xz-utils (5.2.4-1ubuntu1) ...",
+            "Setting up udev (245.4-4ubuntu3.2) ...",
+            "A chroot environment has been detected, udev not started.",
+            "Setting up sudo (1.8.31-1ubuntu1.1) ...",
+            "Setting up libfdisk1:amd64 (2.34-0.1ubuntu9.1) ...",
+            "Setting up python3.8-minimal (3.8.5-1~20.04) ...",
+            "Setting up mount (2.34-0.1ubuntu9.1) ...",
+            "Setting up libgirepository-1.0-1:amd64 (1.64.1-1~ubuntu20.04.1) ...",
+            "Setting up libjson-c4:amd64 (0.13.1+dfsg-7ubuntu0.3) ...",
+            "Setting up libpython3.8-stdlib:amd64 (3.8.5-1~20.04) ...",
+            "Setting up python3.8 (3.8.5-1~20.04) ...",
+            "Setting up libdns-export1109 (1:9.11.16+dfsg-3~ubuntu1) ...",
+            "Setting up fdisk (2.34-0.1ubuntu9.1) ...",
+            "Setting up gir1.2-glib-2.0:amd64 (1.64.1-1~ubuntu20.04.1) ...",
+            "Setting up libcryptsetup12:amd64 (2:2.2.2-3ubuntu2.2) ...",
+            "Setting up systemd (245.4-4ubuntu3.2) ...",
+            "Setting up netplan.io (0.99-0ubuntu3~20.04.2) ...",
+            "Setting up systemd-timesyncd (245.4-4ubuntu3.2) ...",
+            "Setting up systemd-sysv (245.4-4ubuntu3.2) ...",
+            "Setting up ubuntu-minimal (1.450.2) ...",
+            "Setting up libnss-systemd:amd64 (245.4-4ubuntu3.2) ...",
+            "Setting up libpam-systemd:amd64 (245.4-4ubuntu3.2) ...",
+            "Processing triggers for mime-support (3.64ubuntu1) ...",
+            "Processing triggers for libc-bin (2.31-0ubuntu9.1) ...",
+            "Processing triggers for dbus (1.12.16-2ubuntu2.1) ...",
+            "Processing triggers for ca-certificates (20190110ubuntu1.1) ...",
+            "Updating certificates in /etc/ssl/certs...",
+            "0 added, 0 removed; done.",
+            "Running hooks in /etc/ca-certificates/update.d...",
+            "done."
+        ]
+    }
+}
+2020-10-20 04:44:12,756 p=54711 u=root n=ansible | TASK [02-chroot : debug] ****************************************************************************************************************
+2020-10-20 04:44:12,757 p=54711 u=root n=ansible | ok: [/mnt/install/] => {
+    "<class 'list'>": "VARIABLE IS NOT DEFINED!"
+}
+2020-10-20 04:44:16,390 p=54711 u=root n=ansible | TASK [02-chroot : update apt cache] *****************************************************************************************************
+2020-10-20 04:44:16,390 p=54711 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 04:46:57,297 p=54711 u=root n=ansible | TASK [02-chroot : install linux-image-generic] ******************************************************************************************
+2020-10-20 04:46:57,297 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:48:30,984 p=54711 u=root n=ansible | TASK [02-chroot : install linux-headers-generic] ****************************************************************************************
+2020-10-20 04:48:30,984 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:48:31,248 p=54711 u=root n=ansible | TASK [02-chroot : zfs-dkms note-incompatible-licenses note true] ************************************************************************
+2020-10-20 04:48:31,248 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:51:52,460 p=54711 u=root n=ansible | TASK [02-chroot : install zfs-dkms] *****************************************************************************************************
+2020-10-20 04:51:52,461 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:51:55,542 p=54711 u=root n=ansible | TASK [02-chroot : install zfs-initramfs] ************************************************************************************************
+2020-10-20 04:51:55,542 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:51:57,994 p=54711 u=root n=ansible | TASK [02-chroot : apt] ******************************************************************************************************************
+2020-10-20 04:51:57,994 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:52:06,027 p=54711 u=root n=ansible | TASK [02-chroot : install grub-efi-amd64] ***********************************************************************************************
+2020-10-20 04:52:06,028 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:52:07,000 p=54711 u=root n=ansible | TASK [02-chroot : apt] ******************************************************************************************************************
+2020-10-20 04:52:07,000 p=54711 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 04:52:10,431 p=54711 u=root n=ansible | TASK [02-chroot : apt] ******************************************************************************************************************
+2020-10-20 04:52:10,431 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:52:14,528 p=54711 u=root n=ansible | TASK [02-chroot : apt] ******************************************************************************************************************
+2020-10-20 04:52:14,528 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:52:14,757 p=54711 u=root n=ansible | TASK [02-chroot : update fstab with /boot volume] ***************************************************************************************
+2020-10-20 04:52:14,758 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part2)
+2020-10-20 04:52:14,948 p=54711 u=root n=ansible | TASK [02-chroot : update fstab with efi partitions] *************************************************************************************
+2020-10-20 04:52:14,948 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part1)
+2020-10-20 04:52:15,141 p=54711 u=root n=ansible | TASK [02-chroot : update crypttab with cryptsetup partitions] ***************************************************************************
+2020-10-20 04:52:15,141 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=/dev/disk/by-id/scsi-36000c29d97607f42b9651c5636f50e71-part3)
+2020-10-20 04:52:15,312 p=54711 u=root n=ansible | TASK [02-chroot : update fstab with cryptsetup partitions] ******************************************************************************
+2020-10-20 04:52:15,312 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:52:16,073 p=54711 u=root n=ansible | TASK [02-chroot : install grub-efi-amd64] ***********************************************************************************************
+2020-10-20 04:52:16,073 p=54711 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 04:52:16,714 p=54711 u=root n=ansible | TASK [02-chroot : set root password] ****************************************************************************************************
+2020-10-20 04:52:16,714 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:52:17,220 p=54711 u=root n=ansible | TASK [02-chroot : zfs-import-scan.service start and enabled] ****************************************************************************
+2020-10-20 04:52:17,220 p=54711 u=root n=ansible | [WARNING]: Target is a chroot. This can lead to false positives or prevent the init system tools from working.
+
+2020-10-20 04:52:17,220 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:52:17,392 p=54711 u=root n=ansible | TASK [02-chroot : Example1: Validate if a String or line is present in the file] ********************************************************
+2020-10-20 04:52:17,393 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=mkdir /boot/cryptstore -p)
+2020-10-20 04:52:17,518 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=mount /dev/sda3 /boot/cryptstore)
+2020-10-20 04:52:17,642 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=$ZFS load-key rpool)
+2020-10-20 04:52:42,317 p=54711 u=root n=ansible | TASK [02-chroot : command] **************************************************************************************************************
+2020-10-20 04:52:42,318 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:52:42,602 p=54711 u=root n=ansible | TASK [02-chroot : modify /etc/default/grub] *********************************************************************************************
+2020-10-20 04:52:42,603 p=54711 u=root n=ansible | ok: [/mnt/install/] => (item={'regex': '^(GRUB_HIDDEN_TIMEOUT.*)', 'replace': '#\\1'})
+2020-10-20 04:52:42,730 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item={'regex': '^GRUB_CMDLINE_LINUX_DEFAULT=.*', 'replace': 'GRUB_CMDLINE_LINUX_DEFAULT=""'})
+2020-10-20 04:52:42,851 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item={'regex': '^GRUB_CMDLINE_LINUX=.*', 'replace': 'GRUB_CMDLINE_LINUX="root=ZFS=rpool/root"'})
+2020-10-20 04:52:42,976 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item={'regex': '^#(GRUB_TERMINAL.*)', 'replace': '\\1'})
+2020-10-20 04:52:42,977 p=54711 u=root n=ansible | [WARNING]: Module remote_tmp /root/.ansible/tmp did not exist and was created with a mode of 0700, this may cause issues when running as
+another user. To avoid this, create the remote_tmp dir with the correct permissions manually
+
+2020-10-20 04:52:43,124 p=54711 u=root n=ansible | TASK [02-chroot : command] **************************************************************************************************************
+2020-10-20 04:52:43,124 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:53:14,187 p=54711 u=root n=ansible | TASK [02-chroot : command] **************************************************************************************************************
+2020-10-20 04:53:14,187 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:53:14,888 p=54711 u=root n=ansible | TASK [02-chroot : install grub efi on primary disk] *************************************************************************************
+2020-10-20 04:53:14,889 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:53:15,168 p=54711 u=root n=ansible | TASK [02-chroot : ensure zfs.target starts on boot] *************************************************************************************
+2020-10-20 04:53:15,169 p=54711 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 04:53:15,473 p=54711 u=root n=ansible | TASK [02-chroot : Creates an entry like "@reboot /some/job.sh"] *************************************************************************
+2020-10-20 04:53:15,474 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:53:19,809 p=54711 u=root n=ansible | TASK [02-chroot : Install OpenSSH server] ***********************************************************************************************
+2020-10-20 04:53:19,809 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:53:19,952 p=54711 u=root n=ansible | TASK [02-chroot : Ensure Ed25519 host key is present] ***********************************************************************************
+2020-10-20 04:53:19,952 p=54711 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 04:53:20,520 p=54711 u=root n=ansible | TASK [02-chroot : Generate SSHD config] *************************************************************************************************
+2020-10-20 04:53:20,520 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:53:21,008 p=54711 u=root n=ansible | TASK [02-chroot : Adding user sudo] *****************************************************************************************************
+2020-10-20 04:53:21,008 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:53:24,348 p=54711 u=root n=ansible | TASK [02-chroot : Ensure specified packages are in there desired state] *****************************************************************
+2020-10-20 04:53:24,349 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=gdisk)
+2020-10-20 04:53:52,137 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=ansible)
+2020-10-20 04:53:53,002 p=54711 u=root n=ansible | ok: [/mnt/install/] => (item=openssh-server)
+2020-10-20 04:53:57,518 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=mc)
+2020-10-20 04:53:59,662 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=ssh)
+2020-10-20 04:54:02,100 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=nano)
+2020-10-20 04:54:05,372 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=lshw)
+2020-10-20 04:54:08,097 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=rsync)
+2020-10-20 04:54:10,253 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=ncdu)
+2020-10-20 04:54:12,521 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=ethtool)
+2020-10-20 04:54:13,278 p=54711 u=root n=ansible | ok: [/mnt/install/] => (item=wget)
+2020-10-20 04:54:21,192 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=git)
+2020-10-20 04:54:23,310 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=gpart)
+2020-10-20 04:54:52,597 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=gparted)
+2020-10-20 04:54:55,146 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=ssh-askpass)
+2020-10-20 04:54:57,757 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=net-tools)
+2020-10-20 04:55:00,078 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=tree)
+2020-10-20 04:55:02,382 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=htop)
+2020-10-20 04:55:05,267 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=strace)
+2020-10-20 04:55:07,984 p=54711 u=root n=ansible | changed: [/mnt/install/] => (item=p7zip-full)
+2020-10-20 04:55:08,359 p=54711 u=root n=ansible | TASK [02-chroot : Create a snapshot of rpool/root file system.] *************************************************************************
+2020-10-20 04:55:08,359 p=54711 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 04:55:08,542 p=54711 u=root n=ansible | RUNNING HANDLER [02-chroot : Test and restart SSHD] *************************************************************************************
+2020-10-20 04:55:08,543 p=54711 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"changed": true, "cmd": ["sshd", "-t"], "delta": "0:00:00.034574", "end": "2020-10-20 04:55:08.528725", "msg": "non-zero return code", "rc": 255, "start": "2020-10-20 04:55:08.494151", "stderr": "/etc/ssh/sshd_config line 13: Deprecated option UsePrivilegeSeparation\r\n/etc/ssh/sshd_config line 14: Deprecated option KeyRegenerationInterval\r\n/etc/ssh/sshd_config line 15: Deprecated option ServerKeyBits\r\n/etc/ssh/sshd_config line 21: Deprecated option RSAAuthentication\r\n/etc/ssh/sshd_config line 25: Deprecated option RhostsRSAAuthentication\r\nMissing privilege separation directory: /run/sshd", "stderr_lines": ["/etc/ssh/sshd_config line 13: Deprecated option UsePrivilegeSeparation", "/etc/ssh/sshd_config line 14: Deprecated option KeyRegenerationInterval", "/etc/ssh/sshd_config line 15: Deprecated option ServerKeyBits", "/etc/ssh/sshd_config line 21: Deprecated option RSAAuthentication", "/etc/ssh/sshd_config line 25: Deprecated option RhostsRSAAuthentication", "Missing privilege separation directory: /run/sshd"], "stdout": "", "stdout_lines": []}
+2020-10-20 04:55:08,549 p=54711 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_2.live_chroot_zfs.retry
+
+2020-10-20 04:55:08,549 p=54711 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************
+2020-10-20 04:55:08,549 p=54711 u=root n=ansible | /mnt/install/              : ok=43   changed=34   unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-10-20 05:07:26,575 p=113902 u=root n=ansible | PLAY [chroot] ***************************************************************************************************************************************************************
+2020-10-20 05:07:27,441 p=113902 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************
+2020-10-20 05:07:27,442 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:27,528 p=113902 u=root n=ansible | TASK [02-chroot : debug] ****************************************************************************************************************************************************
+2020-10-20 05:07:27,529 p=113902 u=root n=ansible | ok: [/mnt/install/] => {
+    "_efi|default(false)|bool == true": true
+}
+2020-10-20 05:07:27,608 p=113902 u=root n=ansible | TASK [02-chroot : debug] ****************************************************************************************************************************************************
+2020-10-20 05:07:27,608 p=113902 u=root n=ansible | ok: [/mnt/install/] => {
+    "_efi|default(false)|bool == true": true
+}
+2020-10-20 05:07:28,451 p=113902 u=root n=ansible | TASK [02-chroot : apt] ******************************************************************************************************************************************************
+2020-10-20 05:07:28,452 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:29,033 p=113902 u=root n=ansible | TASK [02-chroot : command] **************************************************************************************************************************************************
+2020-10-20 05:07:29,033 p=113902 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 05:07:29,281 p=113902 u=root n=ansible | TASK [02-chroot : install locales] ******************************************************************************************************************************************
+2020-10-20 05:07:29,282 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=en_US.UTF-8)
+2020-10-20 05:07:29,523 p=113902 u=root n=ansible | TASK [02-chroot : set LANG in /etc/default/locale] **************************************************************************************************************************
+2020-10-20 05:07:29,524 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:29,882 p=113902 u=root n=ansible | TASK [02-chroot : set timezone] *********************************************************************************************************************************************
+2020-10-20 05:07:29,883 p=113902 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 05:07:30,111 p=113902 u=root n=ansible | TASK [02-chroot : ln -s /proc/self/mounts /etc/mtab] ************************************************************************************************************************
+2020-10-20 05:07:30,112 p=113902 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 05:07:31,035 p=113902 u=root n=ansible | TASK [02-chroot : ensure live system has necessary packages installed] ******************************************************************************************************
+2020-10-20 05:07:31,035 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:31,083 p=113902 u=root n=ansible | TASK [02-chroot : debug] ****************************************************************************************************************************************************
+2020-10-20 05:07:31,083 p=113902 u=root n=ansible | ok: [/mnt/install/] => {
+    "apt_out": {
+        "changed": false,
+        "failed": false,
+        "msg": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nCalculating upgrade...\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\n",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nCalculating upgrade...\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.\n",
+        "stdout_lines": [
+            "Reading package lists...",
+            "Building dependency tree...",
+            "Reading state information...",
+            "Calculating upgrade...",
+            "0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded."
+        ]
+    }
+}
+2020-10-20 05:07:31,132 p=113902 u=root n=ansible | TASK [02-chroot : debug] ****************************************************************************************************************************************************
+2020-10-20 05:07:31,133 p=113902 u=root n=ansible | ok: [/mnt/install/] => {
+    "<class 'list'>": "VARIABLE IS NOT DEFINED!"
+}
+2020-10-20 05:07:32,904 p=113902 u=root n=ansible | TASK [02-chroot : update apt cache] *****************************************************************************************************************************************
+2020-10-20 05:07:32,905 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:33,633 p=113902 u=root n=ansible | TASK [02-chroot : install linux-image-generic] ******************************************************************************************************************************
+2020-10-20 05:07:33,633 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:34,345 p=113902 u=root n=ansible | TASK [02-chroot : install linux-headers-generic] ****************************************************************************************************************************
+2020-10-20 05:07:34,346 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:34,560 p=113902 u=root n=ansible | TASK [02-chroot : zfs-dkms note-incompatible-licenses note true] ************************************************************************************************************
+2020-10-20 05:07:34,560 p=113902 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 05:07:35,273 p=113902 u=root n=ansible | TASK [02-chroot : install zfs-dkms] *****************************************************************************************************************************************
+2020-10-20 05:07:35,274 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:36,038 p=113902 u=root n=ansible | TASK [02-chroot : install zfs-initramfs] ************************************************************************************************************************************
+2020-10-20 05:07:36,039 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:36,822 p=113902 u=root n=ansible | TASK [02-chroot : apt] ******************************************************************************************************************************************************
+2020-10-20 05:07:36,822 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:37,561 p=113902 u=root n=ansible | TASK [02-chroot : install grub-efi-amd64] ***********************************************************************************************************************************
+2020-10-20 05:07:37,561 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:38,315 p=113902 u=root n=ansible | TASK [02-chroot : apt] ******************************************************************************************************************************************************
+2020-10-20 05:07:38,315 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:39,058 p=113902 u=root n=ansible | TASK [02-chroot : apt] ******************************************************************************************************************************************************
+2020-10-20 05:07:39,058 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:39,795 p=113902 u=root n=ansible | TASK [02-chroot : apt] ******************************************************************************************************************************************************
+2020-10-20 05:07:39,796 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:40,552 p=113902 u=root n=ansible | TASK [02-chroot : Ensure specified packages are in there desired state] *****************************************************************************************************
+2020-10-20 05:07:40,553 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=gdisk)
+2020-10-20 05:07:41,254 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=ansible)
+2020-10-20 05:07:41,958 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=openssh-server)
+2020-10-20 05:07:42,650 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=mc)
+2020-10-20 05:07:43,346 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=ssh)
+2020-10-20 05:07:44,067 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=nano)
+2020-10-20 05:07:44,781 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=lshw)
+2020-10-20 05:07:45,504 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=rsync)
+2020-10-20 05:07:46,249 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=ncdu)
+2020-10-20 05:07:47,018 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=ethtool)
+2020-10-20 05:07:47,778 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=wget)
+2020-10-20 05:07:48,540 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=git)
+2020-10-20 05:07:49,292 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=gpart)
+2020-10-20 05:07:50,007 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=gparted)
+2020-10-20 05:07:50,739 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=ssh-askpass)
+2020-10-20 05:07:51,482 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=net-tools)
+2020-10-20 05:07:52,211 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=tree)
+2020-10-20 05:07:52,931 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=htop)
+2020-10-20 05:07:53,664 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=strace)
+2020-10-20 05:07:54,445 p=113902 u=root n=ansible | ok: [/mnt/install/] => (item=p7zip-full)
+2020-10-20 05:07:55,197 p=113902 u=root n=ansible | TASK [02-chroot : Install OpenSSH server] ***********************************************************************************************************************************
+2020-10-20 05:07:55,197 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:55,340 p=113902 u=root n=ansible | TASK [02-chroot : Ensure Ed25519 host key is present] ***********************************************************************************************************************
+2020-10-20 05:07:55,340 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:55,792 p=113902 u=root n=ansible | TASK [02-chroot : Generate SSHD config] *************************************************************************************************************************************
+2020-10-20 05:07:55,793 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:07:56,159 p=113902 u=root n=ansible | TASK [02-chroot : Adding user sudo] *****************************************************************************************************************************************
+2020-10-20 05:07:56,159 p=113902 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 05:07:56,209 p=113902 u=root n=ansible | TASK [02-chroot : debug] ****************************************************************************************************************************************************
+2020-10-20 05:07:56,210 p=113902 u=root n=ansible | ok: [/mnt/install/] => {
+    "_efi|default(false)|bool == true": true
+}
+2020-10-20 05:08:21,446 p=113902 u=root n=ansible | TASK [02-chroot : command] **************************************************************************************************************************************************
+2020-10-20 05:08:21,447 p=113902 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 05:08:52,674 p=113902 u=root n=ansible | TASK [02-chroot : command] **************************************************************************************************************************************************
+2020-10-20 05:08:52,674 p=113902 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 05:08:53,193 p=113902 u=root n=ansible | TASK [02-chroot : install grub efi on primary disk] *************************************************************************************************************************
+2020-10-20 05:08:53,193 p=113902 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 05:08:53,478 p=113902 u=root n=ansible | TASK [02-chroot : Creates an entry like "@reboot /some/job.sh"] *************************************************************************************************************
+2020-10-20 05:08:53,478 p=113902 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:08:53,498 p=113902 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************
+2020-10-20 05:08:53,499 p=113902 u=root n=ansible | /mnt/install/              : ok=33   changed=8    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2020-10-20 05:49:47,086 p=125957 u=root n=ansible | PLAY [chroot] ***************************************************************************************************************************************************************
+2020-10-20 05:49:47,926 p=125957 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************
+2020-10-20 05:49:47,926 p=125957 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:49:47,981 p=125957 u=root n=ansible | TASK [02-chroot : debug] ****************************************************************************************************************************************************
+2020-10-20 05:49:47,982 p=125957 u=root n=ansible | ok: [/mnt/install/] => {
+    "_efi|default(false)|bool == true": true
+}
+2020-10-20 05:49:48,021 p=125957 u=root n=ansible | TASK [02-chroot : zfs-load-key@.service] ************************************************************************************************************************************
+2020-10-20 05:49:48,022 p=125957 u=root n=ansible | fatal: [/mnt/install/]: FAILED! => {"changed": false, "msg": "Could not find or access 'systemd/system/zfs-load-key@.service.j2'\nSearched in:\n\t/opt/ansible-crypt-zfs-root/roles/live/02-chroot/templates/systemd/system/zfs-load-key@.service.j2\n\t/opt/ansible-crypt-zfs-root/roles/live/02-chroot/systemd/system/zfs-load-key@.service.j2\n\t/opt/ansible-crypt-zfs-root/roles/live/02-chroot/tasks/templates/systemd/system/zfs-load-key@.service.j2\n\t/opt/ansible-crypt-zfs-root/roles/live/02-chroot/tasks/systemd/system/zfs-load-key@.service.j2\n\t/opt/ansible-crypt-zfs-root/playbooks/templates/systemd/system/zfs-load-key@.service.j2\n\t/opt/ansible-crypt-zfs-root/playbooks/systemd/system/zfs-load-key@.service.j2 on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2020-10-20 05:49:48,027 p=125957 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_2.live_chroot_zfs.retry
+
+2020-10-20 05:49:48,027 p=125957 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************
+2020-10-20 05:49:48,028 p=125957 u=root n=ansible | /mnt/install/              : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-20 05:50:10,448 p=126047 u=root n=ansible | PLAY [chroot] ***************************************************************************************************************************************************************
+2020-10-20 05:50:11,252 p=126047 u=root n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************
+2020-10-20 05:50:11,253 p=126047 u=root n=ansible | ok: [/mnt/install/]
+2020-10-20 05:50:11,308 p=126047 u=root n=ansible | TASK [02-chroot : debug] ****************************************************************************************************************************************************
+2020-10-20 05:50:11,309 p=126047 u=root n=ansible | ok: [/mnt/install/] => {
+    "_efi|default(false)|bool == true": true
+}
+2020-10-20 05:50:11,843 p=126047 u=root n=ansible | TASK [02-chroot : zfs-load-key@.service] ************************************************************************************************************************************
+2020-10-20 05:50:11,843 p=126047 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 05:50:12,304 p=126047 u=root n=ansible | TASK [02-chroot : Start zfs-load-key@.service] ******************************************************************************************************************************
+2020-10-20 05:50:12,304 p=126047 u=root n=ansible | [WARNING]: Target is a chroot. This can lead to false positives or prevent the init system tools from working.
+
+2020-10-20 05:50:12,304 p=126047 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 05:50:12,541 p=126047 u=root n=ansible | RUNNING HANDLER [02-chroot : reload systemctl] ******************************************************************************************************************************
+2020-10-20 05:50:12,541 p=126047 u=root n=ansible | changed: [/mnt/install/]
+2020-10-20 05:50:12,553 p=126047 u=root n=ansible | PLAY RECAP ******************************************************************************************************************************************************************
+2020-10-20 05:50:12,554 p=126047 u=root n=ansible | /mnt/install/              : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
