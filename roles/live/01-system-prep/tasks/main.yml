@@ -17,19 +17,21 @@
 - include_tasks: create_zfs.yml
 
 ##############################################################################################################################################3
-
 - name: format and mount {{ _installdir }}boot
   shell: "mke2fs -t ext2 {{ item }} && mkdir {{ _installdir }}boot && mount {{ item }} {{ _installdir }}boot"
   with_items:
     - "{{ _root_device_list }}{{ _boot_part_append }}"
-  
+  when: _lukscrypt | default(false) | bool != true
+
+- include_tasks: luks.yml
+  when: _lukscrypt | default(false) | bool == true
+
 - name: format and mount {{ _installdir }}boot/efi
   shell: "mkfs.msdos -F 32 -n EFI {{ item }} && mkdir {{ _installdir }}boot/efi && mount {{ item }} {{ _installdir }}boot/efi"
   with_items:
     -  - "{{ _root_device_list }}{{ _efi_part_append }}"
   when: _efi | default(false) | bool == true
 
-- include_tasks: luks.yml
 - include_tasks: finish.yml
 - import_tasks: netplan.yml
   when: netplan_enabled

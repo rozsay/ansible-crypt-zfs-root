@@ -13,6 +13,13 @@
   shell: "sgdisk {{ _boot_partition_flags }} {{ item }}"
   with_items:
     - "{{ _root_device_list }}"
+  when: _lukscrypt | default(false) | bool != true
+
+- name: set up boot crypto disk partitions
+  shell: "sgdisk {{ _boot_partition_flags }} {{ item }}"
+  with_items:
+    - "{{ _root_device_list }}"
+  when: _lukscrypt | default(false) | bool == true
 
 - name: set up cryptstore partitions
   shell: "sgdisk {{ _cryptstore_partition_flags }} {{ item }}"

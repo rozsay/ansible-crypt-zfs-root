@@ -11,15 +11,61 @@
     - "{{ _root_device_list }}{{ _efi_part_append }}"
   when: _efi|default(false)|bool == true
 
+##############################################################################################################################################################
+#  full disk encryption with encrypted /boot
+##############################################################################################################################################################
+#_crypt_passphrase: "Password"
+#_luksbootname: cryptboot
+#_luksname: cryptstore
+#_lukscrypt: true
+#_lukscryptkey: "/boot/{{ _luksname }}/{{ _root_pool }}.key"
+#_luksoptions: "--type=luks1 -qc aes-xts-plain64 -s 512 -h sha256"
+#_boot_part_append
+
+- name: update crypttab with crypt boot partitions
+  shell: "echo {{_luksbootname}} UUID=$(blkid -s UUID -o value {{ item }}) none luks,discard,initramfs >> /etc/crypttab"
+  with_items:
+    - "{{ _root_device_list }}{{  _boot_part_append }}"
+  when: _lukscrypt|default(false)|bool == true
+
 - name: update crypttab with cryptsetup partitions
-  shell: "echo cryptstore UUID=$(blkid -s UUID -o value {{ item }}) none luks,discard,initramfs >> /etc/crypttab"
+  shell: "echo {{_luksname}} UUID=$(blkid -s UUID -o value {{ item }}) none luks,discard,initramfs >> /etc/crypttab"
   with_items:
     - "{{ _root_device_list }}{{ _cryptstore_part_append }}"
   when: _lukscrypt|default(false)|bool == true
 
+# root_crypt UUID=… /etc/keys/root.key luks,discard,key-slot=1
+#  shell: "echo {{_luksname}} UUID=$(blkid -s UUID -o value {{ item }}) none {{_lukscryptkey}}  luks,discard,key-slot=1 >> /etc/crypttab"
+# echo "KEYFILE_PATTERN=\"/etc/keys/*.key\"" >>/etc/cryptsetup-initramfs/conf-hook
+# echo UMASK=0077 >>/etc/initramfs-tools/initramfs.conf
+# lsinitramfs /initrd.img | grep "^cryptroot/keyfiles/"
+
+
+
+# cryptdisks_start boot_crypt
 - name: update fstab with cryptsetup partitions
-  shell: "echo /dev/mapper/cryptstore  /boot/cryptstore ext4 defaults 0 2 >> /etc/fstab"
+  shell: "echo /dev/mapper/{{_luksbootname}} /boot ext4 defaults 0 2 >> /etc/fstab"
   when: _lukscrypt|default(false)|bool == true
+
+- name: update fstab with cryptsetup partitions
+  shell: "echo /dev/mapper/{{_luksname}} /boot/cryptstore ext4 defaults 0 2 >> /etc/fstab"
+  when: _lukscrypt|default(false)|bool == true
+
+- shell: "echo 'GRUB_ENABLE_CRYPTODISK=y' >> /etc/default/grub"
+  when: _lukscrypt|default(false)|bool == true
+
+# GRUB_PRELOAD_MODULES="luks cryptodisk"
+- shell: "echo 'GRUB_PRELOAD_MODULES='"luks cryptodisk"' >> /etc/default/grub"
+  when: _lukscrypt|default(false)|bool == true
+
+#cryptsetup luksDump /dev/sda1 | grep -B1 "Iterations:"
+#Key Slot 0: ENABLED
+#    Iterations:             1000000
+#root@debian:~# cryptsetup luksChangeKey --pbkdf-force-iterations 500000 /dev/sda1
+
+#cryptsetup luksAddKey {{ _root_device_list }}{{  _boot_part_append }} {{_lukscryptkey}}
+#cryptsetup luksDump /dev/sda5 | grep "^Key Slot"
+##############################################################################################################################################################
 
 - name: install grub-efi-amd64
   apt:
@@ -97,6 +143,7 @@
       replace: "\\1"
 
 - shell: "echo 'GRUB_DISABLE_OS_PROBER=true' >> /etc/default/grub"
+
 
 #GRUB_ENABLE_CRYPTODISK=y
 #GRUB_PRELOAD_MODULES="luks cryptodisk"

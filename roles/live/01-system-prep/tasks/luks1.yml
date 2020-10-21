@@ -8,13 +8,13 @@
   template: src=templates/encrypt-pass.j2 dest={{tmp.stdout}}
 
 - name: encrypt disk
-  shell: cat {{tmp.stdout}} | cryptsetup --verbose --batch-mode luksFormat /dev/sda3
+  shell: cat {{tmp.stdout}} | cryptsetup --verbose --batch-mode luksFormat {{ _root_device_list }}{{ _cryptstore_part_append }}
 
 - name: open encrypted disk
-  shell: cat {{tmp.stdout}} | cryptsetup luksOpen  /dev/sda3 crypt1
+  shell: cat {{tmp.stdout}} | cryptsetup luksOpen  {{ _root_device_list }}{{ _cryptstore_part_append }} {{_luksname}}
 
 - name: mkfs on
-  command: 'mkfs.xfs -L crypt1 /dev/mapper/crypt1'
+  command: 'mkfs.xfs -L {{_luksname}} /dev/mapper/{{_luksname}}'
 
 - name: purge temp file
   command: shred -z -u {{tmp.stdout}}
