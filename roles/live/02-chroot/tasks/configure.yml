@@ -55,7 +55,7 @@
   when: _lukscrypt|default(false)|bool == true
 
 # GRUB_PRELOAD_MODULES="luks cryptodisk"
-- shell: "echo 'GRUB_PRELOAD_MODULES='"luks cryptodisk"' >> /etc/default/grub"
+- shell: "echo 'GRUB_PRELOAD_MODULES=luks cryptodisk' >> /etc/default/grub"
   when: _lukscrypt|default(false)|bool == true
 
 #cryptsetup luksDump /dev/sda1 | grep -B1 "Iterations:"
