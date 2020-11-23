@@ -5,6 +5,7 @@
 - name: 'Check for existing keyfile.'
   stat: path= /boot/{{ _root_pool }}.key
   register: keyfile
+  when: _lukscrypt | default(false) | bool == true
 
 #+- name: 'Create keyfile'
 #  file: path= /boot/{{ _root_pool }}.key owner=root group=root mode=0400 state=touch

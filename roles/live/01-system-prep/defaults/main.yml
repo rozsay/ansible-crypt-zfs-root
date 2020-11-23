@@ -5,6 +5,7 @@ _ubuntu_release: focal
 _zap_disks: true
 _efi: true
 _crypt: true
+_crypt_passphrase: Sasasa26
 _data_disks: false
 
 _hostname:
@@ -52,7 +53,7 @@ _lukscrypt_flags:
 #_crypt_passphrase: Password
 _luksbootname: cryptboot
 _luksname: cryptstore
-_lukscrypt: true
+_lukscrypt: false
 _lukscryptkey: "/boot/{{ _luksname }}/{{ _root_pool }}.key"
 _luksoptions: "--type=luks1 -qc aes-xts-plain64 -s 512 -h sha256"
 

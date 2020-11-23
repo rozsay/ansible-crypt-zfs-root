@@ -7,8 +7,8 @@
 - import_tasks: configure.yml
 - import_tasks: test.yml
 
-- import_tasks: ssh_server.yml
-  when: sshd_enabled
+#- import_tasks: ssh_server.yml
+#  when: sshd_enabled
 
 - import_tasks: users.yml
 #- include: users.yml
