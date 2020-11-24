@@ -5,25 +5,40 @@
 # Recommended packages:
 # kodi-visualization-spectrum libcec4 libmodplug1 libnfs8 libplist3 udisks2 libaacs0 libgl1-mesa-dri javascript-common va-driver-all | va-driver vdpau-driver-all | vdpau-driver
 kodi_base_packages:
-  - 'xinit'
   - 'xorg'
-  - 'xserver-xorg-legacy' 
-  - 'dbus-x11'
-  - 'xserver-xorg-video-amdgpu'
-  - 'pulseaudio'
+  - 'xserver-xorg-legacy'
   - 'alsa-utils'
-  - 'upower'
-#  - 'xserver-xorg-legacy'
   - 'mesa-utils'
+  - 'librtmp1'
+  - 'libmad0'
+  - 'lm-sensors'
+  - 'libmpeg2-4'
+  - 'avahi-daemon'
+  - 'libva2'
+  - 'vainfo'
+  - 'i965-va-driver'
+  - 'dbus-x11'
+  - 'udisks2'
+  - 'openbox'
+  - 'pastebinit'
+  - 'udisks2'
+#  - 'xinit'
+#  - 'dbus-x11'
+  - 'pulseaudio'
+  - 'upower'
+  - 'lm-sensors
   - 'mesa-va-drivers'
-  - lm-sensors 
-  - libmpeg2-4
-  - udisks2
 
 # System user and group
 kodi_sysuser: 'kodi'
 kodi_sysuser_home_path: '/home/kodi'
 kodi_sysgroup: 'kodi'
+kodi_gpu_vendor: amd
+
+# Package type (stable, unstable or nightly)
+kodi_ppa_use: stable
+kodi_cleanup_old_install: false
+
 # The default shell set on the Kodi account.
 kodi_shell: '/usr/sbin/nologin'
 
