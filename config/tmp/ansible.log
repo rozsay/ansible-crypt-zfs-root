@@ -26028,3 +26028,374 @@ correct permissions manually
 2020-11-23 15:08:16,971 p=184842 u=root n=ansible | changed: [/mnt/install/]
 2020-11-23 15:08:16,982 p=184842 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
 2020-11-23 15:08:16,983 p=184842 u=root n=ansible | /mnt/install/              : ok=41   changed=31   unreachable=0    failed=0    skipped=10   rescued=0    ignored=0   
+2020-11-24 09:25:11,256 p=1650 u=root n=ansible | PLAY [live] ***********************************************************************************************************************************************************
+2020-11-24 09:25:12,289 p=1650 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-11-24 09:25:12,290 p=1650 u=root n=ansible | ok: [local_zfs_root]
+2020-11-24 09:25:12,517 p=1650 u=root n=ansible | TASK [Test Ansible ping] **********************************************************************************************************************************************
+2020-11-24 09:25:12,517 p=1650 u=root n=ansible | ok: [local_zfs_root]
+2020-11-24 09:25:12,752 p=1650 u=root n=ansible | TASK [Run a command to get target release] ****************************************************************************************************************************
+2020-11-24 09:25:12,752 p=1650 u=root n=ansible | ok: [local_zfs_root]
+2020-11-24 09:25:13,341 p=1650 u=root n=ansible | TASK [dumpall : Dump all vars] ****************************************************************************************************************************************
+2020-11-24 09:25:13,341 p=1650 u=root n=ansible | changed: [local_zfs_root]
+2020-11-24 09:25:13,734 p=1650 u=root n=ansible | TASK [dumpall : Retrieve dumpfile] ************************************************************************************************************************************
+2020-11-24 09:25:13,734 p=1650 u=root n=ansible | ok: [local_zfs_root]
+2020-11-24 09:25:13,978 p=1650 u=root n=ansible | TASK [dumpall : Remove dumpfile on the target] ************************************************************************************************************************
+2020-11-24 09:25:13,978 p=1650 u=root n=ansible | changed: [local_zfs_root]
+2020-11-24 09:25:13,997 p=1650 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-11-24 09:25:13,997 p=1650 u=root n=ansible | local_zfs_root             : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-11-24 09:25:20,966 p=1767 u=root n=ansible | PLAY [local] **********************************************************************************************************************************************************
+2020-11-24 09:25:21,706 p=1767 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-11-24 09:25:21,707 p=1767 u=root n=ansible | ok: [local_user]
+2020-11-24 09:25:25,066 p=1767 u=root n=ansible | TASK [raw] ************************************************************************************************************************************************************
+2020-11-24 09:25:25,067 p=1767 u=root n=ansible | changed: [local_user]
+2020-11-24 09:25:25,320 p=1767 u=root n=ansible | TASK [Test Ansible ping] **********************************************************************************************************************************************
+2020-11-24 09:25:25,320 p=1767 u=root n=ansible | ok: [local_user]
+2020-11-24 09:25:25,528 p=1767 u=root n=ansible | TASK [Run a command to get target release] ****************************************************************************************************************************
+2020-11-24 09:25:25,529 p=1767 u=root n=ansible | ok: [local_user]
+2020-11-24 09:25:25,581 p=1767 u=root n=ansible | TASK [debug] **********************************************************************************************************************************************************
+2020-11-24 09:25:25,581 p=1767 u=root n=ansible | ok: [local_user] => {
+    "system_output.stdout_lines": [
+        "Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease",
+        "Get:2 http://security.ubuntu.com/ubuntu focal-security InRelease [109 kB]",
+        "Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]",
+        "Get:4 http://security.ubuntu.com/ubuntu focal-security/main Sources [102 kB]",
+        "Get:5 http://archive.ubuntu.com/ubuntu focal-updates/main Sources [328 kB]",
+        "Get:6 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [372 kB]",
+        "Get:7 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [670 kB]",
+        "Get:8 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [519 kB]",
+        "Get:9 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [696 kB]",
+        "Fetched 2,910 kB in 2s (1,576 kB/s)",
+        "Reading package lists..."
+    ]
+}
+2020-11-24 09:25:25,601 p=1767 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-11-24 09:25:25,601 p=1767 u=root n=ansible | local_user                 : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-11-24 09:25:43,840 p=2144 u=root n=ansible | PLAY [local] **********************************************************************************************************************************************************
+2020-11-24 09:25:44,625 p=2144 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-11-24 09:25:44,626 p=2144 u=root n=ansible | ok: [local_user]
+2020-11-24 09:25:44,654 p=2144 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-11-24 09:25:44,654 p=2144 u=root n=ansible | local_user                 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-11-24 09:25:54,062 p=2254 u=root n=ansible | PLAY [local] **********************************************************************************************************************************************************
+2020-11-24 09:25:54,788 p=2254 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-11-24 09:25:54,789 p=2254 u=root n=ansible | ok: [local_user]
+2020-11-24 09:25:55,768 p=2254 u=root n=ansible | TASK [04-netplan-networking : Install netplan] ************************************************************************************************************************
+2020-11-24 09:25:55,768 p=2254 u=root n=ansible | ok: [local_user]
+2020-11-24 09:25:56,004 p=2254 u=root n=ansible | TASK [04-netplan-networking : Capturing Existing Configurations] ******************************************************************************************************
+2020-11-24 09:25:56,004 p=2254 u=root n=ansible | ok: [local_user]
+2020-11-24 09:25:56,167 p=2254 u=root n=ansible | TASK [04-netplan-networking : define traditional ethernet facts] ******************************************************************************************************
+2020-11-24 09:25:56,168 p=2254 u=root n=ansible | ok: [local_user] => (item=ens34)
+2020-11-24 09:25:56,186 p=2254 u=root n=ansible | ok: [local_user] => (item=ens33)
+2020-11-24 09:25:56,697 p=2254 u=root n=ansible | TASK [04-netplan-networking : Configuring Netplan] ********************************************************************************************************************
+2020-11-24 09:25:56,697 p=2254 u=root n=ansible | ok: [local_user]
+2020-11-24 09:25:56,908 p=2254 u=root n=ansible | TASK [04-netplan-networking : Get physical interfaces names] **********************************************************************************************************
+2020-11-24 09:25:56,908 p=2254 u=root n=ansible | ok: [local_user]
+2020-11-24 09:25:56,959 p=2254 u=root n=ansible | TASK [04-netplan-networking : Show interfaces details] ****************************************************************************************************************
+2020-11-24 09:25:56,967 p=2254 u=root n=ansible | ok: [local_user] => (item=ens33) => {
+    "msg": {
+        "active": true,
+        "device": "ens33",
+        "features": {
+            "esp_hw_offload": "off [fixed]",
+            "esp_tx_csum_hw_offload": "off [fixed]",
+            "fcoe_mtu": "off [fixed]",
+            "generic_receive_offload": "on",
+            "generic_segmentation_offload": "on",
+            "highdma": "off [fixed]",
+            "hw_tc_offload": "off [fixed]",
+            "l2_fwd_offload": "off [fixed]",
+            "large_receive_offload": "off [fixed]",
+            "loopback": "off [fixed]",
+            "netns_local": "off [fixed]",
+            "ntuple_filters": "off [fixed]",
+            "receive_hashing": "off [fixed]",
+            "rx_all": "off",
+            "rx_checksumming": "off",
+            "rx_fcs": "off",
+            "rx_gro_hw": "off [fixed]",
+            "rx_udp_tunnel_port_offload": "off [fixed]",
+            "rx_vlan_filter": "on [fixed]",
+            "rx_vlan_offload": "on",
+            "rx_vlan_stag_filter": "off [fixed]",
+            "rx_vlan_stag_hw_parse": "off [fixed]",
+            "scatter_gather": "on",
+            "tcp_segmentation_offload": "on",
+            "tls_hw_record": "off [fixed]",
+            "tls_hw_rx_offload": "off [fixed]",
+            "tls_hw_tx_offload": "off [fixed]",
+            "tx_checksum_fcoe_crc": "off [fixed]",
+            "tx_checksum_ip_generic": "on",
+            "tx_checksum_ipv4": "off [fixed]",
+            "tx_checksum_ipv6": "off [fixed]",
+            "tx_checksum_sctp": "off [fixed]",
+            "tx_checksumming": "on",
+            "tx_esp_segmentation": "off [fixed]",
+            "tx_fcoe_segmentation": "off [fixed]",
+            "tx_gre_csum_segmentation": "off [fixed]",
+            "tx_gre_segmentation": "off [fixed]",
+            "tx_gso_partial": "off [fixed]",
+            "tx_gso_robust": "off [fixed]",
+            "tx_ipxip4_segmentation": "off [fixed]",
+            "tx_ipxip6_segmentation": "off [fixed]",
+            "tx_lockless": "off [fixed]",
+            "tx_nocache_copy": "off",
+            "tx_scatter_gather": "on",
+            "tx_scatter_gather_fraglist": "off [fixed]",
+            "tx_sctp_segmentation": "off [fixed]",
+            "tx_tcp6_segmentation": "off [fixed]",
+            "tx_tcp_ecn_segmentation": "off [fixed]",
+            "tx_tcp_mangleid_segmentation": "off",
+            "tx_tcp_segmentation": "on",
+            "tx_udp_segmentation": "off [fixed]",
+            "tx_udp_tnl_csum_segmentation": "off [fixed]",
+            "tx_udp_tnl_segmentation": "off [fixed]",
+            "tx_vlan_offload": "on [fixed]",
+            "tx_vlan_stag_hw_insert": "off [fixed]",
+            "vlan_challenged": "off [fixed]"
+        },
+        "hw_timestamp_filters": [],
+        "ipv4": {
+            "address": "192.168.100.10",
+            "broadcast": "192.168.100.255",
+            "netmask": "255.255.255.0",
+            "network": "192.168.100.0"
+        },
+        "ipv6": [
+            {
+                "address": "fe80::20c:29ff:fec9:5d81",
+                "prefix": "64",
+                "scope": "link"
+            }
+        ],
+        "macaddress": "00:0c:29:c9:5d:81",
+        "module": "e1000",
+        "mtu": 1500,
+        "pciid": "0000:02:01.0",
+        "promisc": false,
+        "speed": 1000,
+        "timestamping": [
+            "tx_software",
+            "rx_software",
+            "software"
+        ],
+        "type": "ether"
+    }
+}
+2020-11-24 09:25:56,968 p=2254 u=root n=ansible | ok: [local_user] => (item=ens34) => {
+    "msg": {
+        "active": false,
+        "device": "ens34",
+        "features": {
+            "esp_hw_offload": "off [fixed]",
+            "esp_tx_csum_hw_offload": "off [fixed]",
+            "fcoe_mtu": "off [fixed]",
+            "generic_receive_offload": "on",
+            "generic_segmentation_offload": "on",
+            "highdma": "off [fixed]",
+            "hw_tc_offload": "off [fixed]",
+            "l2_fwd_offload": "off [fixed]",
+            "large_receive_offload": "off [fixed]",
+            "loopback": "off [fixed]",
+            "netns_local": "off [fixed]",
+            "ntuple_filters": "off [fixed]",
+            "receive_hashing": "off [fixed]",
+            "rx_all": "off",
+            "rx_checksumming": "off",
+            "rx_fcs": "off",
+            "rx_gro_hw": "off [fixed]",
+            "rx_udp_tunnel_port_offload": "off [fixed]",
+            "rx_vlan_filter": "on [fixed]",
+            "rx_vlan_offload": "on",
+            "rx_vlan_stag_filter": "off [fixed]",
+            "rx_vlan_stag_hw_parse": "off [fixed]",
+            "scatter_gather": "on",
+            "tcp_segmentation_offload": "on",
+            "tls_hw_record": "off [fixed]",
+            "tls_hw_rx_offload": "off [fixed]",
+            "tls_hw_tx_offload": "off [fixed]",
+            "tx_checksum_fcoe_crc": "off [fixed]",
+            "tx_checksum_ip_generic": "on",
+            "tx_checksum_ipv4": "off [fixed]",
+            "tx_checksum_ipv6": "off [fixed]",
+            "tx_checksum_sctp": "off [fixed]",
+            "tx_checksumming": "on",
+            "tx_esp_segmentation": "off [fixed]",
+            "tx_fcoe_segmentation": "off [fixed]",
+            "tx_gre_csum_segmentation": "off [fixed]",
+            "tx_gre_segmentation": "off [fixed]",
+            "tx_gso_partial": "off [fixed]",
+            "tx_gso_robust": "off [fixed]",
+            "tx_ipxip4_segmentation": "off [fixed]",
+            "tx_ipxip6_segmentation": "off [fixed]",
+            "tx_lockless": "off [fixed]",
+            "tx_nocache_copy": "off",
+            "tx_scatter_gather": "on",
+            "tx_scatter_gather_fraglist": "off [fixed]",
+            "tx_sctp_segmentation": "off [fixed]",
+            "tx_tcp6_segmentation": "off [fixed]",
+            "tx_tcp_ecn_segmentation": "off [fixed]",
+            "tx_tcp_mangleid_segmentation": "off",
+            "tx_tcp_segmentation": "on",
+            "tx_udp_segmentation": "off [fixed]",
+            "tx_udp_tnl_csum_segmentation": "off [fixed]",
+            "tx_udp_tnl_segmentation": "off [fixed]",
+            "tx_vlan_offload": "on [fixed]",
+            "tx_vlan_stag_hw_insert": "off [fixed]",
+            "vlan_challenged": "off [fixed]"
+        },
+        "hw_timestamp_filters": [],
+        "macaddress": "00:0c:29:c9:5d:8b",
+        "module": "e1000",
+        "mtu": 1500,
+        "pciid": "0000:02:02.0",
+        "promisc": false,
+        "timestamping": [
+            "tx_software",
+            "rx_software",
+            "software"
+        ],
+        "type": "ether"
+    }
+}
+2020-11-24 09:25:56,989 p=2254 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-11-24 09:25:56,990 p=2254 u=root n=ansible | local_user                 : ok=7    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2020-11-24 09:26:36,980 p=2446 u=root n=ansible | PLAY [local] **********************************************************************************************************************************************************
+2020-11-24 09:26:37,741 p=2446 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-11-24 09:26:37,741 p=2446 u=root n=ansible | ok: [local_user]
+2020-11-24 09:26:41,710 p=2446 u=root n=ansible | TASK [05-environment : install cryptsetup] ****************************************************************************************************************************
+2020-11-24 09:26:41,710 p=2446 u=root n=ansible | changed: [local_user]
+2020-11-24 09:26:42,184 p=2446 u=root n=ansible | TASK [05-environment : Collect only facts about hardware] *************************************************************************************************************
+2020-11-24 09:26:42,184 p=2446 u=root n=ansible | ok: [local_user]
+2020-11-24 09:26:42,237 p=2446 u=root n=ansible | TASK [05-environment : Output disks] **********************************************************************************************************************************
+2020-11-24 09:26:42,238 p=2446 u=root n=ansible | ok: [local_user] => {
+    "hostvars[inventory_hostname].ansible_devices.keys() | map('regex_search', 'sd.*') | select('string') | list": [
+        "sdd",
+        "sdb",
+        "sde",
+        "sdc",
+        "sda"
+    ]
+}
+2020-11-24 09:26:42,449 p=2446 u=root n=ansible | TASK [05-environment : data1500 check directory.] *********************************************************************************************************************
+2020-11-24 09:26:42,449 p=2446 u=root n=ansible | ok: [local_user]
+2020-11-24 09:26:42,767 p=2446 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists] ********************************************************************************************************
+2020-11-24 09:26:42,768 p=2446 u=root n=ansible | changed: [local_user]
+2020-11-24 09:26:43,021 p=2446 u=root n=ansible | TASK [05-environment : Mounts data1500] *******************************************************************************************************************************
+2020-11-24 09:26:43,022 p=2446 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/data1500: mount: /mnt/data1500: special device /dev/sdb1 does not exist.\n"}
+2020-11-24 09:26:43,022 p=2446 u=root n=ansible | ...ignoring
+2020-11-24 09:26:43,155 p=2446 u=root n=ansible | TASK [05-environment : data2000 check directory.] *********************************************************************************************************************
+2020-11-24 09:26:43,156 p=2446 u=root n=ansible | ok: [local_user]
+2020-11-24 09:26:43,358 p=2446 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists] ********************************************************************************************************
+2020-11-24 09:26:43,359 p=2446 u=root n=ansible | changed: [local_user]
+2020-11-24 09:26:43,497 p=2446 u=root n=ansible | TASK [05-environment : Mounts data2000] *******************************************************************************************************************************
+2020-11-24 09:26:43,498 p=2446 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/data2000: mount: /mnt/data2000: special device /dev/sdc1 does not exist.\n"}
+2020-11-24 09:26:43,498 p=2446 u=root n=ansible | ...ignoring
+2020-11-24 09:26:43,630 p=2446 u=root n=ansible | TASK [05-environment : data2000new check directory.] ******************************************************************************************************************
+2020-11-24 09:26:43,631 p=2446 u=root n=ansible | ok: [local_user]
+2020-11-24 09:26:43,838 p=2446 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists] ********************************************************************************************************
+2020-11-24 09:26:43,839 p=2446 u=root n=ansible | changed: [local_user]
+2020-11-24 09:26:43,996 p=2446 u=root n=ansible | TASK [05-environment : Mounts data2000-new] ***************************************************************************************************************************
+2020-11-24 09:26:43,997 p=2446 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/data2000-new: mount: /mnt/data2000-new: special device /dev/sdd1 does not exist.\n"}
+2020-11-24 09:26:43,997 p=2446 u=root n=ansible | ...ignoring
+2020-11-24 09:26:44,138 p=2446 u=root n=ansible | TASK [05-environment : data2000new check directory.] ******************************************************************************************************************
+2020-11-24 09:26:44,139 p=2446 u=root n=ansible | ok: [local_user]
+2020-11-24 09:26:44,347 p=2446 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists 3] ******************************************************************************************************
+2020-11-24 09:26:44,347 p=2446 u=root n=ansible | changed: [local_user]
+2020-11-24 09:26:44,487 p=2446 u=root n=ansible | TASK [05-environment : Mounts data3000] *******************************************************************************************************************************
+2020-11-24 09:26:44,487 p=2446 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/data3000: mount: /mnt/data3000: special device /dev/sde1 does not exist.\n"}
+2020-11-24 09:26:44,487 p=2446 u=root n=ansible | ...ignoring
+2020-11-24 09:26:44,505 p=2446 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-11-24 09:26:44,506 p=2446 u=root n=ansible | local_user                 : ok=16   changed=5    unreachable=0    failed=0    skipped=4    rescued=0    ignored=4   
+2020-11-24 09:29:00,478 p=3229 u=root n=ansible | PLAY [local] **********************************************************************************************************************************************************
+2020-11-24 09:29:01,213 p=3229 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-11-24 09:29:01,214 p=3229 u=root n=ansible | ok: [local_user]
+2020-11-24 09:29:02,018 p=3229 u=root n=ansible | TASK [05-environment : install cryptsetup] ****************************************************************************************************************************
+2020-11-24 09:29:02,019 p=3229 u=root n=ansible | ok: [local_user]
+2020-11-24 09:29:02,513 p=3229 u=root n=ansible | TASK [05-environment : Collect only facts about hardware] *************************************************************************************************************
+2020-11-24 09:29:02,513 p=3229 u=root n=ansible | ok: [local_user]
+2020-11-24 09:29:02,572 p=3229 u=root n=ansible | TASK [05-environment : Output disks] **********************************************************************************************************************************
+2020-11-24 09:29:02,573 p=3229 u=root n=ansible | ok: [local_user] => {
+    "hostvars[inventory_hostname].ansible_devices.keys() | map('regex_search', 'sd.*') | select('string') | list": [
+        "sdd",
+        "sdb",
+        "sde",
+        "sdc",
+        "sda"
+    ]
+}
+2020-11-24 09:29:02,786 p=3229 u=root n=ansible | TASK [05-environment : data1500 check directory.] *********************************************************************************************************************
+2020-11-24 09:29:02,786 p=3229 u=root n=ansible | ok: [local_user]
+2020-11-24 09:29:02,833 p=3229 u=root n=ansible | TASK [05-environment : echo if directory already existed] *************************************************************************************************************
+2020-11-24 09:29:02,834 p=3229 u=root n=ansible | ok: [local_user] => {
+    "msg": "the /mnt/data1500 is already existed"
+}
+2020-11-24 09:29:03,105 p=3229 u=root n=ansible | TASK [05-environment : Mounts data1500] *******************************************************************************************************************************
+2020-11-24 09:29:03,106 p=3229 u=root n=ansible | changed: [local_user]
+2020-11-24 09:29:03,251 p=3229 u=root n=ansible | TASK [05-environment : data2000 check directory.] *********************************************************************************************************************
+2020-11-24 09:29:03,251 p=3229 u=root n=ansible | ok: [local_user]
+2020-11-24 09:29:03,297 p=3229 u=root n=ansible | TASK [05-environment : echo if directory already existed] *************************************************************************************************************
+2020-11-24 09:29:03,298 p=3229 u=root n=ansible | ok: [local_user] => {
+    "msg": "the /mnt/data2000 is already existed"
+}
+2020-11-24 09:29:03,490 p=3229 u=root n=ansible | TASK [05-environment : Mounts data2000] *******************************************************************************************************************************
+2020-11-24 09:29:03,492 p=3229 u=root n=ansible | changed: [local_user]
+2020-11-24 09:29:03,648 p=3229 u=root n=ansible | TASK [05-environment : data2000new check directory.] ******************************************************************************************************************
+2020-11-24 09:29:03,648 p=3229 u=root n=ansible | ok: [local_user]
+2020-11-24 09:29:03,699 p=3229 u=root n=ansible | TASK [05-environment : echo if directory already existed] *************************************************************************************************************
+2020-11-24 09:29:03,699 p=3229 u=root n=ansible | ok: [local_user] => {
+    "msg": "the /mnt/data2000-new is already existed"
+}
+2020-11-24 09:29:03,898 p=3229 u=root n=ansible | TASK [05-environment : Mounts data2000-new] ***************************************************************************************************************************
+2020-11-24 09:29:03,898 p=3229 u=root n=ansible | changed: [local_user]
+2020-11-24 09:29:04,054 p=3229 u=root n=ansible | TASK [05-environment : data2000new check directory.] ******************************************************************************************************************
+2020-11-24 09:29:04,054 p=3229 u=root n=ansible | ok: [local_user]
+2020-11-24 09:29:04,102 p=3229 u=root n=ansible | TASK [05-environment : echo if directory already existed] *************************************************************************************************************
+2020-11-24 09:29:04,102 p=3229 u=root n=ansible | ok: [local_user] => {
+    "msg": "the /mnt/data3000 is already existed"
+}
+2020-11-24 09:29:04,298 p=3229 u=root n=ansible | TASK [05-environment : Mounts data3000] *******************************************************************************************************************************
+2020-11-24 09:29:04,299 p=3229 u=root n=ansible | changed: [local_user]
+2020-11-24 09:29:04,318 p=3229 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-11-24 09:29:04,318 p=3229 u=root n=ansible | local_user                 : ok=16   changed=4    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+2020-11-24 09:29:39,362 p=3463 u=root n=ansible | PLAY [local] **********************************************************************************************************************************************************
+2020-11-24 09:29:40,108 p=3463 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-11-24 09:29:40,109 p=3463 u=root n=ansible | ok: [local_user]
+2020-11-24 09:29:40,218 p=3463 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/install.yml for local_user
+2020-11-24 09:29:41,034 p=3463 u=root n=ansible | TASK [06-kodi : Install Software Properties Common] *******************************************************************************************************************
+2020-11-24 09:29:41,035 p=3463 u=root n=ansible | ok: [local_user]
+2020-11-24 09:33:20,859 p=3463 u=root n=ansible | TASK [06-kodi : Ensure specified packages are in there desired state] *************************************************************************************************
+2020-11-24 09:33:20,860 p=3463 u=root n=ansible | changed: [local_user] => (item=xinit)
+2020-11-24 09:33:25,608 p=3463 u=root n=ansible | changed: [local_user] => (item=xorg)
+2020-11-24 09:33:26,421 p=3463 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-legacy)
+2020-11-24 09:33:27,209 p=3463 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-11-24 09:33:27,976 p=3463 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-amdgpu)
+2020-11-24 09:33:28,728 p=3463 u=root n=ansible | ok: [local_user] => (item=pulseaudio)
+2020-11-24 09:33:33,398 p=3463 u=root n=ansible | changed: [local_user] => (item=alsa-utils)
+2020-11-24 09:33:34,125 p=3463 u=root n=ansible | ok: [local_user] => (item=upower)
+2020-11-24 09:33:36,523 p=3463 u=root n=ansible | changed: [local_user] => (item=mesa-utils)
+2020-11-24 09:33:40,240 p=3463 u=root n=ansible | changed: [local_user] => (item=mesa-va-drivers)
+2020-11-24 09:33:43,700 p=3463 u=root n=ansible | changed: [local_user] => (item=lm-sensors)
+2020-11-24 09:33:45,775 p=3463 u=root n=ansible | changed: [local_user] => (item=libmpeg2-4)
+2020-11-24 09:33:46,562 p=3463 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-11-24 09:33:49,792 p=3463 u=root n=ansible | TASK [06-kodi : Add Kodi Repository] **********************************************************************************************************************************
+2020-11-24 09:33:49,793 p=3463 u=root n=ansible | changed: [local_user]
+2020-11-24 09:34:18,861 p=3463 u=root n=ansible | TASK [06-kodi : Install kodi] *****************************************************************************************************************************************
+2020-11-24 09:34:18,861 p=3463 u=root n=ansible | changed: [local_user]
+2020-11-24 09:34:19,272 p=3463 u=root n=ansible | TASK [06-kodi : Create Kodi system group] *****************************************************************************************************************************
+2020-11-24 09:34:19,272 p=3463 u=root n=ansible | changed: [local_user]
+2020-11-24 09:34:19,657 p=3463 u=root n=ansible | TASK [06-kodi : Create Kodi system user] ******************************************************************************************************************************
+2020-11-24 09:34:19,658 p=3463 u=root n=ansible | changed: [local_user]
+2020-11-24 09:34:19,688 p=3463 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/configure.yml for local_user
+2020-11-24 09:34:19,991 p=3463 u=root n=ansible | TASK [06-kodi : Create kodi config dir] *******************************************************************************************************************************
+2020-11-24 09:34:19,991 p=3463 u=root n=ansible | changed: [local_user]
+2020-11-24 09:34:20,522 p=3463 u=root n=ansible | TASK [06-kodi : Drop Kodi sources.xml] ********************************************************************************************************************************
+2020-11-24 09:34:20,522 p=3463 u=root n=ansible | changed: [local_user]
+2020-11-24 09:34:20,871 p=3463 u=root n=ansible | TASK [06-kodi : Drop guisettings.xml] *********************************************************************************************************************************
+2020-11-24 09:34:20,872 p=3463 u=root n=ansible | changed: [local_user]
+2020-11-24 09:34:21,195 p=3463 u=root n=ansible | TASK [06-kodi : create kodi.service for the user session] *************************************************************************************************************
+2020-11-24 09:34:21,195 p=3463 u=root n=ansible | changed: [local_user]
+2020-11-24 09:34:21,678 p=3463 u=root n=ansible | TASK [06-kodi : enable service kodi] **********************************************************************************************************************************
+2020-11-24 09:34:21,678 p=3463 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Unable to enable service kodi.service: Failed to enable unit: File /etc/systemd/system/display-manager.service already exists and is a symlink to /lib/systemd/system/gdm3.service.\n"}
+2020-11-24 09:34:21,683 p=3463 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.6_kodi.retry
+
+2020-11-24 09:34:21,683 p=3463 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-11-24 09:34:21,683 p=3463 u=root n=ansible | local_user                 : ok=13   changed=9    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
