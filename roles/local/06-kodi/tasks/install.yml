@@ -1,61 +1,4 @@
 ---
-- name: Install Software Properties Common
-  apt:
-    pkg: software-properties-common
-#    update_cache: true
-    state: present
-  register:  is_softpropinstalled
-  become: yes
-
-- set_fact:
-    _ppa_value_: 'ppa'
-  when: kodi_ppa_use == 'stable'
-
-- set_fact:
-    _ppa_value_: 'unstable'
-  when: kodi_ppa_use == 'unstable'
-
-- set_fact:
-    _ppa_value_: 'xbmc-nightly'
-  when: kodi_ppa_use == 'nightly'
-
-- name: Ensure specified packages are in there desired state
-  package:
-    name: '{{ item }}'
-    state: present
-  with_flattened: '{{ kodi_base_packages }}'
-  tags: [ 'role::kodi:pkgs' ]
-  register: is_softneedinstalled
-#  become: yes
-  become: true
-
-- name: Ensure AMD GPU drivers are installed
-  dnf:
-    state: present
-    name: xorg-x11-drv-amdgpu
-  retries: 10
-  delay: 1
-  when: kodi_gpu_vendor == 'amd'
-
-- name: Ensure AMD GPU drivers are installed
-  dnf:
-    state: present
-    name: xserver-xorg-video-intel
-  retries: 10
-  delay: 1
-  when: kodi_gpu_vendor == 'intel'
-
-- name: Add Kodi Repository
-  apt_repository:
-    repo: "ppa:team-xbmc/ppa"
-    state: present
-    update_cache: true
-#    cache_valid_time: 3600
-#  when: is_softpropinstalled
-  register: is_ppakodi
-#  become: yes
-  become: true
-
 - name: Install kodi
   apt:
     pkg: kodi
@@ -66,16 +9,15 @@
 #  become: yes
   become: true
 
-#- name: Install kodi
-#  apt:
-#    pkg: kodi-x11
-#    state: latest
-#    update_cache: true
+- name: Install kodix11
+  apt:
+    pkg: kodi-x11
+    state: latest
+    update_cache: true
 #  when: is_ppakodi and is_softneedinstalled
-#  register: is_kodiinstalled2
+  register: is_kodiinstalled2
 #  become: yes
-#  become: true
-
+  become: true
 
 # System user and group [[[
 #- name: Create Kodi system group

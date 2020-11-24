@@ -63,10 +63,3 @@
 
 - name: add /etc/security/limits.conf
   lineinfile: dest=/etc/security/limits.conf regexp='^kodi' line='kodi             -       nice            -1' create=yes
-
-#- name: start kodi.service
-#  sudo: yes
-#  service:
-#    name: kodi.service
-#    state: started
-#    use: service

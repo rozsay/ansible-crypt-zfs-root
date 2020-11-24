@@ -30,19 +30,19 @@
   become: true
 
 - name: Ensure AMD GPU drivers are installed
-  dnf:
+  package:
+    name: '{{ item }}'
     state: present
-    name: xorg-x11-drv-amdgpu
-  retries: 10
-  delay: 1
+  with_flattened: '{{ kodi_amd_packages }}'
+#  tags: [ 'role::kodi:pkgs' ]
+  register: is_softneedinstalled
   when: kodi_gpu_vendor == 'amd'
 
 - name: Ensure AMD GPU drivers are installed
-  dnf:
+  apt:
+    pkg: xserver-xorg-video-intel
     state: present
-    name: xserver-xorg-video-intel
-  retries: 10
-  delay: 1
+  become: yes
   when: kodi_gpu_vendor == 'intel'
 
 - name: Add Kodi Repository

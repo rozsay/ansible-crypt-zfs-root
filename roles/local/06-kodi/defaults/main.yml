@@ -26,14 +26,18 @@ kodi_base_packages:
 #  - 'dbus-x11'
   - 'pulseaudio'
   - 'upower'
-  - 'lm-sensors
+  - 'lm-sensors'
   - 'mesa-va-drivers'
+
+kodi_amd_packages:
+  - 'xserver-xorg-video-radeon'
+  - 'xserver-xorg-video-amdgpu'
 
 # System user and group
 kodi_sysuser: 'kodi'
 kodi_sysuser_home_path: '/home/kodi'
 kodi_sysgroup: 'kodi'
-kodi_gpu_vendor: amd
+kodi_gpu_vendor: 'amd'
 
 # Package type (stable, unstable or nightly)
 kodi_ppa_use: stable

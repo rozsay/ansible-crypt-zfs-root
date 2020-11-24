@@ -1,4 +1,12 @@
 ---
+- name: Ensure Kodi user is present
+  user:
+    name: "{{ kodi_sysuser }}"
+    state: present
+    groups: cdrom,audio,video,plugdev,users,dialout,dip,input
+    comment: "comment"
+    append: no # If yes, will only add groups, not set them to just the list in groups.
+
 - name: Create kodi config dir
   file:
     state: directory
@@ -7,27 +15,58 @@
     group: "{{ kodi_sysgroup }}"
   become: yes
 
-- name: Drop Kodi sources.xml
-  template:
-    src: sources.xml.j2
-    dest: /home/{{ kodi_sysuser }}/.kodi/userdata/sources.xml
-    owner: "{{ kodi_sysuser }}"
-    group: "{{ kodi_sysgroup }}"
-  become: yes
+- name: Check if Xwrapper.config is already defined
+  lineinfile:
+    state: absent
+    path: "/etc/X11/Xwrapper.config"
+    regexp: "^needs_root_rights=yes"
+  check_mode: true
+  changed_when: false # This just makes things look prettier in the logs
+  register: check
 
-- name: Drop avancedsettings.xml
-  template:
-    src: advancedsettings.2.xml.j2
-    dest: /home/{{ kodi_sysuser }}/.kodi/userdata/advancedsettings.xml
-    owner: "{{ kodi_sysuser }}"
-    group: "{{ kodi_sysgroup }}"
-  become: yes
-  when: kodi_usemysql
+- name: Add lines if not exitst Xwrapper.config
+  lineinfile:
+    state: present
+    path: "/etc/X11/Xwrapper.config"
+    line: "needs_root_rights=yes"
+  when: check.found == 0
 
-- name: Drop guisettings.xml
+- name: custom-actions
   template:
-    src: guisettings.xml.j2
-    dest: /home/{{ kodi_sysuser }}/.kodi/userdata/guisettings.xml
-    owner: "{{ kodi_sysuser }}"
-    group: "{{ kodi_sysgroup }}"
-  become: yes
+    src: 'custom-actions.pkla.j2'
+    dest: '/etc/polkit-1/localauthority/50-local.d/custom-actions.pkla'
+    mode: 0644
+    owner: root
+    group: root
+#  notify:
+#    - restart polkitd
+
+- name: create kodi.service for the user session
+  template:
+    src: 'kodi.service.j2'
+    dest: '/etc/systemd/system/kodi.service'
+    mode: 0644
+    owner: root
+    group: root
+
+- name: Check if limits.config is already defined
+  lineinfile:
+    state: absent
+    path: "/etc/security/limits.conf"
+    regexp: "^kodi             -       nice            -1"
+  check_mode: true
+  changed_when: false # This just makes things look prettier in the logs
+  register: check1
+
+- name: Add lines if not exitst limits.conf
+  lineinfile:
+    state: present
+    path: "/etc/security/limits.conf"
+    line: "kodi             -       nice            -1"
+  when: check.found == 0
+
+- name: Create symbolic link 
+  file:
+    src: "/etc/systemd/system/kodi.service"
+    dest: "/etc/systemd/system/display-manager.service"
+    state: link

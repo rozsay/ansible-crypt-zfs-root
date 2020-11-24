@@ -1,0 +1,34 @@
+---
+- name: enable service kodi
+  systemd:
+    name: kodi.service
+    state: started
+    enabled: yes
+
+- name: Drop Kodi sources.xml
+  template:
+    src: sources.xml.j2
+
+    dest: /home/{{ kodi_sysuser }}/.kodi/userdata/sources.xml
+    owner: "{{ kodi_sysuser }}"
+    group: "{{ kodi_sysgroup }}"
+  become: yes
+
+- name: Drop avancedsettings.xml
+  template:
+    src: advancedsettings.2.xml.j2
+    dest: /home/{{ kodi_sysuser }}/.kodi/userdata/advancedsettings.xml
+    owner: "{{ kodi_sysuser }}"
+    group: "{{ kodi_sysgroup }}"
+  become: yes
+  when: kodi_usemysql
+
+- name: Drop guisettings.xml
+  template:
+    src: guisettings.xml.j2
+    dest: /home/{{ kodi_sysuser }}/.kodi/userdata/guisettings.xml
+    owner: "{{ kodi_sysuser }}"
+    group: "{{ kodi_sysgroup }}"
+  become: yes
+
+
