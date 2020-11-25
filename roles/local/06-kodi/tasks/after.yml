@@ -1,15 +1,37 @@
 ---
+- name: Create a directory if it does not exist
+  file:
+    path:  /home/{{ kodi_sysuser }}/.config/openbox
+    state: directory
+    mode: '0755'
 
-- name: enable service kodi
-  systemd:
-    name: kodi.service
-    state: started
-    enabled: yes
+- name: Creating an empty file
+    file:
+      path: "/home/{{ kodi_sysuser }}/.config/openbox/autostart"
+      state: touch
+#      owner: "{{ kodi_sysuser }}"
+#      group: "{{ kodi_sysgroup }}"
 
-- name: Drop Kodi sources.xml
+/home/kodi/.config/openbox/autostart
+- name: autostart
+  template:
+    src: autostart.j2
+    dest: /home/{{ kodi_sysuser }}/.config/openbox/autostart
+    owner: "{{ kodi_sysuser }}"
+    group: "{{ kodi_sysgroup }}"
+  become: yes
+
+- name: "recursively update /home/{{ kodi_sysuser }}/.config directory owner"
+  file:
+    path: "/home/{{ kodi_sysuser }}/.config"
+    state: "directory"
+    recurse: "yes"
+    owner: "{{ kodi_sysuser }}"
+    group: "{{ kodi_sysgroup }}"
+
+- name: Kodi sources.xml
   template:
     src: sources.xml.j2
-
     dest: /home/{{ kodi_sysuser }}/.kodi/userdata/sources.xml
     owner: "{{ kodi_sysuser }}"
     group: "{{ kodi_sysgroup }}"
@@ -32,4 +54,8 @@
     group: "{{ kodi_sysgroup }}"
   become: yes
 
-
+- name: enable service kodi
+  systemd:
+    name: kodi.service
+    state: started
+    enabled: yes

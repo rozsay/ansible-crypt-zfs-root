@@ -56,14 +56,14 @@
     regexp: "^kodi             -       nice            -1"
   check_mode: true
   changed_when: false # This just makes things look prettier in the logs
-  register: check1
+  register: check2
 
 - name: Add lines if not exitst limits.conf
   lineinfile:
     state: present
     path: "/etc/security/limits.conf"
     line: "kodi             -       nice            -1"
-  when: check.found == 0
+  when: check2.found == 0
 
 - name: Create symbolic link 
   file:

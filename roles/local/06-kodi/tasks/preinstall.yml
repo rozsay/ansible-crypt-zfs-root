@@ -38,7 +38,7 @@
   register: is_softneedinstalled
   when: kodi_gpu_vendor == 'amd'
 
-- name: Ensure AMD GPU drivers are installed
+- name: Ensure Intel GPU drivers are installed
   apt:
     pkg: xserver-xorg-video-intel
     state: present
