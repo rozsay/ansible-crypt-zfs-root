@@ -26591,3 +26591,508 @@ The offending line appears to be:
 2020-11-24 12:35:16,264 p=13305 u=root n=ansible | ok: [local_user]
 2020-11-24 12:35:16,284 p=13305 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
 2020-11-24 12:35:16,284 p=13305 u=root n=ansible | local_user                 : ok=9    changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2020-11-25 07:50:27,978 p=18506 u=root n=ansible | PLAY [local] *******************************************************************************************************************************************
+2020-11-25 07:50:28,837 p=18506 u=root n=ansible | TASK [Gathering Facts] *********************************************************************************************************************************
+2020-11-25 07:50:28,838 p=18506 u=root n=ansible | ok: [local_user]
+2020-11-25 07:50:29,035 p=18506 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/preinstall.yml for local_user
+2020-11-25 07:50:29,882 p=18506 u=root n=ansible | TASK [06-kodi : Install Software Properties Common] ****************************************************************************************************
+2020-11-25 07:50:29,883 p=18506 u=root n=ansible | ok: [local_user]
+2020-11-25 07:50:29,953 p=18506 u=root n=ansible | TASK [06-kodi : set_fact] ******************************************************************************************************************************
+2020-11-25 07:50:29,954 p=18506 u=root n=ansible | ok: [local_user]
+2020-11-25 07:50:30,793 p=18506 u=root n=ansible | TASK [06-kodi : Ensure specified packages are in there desired state] **********************************************************************************
+2020-11-25 07:50:30,794 p=18506 u=root n=ansible | ok: [local_user] => (item=xorg)
+2020-11-25 07:50:31,488 p=18506 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-legacy)
+2020-11-25 07:50:32,165 p=18506 u=root n=ansible | ok: [local_user] => (item=alsa-utils)
+2020-11-25 07:50:32,852 p=18506 u=root n=ansible | ok: [local_user] => (item=mesa-utils)
+2020-11-25 07:50:33,539 p=18506 u=root n=ansible | ok: [local_user] => (item=librtmp1)
+2020-11-25 07:50:34,230 p=18506 u=root n=ansible | ok: [local_user] => (item=libmad0)
+2020-11-25 07:50:34,920 p=18506 u=root n=ansible | ok: [local_user] => (item=lm-sensors)
+2020-11-25 07:50:35,604 p=18506 u=root n=ansible | ok: [local_user] => (item=libmpeg2-4)
+2020-11-25 07:50:36,282 p=18506 u=root n=ansible | ok: [local_user] => (item=avahi-daemon)
+2020-11-25 07:50:36,991 p=18506 u=root n=ansible | ok: [local_user] => (item=libva2)
+2020-11-25 07:50:37,742 p=18506 u=root n=ansible | ok: [local_user] => (item=vainfo)
+2020-11-25 07:50:38,481 p=18506 u=root n=ansible | ok: [local_user] => (item=i965-va-driver)
+2020-11-25 07:50:39,191 p=18506 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-11-25 07:50:39,998 p=18506 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-11-25 07:50:40,801 p=18506 u=root n=ansible | ok: [local_user] => (item=openbox)
+2020-11-25 07:50:41,603 p=18506 u=root n=ansible | ok: [local_user] => (item=pastebinit)
+2020-11-25 07:50:42,309 p=18506 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-11-25 07:50:43,039 p=18506 u=root n=ansible | ok: [local_user] => (item=pulseaudio)
+2020-11-25 07:50:43,732 p=18506 u=root n=ansible | ok: [local_user] => (item=upower)
+2020-11-25 07:50:44,446 p=18506 u=root n=ansible | ok: [local_user] => (item=lm-sensors)
+2020-11-25 07:50:45,133 p=18506 u=root n=ansible | ok: [local_user] => (item=mesa-va-drivers)
+2020-11-25 07:50:45,869 p=18506 u=root n=ansible | TASK [06-kodi : Ensure AMD GPU drivers are installed] **************************************************************************************************
+2020-11-25 07:50:45,870 p=18506 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-radeon)
+2020-11-25 07:50:46,570 p=18506 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-amdgpu)
+2020-11-25 07:50:47,029 p=18506 u=root n=ansible | TASK [06-kodi : Add Kodi Repository] *******************************************************************************************************************
+2020-11-25 07:50:47,030 p=18506 u=root n=ansible | ok: [local_user]
+2020-11-25 07:50:47,059 p=18506 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/configure.yml for local_user
+2020-11-25 07:50:47,406 p=18506 u=root n=ansible | TASK [06-kodi : Ensure Kodi user is present] ***********************************************************************************************************
+2020-11-25 07:50:47,406 p=18506 u=root n=ansible | ok: [local_user]
+2020-11-25 07:50:47,711 p=18506 u=root n=ansible | TASK [06-kodi : Create kodi config dir] ****************************************************************************************************************
+2020-11-25 07:50:47,711 p=18506 u=root n=ansible | ok: [local_user]
+2020-11-25 07:50:47,964 p=18506 u=root n=ansible | TASK [06-kodi : Check if Xwrapper.config is already defined] *******************************************************************************************
+2020-11-25 07:50:47,964 p=18506 u=root n=ansible | ok: [local_user]
+2020-11-25 07:50:48,439 p=18506 u=root n=ansible | TASK [06-kodi : custom-actions] ************************************************************************************************************************
+2020-11-25 07:50:48,440 p=18506 u=root n=ansible | ok: [local_user]
+2020-11-25 07:50:48,859 p=18506 u=root n=ansible | TASK [06-kodi : create kodi.service for the user session] **********************************************************************************************
+2020-11-25 07:50:48,859 p=18506 u=root n=ansible | changed: [local_user]
+2020-11-25 07:50:49,004 p=18506 u=root n=ansible | TASK [06-kodi : Check if limits.config is already defined] *********************************************************************************************
+2020-11-25 07:50:49,004 p=18506 u=root n=ansible | ok: [local_user]
+2020-11-25 07:50:49,194 p=18506 u=root n=ansible | TASK [06-kodi : Create symbolic link] ******************************************************************************************************************
+2020-11-25 07:50:49,195 p=18506 u=root n=ansible | ok: [local_user]
+2020-11-25 07:50:49,220 p=18506 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/install.yml for local_user
+2020-11-25 07:51:06,885 p=18506 u=root n=ansible | TASK [06-kodi : Install kodi] **************************************************************************************************************************
+2020-11-25 07:51:06,885 p=18506 u=root n=ansible | changed: [local_user]
+2020-11-25 07:51:08,510 p=18506 u=root n=ansible | TASK [06-kodi : Install kodix11] ***********************************************************************************************************************
+2020-11-25 07:51:08,510 p=18506 u=root n=ansible | ok: [local_user]
+2020-11-25 07:51:08,538 p=18506 u=root n=ansible | TASK [06-kodi : include_tasks] *************************************************************************************************************************
+2020-11-25 07:51:08,538 p=18506 u=root n=ansible | fatal: [local_user]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  mapping values are not allowed in this context\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/after.yml': line 9, column 9, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n- name: Creating an empty file\n    file:\n        ^ here\n"}
+2020-11-25 07:51:08,543 p=18506 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.6_kodi.retry
+
+2020-11-25 07:51:08,543 p=18506 u=root n=ansible | PLAY RECAP *********************************************************************************************************************************************
+2020-11-25 07:51:08,543 p=18506 u=root n=ansible | local_user                 : ok=18   changed=2    unreachable=0    failed=1    skipped=6    rescued=0    ignored=0   
+2020-11-25 07:51:55,936 p=21659 u=root n=ansible | PLAY [local] *******************************************************************************************************************************************
+2020-11-25 07:51:56,756 p=21659 u=root n=ansible | TASK [Gathering Facts] *********************************************************************************************************************************
+2020-11-25 07:51:56,757 p=21659 u=root n=ansible | ok: [local_user]
+2020-11-25 07:51:56,913 p=21659 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/preinstall.yml for local_user
+2020-11-25 07:51:57,771 p=21659 u=root n=ansible | TASK [06-kodi : Install Software Properties Common] ****************************************************************************************************
+2020-11-25 07:51:57,772 p=21659 u=root n=ansible | ok: [local_user]
+2020-11-25 07:51:57,846 p=21659 u=root n=ansible | TASK [06-kodi : set_fact] ******************************************************************************************************************************
+2020-11-25 07:51:57,846 p=21659 u=root n=ansible | ok: [local_user]
+2020-11-25 07:51:58,673 p=21659 u=root n=ansible | TASK [06-kodi : Ensure specified packages are in there desired state] **********************************************************************************
+2020-11-25 07:51:58,673 p=21659 u=root n=ansible | ok: [local_user] => (item=xorg)
+2020-11-25 07:51:59,386 p=21659 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-legacy)
+2020-11-25 07:52:00,070 p=21659 u=root n=ansible | ok: [local_user] => (item=alsa-utils)
+2020-11-25 07:52:00,796 p=21659 u=root n=ansible | ok: [local_user] => (item=mesa-utils)
+2020-11-25 07:52:01,490 p=21659 u=root n=ansible | ok: [local_user] => (item=librtmp1)
+2020-11-25 07:52:02,180 p=21659 u=root n=ansible | ok: [local_user] => (item=libmad0)
+2020-11-25 07:52:02,886 p=21659 u=root n=ansible | ok: [local_user] => (item=lm-sensors)
+2020-11-25 07:52:03,576 p=21659 u=root n=ansible | ok: [local_user] => (item=libmpeg2-4)
+2020-11-25 07:52:04,269 p=21659 u=root n=ansible | ok: [local_user] => (item=avahi-daemon)
+2020-11-25 07:52:04,974 p=21659 u=root n=ansible | ok: [local_user] => (item=libva2)
+2020-11-25 07:52:05,666 p=21659 u=root n=ansible | ok: [local_user] => (item=vainfo)
+2020-11-25 07:52:06,370 p=21659 u=root n=ansible | ok: [local_user] => (item=i965-va-driver)
+2020-11-25 07:52:07,055 p=21659 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-11-25 07:52:07,758 p=21659 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-11-25 07:52:08,459 p=21659 u=root n=ansible | ok: [local_user] => (item=openbox)
+2020-11-25 07:52:09,140 p=21659 u=root n=ansible | ok: [local_user] => (item=pastebinit)
+2020-11-25 07:52:09,823 p=21659 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-11-25 07:52:10,510 p=21659 u=root n=ansible | ok: [local_user] => (item=pulseaudio)
+2020-11-25 07:52:11,212 p=21659 u=root n=ansible | ok: [local_user] => (item=upower)
+2020-11-25 07:52:11,916 p=21659 u=root n=ansible | ok: [local_user] => (item=lm-sensors)
+2020-11-25 07:52:12,600 p=21659 u=root n=ansible | ok: [local_user] => (item=mesa-va-drivers)
+2020-11-25 07:52:13,345 p=21659 u=root n=ansible | TASK [06-kodi : Ensure AMD GPU drivers are installed] **************************************************************************************************
+2020-11-25 07:52:13,346 p=21659 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-radeon)
+2020-11-25 07:52:14,041 p=21659 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-amdgpu)
+2020-11-25 07:52:14,501 p=21659 u=root n=ansible | TASK [06-kodi : Add Kodi Repository] *******************************************************************************************************************
+2020-11-25 07:52:14,501 p=21659 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:14,530 p=21659 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/configure.yml for local_user
+2020-11-25 07:52:14,884 p=21659 u=root n=ansible | TASK [06-kodi : Ensure Kodi user is present] ***********************************************************************************************************
+2020-11-25 07:52:14,884 p=21659 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:15,171 p=21659 u=root n=ansible | TASK [06-kodi : Create kodi config dir] ****************************************************************************************************************
+2020-11-25 07:52:15,172 p=21659 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:15,428 p=21659 u=root n=ansible | TASK [06-kodi : Check if Xwrapper.config is already defined] *******************************************************************************************
+2020-11-25 07:52:15,429 p=21659 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:15,900 p=21659 u=root n=ansible | TASK [06-kodi : custom-actions] ************************************************************************************************************************
+2020-11-25 07:52:15,901 p=21659 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:16,218 p=21659 u=root n=ansible | TASK [06-kodi : create kodi.service for the user session] **********************************************************************************************
+2020-11-25 07:52:16,218 p=21659 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:16,361 p=21659 u=root n=ansible | TASK [06-kodi : Check if limits.config is already defined] *********************************************************************************************
+2020-11-25 07:52:16,362 p=21659 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:16,552 p=21659 u=root n=ansible | TASK [06-kodi : Create symbolic link] ******************************************************************************************************************
+2020-11-25 07:52:16,552 p=21659 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:16,578 p=21659 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/install.yml for local_user
+2020-11-25 07:52:18,100 p=21659 u=root n=ansible | TASK [06-kodi : Install kodi] **************************************************************************************************************************
+2020-11-25 07:52:18,100 p=21659 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:21,542 p=21659 u=root n=ansible | TASK [06-kodi : Install kodix11] ***********************************************************************************************************************
+2020-11-25 07:52:21,542 p=21659 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:21,570 p=21659 u=root n=ansible | TASK [06-kodi : include_tasks] *************************************************************************************************************************
+2020-11-25 07:52:21,571 p=21659 u=root n=ansible | fatal: [local_user]: FAILED! => {"reason": "Syntax Error while loading YAML.\n  could not find expected ':'\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/after.yml': line 16, column 1, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n/home/kodi/.config/openbox/autostart\n- name: autostart\n^ here\n"}
+2020-11-25 07:52:21,575 p=21659 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.6_kodi.retry
+
+2020-11-25 07:52:21,575 p=21659 u=root n=ansible | PLAY RECAP *********************************************************************************************************************************************
+2020-11-25 07:52:21,575 p=21659 u=root n=ansible | local_user                 : ok=18   changed=0    unreachable=0    failed=1    skipped=6    rescued=0    ignored=0   
+2020-11-25 07:52:39,257 p=22978 u=root n=ansible | PLAY [local] *******************************************************************************************************************************************
+2020-11-25 07:52:40,041 p=22978 u=root n=ansible | TASK [Gathering Facts] *********************************************************************************************************************************
+2020-11-25 07:52:40,042 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:40,193 p=22978 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/preinstall.yml for local_user
+2020-11-25 07:52:41,029 p=22978 u=root n=ansible | TASK [06-kodi : Install Software Properties Common] ****************************************************************************************************
+2020-11-25 07:52:41,029 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:41,103 p=22978 u=root n=ansible | TASK [06-kodi : set_fact] ******************************************************************************************************************************
+2020-11-25 07:52:41,103 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:41,960 p=22978 u=root n=ansible | TASK [06-kodi : Ensure specified packages are in there desired state] **********************************************************************************
+2020-11-25 07:52:41,961 p=22978 u=root n=ansible | ok: [local_user] => (item=xorg)
+2020-11-25 07:52:42,661 p=22978 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-legacy)
+2020-11-25 07:52:43,349 p=22978 u=root n=ansible | ok: [local_user] => (item=alsa-utils)
+2020-11-25 07:52:44,028 p=22978 u=root n=ansible | ok: [local_user] => (item=mesa-utils)
+2020-11-25 07:52:44,713 p=22978 u=root n=ansible | ok: [local_user] => (item=librtmp1)
+2020-11-25 07:52:45,405 p=22978 u=root n=ansible | ok: [local_user] => (item=libmad0)
+2020-11-25 07:52:46,103 p=22978 u=root n=ansible | ok: [local_user] => (item=lm-sensors)
+2020-11-25 07:52:46,783 p=22978 u=root n=ansible | ok: [local_user] => (item=libmpeg2-4)
+2020-11-25 07:52:47,470 p=22978 u=root n=ansible | ok: [local_user] => (item=avahi-daemon)
+2020-11-25 07:52:48,150 p=22978 u=root n=ansible | ok: [local_user] => (item=libva2)
+2020-11-25 07:52:48,847 p=22978 u=root n=ansible | ok: [local_user] => (item=vainfo)
+2020-11-25 07:52:49,547 p=22978 u=root n=ansible | ok: [local_user] => (item=i965-va-driver)
+2020-11-25 07:52:50,230 p=22978 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-11-25 07:52:50,930 p=22978 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-11-25 07:52:51,615 p=22978 u=root n=ansible | ok: [local_user] => (item=openbox)
+2020-11-25 07:52:52,299 p=22978 u=root n=ansible | ok: [local_user] => (item=pastebinit)
+2020-11-25 07:52:53,016 p=22978 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-11-25 07:52:53,699 p=22978 u=root n=ansible | ok: [local_user] => (item=pulseaudio)
+2020-11-25 07:52:54,395 p=22978 u=root n=ansible | ok: [local_user] => (item=upower)
+2020-11-25 07:52:55,083 p=22978 u=root n=ansible | ok: [local_user] => (item=lm-sensors)
+2020-11-25 07:52:55,769 p=22978 u=root n=ansible | ok: [local_user] => (item=mesa-va-drivers)
+2020-11-25 07:52:56,533 p=22978 u=root n=ansible | TASK [06-kodi : Ensure AMD GPU drivers are installed] **************************************************************************************************
+2020-11-25 07:52:56,534 p=22978 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-radeon)
+2020-11-25 07:52:57,216 p=22978 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-amdgpu)
+2020-11-25 07:52:57,682 p=22978 u=root n=ansible | TASK [06-kodi : Add Kodi Repository] *******************************************************************************************************************
+2020-11-25 07:52:57,682 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:57,712 p=22978 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/configure.yml for local_user
+2020-11-25 07:52:58,055 p=22978 u=root n=ansible | TASK [06-kodi : Ensure Kodi user is present] ***********************************************************************************************************
+2020-11-25 07:52:58,055 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:58,349 p=22978 u=root n=ansible | TASK [06-kodi : Create kodi config dir] ****************************************************************************************************************
+2020-11-25 07:52:58,350 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:58,601 p=22978 u=root n=ansible | TASK [06-kodi : Check if Xwrapper.config is already defined] *******************************************************************************************
+2020-11-25 07:52:58,602 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:59,067 p=22978 u=root n=ansible | TASK [06-kodi : custom-actions] ************************************************************************************************************************
+2020-11-25 07:52:59,067 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:59,389 p=22978 u=root n=ansible | TASK [06-kodi : create kodi.service for the user session] **********************************************************************************************
+2020-11-25 07:52:59,389 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:59,532 p=22978 u=root n=ansible | TASK [06-kodi : Check if limits.config is already defined] *********************************************************************************************
+2020-11-25 07:52:59,532 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:59,735 p=22978 u=root n=ansible | TASK [06-kodi : Create symbolic link] ******************************************************************************************************************
+2020-11-25 07:52:59,735 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:52:59,763 p=22978 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/install.yml for local_user
+2020-11-25 07:53:01,223 p=22978 u=root n=ansible | TASK [06-kodi : Install kodi] **************************************************************************************************************************
+2020-11-25 07:53:01,223 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:53:02,702 p=22978 u=root n=ansible | TASK [06-kodi : Install kodix11] ***********************************************************************************************************************
+2020-11-25 07:53:02,702 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:53:02,730 p=22978 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/after.yml for local_user
+2020-11-25 07:53:02,909 p=22978 u=root n=ansible | TASK [06-kodi : Create a directory if it does not exist] ***********************************************************************************************
+2020-11-25 07:53:02,910 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:53:03,087 p=22978 u=root n=ansible | TASK [06-kodi : Creating an empty file] ****************************************************************************************************************
+2020-11-25 07:53:03,088 p=22978 u=root n=ansible | changed: [local_user]
+2020-11-25 07:53:03,421 p=22978 u=root n=ansible | TASK [06-kodi : autostart] *****************************************************************************************************************************
+2020-11-25 07:53:03,421 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:53:03,596 p=22978 u=root n=ansible | TASK [06-kodi : recursively update /home/kodi/.config directory owner] *********************************************************************************
+2020-11-25 07:53:03,596 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:53:03,904 p=22978 u=root n=ansible | TASK [06-kodi : Kodi sources.xml] **********************************************************************************************************************
+2020-11-25 07:53:03,904 p=22978 u=root n=ansible | ok: [local_user]
+2020-11-25 07:53:04,347 p=22978 u=root n=ansible | TASK [06-kodi : Drop guisettings.xml] ******************************************************************************************************************
+2020-11-25 07:53:04,347 p=22978 u=root n=ansible | changed: [local_user]
+2020-11-25 07:53:04,794 p=22978 u=root n=ansible | TASK [06-kodi : enable service kodi] *******************************************************************************************************************
+2020-11-25 07:53:04,794 p=22978 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Could not find the requested service kodi.service: host"}
+2020-11-25 07:53:04,800 p=22978 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.6_kodi.retry
+
+2020-11-25 07:53:04,800 p=22978 u=root n=ansible | PLAY RECAP *********************************************************************************************************************************************
+2020-11-25 07:53:04,800 p=22978 u=root n=ansible | local_user                 : ok=25   changed=2    unreachable=0    failed=1    skipped=7    rescued=0    ignored=0   
+2020-11-25 08:00:32,360 p=24948 u=root n=ansible | PLAY [local] *******************************************************************************************************************************************
+2020-11-25 08:00:33,157 p=24948 u=root n=ansible | TASK [Gathering Facts] *********************************************************************************************************************************
+2020-11-25 08:00:33,157 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:33,311 p=24948 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/preinstall.yml for local_user
+2020-11-25 08:00:34,166 p=24948 u=root n=ansible | TASK [06-kodi : Install Software Properties Common] ****************************************************************************************************
+2020-11-25 08:00:34,167 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:34,244 p=24948 u=root n=ansible | TASK [06-kodi : set_fact] ******************************************************************************************************************************
+2020-11-25 08:00:34,244 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:35,087 p=24948 u=root n=ansible | TASK [06-kodi : Ensure specified packages are in there desired state] **********************************************************************************
+2020-11-25 08:00:35,087 p=24948 u=root n=ansible | ok: [local_user] => (item=xorg)
+2020-11-25 08:00:35,808 p=24948 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-legacy)
+2020-11-25 08:00:36,488 p=24948 u=root n=ansible | ok: [local_user] => (item=alsa-utils)
+2020-11-25 08:00:37,163 p=24948 u=root n=ansible | ok: [local_user] => (item=mesa-utils)
+2020-11-25 08:00:37,873 p=24948 u=root n=ansible | ok: [local_user] => (item=librtmp1)
+2020-11-25 08:00:38,556 p=24948 u=root n=ansible | ok: [local_user] => (item=libmad0)
+2020-11-25 08:00:39,247 p=24948 u=root n=ansible | ok: [local_user] => (item=lm-sensors)
+2020-11-25 08:00:39,925 p=24948 u=root n=ansible | ok: [local_user] => (item=libmpeg2-4)
+2020-11-25 08:00:40,602 p=24948 u=root n=ansible | ok: [local_user] => (item=avahi-daemon)
+2020-11-25 08:00:41,310 p=24948 u=root n=ansible | ok: [local_user] => (item=libva2)
+2020-11-25 08:00:41,994 p=24948 u=root n=ansible | ok: [local_user] => (item=vainfo)
+2020-11-25 08:00:42,671 p=24948 u=root n=ansible | ok: [local_user] => (item=i965-va-driver)
+2020-11-25 08:00:43,363 p=24948 u=root n=ansible | ok: [local_user] => (item=dbus-x11)
+2020-11-25 08:00:44,045 p=24948 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-11-25 08:00:44,756 p=24948 u=root n=ansible | ok: [local_user] => (item=openbox)
+2020-11-25 08:00:45,437 p=24948 u=root n=ansible | ok: [local_user] => (item=pastebinit)
+2020-11-25 08:00:46,114 p=24948 u=root n=ansible | ok: [local_user] => (item=udisks2)
+2020-11-25 08:00:46,812 p=24948 u=root n=ansible | ok: [local_user] => (item=pulseaudio)
+2020-11-25 08:00:47,496 p=24948 u=root n=ansible | ok: [local_user] => (item=upower)
+2020-11-25 08:00:48,187 p=24948 u=root n=ansible | ok: [local_user] => (item=lm-sensors)
+2020-11-25 08:00:48,888 p=24948 u=root n=ansible | ok: [local_user] => (item=mesa-va-drivers)
+2020-11-25 08:00:49,621 p=24948 u=root n=ansible | TASK [06-kodi : Ensure AMD GPU drivers are installed] **************************************************************************************************
+2020-11-25 08:00:49,621 p=24948 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-radeon)
+2020-11-25 08:00:50,308 p=24948 u=root n=ansible | ok: [local_user] => (item=xserver-xorg-video-amdgpu)
+2020-11-25 08:00:50,768 p=24948 u=root n=ansible | TASK [06-kodi : Add Kodi Repository] *******************************************************************************************************************
+2020-11-25 08:00:50,769 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:50,797 p=24948 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/configure.yml for local_user
+2020-11-25 08:00:51,147 p=24948 u=root n=ansible | TASK [06-kodi : Ensure Kodi user is present] ***********************************************************************************************************
+2020-11-25 08:00:51,147 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:51,429 p=24948 u=root n=ansible | TASK [06-kodi : Create kodi config dir] ****************************************************************************************************************
+2020-11-25 08:00:51,429 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:51,694 p=24948 u=root n=ansible | TASK [06-kodi : Check if Xwrapper.config is already defined] *******************************************************************************************
+2020-11-25 08:00:51,694 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:52,167 p=24948 u=root n=ansible | TASK [06-kodi : custom-actions] ************************************************************************************************************************
+2020-11-25 08:00:52,167 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:52,485 p=24948 u=root n=ansible | TASK [06-kodi : create kodi.service for the user session] **********************************************************************************************
+2020-11-25 08:00:52,485 p=24948 u=root n=ansible | changed: [local_user]
+2020-11-25 08:00:52,625 p=24948 u=root n=ansible | TASK [06-kodi : Check if limits.config is already defined] *********************************************************************************************
+2020-11-25 08:00:52,626 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:52,816 p=24948 u=root n=ansible | TASK [06-kodi : Create symbolic link] ******************************************************************************************************************
+2020-11-25 08:00:52,816 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:52,842 p=24948 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/install.yml for local_user
+2020-11-25 08:00:54,437 p=24948 u=root n=ansible | TASK [06-kodi : Install kodi] **************************************************************************************************************************
+2020-11-25 08:00:54,437 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:55,900 p=24948 u=root n=ansible | TASK [06-kodi : Install kodix11] ***********************************************************************************************************************
+2020-11-25 08:00:55,900 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:55,929 p=24948 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/06-kodi/tasks/after.yml for local_user
+2020-11-25 08:00:56,104 p=24948 u=root n=ansible | TASK [06-kodi : Create a directory if it does not exist] ***********************************************************************************************
+2020-11-25 08:00:56,105 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:56,279 p=24948 u=root n=ansible | TASK [06-kodi : Creating an empty file] ****************************************************************************************************************
+2020-11-25 08:00:56,279 p=24948 u=root n=ansible | changed: [local_user]
+2020-11-25 08:00:56,605 p=24948 u=root n=ansible | TASK [06-kodi : autostart] *****************************************************************************************************************************
+2020-11-25 08:00:56,605 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:56,778 p=24948 u=root n=ansible | TASK [06-kodi : recursively update /home/kodi/.config directory owner] *********************************************************************************
+2020-11-25 08:00:56,778 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:57,081 p=24948 u=root n=ansible | TASK [06-kodi : Kodi sources.xml] **********************************************************************************************************************
+2020-11-25 08:00:57,081 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:57,408 p=24948 u=root n=ansible | TASK [06-kodi : Drop guisettings.xml] ******************************************************************************************************************
+2020-11-25 08:00:57,409 p=24948 u=root n=ansible | ok: [local_user]
+2020-11-25 08:00:57,859 p=24948 u=root n=ansible | TASK [06-kodi : enable service kodi] *******************************************************************************************************************
+2020-11-25 08:00:57,860 p=24948 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Could not find the requested service kodi.service: host"}
+2020-11-25 08:00:57,865 p=24948 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.6_kodi.retry
+
+2020-11-25 08:00:57,865 p=24948 u=root n=ansible | PLAY RECAP *********************************************************************************************************************************************
+2020-11-25 08:00:57,865 p=24948 u=root n=ansible | local_user                 : ok=25   changed=2    unreachable=0    failed=1    skipped=7    rescued=0    ignored=0   
+2020-11-25 08:19:12,026 p=19590 u=root n=ansible | PLAY [local] **********************************************************************************************************************************************************
+2020-11-25 08:19:12,990 p=19590 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-11-25 08:19:12,990 p=19590 u=root n=ansible | ok: [local_user]
+2020-11-25 08:19:13,063 p=19590 u=root n=ansible | TASK [08-samba : Include OS specific variables] ***********************************************************************************************************************
+2020-11-25 08:19:13,064 p=19590 u=root n=ansible | ok: [local_user] => (item=/opt/ansible-crypt-zfs-root/roles/local/08-samba/vars/os_Debian.yml)
+2020-11-25 08:19:35,081 p=19590 u=root n=ansible | TASK [08-samba : Install Samba packages] ******************************************************************************************************************************
+2020-11-25 08:19:35,081 p=19590 u=root n=ansible | changed: [local_user]
+2020-11-25 08:19:35,915 p=19590 u=root n=ansible | TASK [08-samba : Install Samba VFS extensions packages] ***************************************************************************************************************
+2020-11-25 08:19:35,916 p=19590 u=root n=ansible | ok: [local_user]
+2020-11-25 08:19:36,236 p=19590 u=root n=ansible | TASK [08-samba : Register Samba version] ******************************************************************************************************************************
+2020-11-25 08:19:36,236 p=19590 u=root n=ansible | ok: [local_user]
+2020-11-25 08:19:36,285 p=19590 u=root n=ansible | TASK [08-samba : Installed Samba version:] ****************************************************************************************************************************
+2020-11-25 08:19:36,286 p=19590 u=root n=ansible | ok: [local_user] => {
+    "msg": {
+        "changed": false,
+        "cmd": "set -o nounset -o pipefail -o errexit && smbd --version | sed 's/Version //'\n",
+        "delta": "0:00:00.029516",
+        "end": "2020-11-25 08:19:36.221767",
+        "failed": false,
+        "rc": 0,
+        "start": "2020-11-25 08:19:36.192251",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "4.11.6-Ubuntu",
+        "stdout_lines": [
+            "4.11.6-Ubuntu"
+        ]
+    }
+}
+2020-11-25 08:19:36,675 p=19590 u=root n=ansible | TASK [08-samba : Create share directories] ****************************************************************************************************************************
+2020-11-25 08:19:36,676 p=19590 u=root n=ansible | changed: [local_user] => (item={'name': 'torrents', 'comment': 'A place for pirates to hang out', 'path': '/mnt/data2000-new/torrents/', 'group': 'users', 'owner': 'sa', 'guest_ok': 'yes', 'browseable': 'yes'})
+2020-11-25 08:19:36,814 p=19590 u=root n=ansible | changed: [local_user] => (item={'name': 'data1500', 'comment': 'data1500 A place for pirates to hang out', 'path': '/mnt/data1500/', 'guest_ok': 'yes', 'browseable': 'yes'})
+2020-11-25 08:19:36,946 p=19590 u=root n=ansible | changed: [local_user] => (item={'name': 'data2000', 'comment': 'data2000 A place for pirates to hang out', 'path': '/mnt/data2000/', 'guest_ok': 'yes', 'browseable': 'yes'})
+2020-11-25 08:19:37,080 p=19590 u=root n=ansible | changed: [local_user] => (item={'name': 'data3000t', 'comment': 'data3000A place for pirates to hang out', 'path': '/mnt/data3000/', 'guest_ok': 'yes', 'browseable': 'yes'})
+2020-11-25 08:19:37,745 p=19590 u=root n=ansible | TASK [08-samba : Samba configuration] *********************************************************************************************************************************
+2020-11-25 08:19:37,745 p=19590 u=root n=ansible | changed: [local_user]
+2020-11-25 08:19:38,410 p=19590 u=root n=ansible | TASK [08-samba : Start Samba service(s)] ******************************************************************************************************************************
+2020-11-25 08:19:38,410 p=19590 u=root n=ansible | ok: [local_user] => (item=smbd)
+2020-11-25 08:19:38,637 p=19590 u=root n=ansible | ok: [local_user] => (item=nmbd)
+2020-11-25 08:19:39,017 p=19590 u=root n=ansible | RUNNING HANDLER [08-samba : Restart Samba services] *******************************************************************************************************************
+2020-11-25 08:19:39,018 p=19590 u=root n=ansible | changed: [local_user] => (item=smbd)
+2020-11-25 08:19:39,268 p=19590 u=root n=ansible | changed: [local_user] => (item=nmbd)
+2020-11-25 08:19:39,283 p=19590 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-11-25 08:19:39,283 p=19590 u=root n=ansible | local_user                 : ok=10   changed=4    unreachable=0    failed=0    skipped=8    rescued=0    ignored=0   
+2020-11-25 08:20:13,482 p=21754 u=root n=ansible | PLAY [local] **********************************************************************************************************************************************************
+2020-11-25 08:20:14,256 p=21754 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-11-25 08:20:14,256 p=21754 u=root n=ansible | ok: [local_user]
+2020-11-25 08:20:19,337 p=21754 u=root n=ansible | TASK [081-transmission : Install Transmission] ************************************************************************************************************************
+2020-11-25 08:20:19,338 p=21754 u=root n=ansible | changed: [local_user]
+2020-11-25 08:20:20,507 p=21754 u=root n=ansible | TASK [081-transmission : Make sure transmission is not running] *******************************************************************************************************
+2020-11-25 08:20:20,507 p=21754 u=root n=ansible | changed: [local_user]
+2020-11-25 08:20:20,792 p=21754 u=root n=ansible | TASK [081-transmission : grep and register] ***************************************************************************************************************************
+2020-11-25 08:20:20,793 p=21754 u=root n=ansible | ok: [local_user]
+2020-11-25 08:20:21,075 p=21754 u=root n=ansible | TASK [081-transmission : Add downloads folder] ************************************************************************************************************************
+2020-11-25 08:20:21,076 p=21754 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "gid": 100, "group": "users", "mode": "0775", "msg": "chown failed: failed to look up user  sa", "owner": "sa", "path": "/mnt/data2000-new/torrents", "size": 4096, "state": "directory", "uid": 1000}
+2020-11-25 08:20:21,076 p=21754 u=root n=ansible | ...ignoring
+2020-11-25 08:20:21,247 p=21754 u=root n=ansible | TASK [081-transmission : Add watch dir] *******************************************************************************************************************************
+2020-11-25 08:20:21,248 p=21754 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "gid": 0, "group": "root", "mode": "0755", "msg": "chown failed: failed to look up user  sa", "owner": "root", "path": "/root/torrents", "size": 2, "state": "directory", "uid": 0}
+2020-11-25 08:20:21,253 p=21754 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/1.8.1_transmission.retry
+
+2020-11-25 08:20:21,253 p=21754 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-11-25 08:20:21,253 p=21754 u=root n=ansible | local_user                 : ok=5    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=1   
+2020-11-25 08:20:46,573 p=22386 u=root n=ansible | PLAY [local] **********************************************************************************************************************************************************
+2020-11-25 08:20:47,347 p=22386 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-11-25 08:20:47,348 p=22386 u=root n=ansible | ok: [local_user]
+2020-11-25 08:20:47,627 p=22386 u=root n=ansible | TASK [20-docker : Disable pinned Docker version] **********************************************************************************************************************
+2020-11-25 08:20:47,628 p=22386 u=root n=ansible | ok: [local_user]
+2020-11-25 08:21:04,992 p=22386 u=root n=ansible | TASK [20-docker : Install Docker's dependencies] **********************************************************************************************************************
+2020-11-25 08:21:04,992 p=22386 u=root n=ansible | changed: [local_user]
+2020-11-25 08:21:06,210 p=22386 u=root n=ansible | TASK [20-docker : Add Docker's public GPG key to the APT keyring] *****************************************************************************************************
+2020-11-25 08:21:06,210 p=22386 u=root n=ansible | changed: [local_user]
+2020-11-25 08:21:08,553 p=22386 u=root n=ansible | TASK [20-docker : Configure Docker's upstream APT repository] *********************************************************************************************************
+2020-11-25 08:21:08,553 p=22386 u=root n=ansible | changed: [local_user]
+2020-11-25 08:21:08,750 p=22386 u=root n=ansible | TASK [20-docker : Create Docker configuration directories] ************************************************************************************************************
+2020-11-25 08:21:08,751 p=22386 u=root n=ansible | changed: [local_user] => (item=/etc/docker)
+2020-11-25 08:21:08,871 p=22386 u=root n=ansible | changed: [local_user] => (item=/etc/systemd/system/docker.service.d)
+2020-11-25 08:21:09,364 p=22386 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (json)] *************************************************************************************************************
+2020-11-25 08:21:09,365 p=22386 u=root n=ansible | changed: [local_user]
+2020-11-25 08:21:36,664 p=22386 u=root n=ansible | TASK [20-docker : Install Docker] *************************************************************************************************************************************
+2020-11-25 08:21:36,665 p=22386 u=root n=ansible | changed: [local_user]
+2020-11-25 08:21:40,647 p=22386 u=root n=ansible | TASK [20-docker : Install Python packages] ****************************************************************************************************************************
+2020-11-25 08:21:40,647 p=22386 u=root n=ansible | changed: [local_user] => (item={'name': 'docker', 'state': 'present'})
+2020-11-25 08:21:48,949 p=22386 u=root n=ansible | changed: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2020-11-25 08:21:49,266 p=22386 u=root n=ansible | TASK [20-docker : Create python3-docker proxy script to access the Virtualenv's interpreter] **************************************************************************
+2020-11-25 08:21:49,267 p=22386 u=root n=ansible | changed: [local_user]
+2020-11-25 08:21:49,450 p=22386 u=root n=ansible | TASK [20-docker : Symlink selected Python package binaries to /usr/local/bin] *****************************************************************************************
+2020-11-25 08:21:49,451 p=22386 u=root n=ansible | changed: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2020-11-25 08:21:49,807 p=22386 u=root n=ansible | TASK [20-docker : Add user(s) to "docker" group] **********************************************************************************************************************
+2020-11-25 08:21:49,807 p=22386 u=root n=ansible | changed: [local_user] => (item=sa)
+2020-11-25 08:21:50,119 p=22386 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (flags)] ************************************************************************************************************
+2020-11-25 08:21:50,120 p=22386 u=root n=ansible | changed: [local_user]
+2020-11-25 08:21:50,916 p=22386 u=root n=ansible | TASK [20-docker : Reload systemd daemon] ******************************************************************************************************************************
+2020-11-25 08:21:50,916 p=22386 u=root n=ansible | ok: [local_user]
+2020-11-25 08:21:51,458 p=22386 u=root n=ansible | RUNNING HANDLER [20-docker : Restart Docker] **************************************************************************************************************************
+2020-11-25 08:21:51,458 p=22386 u=root n=ansible | changed: [local_user]
+2020-11-25 08:21:51,846 p=22386 u=root n=ansible | TASK [20-docker : Create Docker related cron jobs] ********************************************************************************************************************
+2020-11-25 08:21:51,846 p=22386 u=root n=ansible | changed: [local_user] => (item={'name': 'Docker disk clean up', 'job': 'docker system prune -af > /dev/null 2>&1', 'schedule': ['0', '0', '*', '*', '0'], 'cron_file': 'docker-disk-clean-up', 'user': 'sa'})
+2020-11-25 08:21:51,865 p=22386 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-11-25 08:21:51,865 p=22386 u=root n=ansible | local_user                 : ok=16   changed=13   unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+2020-11-25 08:50:20,744 p=30149 u=root n=ansible | PLAY [local] **********************************************************************************************************************************************************
+2020-11-25 08:50:21,562 p=30149 u=root n=ansible | TASK [Gathering Facts] ************************************************************************************************************************************************
+2020-11-25 08:50:21,563 p=30149 u=root n=ansible | ok: [local_user]
+2020-11-25 08:50:21,586 p=30149 u=root n=ansible | TASK [Load custom variables from custom.yml] **************************************************************************************************************************
+2020-11-25 08:50:21,586 p=30149 u=root n=ansible | ok: [local_user]
+2020-11-25 08:50:21,761 p=30149 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/portainer.yml for local_user
+2020-11-25 08:50:22,044 p=30149 u=root n=ansible | TASK [21-dockerized : Create Portainer Directories] *******************************************************************************************************************
+2020-11-25 08:50:22,045 p=30149 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/portainer/config)
+2020-11-25 08:50:22,457 p=30149 u=root n=ansible | TASK [21-dockerized : Portainer Docker Container] *********************************************************************************************************************
+2020-11-25 08:50:22,458 p=30149 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Failed to import the required Python library (Docker SDK for Python: docker (Python >= 2.7) or docker-py (Python 2.6)) on nas's Python /usr/bin/python3. Please read module documentation and install in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter, for example via `pip install docker` or `pip install docker-py` (Python 2.6). The error was: No module named 'docker'"}
+2020-11-25 08:50:22,463 p=30149 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/21_dockerized.retry
+
+2020-11-25 08:50:22,463 p=30149 u=root n=ansible | PLAY RECAP ************************************************************************************************************************************************************
+2020-11-25 08:50:22,463 p=30149 u=root n=ansible | local_user                 : ok=4    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0   
+2020-11-25 08:54:04,205 p=30614 u=root n=ansible | PLAY [local] ***************************************************************************************************************************************************************************************************
+2020-11-25 08:54:05,016 p=30614 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************************************************************************************
+2020-11-25 08:54:05,017 p=30614 u=root n=ansible | ok: [local_user]
+2020-11-25 08:54:05,040 p=30614 u=root n=ansible | TASK [Load custom variables from custom.yml] *******************************************************************************************************************************************************************
+2020-11-25 08:54:05,040 p=30614 u=root n=ansible | ok: [local_user]
+2020-11-25 08:54:05,209 p=30614 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/portainer.yml for local_user
+2020-11-25 08:54:05,499 p=30614 u=root n=ansible | TASK [21-dockerized : Create Portainer Directories] ************************************************************************************************************************************************************
+2020-11-25 08:54:05,500 p=30614 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/portainer/config)
+2020-11-25 08:54:20,466 p=30614 u=root n=ansible | TASK [21-dockerized : Portainer Docker Container] **************************************************************************************************************************************************************
+2020-11-25 08:54:20,466 p=30614 u=root n=ansible | [WARNING]: Docker warning: Your kernel does not support swap limit capabilities or the cgroup is not mounted. Memory limited without swap.
+
+2020-11-25 08:54:20,466 p=30614 u=root n=ansible | changed: [local_user]
+2020-11-25 08:54:20,565 p=30614 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/watchtower.yml for local_user
+2020-11-25 08:54:27,164 p=30614 u=root n=ansible | TASK [21-dockerized : Watchtower Docker Container] *************************************************************************************************************************************************************
+2020-11-25 08:54:27,164 p=30614 u=root n=ansible | changed: [local_user]
+2020-11-25 08:54:27,362 p=30614 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/glances.yml for local_user
+2020-11-25 08:54:59,553 p=30614 u=root n=ansible | TASK [21-dockerized : Glances Docker Container] ****************************************************************************************************************************************************************
+2020-11-25 08:54:59,554 p=30614 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: docker.errors.InvalidArgument: "host" network_mode is incompatible with port_bindings
+2020-11-25 08:54:59,554 p=30614 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "An unexpected docker error occurred: \"host\" network_mode is incompatible with port_bindings"}
+2020-11-25 08:54:59,559 p=30614 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/21_dockerized.retry
+
+2020-11-25 08:54:59,559 p=30614 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************************************************************************************
+2020-11-25 08:54:59,559 p=30614 u=root n=ansible | local_user                 : ok=8    changed=2    unreachable=0    failed=1    skipped=3    rescued=0    ignored=0   
+2020-11-25 08:56:29,817 p=35208 u=root n=ansible | PLAY [local] **************************************************************************************************************************************************************************************************
+2020-11-25 08:56:30,626 p=35208 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************
+2020-11-25 08:56:30,626 p=35208 u=root n=ansible | ok: [local_user]
+2020-11-25 08:56:30,648 p=35208 u=root n=ansible | TASK [Load custom variables from custom.yml] ******************************************************************************************************************************************************************
+2020-11-25 08:56:30,649 p=35208 u=root n=ansible | ok: [local_user]
+2020-11-25 08:56:30,826 p=35208 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/portainer.yml for local_user
+2020-11-25 08:56:31,117 p=35208 u=root n=ansible | TASK [21-dockerized : Create Portainer Directories] ***********************************************************************************************************************************************************
+2020-11-25 08:56:31,117 p=35208 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/portainer/config)
+2020-11-25 08:56:35,094 p=35208 u=root n=ansible | TASK [21-dockerized : Portainer Docker Container] *************************************************************************************************************************************************************
+2020-11-25 08:56:35,094 p=35208 u=root n=ansible | ok: [local_user]
+2020-11-25 08:56:35,150 p=35208 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/watchtower.yml for local_user
+2020-11-25 08:56:38,022 p=35208 u=root n=ansible | TASK [21-dockerized : Watchtower Docker Container] ************************************************************************************************************************************************************
+2020-11-25 08:56:38,022 p=35208 u=root n=ansible | ok: [local_user]
+2020-11-25 08:56:38,181 p=35208 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/glances.yml for local_user
+2020-11-25 08:56:41,412 p=35208 u=root n=ansible | TASK [21-dockerized : Glances Docker Container] ***************************************************************************************************************************************************************
+2020-11-25 08:56:41,412 p=35208 u=root n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: docker.errors.InvalidArgument: "host" network_mode is incompatible with port_bindings
+2020-11-25 08:56:41,413 p=35208 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "An unexpected docker error occurred: \"host\" network_mode is incompatible with port_bindings"}
+2020-11-25 08:56:41,417 p=35208 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/21_dockerized.retry
+
+2020-11-25 08:56:41,418 p=35208 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
+2020-11-25 08:56:41,418 p=35208 u=root n=ansible | local_user                 : ok=8    changed=0    unreachable=0    failed=1    skipped=3    rescued=0    ignored=0   
+2020-11-25 08:57:27,505 p=35554 u=root n=ansible | PLAY [local] **************************************************************************************************************************************************************************************************
+2020-11-25 08:57:28,325 p=35554 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************
+2020-11-25 08:57:28,325 p=35554 u=root n=ansible | ok: [local_user]
+2020-11-25 08:57:28,347 p=35554 u=root n=ansible | TASK [Load custom variables from custom.yml] ******************************************************************************************************************************************************************
+2020-11-25 08:57:28,347 p=35554 u=root n=ansible | ok: [local_user]
+2020-11-25 08:57:28,518 p=35554 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/portainer.yml for local_user
+2020-11-25 08:57:28,807 p=35554 u=root n=ansible | TASK [21-dockerized : Create Portainer Directories] ***********************************************************************************************************************************************************
+2020-11-25 08:57:28,807 p=35554 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/portainer/config)
+2020-11-25 08:57:32,595 p=35554 u=root n=ansible | TASK [21-dockerized : Portainer Docker Container] *************************************************************************************************************************************************************
+2020-11-25 08:57:32,595 p=35554 u=root n=ansible | ok: [local_user]
+2020-11-25 08:57:32,653 p=35554 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/watchtower.yml for local_user
+2020-11-25 08:57:35,583 p=35554 u=root n=ansible | TASK [21-dockerized : Watchtower Docker Container] ************************************************************************************************************************************************************
+2020-11-25 08:57:35,583 p=35554 u=root n=ansible | ok: [local_user]
+2020-11-25 08:57:35,736 p=35554 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/glances.yml for local_user
+2020-11-25 08:57:39,780 p=35554 u=root n=ansible | TASK [21-dockerized : Glances Docker Container] ***************************************************************************************************************************************************************
+2020-11-25 08:57:39,781 p=35554 u=root n=ansible | [WARNING]: Docker warning: Your kernel does not support swap limit capabilities or the cgroup is not mounted. Memory limited without swap.
+
+2020-11-25 08:57:39,782 p=35554 u=root n=ansible | changed: [local_user]
+2020-11-25 08:57:39,926 p=35554 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
+2020-11-25 08:57:39,926 p=35554 u=root n=ansible | local_user                 : ok=9    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+2020-11-25 09:03:09,430 p=36824 u=root n=ansible | PLAY [local] **************************************************************************************************************************************************************************************************
+2020-11-25 09:03:10,239 p=36824 u=root n=ansible | TASK [Gathering Facts] ****************************************************************************************************************************************************************************************
+2020-11-25 09:03:10,240 p=36824 u=root n=ansible | ok: [local_user]
+2020-11-25 09:03:10,262 p=36824 u=root n=ansible | TASK [Load custom variables from custom.yml] ******************************************************************************************************************************************************************
+2020-11-25 09:03:10,263 p=36824 u=root n=ansible | ok: [local_user]
+2020-11-25 09:03:10,392 p=36824 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/calibre.yml for local_user
+2020-11-25 09:03:10,681 p=36824 u=root n=ansible | TASK [21-dockerized : Create Calibre-web Directories] *********************************************************************************************************************************************************
+2020-11-25 09:03:10,681 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/calibre/config)
+2020-11-25 09:03:34,974 p=36824 u=root n=ansible | TASK [21-dockerized : Calibre-web Docker Container] ***********************************************************************************************************************************************************
+2020-11-25 09:03:34,975 p=36824 u=root n=ansible | [WARNING]: Docker warning: Your kernel does not support swap limit capabilities or the cgroup is not mounted. Memory limited without swap.
+
+2020-11-25 09:03:34,975 p=36824 u=root n=ansible | changed: [local_user]
+2020-11-25 09:03:35,070 p=36824 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/portainer.yml for local_user
+2020-11-25 09:03:35,300 p=36824 u=root n=ansible | TASK [21-dockerized : Create Portainer Directories] ***********************************************************************************************************************************************************
+2020-11-25 09:03:35,300 p=36824 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/portainer/config)
+2020-11-25 09:03:39,554 p=36824 u=root n=ansible | TASK [21-dockerized : Portainer Docker Container] *************************************************************************************************************************************************************
+2020-11-25 09:03:39,554 p=36824 u=root n=ansible | ok: [local_user]
+2020-11-25 09:03:39,622 p=36824 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/watchtower.yml for local_user
+2020-11-25 09:03:42,605 p=36824 u=root n=ansible | TASK [21-dockerized : Watchtower Docker Container] ************************************************************************************************************************************************************
+2020-11-25 09:03:42,605 p=36824 u=root n=ansible | ok: [local_user]
+2020-11-25 09:03:42,691 p=36824 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/transmission.yml for local_user
+2020-11-25 09:03:43,228 p=36824 u=root n=ansible | TASK [21-dockerized : Create Transmission Directories] ********************************************************************************************************************************************************
+2020-11-25 09:03:43,230 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/transmission/config)
+2020-11-25 09:03:43,542 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/samba/downloads)
+2020-11-25 09:03:43,720 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/samba/torrents)
+2020-11-25 09:04:00,363 p=36824 u=root n=ansible | TASK [21-dockerized : Transmission Docker Container] **********************************************************************************************************************************************************
+2020-11-25 09:04:00,363 p=36824 u=root n=ansible | changed: [local_user]
+2020-11-25 09:04:00,521 p=36824 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/pyload.yml for local_user
+2020-11-25 09:04:00,875 p=36824 u=root n=ansible | TASK [21-dockerized : Create pyLoad Directories] **************************************************************************************************************************************************************
+2020-11-25 09:04:00,875 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/pyload)
+2020-11-25 09:04:01,084 p=36824 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/samba/downloads)
+2020-11-25 09:04:55,644 p=36824 u=root n=ansible | TASK [21-dockerized : pyLoad Docker Container] ****************************************************************************************************************************************************************
+2020-11-25 09:04:55,647 p=36824 u=root n=ansible | changed: [local_user]
+2020-11-25 09:04:55,733 p=36824 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/glances.yml for local_user
+2020-11-25 09:04:58,945 p=36824 u=root n=ansible | TASK [21-dockerized : Glances Docker Container] ***************************************************************************************************************************************************************
+2020-11-25 09:04:58,948 p=36824 u=root n=ansible | ok: [local_user]
+2020-11-25 09:04:59,017 p=36824 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/stats.yml for local_user
+2020-11-25 09:04:59,212 p=36824 u=root n=ansible | TASK [21-dockerized : Create InfluxDB and Telegraf Directories] ***********************************************************************************************************************************************
+2020-11-25 09:04:59,212 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/influxdb)
+2020-11-25 09:04:59,346 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/telegraf)
+2020-11-25 09:04:59,546 p=36824 u=root n=ansible | TASK [21-dockerized : Create Grafana Directories] *************************************************************************************************************************************************************
+2020-11-25 09:04:59,546 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana)
+2020-11-25 09:04:59,678 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana/data)
+2020-11-25 09:04:59,809 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana/data/dashboards/ansible-nas)
+2020-11-25 09:04:59,947 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana/config/)
+2020-11-25 09:05:00,088 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana/config/provisioning)
+2020-11-25 09:05:00,225 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana/config/provisioning/datasources)
+2020-11-25 09:05:00,365 p=36824 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana/config/provisioning/dashboards)
+2020-11-25 09:05:23,469 p=36824 u=root n=ansible | TASK [21-dockerized : InfluxDB] *******************************************************************************************************************************************************************************
+2020-11-25 09:05:23,469 p=36824 u=root n=ansible | changed: [local_user]
+2020-11-25 09:05:41,193 p=36824 u=root n=ansible | TASK [21-dockerized : hddtemp] ********************************************************************************************************************************************************************************
+2020-11-25 09:05:41,193 p=36824 u=root n=ansible | changed: [local_user]
+2020-11-25 09:05:41,284 p=36824 u=root n=ansible | TASK [21-dockerized : Template telegraf.conf] *****************************************************************************************************************************************************************
+2020-11-25 09:05:41,284 p=36824 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Could not find or access 'telegraf/telegraf.conf'\nSearched in:\n\t/opt/ansible-crypt-zfs-root/roles/local/21-dockerized/templates/telegraf/telegraf.conf\n\t/opt/ansible-crypt-zfs-root/roles/local/21-dockerized/telegraf/telegraf.conf\n\t/opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/templates/telegraf/telegraf.conf\n\t/opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/telegraf/telegraf.conf\n\t/opt/ansible-crypt-zfs-root/playbooks/templates/telegraf/telegraf.conf\n\t/opt/ansible-crypt-zfs-root/playbooks/telegraf/telegraf.conf on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2020-11-25 09:05:41,289 p=36824 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/21_dockerized.retry
+
+2020-11-25 09:05:41,289 p=36824 u=root n=ansible | PLAY RECAP ****************************************************************************************************************************************************************************************************
+2020-11-25 09:05:41,289 p=36824 u=root n=ansible | local_user                 : ok=23   changed=10   unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

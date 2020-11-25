@@ -9,12 +9,13 @@ docker_home: /mnt/data2000new/docker
 docker_image_directory: "{{ docker_home }}/data"
 
 # Downloading
-transmission_enabled: false
-pyload_enabled: false
+transmission_enabled: yes
+pyload_enabled: yes
+# pyload/pyload
 
 # Media Serving
 plex_enabled: false
-tautulli_enabled: false
+tautulli_enabled: yes
 
 # Media Sourcing
 sonarr_enabled: false         # tv
@@ -26,8 +27,8 @@ sonarr_enabled: false         # tv
 # System Management
 portainer_enabled: yes
 glances_enabled: yes
-stats_enabled: false
-netdata_enabled: false
+stats_enabled: yes
+netdata_enabled: yes
 watchtower_enabled: yes
 heimdall_enabled: false
 organizr_enabled: false
@@ -49,7 +50,7 @@ timemachine_enabled: false
 homeassistant_enabled: false
 
 # Books
-calibre_enabled: false
+calibre_enabled: yes
 
 # Ubooquity
 ubooquity_enabled: false
