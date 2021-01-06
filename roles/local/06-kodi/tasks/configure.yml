@@ -43,7 +43,8 @@
 
 - name: create kodi.service for the user session
   template:
-    src: 'kodi.service.j2'
+#    src: 'kodi.service.j2'
+    src: 'kodi.service.new.j2'
     dest: '/etc/systemd/system/kodi.service'
     mode: 0644
     owner: root
