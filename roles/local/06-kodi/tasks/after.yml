@@ -53,6 +53,28 @@
     group: "{{ kodi_sysgroup }}"
   become: yes
 
+- name: create kodi.service for the user session
+  template:
+    src: 'kodi.service.new.j2'
+    dest: '/etc/systemd/system/kodi.service'
+    mode: 0644
+    owner: root
+    group: root
+
+- name: Create symbolic link
+  file:
+    src: "/etc/systemd/system/kodi.service"
+    dest: "/etc/systemd/system/display-manager.service"
+    state: link
+
+- name: reload kodi server 
+  systemd:
+    name: kodi
+    state: reloaded
+    daemon-reload: yes
+
+#reloaded, restarted, started, stopped, got: reload
+
 #- name: enable service kodi
 #  systemd:
 #    name: kodi.service

@@ -41,14 +41,13 @@
 #  notify:
 #    - restart polkitd
 
-- name: create kodi.service for the user session
-  template:
-#    src: 'kodi.service.j2'
-    src: 'kodi.service.new.j2'
-    dest: '/etc/systemd/system/kodi.service'
-    mode: 0644
-    owner: root
-    group: root
+#- name: create kodi.service for the user session
+#  template:
+#    src: 'kodi.service.new.j2'
+#    dest: '/etc/systemd/system/kodi.service'
+#    mode: 0644
+#    owner: root
+#    group: root
 
 - name: Check if limits.config is already defined
   lineinfile:
@@ -66,8 +65,8 @@
     line: "kodi             -       nice            -1"
   when: check2.found == 0
 
-- name: Create symbolic link 
-  file:
-    src: "/etc/systemd/system/kodi.service"
-    dest: "/etc/systemd/system/display-manager.service"
-    state: link
+#- name: Create symbolic link 
+#  file:
+#    src: "/etc/systemd/system/kodi.service"
+#    dest: "/etc/systemd/system/display-manager.service"
+#    state: link
