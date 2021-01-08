@@ -2,5 +2,6 @@
 {
   "data-root": "{{ docker_image_directory }}"
 #  "storage-driver": "{{ docker_storage_driver }}",
+# "storage-driver": "zfs"
 #  "graph": "/zpool/docker"
 }

@@ -27443,3 +27443,509 @@ The offending line appears to be:
 2021-01-06 10:53:41,531 p=21323 u=root n=ansible | changed: [local_user]
 2021-01-06 10:53:41,561 p=21323 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
 2021-01-06 10:53:41,562 p=21323 u=root n=ansible | local_user                 : ok=26   changed=2    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+2021-01-06 11:42:24,909 p=23659 u=root n=ansible | PLAY [local] *************************************************************************************************************************************************************************************
+2021-01-06 11:42:26,589 p=23659 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************************************
+2021-01-06 11:42:26,590 p=23659 u=root n=ansible | ok: [local_user]
+2021-01-06 11:42:27,507 p=23659 u=root n=ansible | TASK [05-environment : install cryptsetup] *******************************************************************************************************************************************************
+2021-01-06 11:42:27,508 p=23659 u=root n=ansible | ok: [local_user]
+2021-01-06 11:42:28,009 p=23659 u=root n=ansible | TASK [05-environment : Collect only facts about hardware] ****************************************************************************************************************************************
+2021-01-06 11:42:28,009 p=23659 u=root n=ansible | ok: [local_user]
+2021-01-06 11:42:28,067 p=23659 u=root n=ansible | TASK [05-environment : Output disks] *************************************************************************************************************************************************************
+2021-01-06 11:42:28,068 p=23659 u=root n=ansible | ok: [local_user] => {
+    "hostvars[inventory_hostname].ansible_devices.keys() | map('regex_search', 'sd.*') | select('string') | list": [
+        "sdd",
+        "sdb",
+        "sdc",
+        "sda"
+    ]
+}
+2021-01-06 11:42:28,289 p=23659 u=root n=ansible | TASK [05-environment : data1500 check directory.] ************************************************************************************************************************************************
+2021-01-06 11:42:28,289 p=23659 u=root n=ansible | ok: [local_user]
+2021-01-06 11:42:28,337 p=23659 u=root n=ansible | TASK [05-environment : echo if directory already existed] ****************************************************************************************************************************************
+2021-01-06 11:42:28,338 p=23659 u=root n=ansible | ok: [local_user] => {
+    "msg": "the /mnt/data1500 is already existed"
+}
+2021-01-06 11:42:28,614 p=23659 u=root n=ansible | TASK [05-environment : Mounts data1500] **********************************************************************************************************************************************************
+2021-01-06 11:42:28,615 p=23659 u=root n=ansible | changed: [local_user]
+2021-01-06 11:42:28,767 p=23659 u=root n=ansible | TASK [05-environment : data2000 check directory.] ************************************************************************************************************************************************
+2021-01-06 11:42:28,767 p=23659 u=root n=ansible | ok: [local_user]
+2021-01-06 11:42:28,817 p=23659 u=root n=ansible | TASK [05-environment : echo if directory already existed] ****************************************************************************************************************************************
+2021-01-06 11:42:28,818 p=23659 u=root n=ansible | ok: [local_user] => {
+    "msg": "the /mnt/data2000 is already existed"
+}
+2021-01-06 11:42:29,027 p=23659 u=root n=ansible | TASK [05-environment : Mounts data2000] **********************************************************************************************************************************************************
+2021-01-06 11:42:29,027 p=23659 u=root n=ansible | changed: [local_user]
+2021-01-06 11:42:29,176 p=23659 u=root n=ansible | TASK [05-environment : data2000new check directory.] *********************************************************************************************************************************************
+2021-01-06 11:42:29,176 p=23659 u=root n=ansible | ok: [local_user]
+2021-01-06 11:42:29,226 p=23659 u=root n=ansible | TASK [05-environment : echo if directory already existed] ****************************************************************************************************************************************
+2021-01-06 11:42:29,226 p=23659 u=root n=ansible | ok: [local_user] => {
+    "msg": "the /mnt/data2000-new is already existed"
+}
+2021-01-06 11:42:29,427 p=23659 u=root n=ansible | TASK [05-environment : Mounts data2000-new] ******************************************************************************************************************************************************
+2021-01-06 11:42:29,427 p=23659 u=root n=ansible | changed: [local_user]
+2021-01-06 11:42:29,573 p=23659 u=root n=ansible | TASK [05-environment : data2000new check directory.] *********************************************************************************************************************************************
+2021-01-06 11:42:29,574 p=23659 u=root n=ansible | ok: [local_user]
+2021-01-06 11:42:29,630 p=23659 u=root n=ansible | TASK [05-environment : echo if directory already existed] ****************************************************************************************************************************************
+2021-01-06 11:42:29,631 p=23659 u=root n=ansible | ok: [local_user] => {
+    "msg": "the /mnt/data3000 is already existed"
+}
+2021-01-06 11:42:29,864 p=23659 u=root n=ansible | TASK [05-environment : Mounts data3000] **********************************************************************************************************************************************************
+2021-01-06 11:42:29,864 p=23659 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/data3000: mount: /mnt/data3000: special device /dev/sde1 does not exist.\n"}
+2021-01-06 11:42:29,864 p=23659 u=root n=ansible | ...ignoring
+2021-01-06 11:42:29,883 p=23659 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************************************
+2021-01-06 11:42:29,883 p=23659 u=root n=ansible | local_user                 : ok=16   changed=3    unreachable=0    failed=0    skipped=4    rescued=0    ignored=1   
+2021-01-06 11:48:18,981 p=24382 u=root n=ansible | PLAY [local] *************************************************************************************************************************************************************************************
+2021-01-06 11:48:19,746 p=24382 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************************************
+2021-01-06 11:48:19,747 p=24382 u=root n=ansible | ok: [local_user]
+2021-01-06 11:48:20,033 p=24382 u=root n=ansible | TASK [20-docker : check check docker directory.] *************************************************************************************************************************************************
+2021-01-06 11:48:20,033 p=24382 u=root n=ansible | ok: [local_user]
+2021-01-06 11:48:20,321 p=24382 u=root n=ansible | TASK [20-docker : Ansible Create directory if not exists] ****************************************************************************************************************************************
+2021-01-06 11:48:20,321 p=24382 u=root n=ansible | changed: [local_user]
+2021-01-06 11:48:20,521 p=24382 u=root n=ansible | TASK [20-docker : Disable pinned Docker version] *************************************************************************************************************************************************
+2021-01-06 11:48:20,522 p=24382 u=root n=ansible | ok: [local_user]
+2021-01-06 11:48:31,700 p=24382 u=root n=ansible | TASK [20-docker : Install Docker's dependencies] *************************************************************************************************************************************************
+2021-01-06 11:48:31,700 p=24382 u=root n=ansible | changed: [local_user]
+2021-01-06 11:48:32,645 p=24382 u=root n=ansible | TASK [20-docker : Add Docker's public GPG key to the APT keyring] ********************************************************************************************************************************
+2021-01-06 11:48:32,645 p=24382 u=root n=ansible | changed: [local_user]
+2021-01-06 11:48:35,870 p=24382 u=root n=ansible | TASK [20-docker : Configure Docker's upstream APT repository] ************************************************************************************************************************************
+2021-01-06 11:48:35,871 p=24382 u=root n=ansible | changed: [local_user]
+2021-01-06 11:48:36,061 p=24382 u=root n=ansible | TASK [20-docker : Create Docker configuration directories] ***************************************************************************************************************************************
+2021-01-06 11:48:36,062 p=24382 u=root n=ansible | changed: [local_user] => (item=/etc/docker)
+2021-01-06 11:48:36,193 p=24382 u=root n=ansible | changed: [local_user] => (item=/etc/systemd/system/docker.service.d)
+2021-01-06 11:48:36,635 p=24382 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (json)] ****************************************************************************************************************************************
+2021-01-06 11:48:36,635 p=24382 u=root n=ansible | changed: [local_user]
+2021-01-06 11:49:02,254 p=24382 u=root n=ansible | TASK [20-docker : Install Docker] ****************************************************************************************************************************************************************
+2021-01-06 11:49:02,254 p=24382 u=root n=ansible | changed: [local_user]
+2021-01-06 11:49:06,389 p=24382 u=root n=ansible | TASK [20-docker : Install Python packages] *******************************************************************************************************************************************************
+2021-01-06 11:49:06,390 p=24382 u=root n=ansible | changed: [local_user] => (item={'name': 'docker', 'state': 'present'})
+2021-01-06 11:49:15,112 p=24382 u=root n=ansible | changed: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 11:49:15,435 p=24382 u=root n=ansible | TASK [20-docker : Create python3-docker proxy script to access the Virtualenv's interpreter] *****************************************************************************************************
+2021-01-06 11:49:15,435 p=24382 u=root n=ansible | changed: [local_user]
+2021-01-06 11:49:15,631 p=24382 u=root n=ansible | TASK [20-docker : Symlink selected Python package binaries to /usr/local/bin] ********************************************************************************************************************
+2021-01-06 11:49:15,632 p=24382 u=root n=ansible | changed: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 11:49:16,008 p=24382 u=root n=ansible | TASK [20-docker : Add user(s) to "docker" group] *************************************************************************************************************************************************
+2021-01-06 11:49:16,008 p=24382 u=root n=ansible | changed: [local_user] => (item=sa)
+2021-01-06 11:49:16,327 p=24382 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (flags)] ***************************************************************************************************************************************
+2021-01-06 11:49:16,328 p=24382 u=root n=ansible | changed: [local_user]
+2021-01-06 11:49:17,184 p=24382 u=root n=ansible | TASK [20-docker : Reload systemd daemon] *********************************************************************************************************************************************************
+2021-01-06 11:49:17,184 p=24382 u=root n=ansible | ok: [local_user]
+2021-01-06 11:49:17,731 p=24382 u=root n=ansible | RUNNING HANDLER [20-docker : Restart Docker] *****************************************************************************************************************************************************
+2021-01-06 11:49:17,732 p=24382 u=root n=ansible | changed: [local_user]
+2021-01-06 11:49:18,155 p=24382 u=root n=ansible | TASK [20-docker : Create Docker related cron jobs] ***********************************************************************************************************************************************
+2021-01-06 11:49:18,155 p=24382 u=root n=ansible | changed: [local_user] => (item={'name': 'Docker disk clean up', 'job': 'docker system prune -af > /dev/null 2>&1', 'schedule': ['0', '0', '*', '*', '0'], 'cron_file': 'docker-disk-clean-up', 'user': 'sa'})
+2021-01-06 11:49:18,175 p=24382 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************************************
+2021-01-06 11:49:18,175 p=24382 u=root n=ansible | local_user                 : ok=18   changed=14   unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+2021-01-06 12:01:22,390 p=30990 u=root n=ansible | PLAY [local] *************************************************************************************************************************************************************************************
+2021-01-06 12:01:24,261 p=30990 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************************************
+2021-01-06 12:01:24,261 p=30990 u=root n=ansible | ok: [local_user]
+2021-01-06 12:01:24,528 p=30990 u=root n=ansible | TASK [20-docker : check check docker directory.] *************************************************************************************************************************************************
+2021-01-06 12:01:24,529 p=30990 u=root n=ansible | ok: [local_user]
+2021-01-06 12:01:24,850 p=30990 u=root n=ansible | TASK [20-docker : Disable pinned Docker version] *************************************************************************************************************************************************
+2021-01-06 12:01:24,851 p=30990 u=root n=ansible | ok: [local_user]
+2021-01-06 12:01:25,818 p=30990 u=root n=ansible | TASK [20-docker : Install Docker's dependencies] *************************************************************************************************************************************************
+2021-01-06 12:01:25,818 p=30990 u=root n=ansible | ok: [local_user]
+2021-01-06 12:01:26,344 p=30990 u=root n=ansible | TASK [20-docker : Add Docker's public GPG key to the APT keyring] ********************************************************************************************************************************
+2021-01-06 12:01:26,345 p=30990 u=root n=ansible | ok: [local_user]
+2021-01-06 12:01:26,781 p=30990 u=root n=ansible | TASK [20-docker : Configure Docker's upstream APT repository] ************************************************************************************************************************************
+2021-01-06 12:01:26,781 p=30990 u=root n=ansible | ok: [local_user]
+2021-01-06 12:01:26,967 p=30990 u=root n=ansible | TASK [20-docker : Create Docker configuration directories] ***************************************************************************************************************************************
+2021-01-06 12:01:26,967 p=30990 u=root n=ansible | ok: [local_user] => (item=/etc/docker)
+2021-01-06 12:01:27,107 p=30990 u=root n=ansible | changed: [local_user] => (item=/etc/systemd/system/docker.service.d)
+2021-01-06 12:01:27,455 p=30990 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (json)] ****************************************************************************************************************************************
+2021-01-06 12:01:27,455 p=30990 u=root n=ansible | ok: [local_user]
+2021-01-06 12:01:28,247 p=30990 u=root n=ansible | TASK [20-docker : Install Docker] ****************************************************************************************************************************************************************
+2021-01-06 12:01:28,247 p=30990 u=root n=ansible | ok: [local_user]
+2021-01-06 12:01:29,138 p=30990 u=root n=ansible | TASK [20-docker : Install Python packages] *******************************************************************************************************************************************************
+2021-01-06 12:01:29,138 p=30990 u=root n=ansible | ok: [local_user] => (item={'name': 'docker', 'state': 'present'})
+2021-01-06 12:01:29,867 p=30990 u=root n=ansible | ok: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 12:01:30,209 p=30990 u=root n=ansible | TASK [20-docker : Create python3-docker proxy script to access the Virtualenv's interpreter] *****************************************************************************************************
+2021-01-06 12:01:30,210 p=30990 u=root n=ansible | ok: [local_user]
+2021-01-06 12:01:30,406 p=30990 u=root n=ansible | TASK [20-docker : Symlink selected Python package binaries to /usr/local/bin] ********************************************************************************************************************
+2021-01-06 12:01:30,406 p=30990 u=root n=ansible | ok: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 12:01:30,773 p=30990 u=root n=ansible | TASK [20-docker : Add user(s) to "docker" group] *************************************************************************************************************************************************
+2021-01-06 12:01:30,773 p=30990 u=root n=ansible | ok: [local_user] => (item=sa)
+2021-01-06 12:01:31,237 p=30990 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (flags)] ***************************************************************************************************************************************
+2021-01-06 12:01:31,237 p=30990 u=root n=ansible | changed: [local_user]
+2021-01-06 12:01:32,057 p=30990 u=root n=ansible | TASK [20-docker : Reload systemd daemon] *********************************************************************************************************************************************************
+2021-01-06 12:01:32,058 p=30990 u=root n=ansible | ok: [local_user]
+2021-01-06 12:01:32,584 p=30990 u=root n=ansible | RUNNING HANDLER [20-docker : Restart Docker] *****************************************************************************************************************************************************
+2021-01-06 12:01:32,584 p=30990 u=root n=ansible | changed: [local_user]
+2021-01-06 12:01:33,009 p=30990 u=root n=ansible | TASK [20-docker : Create Docker related cron jobs] ***********************************************************************************************************************************************
+2021-01-06 12:01:33,009 p=30990 u=root n=ansible | ok: [local_user] => (item={'name': 'Docker disk clean up', 'job': 'docker system prune -af > /dev/null 2>&1', 'schedule': ['0', '0', '*', '*', '0'], 'cron_file': 'docker-disk-clean-up', 'user': 'sa'})
+2021-01-06 12:01:33,033 p=30990 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************************************
+2021-01-06 12:01:33,033 p=30990 u=root n=ansible | local_user                 : ok=17   changed=3    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+2021-01-06 12:02:18,588 p=31686 u=root n=ansible | PLAY [local] *************************************************************************************************************************************************************************************
+2021-01-06 12:02:19,418 p=31686 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************************************************************************
+2021-01-06 12:02:19,418 p=31686 u=root n=ansible | ok: [local_user]
+2021-01-06 12:02:19,441 p=31686 u=root n=ansible | TASK [Load custom variables from custom.yml] *****************************************************************************************************************************************************
+2021-01-06 12:02:19,442 p=31686 u=root n=ansible | ok: [local_user]
+2021-01-06 12:02:19,542 p=31686 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/calibre.yml for local_user
+2021-01-06 12:02:19,865 p=31686 u=root n=ansible | TASK [21-dockerized : Create Calibre-web Directories] ********************************************************************************************************************************************
+2021-01-06 12:02:19,866 p=31686 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/calibre/config)
+2021-01-06 12:02:20,313 p=31686 u=root n=ansible | TASK [21-dockerized : Calibre-web Docker Container] **********************************************************************************************************************************************
+2021-01-06 12:02:20,314 p=31686 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Failed to import the required Python library (Docker SDK for Python: docker (Python >= 2.7) or docker-py (Python 2.6)) on nas's Python /usr/bin/python3. Please read module documentation and install in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter, for example via `pip install docker` or `pip install docker-py` (Python 2.6). The error was: No module named 'docker'"}
+2021-01-06 12:02:20,318 p=31686 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/21_dockerized.retry
+
+2021-01-06 12:02:20,318 p=31686 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************************************************************************
+2021-01-06 12:02:20,319 p=31686 u=root n=ansible | local_user                 : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2021-01-06 12:06:26,219 p=31855 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:06:27,923 p=31855 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-06 12:06:27,924 p=31855 u=root n=ansible | ok: [local_user]
+2021-01-06 12:06:27,978 p=31855 u=root n=ansible | TASK [Load custom variables from custom.yml] ************************************************************************************************************************************************************************************************
+2021-01-06 12:06:27,979 p=31855 u=root n=ansible | ok: [local_user]
+2021-01-06 12:06:28,073 p=31855 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/calibre.yml for local_user
+2021-01-06 12:06:28,336 p=31855 u=root n=ansible | TASK [21-dockerized : Create Calibre-web Directories] ***************************************************************************************************************************************************************************************
+2021-01-06 12:06:28,336 p=31855 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/calibre/config)
+2021-01-06 12:06:28,732 p=31855 u=root n=ansible | TASK [21-dockerized : Calibre-web Docker Container] *****************************************************************************************************************************************************************************************
+2021-01-06 12:06:28,733 p=31855 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Failed to import the required Python library (Docker SDK for Python: docker (Python >= 2.7) or docker-py (Python 2.6)) on nas's Python /usr/bin/python3. Please read module documentation and install in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter, for example via `pip install docker` or `pip install docker-py` (Python 2.6). The error was: No module named 'docker'"}
+2021-01-06 12:06:28,738 p=31855 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/21_dockerized.retry
+
+2021-01-06 12:06:28,739 p=31855 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:06:28,739 p=31855 u=root n=ansible | local_user                 : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2021-01-06 12:07:58,562 p=32021 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:07:59,354 p=32021 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-06 12:07:59,354 p=32021 u=root n=ansible | ok: [local_user]
+2021-01-06 12:07:59,379 p=32021 u=root n=ansible | TASK [Load custom variables from custom.yml] ************************************************************************************************************************************************************************************************
+2021-01-06 12:07:59,380 p=32021 u=root n=ansible | ok: [local_user]
+2021-01-06 12:07:59,487 p=32021 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/calibre.yml for local_user
+2021-01-06 12:07:59,796 p=32021 u=root n=ansible | TASK [21-dockerized : Create Calibre-web Directories] ***************************************************************************************************************************************************************************************
+2021-01-06 12:07:59,797 p=32021 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/calibre/config)
+2021-01-06 12:08:00,219 p=32021 u=root n=ansible | TASK [21-dockerized : Calibre-web Docker Container] *****************************************************************************************************************************************************************************************
+2021-01-06 12:08:00,219 p=32021 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Failed to import the required Python library (Docker SDK for Python: docker (Python >= 2.7) or docker-py (Python 2.6)) on nas's Python /usr/bin/python3. Please read module documentation and install in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter, for example via `pip install docker` or `pip install docker-py` (Python 2.6). The error was: No module named 'docker'"}
+2021-01-06 12:08:00,225 p=32021 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/21_dockerized.retry
+
+2021-01-06 12:08:00,225 p=32021 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:08:00,225 p=32021 u=root n=ansible | local_user                 : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2021-01-06 12:11:06,448 p=32424 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:11:07,255 p=32424 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-06 12:11:07,255 p=32424 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:07,543 p=32424 u=root n=ansible | TASK [20-docker : check check docker directory.] ********************************************************************************************************************************************************************************************
+2021-01-06 12:11:07,544 p=32424 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:07,879 p=32424 u=root n=ansible | TASK [20-docker : Disable pinned Docker version] ********************************************************************************************************************************************************************************************
+2021-01-06 12:11:07,879 p=32424 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:08,836 p=32424 u=root n=ansible | TASK [20-docker : Install Docker's dependencies] ********************************************************************************************************************************************************************************************
+2021-01-06 12:11:08,837 p=32424 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:09,339 p=32424 u=root n=ansible | TASK [20-docker : Add Docker's public GPG key to the APT keyring] ***************************************************************************************************************************************************************************
+2021-01-06 12:11:09,339 p=32424 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:09,761 p=32424 u=root n=ansible | TASK [20-docker : Configure Docker's upstream APT repository] *******************************************************************************************************************************************************************************
+2021-01-06 12:11:09,761 p=32424 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:09,940 p=32424 u=root n=ansible | TASK [20-docker : Create Docker configuration directories] **********************************************************************************************************************************************************************************
+2021-01-06 12:11:09,941 p=32424 u=root n=ansible | ok: [local_user] => (item=/etc/docker)
+2021-01-06 12:11:10,073 p=32424 u=root n=ansible | ok: [local_user] => (item=/etc/systemd/system/docker.service.d)
+2021-01-06 12:11:10,399 p=32424 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (json)] ***********************************************************************************************************************************************************************************
+2021-01-06 12:11:10,400 p=32424 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:11,183 p=32424 u=root n=ansible | TASK [20-docker : Install Docker] ***********************************************************************************************************************************************************************************************************
+2021-01-06 12:11:11,184 p=32424 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:11,973 p=32424 u=root n=ansible | TASK [20-docker : Install Python packages] **************************************************************************************************************************************************************************************************
+2021-01-06 12:11:11,974 p=32424 u=root n=ansible | ok: [local_user] => (item={'name': 'docker', 'state': 'present'})
+2021-01-06 12:11:12,668 p=32424 u=root n=ansible | ok: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 12:11:12,995 p=32424 u=root n=ansible | TASK [20-docker : Create python3-docker proxy script to access the Virtualenv's interpreter] ************************************************************************************************************************************************
+2021-01-06 12:11:12,996 p=32424 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:13,185 p=32424 u=root n=ansible | TASK [20-docker : Symlink selected Python package binaries to /usr/local/bin] ***************************************************************************************************************************************************************
+2021-01-06 12:11:13,185 p=32424 u=root n=ansible | ok: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 12:11:13,537 p=32424 u=root n=ansible | TASK [20-docker : Add user(s) to "docker" group] ********************************************************************************************************************************************************************************************
+2021-01-06 12:11:13,537 p=32424 u=root n=ansible | ok: [local_user] => (item=sa)
+2021-01-06 12:11:13,870 p=32424 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (flags)] **********************************************************************************************************************************************************************************
+2021-01-06 12:11:13,870 p=32424 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:14,403 p=32424 u=root n=ansible | TASK [20-docker : Create Docker related cron jobs] ******************************************************************************************************************************************************************************************
+2021-01-06 12:11:14,403 p=32424 u=root n=ansible | ok: [local_user] => (item={'name': 'Docker disk clean up', 'job': 'docker system prune -af > /dev/null 2>&1', 'schedule': ['0', '0', '*', '*', '0'], 'cron_file': 'docker-disk-clean-up', 'user': 'sa'})
+2021-01-06 12:11:14,451 p=32424 u=root n=ansible | TASK [20-docker : include_tasks] ************************************************************************************************************************************************************************************************************
+2021-01-06 12:11:14,451 p=32424 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The conditional check 'docker_install_compose | bool' failed. The error was: error while evaluating conditional (docker_install_compose | bool): 'docker_install_compose' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/20-docker/tasks/main.yml': line 188, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- include_tasks: docker-compose.yml\n  ^ here\n"}
+2021-01-06 12:11:14,456 p=32424 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/20_docker.retry
+
+2021-01-06 12:11:14,456 p=32424 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:11:14,456 p=32424 u=root n=ansible | local_user                 : ok=15   changed=0    unreachable=0    failed=1    skipped=7    rescued=0    ignored=0   
+2021-01-06 12:11:44,460 p=32943 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:11:45,246 p=32943 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-06 12:11:45,247 p=32943 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:45,528 p=32943 u=root n=ansible | TASK [20-docker : check check docker directory.] ********************************************************************************************************************************************************************************************
+2021-01-06 12:11:45,529 p=32943 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:45,864 p=32943 u=root n=ansible | TASK [20-docker : Disable pinned Docker version] ********************************************************************************************************************************************************************************************
+2021-01-06 12:11:45,865 p=32943 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:46,829 p=32943 u=root n=ansible | TASK [20-docker : Install Docker's dependencies] ********************************************************************************************************************************************************************************************
+2021-01-06 12:11:46,829 p=32943 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:47,325 p=32943 u=root n=ansible | TASK [20-docker : Add Docker's public GPG key to the APT keyring] ***************************************************************************************************************************************************************************
+2021-01-06 12:11:47,325 p=32943 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:47,741 p=32943 u=root n=ansible | TASK [20-docker : Configure Docker's upstream APT repository] *******************************************************************************************************************************************************************************
+2021-01-06 12:11:47,742 p=32943 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:47,923 p=32943 u=root n=ansible | TASK [20-docker : Create Docker configuration directories] **********************************************************************************************************************************************************************************
+2021-01-06 12:11:47,924 p=32943 u=root n=ansible | ok: [local_user] => (item=/etc/docker)
+2021-01-06 12:11:48,065 p=32943 u=root n=ansible | ok: [local_user] => (item=/etc/systemd/system/docker.service.d)
+2021-01-06 12:11:48,391 p=32943 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (json)] ***********************************************************************************************************************************************************************************
+2021-01-06 12:11:48,391 p=32943 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:49,141 p=32943 u=root n=ansible | TASK [20-docker : Install Docker] ***********************************************************************************************************************************************************************************************************
+2021-01-06 12:11:49,142 p=32943 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:49,954 p=32943 u=root n=ansible | TASK [20-docker : Install Python packages] **************************************************************************************************************************************************************************************************
+2021-01-06 12:11:49,958 p=32943 u=root n=ansible | ok: [local_user] => (item={'name': 'docker', 'state': 'present'})
+2021-01-06 12:11:50,738 p=32943 u=root n=ansible | ok: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 12:11:51,089 p=32943 u=root n=ansible | TASK [20-docker : Create python3-docker proxy script to access the Virtualenv's interpreter] ************************************************************************************************************************************************
+2021-01-06 12:11:51,090 p=32943 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:51,306 p=32943 u=root n=ansible | TASK [20-docker : Symlink selected Python package binaries to /usr/local/bin] ***************************************************************************************************************************************************************
+2021-01-06 12:11:51,306 p=32943 u=root n=ansible | ok: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 12:11:51,697 p=32943 u=root n=ansible | TASK [20-docker : Add user(s) to "docker" group] ********************************************************************************************************************************************************************************************
+2021-01-06 12:11:51,697 p=32943 u=root n=ansible | ok: [local_user] => (item=sa)
+2021-01-06 12:11:52,094 p=32943 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (flags)] **********************************************************************************************************************************************************************************
+2021-01-06 12:11:52,094 p=32943 u=root n=ansible | ok: [local_user]
+2021-01-06 12:11:52,693 p=32943 u=root n=ansible | TASK [20-docker : Create Docker related cron jobs] ******************************************************************************************************************************************************************************************
+2021-01-06 12:11:52,693 p=32943 u=root n=ansible | ok: [local_user] => (item={'name': 'Docker disk clean up', 'job': 'docker system prune -af > /dev/null 2>&1', 'schedule': ['0', '0', '*', '*', '0'], 'cron_file': 'docker-disk-clean-up', 'user': 'sa'})
+2021-01-06 12:11:52,725 p=32943 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/20-docker/tasks/docker-compose.yml for local_user
+2021-01-06 12:11:53,937 p=32943 u=root n=ansible | TASK [20-docker : Checking docker on latest version] ****************************************************************************************************************************************************************************************
+2021-01-06 12:11:53,937 p=32943 u=root n=ansible | fatal: [local_user]: FAILED! => {"cache_update_time": 1609933715, "cache_updated": false, "changed": false, "msg": "'/usr/bin/apt-get -y -o \"Dpkg::Options::=--force-confdef\" -o \"Dpkg::Options::=--force-confold\"      install 'docker.io'' failed: E: Unable to correct problems, you have held broken packages.\n", "rc": 100, "stderr": "E: Unable to correct problems, you have held broken packages.\n", "stderr_lines": ["E: Unable to correct problems, you have held broken packages."], "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nSome packages could not be installed. This may mean that you have\nrequested an impossible situation or if you are using the unstable\ndistribution that some required packages have not yet been created\nor been moved out of Incoming.\nThe following information may help to resolve the situation:\n\nThe following packages have unmet dependencies:\n docker.io : Depends: containerd (>= 1.2.6-0ubuntu1~)\n", "stdout_lines": ["Reading package lists...", "Building dependency tree...", "Reading state information...", "Some packages could not be installed. This may mean that you have", "requested an impossible situation or if you are using the unstable", "distribution that some required packages have not yet been created", "or been moved out of Incoming.", "The following information may help to resolve the situation:", "", "The following packages have unmet dependencies:", " docker.io : Depends: containerd (>= 1.2.6-0ubuntu1~)"]}
+2021-01-06 12:11:53,943 p=32943 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/20_docker.retry
+
+2021-01-06 12:11:53,943 p=32943 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:11:53,943 p=32943 u=root n=ansible | local_user                 : ok=16   changed=0    unreachable=0    failed=1    skipped=7    rescued=0    ignored=0   
+2021-01-06 12:12:54,221 p=33501 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:12:55,001 p=33501 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-06 12:12:55,002 p=33501 u=root n=ansible | ok: [local_user]
+2021-01-06 12:12:55,281 p=33501 u=root n=ansible | TASK [20-docker : check check docker directory.] ********************************************************************************************************************************************************************************************
+2021-01-06 12:12:55,282 p=33501 u=root n=ansible | ok: [local_user]
+2021-01-06 12:12:55,601 p=33501 u=root n=ansible | TASK [20-docker : Disable pinned Docker version] ********************************************************************************************************************************************************************************************
+2021-01-06 12:12:55,602 p=33501 u=root n=ansible | ok: [local_user]
+2021-01-06 12:12:56,533 p=33501 u=root n=ansible | TASK [20-docker : Install Docker's dependencies] ********************************************************************************************************************************************************************************************
+2021-01-06 12:12:56,533 p=33501 u=root n=ansible | ok: [local_user]
+2021-01-06 12:12:57,028 p=33501 u=root n=ansible | TASK [20-docker : Add Docker's public GPG key to the APT keyring] ***************************************************************************************************************************************************************************
+2021-01-06 12:12:57,028 p=33501 u=root n=ansible | ok: [local_user]
+2021-01-06 12:12:57,440 p=33501 u=root n=ansible | TASK [20-docker : Configure Docker's upstream APT repository] *******************************************************************************************************************************************************************************
+2021-01-06 12:12:57,440 p=33501 u=root n=ansible | ok: [local_user]
+2021-01-06 12:12:57,611 p=33501 u=root n=ansible | TASK [20-docker : Create Docker configuration directories] **********************************************************************************************************************************************************************************
+2021-01-06 12:12:57,612 p=33501 u=root n=ansible | ok: [local_user] => (item=/etc/docker)
+2021-01-06 12:12:57,743 p=33501 u=root n=ansible | ok: [local_user] => (item=/etc/systemd/system/docker.service.d)
+2021-01-06 12:12:58,066 p=33501 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (json)] ***********************************************************************************************************************************************************************************
+2021-01-06 12:12:58,067 p=33501 u=root n=ansible | ok: [local_user]
+2021-01-06 12:12:58,802 p=33501 u=root n=ansible | TASK [20-docker : Install Docker] ***********************************************************************************************************************************************************************************************************
+2021-01-06 12:12:58,802 p=33501 u=root n=ansible | ok: [local_user]
+2021-01-06 12:12:59,570 p=33501 u=root n=ansible | TASK [20-docker : Install Python packages] **************************************************************************************************************************************************************************************************
+2021-01-06 12:12:59,570 p=33501 u=root n=ansible | ok: [local_user] => (item={'name': 'docker', 'state': 'present'})
+2021-01-06 12:13:00,253 p=33501 u=root n=ansible | ok: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 12:13:00,564 p=33501 u=root n=ansible | TASK [20-docker : Create python3-docker proxy script to access the Virtualenv's interpreter] ************************************************************************************************************************************************
+2021-01-06 12:13:00,564 p=33501 u=root n=ansible | ok: [local_user]
+2021-01-06 12:13:00,749 p=33501 u=root n=ansible | TASK [20-docker : Symlink selected Python package binaries to /usr/local/bin] ***************************************************************************************************************************************************************
+2021-01-06 12:13:00,749 p=33501 u=root n=ansible | ok: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 12:13:01,094 p=33501 u=root n=ansible | TASK [20-docker : Add user(s) to "docker" group] ********************************************************************************************************************************************************************************************
+2021-01-06 12:13:01,095 p=33501 u=root n=ansible | ok: [local_user] => (item=sa)
+2021-01-06 12:13:01,410 p=33501 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (flags)] **********************************************************************************************************************************************************************************
+2021-01-06 12:13:01,411 p=33501 u=root n=ansible | ok: [local_user]
+2021-01-06 12:13:01,940 p=33501 u=root n=ansible | TASK [20-docker : Create Docker related cron jobs] ******************************************************************************************************************************************************************************************
+2021-01-06 12:13:01,940 p=33501 u=root n=ansible | ok: [local_user] => (item={'name': 'Docker disk clean up', 'job': 'docker system prune -af > /dev/null 2>&1', 'schedule': ['0', '0', '*', '*', '0'], 'cron_file': 'docker-disk-clean-up', 'user': 'sa'})
+2021-01-06 12:13:01,968 p=33501 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/20-docker/tasks/docker-compose.yml for local_user
+2021-01-06 12:13:02,515 p=33501 u=root n=ansible | TASK [20-docker : Check current docker-compose version.] ************************************************************************************************************************************************************************************
+2021-01-06 12:13:02,516 p=33501 u=root n=ansible | ok: [local_user]
+2021-01-06 12:13:02,562 p=33501 u=root n=ansible | TASK [20-docker : Delete existing docker-compose version if it's different.] ****************************************************************************************************************************************************************
+2021-01-06 12:13:02,563 p=33501 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The conditional check 'docker_compose_current_version.stdout is defined and docker_compose_version not in docker_compose_current_version.stdout\n' failed. The error was: error while evaluating conditional (docker_compose_current_version.stdout is defined and docker_compose_version not in docker_compose_current_version.stdout\n): Unable to look up a name or access an attribute in template string ({% if docker_compose_current_version.stdout is defined and docker_compose_version not in docker_compose_current_version.stdout\n %} True {% else %} False {% endif %}).\nMake sure your variable name does not contain invalid characters like '-': 'in <string>' requires string as left operand, not AnsibleUndefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/20-docker/tasks/docker-compose.yml': line 19, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Delete existing docker-compose version if it's different.\n  ^ here\n"}
+2021-01-06 12:13:02,568 p=33501 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/20_docker.retry
+
+2021-01-06 12:13:02,569 p=33501 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:13:02,569 p=33501 u=root n=ansible | local_user                 : ok=17   changed=0    unreachable=0    failed=1    skipped=7    rescued=0    ignored=0   
+2021-01-06 12:14:06,680 p=34100 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:14:07,425 p=34100 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-06 12:14:07,426 p=34100 u=root n=ansible | ok: [local_user]
+2021-01-06 12:14:07,723 p=34100 u=root n=ansible | TASK [20-docker : check check docker directory.] ********************************************************************************************************************************************************************************************
+2021-01-06 12:14:07,724 p=34100 u=root n=ansible | ok: [local_user]
+2021-01-06 12:14:08,053 p=34100 u=root n=ansible | TASK [20-docker : Disable pinned Docker version] ********************************************************************************************************************************************************************************************
+2021-01-06 12:14:08,054 p=34100 u=root n=ansible | ok: [local_user]
+2021-01-06 12:14:09,035 p=34100 u=root n=ansible | TASK [20-docker : Install Docker's dependencies] ********************************************************************************************************************************************************************************************
+2021-01-06 12:14:09,035 p=34100 u=root n=ansible | ok: [local_user]
+2021-01-06 12:14:09,521 p=34100 u=root n=ansible | TASK [20-docker : Add Docker's public GPG key to the APT keyring] ***************************************************************************************************************************************************************************
+2021-01-06 12:14:09,521 p=34100 u=root n=ansible | ok: [local_user]
+2021-01-06 12:14:09,953 p=34100 u=root n=ansible | TASK [20-docker : Configure Docker's upstream APT repository] *******************************************************************************************************************************************************************************
+2021-01-06 12:14:09,953 p=34100 u=root n=ansible | ok: [local_user]
+2021-01-06 12:14:10,140 p=34100 u=root n=ansible | TASK [20-docker : Create Docker configuration directories] **********************************************************************************************************************************************************************************
+2021-01-06 12:14:10,141 p=34100 u=root n=ansible | ok: [local_user] => (item=/etc/docker)
+2021-01-06 12:14:10,269 p=34100 u=root n=ansible | ok: [local_user] => (item=/etc/systemd/system/docker.service.d)
+2021-01-06 12:14:10,621 p=34100 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (json)] ***********************************************************************************************************************************************************************************
+2021-01-06 12:14:10,622 p=34100 u=root n=ansible | ok: [local_user]
+2021-01-06 12:14:11,390 p=34100 u=root n=ansible | TASK [20-docker : Install Docker] ***********************************************************************************************************************************************************************************************************
+2021-01-06 12:14:11,390 p=34100 u=root n=ansible | ok: [local_user]
+2021-01-06 12:14:12,168 p=34100 u=root n=ansible | TASK [20-docker : Install Python packages] **************************************************************************************************************************************************************************************************
+2021-01-06 12:14:12,169 p=34100 u=root n=ansible | ok: [local_user] => (item={'name': 'docker', 'state': 'present'})
+2021-01-06 12:14:12,840 p=34100 u=root n=ansible | ok: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 12:14:13,154 p=34100 u=root n=ansible | TASK [20-docker : Create python3-docker proxy script to access the Virtualenv's interpreter] ************************************************************************************************************************************************
+2021-01-06 12:14:13,155 p=34100 u=root n=ansible | ok: [local_user]
+2021-01-06 12:14:13,341 p=34100 u=root n=ansible | TASK [20-docker : Symlink selected Python package binaries to /usr/local/bin] ***************************************************************************************************************************************************************
+2021-01-06 12:14:13,342 p=34100 u=root n=ansible | ok: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 12:14:13,691 p=34100 u=root n=ansible | TASK [20-docker : Add user(s) to "docker" group] ********************************************************************************************************************************************************************************************
+2021-01-06 12:14:13,692 p=34100 u=root n=ansible | ok: [local_user] => (item=sa)
+2021-01-06 12:14:14,012 p=34100 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (flags)] **********************************************************************************************************************************************************************************
+2021-01-06 12:14:14,012 p=34100 u=root n=ansible | ok: [local_user]
+2021-01-06 12:14:14,540 p=34100 u=root n=ansible | TASK [20-docker : Create Docker related cron jobs] ******************************************************************************************************************************************************************************************
+2021-01-06 12:14:14,541 p=34100 u=root n=ansible | ok: [local_user] => (item={'name': 'Docker disk clean up', 'job': 'docker system prune -af > /dev/null 2>&1', 'schedule': ['0', '0', '*', '*', '0'], 'cron_file': 'docker-disk-clean-up', 'user': 'sa'})
+2021-01-06 12:14:14,568 p=34100 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/20-docker/tasks/docker-compose.yml for local_user
+2021-01-06 12:14:15,085 p=34100 u=root n=ansible | TASK [20-docker : Check current docker-compose version.] ************************************************************************************************************************************************************************************
+2021-01-06 12:14:15,086 p=34100 u=root n=ansible | ok: [local_user]
+2021-01-06 12:14:15,140 p=34100 u=root n=ansible | TASK [20-docker : Delete existing docker-compose version if it's different.] ****************************************************************************************************************************************************************
+2021-01-06 12:14:15,141 p=34100 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'docker_compose_path' is undefined\n\nThe error appears to be in '/opt/ansible-crypt-zfs-root/roles/local/20-docker/tasks/docker-compose.yml': line 19, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Delete existing docker-compose version if it's different.\n  ^ here\n"}
+2021-01-06 12:14:15,145 p=34100 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/20_docker.retry
+
+2021-01-06 12:14:15,146 p=34100 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:14:15,146 p=34100 u=root n=ansible | local_user                 : ok=17   changed=0    unreachable=0    failed=1    skipped=7    rescued=0    ignored=0   
+2021-01-06 12:15:26,073 p=34843 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:15:26,895 p=34843 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-06 12:15:26,896 p=34843 u=root n=ansible | ok: [local_user]
+2021-01-06 12:15:27,197 p=34843 u=root n=ansible | TASK [20-docker : check check docker directory.] ********************************************************************************************************************************************************************************************
+2021-01-06 12:15:27,197 p=34843 u=root n=ansible | ok: [local_user]
+2021-01-06 12:15:27,545 p=34843 u=root n=ansible | TASK [20-docker : Disable pinned Docker version] ********************************************************************************************************************************************************************************************
+2021-01-06 12:15:27,545 p=34843 u=root n=ansible | ok: [local_user]
+2021-01-06 12:15:28,478 p=34843 u=root n=ansible | TASK [20-docker : Install Docker's dependencies] ********************************************************************************************************************************************************************************************
+2021-01-06 12:15:28,479 p=34843 u=root n=ansible | ok: [local_user]
+2021-01-06 12:15:28,959 p=34843 u=root n=ansible | TASK [20-docker : Add Docker's public GPG key to the APT keyring] ***************************************************************************************************************************************************************************
+2021-01-06 12:15:28,959 p=34843 u=root n=ansible | ok: [local_user]
+2021-01-06 12:15:29,368 p=34843 u=root n=ansible | TASK [20-docker : Configure Docker's upstream APT repository] *******************************************************************************************************************************************************************************
+2021-01-06 12:15:29,369 p=34843 u=root n=ansible | ok: [local_user]
+2021-01-06 12:15:29,543 p=34843 u=root n=ansible | TASK [20-docker : Create Docker configuration directories] **********************************************************************************************************************************************************************************
+2021-01-06 12:15:29,544 p=34843 u=root n=ansible | ok: [local_user] => (item=/etc/docker)
+2021-01-06 12:15:29,675 p=34843 u=root n=ansible | ok: [local_user] => (item=/etc/systemd/system/docker.service.d)
+2021-01-06 12:15:29,989 p=34843 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (json)] ***********************************************************************************************************************************************************************************
+2021-01-06 12:15:29,989 p=34843 u=root n=ansible | ok: [local_user]
+2021-01-06 12:15:30,773 p=34843 u=root n=ansible | TASK [20-docker : Install Docker] ***********************************************************************************************************************************************************************************************************
+2021-01-06 12:15:30,773 p=34843 u=root n=ansible | ok: [local_user]
+2021-01-06 12:15:31,550 p=34843 u=root n=ansible | TASK [20-docker : Install Python packages] **************************************************************************************************************************************************************************************************
+2021-01-06 12:15:31,551 p=34843 u=root n=ansible | ok: [local_user] => (item={'name': 'docker', 'state': 'present'})
+2021-01-06 12:15:32,241 p=34843 u=root n=ansible | ok: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 12:15:32,557 p=34843 u=root n=ansible | TASK [20-docker : Create python3-docker proxy script to access the Virtualenv's interpreter] ************************************************************************************************************************************************
+2021-01-06 12:15:32,558 p=34843 u=root n=ansible | ok: [local_user]
+2021-01-06 12:15:32,748 p=34843 u=root n=ansible | TASK [20-docker : Symlink selected Python package binaries to /usr/local/bin] ***************************************************************************************************************************************************************
+2021-01-06 12:15:32,748 p=34843 u=root n=ansible | ok: [local_user] => (item={'name': 'docker-compose', 'version': '', 'path': '/usr/local/bin/docker-compose', 'src': '/usr/local/lib/docker/virtualenv/bin/docker-compose', 'state': 'present'})
+2021-01-06 12:15:33,093 p=34843 u=root n=ansible | TASK [20-docker : Add user(s) to "docker" group] ********************************************************************************************************************************************************************************************
+2021-01-06 12:15:33,093 p=34843 u=root n=ansible | ok: [local_user] => (item=sa)
+2021-01-06 12:15:33,416 p=34843 u=root n=ansible | TASK [20-docker : Configure Docker daemon options (flags)] **********************************************************************************************************************************************************************************
+2021-01-06 12:15:33,416 p=34843 u=root n=ansible | ok: [local_user]
+2021-01-06 12:15:33,952 p=34843 u=root n=ansible | TASK [20-docker : Create Docker related cron jobs] ******************************************************************************************************************************************************************************************
+2021-01-06 12:15:33,952 p=34843 u=root n=ansible | ok: [local_user] => (item={'name': 'Docker disk clean up', 'job': 'docker system prune -af > /dev/null 2>&1', 'schedule': ['0', '0', '*', '*', '0'], 'cron_file': 'docker-disk-clean-up', 'user': 'sa'})
+2021-01-06 12:15:33,981 p=34843 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/20-docker/tasks/docker-compose.yml for local_user
+2021-01-06 12:15:34,514 p=34843 u=root n=ansible | TASK [20-docker : Check current docker-compose version.] ************************************************************************************************************************************************************************************
+2021-01-06 12:15:34,514 p=34843 u=root n=ansible | ok: [local_user]
+2021-01-06 12:15:34,686 p=34843 u=root n=ansible | TASK [20-docker : Delete existing docker-compose version if it's different.] ****************************************************************************************************************************************************************
+2021-01-06 12:15:34,687 p=34843 u=root n=ansible | changed: [local_user]
+2021-01-06 12:15:37,664 p=34843 u=root n=ansible | TASK [20-docker : Install Docker Compose (if configured).] **********************************************************************************************************************************************************************************
+2021-01-06 12:15:37,665 p=34843 u=root n=ansible | changed: [local_user]
+2021-01-06 12:15:37,731 p=34843 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:15:37,731 p=34843 u=root n=ansible | local_user                 : ok=19   changed=2    unreachable=0    failed=0    skipped=8    rescued=0    ignored=0   
+2021-01-06 12:16:18,129 p=35363 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:16:18,898 p=35363 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-06 12:16:18,899 p=35363 u=root n=ansible | ok: [local_user]
+2021-01-06 12:16:18,920 p=35363 u=root n=ansible | TASK [Load custom variables from custom.yml] ************************************************************************************************************************************************************************************************
+2021-01-06 12:16:18,920 p=35363 u=root n=ansible | ok: [local_user]
+2021-01-06 12:16:19,013 p=35363 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/calibre.yml for local_user
+2021-01-06 12:16:19,295 p=35363 u=root n=ansible | TASK [21-dockerized : Create Calibre-web Directories] ***************************************************************************************************************************************************************************************
+2021-01-06 12:16:19,296 p=35363 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/calibre/config)
+2021-01-06 12:16:19,708 p=35363 u=root n=ansible | TASK [21-dockerized : Calibre-web Docker Container] *****************************************************************************************************************************************************************************************
+2021-01-06 12:16:19,708 p=35363 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Failed to import the required Python library (Docker SDK for Python: docker (Python >= 2.7) or docker-py (Python 2.6)) on nas's Python /usr/bin/python3. Please read module documentation and install in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter, for example via `pip install docker` or `pip install docker-py` (Python 2.6). The error was: No module named 'docker'"}
+2021-01-06 12:16:19,714 p=35363 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/21_dockerized.retry
+
+2021-01-06 12:16:19,714 p=35363 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:16:19,714 p=35363 u=root n=ansible | local_user                 : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2021-01-06 12:16:30,843 p=35468 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:16:31,616 p=35468 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-06 12:16:31,617 p=35468 u=root n=ansible | ok: [local_user]
+2021-01-06 12:16:31,638 p=35468 u=root n=ansible | TASK [Load custom variables from custom.yml] ************************************************************************************************************************************************************************************************
+2021-01-06 12:16:31,638 p=35468 u=root n=ansible | ok: [local_user]
+2021-01-06 12:16:31,735 p=35468 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/calibre.yml for local_user
+2021-01-06 12:16:32,016 p=35468 u=root n=ansible | TASK [21-dockerized : Create Calibre-web Directories] ***************************************************************************************************************************************************************************************
+2021-01-06 12:16:32,017 p=35468 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/calibre/config)
+2021-01-06 12:16:32,435 p=35468 u=root n=ansible | TASK [21-dockerized : Calibre-web Docker Container] *****************************************************************************************************************************************************************************************
+2021-01-06 12:16:32,436 p=35468 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Failed to import the required Python library (Docker SDK for Python: docker (Python >= 2.7) or docker-py (Python 2.6)) on nas's Python /usr/bin/python3. Please read module documentation and install in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter, for example via `pip install docker` or `pip install docker-py` (Python 2.6). The error was: No module named 'docker'"}
+2021-01-06 12:16:32,440 p=35468 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/21_dockerized.retry
+
+2021-01-06 12:16:32,441 p=35468 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:16:32,441 p=35468 u=root n=ansible | local_user                 : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2021-01-06 12:20:47,345 p=36006 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:20:48,125 p=36006 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-06 12:20:48,126 p=36006 u=root n=ansible | ok: [local_user]
+2021-01-06 12:20:48,146 p=36006 u=root n=ansible | TASK [Load custom variables from custom.yml] ************************************************************************************************************************************************************************************************
+2021-01-06 12:20:48,147 p=36006 u=root n=ansible | ok: [local_user]
+2021-01-06 12:20:48,241 p=36006 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/calibre.yml for local_user
+2021-01-06 12:20:48,545 p=36006 u=root n=ansible | TASK [21-dockerized : Create Calibre-web Directories] ***************************************************************************************************************************************************************************************
+2021-01-06 12:20:48,546 p=36006 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/calibre/config)
+2021-01-06 12:20:48,953 p=36006 u=root n=ansible | TASK [21-dockerized : Calibre-web Docker Container] *****************************************************************************************************************************************************************************************
+2021-01-06 12:20:48,953 p=36006 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Failed to import the required Python library (Docker SDK for Python: docker (Python >= 2.7) or docker-py (Python 2.6)) on nas's Python /usr/bin/python3. Please read module documentation and install in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter, for example via `pip install docker` or `pip install docker-py` (Python 2.6). The error was: No module named 'docker'"}
+2021-01-06 12:20:48,958 p=36006 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/21_dockerized.retry
+
+2021-01-06 12:20:48,958 p=36006 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:20:48,958 p=36006 u=root n=ansible | local_user                 : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2021-01-06 12:22:03,660 p=36197 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:22:04,428 p=36197 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-06 12:22:04,429 p=36197 u=root n=ansible | ok: [local_user]
+2021-01-06 12:22:04,451 p=36197 u=root n=ansible | TASK [Load custom variables from custom.yml] ************************************************************************************************************************************************************************************************
+2021-01-06 12:22:04,451 p=36197 u=root n=ansible | ok: [local_user]
+2021-01-06 12:22:04,545 p=36197 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/calibre.yml for local_user
+2021-01-06 12:22:04,831 p=36197 u=root n=ansible | TASK [21-dockerized : Create Calibre-web Directories] ***************************************************************************************************************************************************************************************
+2021-01-06 12:22:04,832 p=36197 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/calibre/config)
+2021-01-06 12:22:05,258 p=36197 u=root n=ansible | TASK [21-dockerized : Calibre-web Docker Container] *****************************************************************************************************************************************************************************************
+2021-01-06 12:22:05,258 p=36197 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Failed to import the required Python library (Docker SDK for Python: docker (Python >= 2.7) or docker-py (Python 2.6)) on nas's Python /usr/bin/python3. Please read module documentation and install in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter, for example via `pip install docker` or `pip install docker-py` (Python 2.6). The error was: No module named 'docker'"}
+2021-01-06 12:22:05,263 p=36197 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/21_dockerized.retry
+
+2021-01-06 12:22:05,263 p=36197 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:22:05,263 p=36197 u=root n=ansible | local_user                 : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2021-01-06 12:22:13,248 p=36294 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:22:14,032 p=36294 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-06 12:22:14,032 p=36294 u=root n=ansible | ok: [local_user]
+2021-01-06 12:22:14,053 p=36294 u=root n=ansible | TASK [Load custom variables from custom.yml] ************************************************************************************************************************************************************************************************
+2021-01-06 12:22:14,054 p=36294 u=root n=ansible | ok: [local_user]
+2021-01-06 12:22:14,149 p=36294 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/calibre.yml for local_user
+2021-01-06 12:22:14,438 p=36294 u=root n=ansible | TASK [21-dockerized : Create Calibre-web Directories] ***************************************************************************************************************************************************************************************
+2021-01-06 12:22:14,438 p=36294 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/calibre/config)
+2021-01-06 12:22:14,854 p=36294 u=root n=ansible | TASK [21-dockerized : Calibre-web Docker Container] *****************************************************************************************************************************************************************************************
+2021-01-06 12:22:14,855 p=36294 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Failed to import the required Python library (Docker SDK for Python: docker (Python >= 2.7) or docker-py (Python 2.6)) on nas's Python /usr/bin/python3. Please read module documentation and install in the appropriate location. If the required library is installed, but Ansible is using the wrong Python interpreter, please consult the documentation on ansible_python_interpreter, for example via `pip install docker` or `pip install docker-py` (Python 2.6). The error was: No module named 'docker'"}
+2021-01-06 12:22:14,859 p=36294 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/21_dockerized.retry
+
+2021-01-06 12:22:14,860 p=36294 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:22:14,860 p=36294 u=root n=ansible | local_user                 : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2021-01-06 12:23:02,716 p=36406 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:23:03,468 p=36406 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-06 12:23:03,469 p=36406 u=root n=ansible | ok: [local_user]
+2021-01-06 12:23:03,488 p=36406 u=root n=ansible | TASK [Load custom variables from custom.yml] ************************************************************************************************************************************************************************************************
+2021-01-06 12:23:03,489 p=36406 u=root n=ansible | ok: [local_user]
+2021-01-06 12:23:03,580 p=36406 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/calibre.yml for local_user
+2021-01-06 12:23:03,863 p=36406 u=root n=ansible | TASK [21-dockerized : Create Calibre-web Directories] ***************************************************************************************************************************************************************************************
+2021-01-06 12:23:03,864 p=36406 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/calibre/config)
+2021-01-06 12:23:20,864 p=36406 u=root n=ansible | TASK [21-dockerized : Calibre-web Docker Container] *****************************************************************************************************************************************************************************************
+2021-01-06 12:23:20,864 p=36406 u=root n=ansible | [WARNING]: Docker warning: Your kernel does not support swap limit capabilities or the cgroup is not mounted. Memory limited without swap.
+
+2021-01-06 12:23:20,864 p=36406 u=root n=ansible | changed: [local_user]
+2021-01-06 12:23:20,929 p=36406 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/portainer.yml for local_user
+2021-01-06 12:23:21,116 p=36406 u=root n=ansible | TASK [21-dockerized : Create Portainer Directories] *****************************************************************************************************************************************************************************************
+2021-01-06 12:23:21,117 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/portainer/config)
+2021-01-06 12:23:31,508 p=36406 u=root n=ansible | TASK [21-dockerized : Portainer Docker Container] *******************************************************************************************************************************************************************************************
+2021-01-06 12:23:31,508 p=36406 u=root n=ansible | changed: [local_user]
+2021-01-06 12:23:31,587 p=36406 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/watchtower.yml for local_user
+2021-01-06 12:23:36,542 p=36406 u=root n=ansible | TASK [21-dockerized : Watchtower Docker Container] ******************************************************************************************************************************************************************************************
+2021-01-06 12:23:36,543 p=36406 u=root n=ansible | changed: [local_user]
+2021-01-06 12:23:36,619 p=36406 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/transmission.yml for local_user
+2021-01-06 12:23:36,870 p=36406 u=root n=ansible | TASK [21-dockerized : Create Transmission Directories] **************************************************************************************************************************************************************************************
+2021-01-06 12:23:36,870 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/transmission/config)
+2021-01-06 12:23:37,038 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/samba/downloads)
+2021-01-06 12:23:37,216 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/samba/torrents)
+2021-01-06 12:23:45,894 p=36406 u=root n=ansible | TASK [21-dockerized : Transmission Docker Container] ****************************************************************************************************************************************************************************************
+2021-01-06 12:23:45,894 p=36406 u=root n=ansible | changed: [local_user]
+2021-01-06 12:23:45,967 p=36406 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/pyload.yml for local_user
+2021-01-06 12:23:46,184 p=36406 u=root n=ansible | TASK [21-dockerized : Create pyLoad Directories] ********************************************************************************************************************************************************************************************
+2021-01-06 12:23:46,184 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/pyload)
+2021-01-06 12:23:46,327 p=36406 u=root n=ansible | ok: [local_user] => (item=/mnt/data2000new/docker/samba/downloads)
+2021-01-06 12:24:17,749 p=36406 u=root n=ansible | TASK [21-dockerized : pyLoad Docker Container] **********************************************************************************************************************************************************************************************
+2021-01-06 12:24:17,749 p=36406 u=root n=ansible | changed: [local_user]
+2021-01-06 12:24:17,818 p=36406 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/glances.yml for local_user
+2021-01-06 12:24:38,647 p=36406 u=root n=ansible | TASK [21-dockerized : Glances Docker Container] *********************************************************************************************************************************************************************************************
+2021-01-06 12:24:38,647 p=36406 u=root n=ansible | changed: [local_user]
+2021-01-06 12:24:38,799 p=36406 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/stats.yml for local_user
+2021-01-06 12:24:39,058 p=36406 u=root n=ansible | TASK [21-dockerized : Create InfluxDB and Telegraf Directories] *****************************************************************************************************************************************************************************
+2021-01-06 12:24:39,058 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/influxdb)
+2021-01-06 12:24:39,219 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/telegraf)
+2021-01-06 12:24:39,488 p=36406 u=root n=ansible | TASK [21-dockerized : Create Grafana Directories] *******************************************************************************************************************************************************************************************
+2021-01-06 12:24:39,489 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana)
+2021-01-06 12:24:39,661 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana/data)
+2021-01-06 12:24:39,875 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana/data/dashboards/ansible-nas)
+2021-01-06 12:24:40,050 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana/config/)
+2021-01-06 12:24:40,245 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana/config/provisioning)
+2021-01-06 12:24:40,481 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana/config/provisioning/datasources)
+2021-01-06 12:24:40,667 p=36406 u=root n=ansible | changed: [local_user] => (item=/mnt/data2000new/docker/grafana/config/provisioning/dashboards)
+2021-01-06 12:24:54,649 p=36406 u=root n=ansible | TASK [21-dockerized : InfluxDB] *************************************************************************************************************************************************************************************************************
+2021-01-06 12:24:54,650 p=36406 u=root n=ansible | changed: [local_user]
+2021-01-06 12:25:08,871 p=36406 u=root n=ansible | TASK [21-dockerized : hddtemp] **************************************************************************************************************************************************************************************************************
+2021-01-06 12:25:08,872 p=36406 u=root n=ansible | changed: [local_user]
+2021-01-06 12:25:08,968 p=36406 u=root n=ansible | TASK [21-dockerized : Template telegraf.conf] ***********************************************************************************************************************************************************************************************
+2021-01-06 12:25:08,968 p=36406 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Could not find or access 'telegraf/telegraf.conf'\nSearched in:\n\t/opt/ansible-crypt-zfs-root/roles/local/21-dockerized/templates/telegraf/telegraf.conf\n\t/opt/ansible-crypt-zfs-root/roles/local/21-dockerized/telegraf/telegraf.conf\n\t/opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/templates/telegraf/telegraf.conf\n\t/opt/ansible-crypt-zfs-root/roles/local/21-dockerized/tasks/telegraf/telegraf.conf\n\t/opt/ansible-crypt-zfs-root/playbooks/templates/telegraf/telegraf.conf\n\t/opt/ansible-crypt-zfs-root/playbooks/telegraf/telegraf.conf on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2021-01-06 12:25:08,973 p=36406 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/21_dockerized.retry
+
+2021-01-06 12:25:08,973 p=36406 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-06 12:25:08,974 p=36406 u=root n=ansible | local_user                 : ok=23   changed=13   unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

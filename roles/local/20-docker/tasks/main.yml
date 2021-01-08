@@ -1,4 +1,17 @@
 ---
+- name: check check docker directory.
+  stat:
+    path: "{{ docker_location }}"
+  register: my_docker
+
+- name: "Ansible Create directory if not exists"
+  file:
+    path: "{{ docker_location }}"
+    state: directory
+    mode: 0755
+    group: root
+    owner: root
+  when: my_docker.stat.exists == false
 
 - name: Disable pinned Docker version
   file:
@@ -171,3 +184,9 @@
     - item.state | d("present") != "absent"
     - item.name | d() and item.job | d()
     - item.schedule | d() and item.cron_file | d()
+
+- include_tasks: docker-compose.yml
+#  when: docker_install_compose | bool
+
+- include_tasks: docker-users.yml
+  when: docker_users | length > 0

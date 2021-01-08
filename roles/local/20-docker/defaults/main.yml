@@ -1,5 +1,5 @@
 ---
-
+docker_location: "/mnt/data1500/docker"
 docker__edition: "ce"
 docker__channel: ["stable"]
 docker__version: ""
@@ -15,6 +15,9 @@ docker__default_daemon_json: |
   "log-driver": "journald"
 
 docker__daemon_json: ""
+
+docker__daemon_location_flags:
+  - "-g {{ docker_location }}"
 
 docker__daemon_flags:
   - "-H unix://"
@@ -73,3 +76,13 @@ docker__pip_packages: []
 
 docker__pip_docker_state: "present"
 docker__pip_docker_compose_state: "present"
+
+
+# Docker Compose options.
+docker_install_compose: true
+docker_compose_version: "1.26.0"
+docker_compose_path: /usr/local/bin/docker-compose
+
+
+# A list of users who will be added to the docker group.
+docker_users: []
