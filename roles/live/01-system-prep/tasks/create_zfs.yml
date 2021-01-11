@@ -75,7 +75,7 @@
 
 - name: chmod 01777 /mnt/var/tmp
   file:
-    path: /mnt/var/tmp
+    path: "{{ _installdir }}var/tmp"
     mode: 01777
 
 #- name: set up zfs data devices

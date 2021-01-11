@@ -28273,3 +28273,72 @@ The offending line appears to be:
 
 2021-01-11 10:07:54,875 p=37530 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************
 2021-01-11 10:07:54,875 p=37530 u=root n=ansible | local_zfs_root             : ok=20   changed=12   unreachable=0    failed=1    skipped=8    rescued=0    ignored=0   
+2021-01-11 10:37:35,258 p=45225 u=root n=ansible | PLAY [live] *********************************************************************************************************************************************************************************************************
+2021-01-11 10:37:36,277 p=45225 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************
+2021-01-11 10:37:36,278 p=45225 u=root n=ansible | ok: [local_zfs_root]
+2021-01-11 10:37:36,310 p=45225 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/pre.yml for local_zfs_root
+2021-01-11 10:37:37,144 p=45225 u=root n=ansible | TASK [01-system-prep : ensure live system has necessary packages installed] *****************************************************************************************************************************************
+2021-01-11 10:37:37,144 p=45225 u=root n=ansible | ok: [local_zfs_root]
+2021-01-11 10:37:37,193 p=45225 u=root n=ansible | TASK [01-system-prep : debug] ***************************************************************************************************************************************************************************************
+2021-01-11 10:37:37,194 p=45225 u=root n=ansible | ok: [local_zfs_root] => {
+    "apt_out": {
+        "cache_update_time": 1610357952,
+        "cache_updated": false,
+        "changed": false,
+        "failed": false
+    }
+}
+2021-01-11 10:37:37,698 p=45225 u=root n=ansible | TASK [01-system-prep : Necessary efi] *******************************************************************************************************************************************************************************
+2021-01-11 10:37:37,699 p=45225 u=root n=ansible | ok: [local_zfs_root] => (item=dosfstools)
+2021-01-11 10:37:37,776 p=45225 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/disks.yml for local_zfs_root
+2021-01-11 10:37:39,067 p=45225 u=root n=ansible | TASK [01-system-prep : forcibly zap disks] **************************************************************************************************************************************************************************
+2021-01-11 10:37:39,068 p=45225 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29ebc173b719cffe9efb009d40e)
+2021-01-11 10:37:40,281 p=45225 u=root n=ansible | TASK [01-system-prep : set up efi disk partitions] ******************************************************************************************************************************************************************
+2021-01-11 10:37:40,281 p=45225 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29ebc173b719cffe9efb009d40e)
+2021-01-11 10:37:41,524 p=45225 u=root n=ansible | TASK [01-system-prep : set up boot disk partitions] *****************************************************************************************************************************************************************
+2021-01-11 10:37:41,524 p=45225 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29ebc173b719cffe9efb009d40e)
+2021-01-11 10:37:42,894 p=45225 u=root n=ansible | TASK [01-system-prep : set up root disk partitions] *****************************************************************************************************************************************************************
+2021-01-11 10:37:42,894 p=45225 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29ebc173b719cffe9efb009d40e)
+2021-01-11 10:37:43,140 p=45225 u=root n=ansible | TASK [01-system-prep : print info disk] *****************************************************************************************************************************************************************************
+2021-01-11 10:37:43,142 p=45225 u=root n=ansible | changed: [local_zfs_root] => (item=/dev/disk/by-id/scsi-36000c29ebc173b719cffe9efb009d40e)
+2021-01-11 10:37:43,207 p=45225 u=root n=ansible | TASK [01-system-prep : debug directory output] **********************************************************************************************************************************************************************
+2021-01-11 10:37:43,208 p=45225 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": [
+        [
+            "Disk /dev/disk/by-id/scsi-36000c29ebc173b719cffe9efb009d40e: 41943040 sectors, 20.0 GiB",
+            "Sector size (logical/physical): 512/512 bytes",
+            "Disk identifier (GUID): BB1EC8DA-20A5-487A-A572-4F4BF039CD35",
+            "Partition table holds up to 128 entries",
+            "Main partition table begins at sector 2 and ends at sector 33",
+            "First usable sector is 34, last usable sector is 41943006",
+            "Partitions will be aligned on 2048-sector boundaries",
+            "Total free space is 2014 sectors (1007.0 KiB)",
+            "",
+            "Number  Start (sector)    End (sector)  Size       Code  Name",
+            "   1            2048         1050623   512.0 MiB   EF00  EFI",
+            "   2         1050624         3147775   1024.0 MiB  8300  Boot",
+            "   4         3147776        41943006   18.5 GiB    BF01  Ubuntu"
+        ]
+    ]
+}
+2021-01-11 10:37:43,370 p=45225 u=root n=ansible | included: /opt/ansible-crypt-zfs-root/roles/live/01-system-prep/tasks/create_zfs.yml for local_zfs_root
+2021-01-11 10:37:43,854 p=45225 u=root n=ansible | TASK [01-system-prep : set up root zfs crypt devices] ***************************************************************************************************************************************************************
+2021-01-11 10:37:43,855 p=45225 u=root n=ansible | changed: [local_zfs_root]
+2021-01-11 10:37:44,294 p=45225 u=root n=ansible | TASK [01-system-prep : create root dataset] *************************************************************************************************************************************************************************
+2021-01-11 10:37:44,295 p=45225 u=root n=ansible | changed: [local_zfs_root]
+2021-01-11 10:37:44,505 p=45225 u=root n=ansible | TASK [01-system-prep : manually mount rpool/root before creating other mountpoints] *********************************************************************************************************************************
+2021-01-11 10:37:44,506 p=45225 u=root n=ansible | changed: [local_zfs_root]
+2021-01-11 10:37:44,753 p=45225 u=root n=ansible | TASK [01-system-prep : create mountpoints in root pool] *************************************************************************************************************************************************************
+2021-01-11 10:37:44,754 p=45225 u=root n=ansible | changed: [local_zfs_root] => (item={'name': 'rpool/home', 'properties': {'setuid': False}})
+2021-01-11 10:37:44,956 p=45225 u=root n=ansible | changed: [local_zfs_root] => (item={'name': 'rpool/home/root', 'properties': {'mountpoint': '/root'}})
+2021-01-11 10:37:45,150 p=45225 u=root n=ansible | changed: [local_zfs_root] => (item={'name': 'rpool/var', 'properties': {'canmount': False, 'setuid': False, 'exec': False}})
+2021-01-11 10:37:45,347 p=45225 u=root n=ansible | changed: [local_zfs_root] => (item={'name': 'rpool/var/cache', 'properties': {'com.sun:auto-snapshot': False}})
+2021-01-11 10:37:45,530 p=45225 u=root n=ansible | changed: [local_zfs_root] => (item={'name': 'rpool/var/log', 'properties': {'acltype': 'posixacl', 'xattr': 'sa'}})
+2021-01-11 10:37:45,724 p=45225 u=root n=ansible | changed: [local_zfs_root] => (item={'name': 'rpool/var/spool', 'properties': {}})
+2021-01-11 10:37:45,914 p=45225 u=root n=ansible | changed: [local_zfs_root] => (item={'name': 'rpool/var/tmp', 'properties': {'com.sun:auto-snapshot': False, 'exec': True}})
+2021-01-11 10:37:46,214 p=45225 u=root n=ansible | TASK [01-system-prep : chmod 01777 /mnt/var/tmp] ********************************************************************************************************************************************************************
+2021-01-11 10:37:46,214 p=45225 u=root n=ansible | fatal: [local_zfs_root]: FAILED! => {"changed": false, "msg": "file (/mnt/var/tmp) is absent, cannot continue", "path": "/mnt/var/tmp"}
+2021-01-11 10:37:46,220 p=45225 u=root n=ansible | 	to retry, use: --limit @/opt/ansible-crypt-zfs-root/config/tmp/retry/0_1.live_install_zfs.retry
+
+2021-01-11 10:37:46,220 p=45225 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************
+2021-01-11 10:37:46,221 p=45225 u=root n=ansible | local_zfs_root             : ok=17   changed=9    unreachable=0    failed=1    skipped=7    rescued=0    ignored=0   
