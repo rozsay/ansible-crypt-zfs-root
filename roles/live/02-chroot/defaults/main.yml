@@ -1,45 +1,7 @@
 ---
 # defaults file for 02-chroot
-_efi: true
-_swap: true
-_root_pool: rpool
-_installdir: /mnt/install/
-_root_disks:
-  - sda
-
-_swap_opts:
-  volsize: 1G
-  compression: zle
-  logbias: throughput
-  sync: always
-  primarycache: metadata
-  secondarycache: none
-  com.sun:auto-snapshot: false
-
-_crypt_passphrase: "Password"
-_luksbootname: cryptboot
-_luksname: cryptstore
-_lukscrypt: false
-_lukscryptkey: "/boot/{{ _luksname }}/{{ _root_pool }}.key"
-_luksoptions: "--type=luks1 -qc aes-xts-plain64 -s 512 -h sha256"
-
-_timezone: "UTC"
 #_grub_cmdline: "elevator=noop"
 _grub_cmdline: "root=ZFS={{ _root_pool }}/root"
-
-_legacy_device_nodes: false
-_root_disks_by_id: "/dev/disk/by-id/{{ (_root_disks | map('extract', hostvars[inventory_hostname]['ansible_devices'], ['links', 'ids', 0]) | list).0 }}"
-_root_device_list: "{{ _legacy_device_nodes | ternary((_root_disks | map('regex_replace', '(.*)', '/dev/\\g<1>') | list), _root_disks_by_id) }}"
-
-_efi_part_append: "{{ _legacy_device_nodes | ternary('1', '-part1') }}"
-_boot_part_append: "{{ _legacy_device_nodes | ternary('2', '-part2') }}"
-_cryptstore_part_append: "{{ _legacy_device_nodes | ternary('3', '-part3') }}"
-_root_part_append: "{{ _legacy_device_nodes | ternary('4', '-part4') }}"
-
-_extra_locales: []
-_locales: "{{ _extra_locales + ['en_US.UTF-8'] }}"
-_lang: "en_US.UTF-8"
-_kernel_package: "linux-image-generic linux-headers-generic"
 
 _root_password_hash: "$2y$10$SPFGSp7upVEKeE81zZzD5eAnSj6oiXjdtyo56JLJIsQM1WSxEGb/q"  # "Password"
 
@@ -99,25 +61,3 @@ sshd_banner: "none"
 sshd_accept_env: "LANG LC_*"
 sshd_subsystem: "sftp /usr/lib/openssh/sftp-server"
 sshd_use_pam: "yes"
-
-default_packages:
-  - 'gdisk'
-  - 'ansible'
-  - 'openssh-server'
-  - 'mc'
-  - 'ssh'
-  - 'nano'
-  - 'lshw'
-  - 'rsync'
-  - 'ncdu'
-  - 'ethtool'
-  - 'wget'
-  - 'git'
-  - 'gpart'
-  - 'gparted '
-  - 'ssh-askpass'
-  - 'net-tools'
-  - 'tree'
-  - 'htop'
-  - 'strace '
-  - 'p7zip-full'

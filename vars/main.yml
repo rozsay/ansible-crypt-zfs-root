@@ -1,0 +1,37 @@
+
+# Will be added to the docker group to give user command line access to docker
+_user: sa
+_password: Sasasa26
+# Your email and domain, used for Let's Encrypt SSL certs
+_email: me@info.local
+
+# Applications will have subdomain SSL certificates created if Traefik is enabled, e.g. ansible-nas.<your-domain>, nextcloud.<your-domain>
+_domain: info.local
+_hostname:
+  short: nas
+  long: nas.test.local
+
+
+_installdir: /mnt/install/
+_crypt_passphrase: Sasasa26
+_installdir: /mnt/install/
+_lukscrypt: false
+
+#####################################################################################################################################################################################################
+
+debug:
+  msg: "DISK {{ _target_disks }} "
+
+
+enable_task_debugger = True
+isneeded: true
+_ubuntu_release: focal
+
+
+_timezone: "UTC"
+#_grub_cmdline: "elevator=noop"
+#_grub_cmdline: "root=ZFS={{ _root_pool }}/root"
+_extra_locales: []
+_locales: "{{ _extra_locales + ['en_US.UTF-8'] }}"
+_lang: "en_US.UTF-8"
+_kernel_package: "linux-image-generic linux-headers-generic"

@@ -15,7 +15,3 @@ At this stage, if everything went well, you can run all other playbooks.
 
 ## Dump all variables from an host
 
-TODO: dumpall
-
-
-

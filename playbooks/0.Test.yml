@@ -1,0 +1,29 @@
+---
+
+# TODO: 
+# - Install python 2.7 for example
+# - Push ssh keys
+# - Customize virtualbox config
+# Goal: Make the system working
+
+- hosts: local
+#- hosts: targets
+  user: root
+
+  vars:
+    dump_vars: true
+
+  pre_tasks:
+    - raw: sudo apt-get update
+      register: system_output
+
+    - name: Test Ansible ping
+      ping:
+
+    - name: Run a command to get target release
+      shell: cat /etc/*ease || sw_vers
+      changed_when: false
+
+  tasks:
+    - debug: 
+        var=system_output.stdout_lines

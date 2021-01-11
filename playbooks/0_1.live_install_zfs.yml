@@ -1,12 +1,14 @@
 ---
 - hosts: live
   connection: local
-  vars_prompt:
-    - name: crypt_passphrase
-      prompt: "Enter passphrase"
-      default: "Password"
+  vars_files: ../vars/main.yml
+  vars_files: ../vars/zfs.yml
+#  vars_prompt:
+#    - name: crypt_passphrase
+#      prompt: "Enter passphrase"
+#      default: "Password"
 #      encrypt: "sha512_crypt"
-      private: yes
-      confirm: yes
-  roles:
-    - role: 01-system-prep
+#      private: yes
+#      confirm: yes
+#  roles:
+#    - role: 01-system-prep

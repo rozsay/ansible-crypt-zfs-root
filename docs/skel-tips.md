@@ -15,7 +15,6 @@ How to override default ansible configuration:
 
 What are all constants of Ansible:
 
-  https://github.com/ansible/ansible/blob/devel/lib/ansible/constants.py
 
 What is the best and pure yaml syntax for Ansible?
 
