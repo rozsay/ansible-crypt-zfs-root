@@ -30092,3 +30092,386 @@ ansible.cfg to get rid of this message.
 2021-01-11 14:05:48,372 p=25118 u=root n=ansible | ok: [local_zfs_root]
 2021-01-11 14:05:48,398 p=25118 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
 2021-01-11 14:05:48,398 p=25118 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-01-12 06:57:45,860 p=26213 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible/ansible-crypt-zfs-root/playbooks/0_1.live_install_zfs.yml, line 2, column 3,
+found a duplicate dict key (vars_files). Using last defined value only.
+
+2021-01-12 06:57:45,906 p=26213 u=root n=ansible | PLAY [live] ****************************************************************************************************************************
+2021-01-12 06:57:46,757 p=26213 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 06:57:46,757 p=26213 u=root n=ansible | ok: [local_zfs_root]
+2021-01-12 06:57:46,784 p=26213 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 06:57:46,785 p=26213 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-01-12 07:00:55,476 p=26559 u=root n=ansible | ERROR! 'debug' is not a valid attribute for a Play
+
+The error appears to be in '/opt/ansible/ansible-crypt-zfs-root/playbooks/0_1.live_install_zfs.yml': line 16, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+#    - role: 01-system-prep
+- debug: var=_password
+  ^ here
+
+2021-01-12 07:01:12,210 p=26626 u=root n=ansible | ERROR! 'debug' is not a valid attribute for a Play
+
+The error appears to be in '/opt/ansible/ansible-crypt-zfs-root/playbooks/0_1.live_install_zfs.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: live
+  ^ here
+
+2021-01-12 07:02:22,604 p=26714 u=root n=ansible | ERROR! 'debug' is not a valid attribute for a Play
+
+The error appears to be in '/opt/ansible/ansible-crypt-zfs-root/playbooks/0_1.live_install_zfs.yml': line 16, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+#    - role: 01-system-prep
+- debug:
+  ^ here
+
+2021-01-12 07:02:33,256 p=26761 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/opt/ansible/ansible-crypt-zfs-root/playbooks/0_1.live_install_zfs.yml': line 16, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+#    - role: 01-system-prep
+  - debug:
+  ^ here
+
+2021-01-12 07:02:40,974 p=26822 u=root n=ansible | ERROR! 'debug' is not a valid attribute for a Play
+
+The error appears to be in '/opt/ansible/ansible-crypt-zfs-root/playbooks/0_1.live_install_zfs.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: live
+  ^ here
+
+2021-01-12 07:03:00,961 p=26897 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/opt/ansible/ansible-crypt-zfs-root/vars/main.yml': line 26, column 22, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+enable_task_debugger = True
+                     ^ here
+
+There appears to be both 'k=v' shorthand syntax and YAML in this task. Only one syntax may be used.
+
+2021-01-12 07:03:19,907 p=26963 u=root n=ansible | ERROR! Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/opt/ansible/ansible-crypt-zfs-root/vars/main.yml': line 26, column 22, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+enable_task_debugger = True
+                     ^ here
+
+There appears to be both 'k=v' shorthand syntax and YAML in this task. Only one syntax may be used.
+
+2021-01-12 07:04:13,626 p=27094 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible/ansible-crypt-zfs-root/vars/main.yml, line 3, column 1, found a duplicate
+dict key (_installdir). Using last defined value only.
+
+2021-01-12 07:04:13,627 p=27094 u=root n=ansible | PLAY [live] ****************************************************************************************************************************
+2021-01-12 07:04:14,441 p=27094 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:04:14,441 p=27094 u=root n=ansible | ok: [local_zfs_root]
+2021-01-12 07:04:14,468 p=27094 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 07:04:14,469 p=27094 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-01-12 07:05:06,777 p=27208 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible/ansible-crypt-zfs-root/vars/main.yml, line 3, column 1, found a duplicate
+dict key (_installdir). Using last defined value only.
+
+2021-01-12 07:05:06,778 p=27208 u=root n=ansible | PLAY [live] ****************************************************************************************************************************
+2021-01-12 07:05:07,595 p=27208 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:05:07,595 p=27208 u=root n=ansible | ok: [local_zfs_root]
+2021-01-12 07:05:07,624 p=27208 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 07:05:07,624 p=27208 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-01-12 07:05:25,391 p=27335 u=root n=ansible | PLAY [live] ****************************************************************************************************************************
+2021-01-12 07:05:26,228 p=27335 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:05:26,229 p=27335 u=root n=ansible | ok: [local_zfs_root]
+2021-01-12 07:05:26,258 p=27335 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 07:05:26,259 p=27335 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-01-12 07:05:31,483 p=27411 u=root n=ansible | PLAY [live] ****************************************************************************************************************************
+2021-01-12 07:05:32,319 p=27411 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:05:32,320 p=27411 u=root n=ansible | ok: [local_zfs_root]
+2021-01-12 07:05:32,348 p=27411 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 07:05:32,349 p=27411 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-01-12 07:05:40,446 p=27509 u=root n=ansible | PLAY [live] ****************************************************************************************************************************
+2021-01-12 07:05:41,266 p=27509 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:05:41,267 p=27509 u=root n=ansible | ok: [local_zfs_root]
+2021-01-12 07:05:41,296 p=27509 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 07:05:41,296 p=27509 u=root n=ansible | local_zfs_root             : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-01-12 07:05:52,770 p=27602 u=root n=ansible | ERROR! 'debug' is not a valid attribute for a Play
+
+The error appears to be in '/opt/ansible/ansible-crypt-zfs-root/playbooks/0_1.live_install_zfs.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: live
+  ^ here
+
+2021-01-12 07:06:08,373 p=27686 u=root n=ansible | ERROR! 'debug' is not a valid attribute for a Play
+
+The error appears to be in '/opt/ansible/ansible-crypt-zfs-root/playbooks/0_1.live_install_zfs.yml': line 18, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- debug:
+  ^ here
+
+2021-01-12 07:07:09,458 p=27793 u=root n=ansible | PLAY [live] ****************************************************************************************************************************
+2021-01-12 07:07:10,274 p=27793 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:07:10,275 p=27793 u=root n=ansible | ok: [local_zfs_root]
+2021-01-12 07:07:10,333 p=27793 u=root n=ansible | TASK [debug] ***************************************************************************************************************************
+2021-01-12 07:07:10,334 p=27793 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "System local_zfs_root has uuid eb594d56-c0df-9ad5-9498-ab80f72b8799"
+}
+2021-01-12 07:07:10,353 p=27793 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 07:07:10,353 p=27793 u=root n=ansible | local_zfs_root             : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-01-12 07:07:42,088 p=27953 u=root n=ansible | PLAY [live] ****************************************************************************************************************************
+2021-01-12 07:07:42,892 p=27953 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:07:42,893 p=27953 u=root n=ansible | ok: [local_zfs_root]
+2021-01-12 07:07:42,952 p=27953 u=root n=ansible | TASK [debug] ***************************************************************************************************************************
+2021-01-12 07:07:42,953 p=27953 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "System Sasasa26 jpassword are"
+}
+2021-01-12 07:07:42,974 p=27953 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 07:07:42,974 p=27953 u=root n=ansible | local_zfs_root             : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-01-12 07:08:13,724 p=28093 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible/ansible-crypt-zfs-root/vars/disks.yml, line 2, column 1, found a duplicate
+dict key (_lukscryptkey). Using last defined value only.
+
+2021-01-12 07:08:13,725 p=28093 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible/ansible-crypt-zfs-root/vars/disks.yml, line 2, column 1, found a duplicate
+dict key (_luksoptions). Using last defined value only.
+
+2021-01-12 07:08:13,727 p=28093 u=root n=ansible | PLAY [live] ****************************************************************************************************************************
+2021-01-12 07:08:14,539 p=28093 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:08:14,540 p=28093 u=root n=ansible | ok: [local_zfs_root]
+2021-01-12 07:08:14,600 p=28093 u=root n=ansible | TASK [debug] ***************************************************************************************************************************
+2021-01-12 07:08:14,601 p=28093 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "System Sasasa26 password are"
+}
+2021-01-12 07:08:14,625 p=28093 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 07:08:14,625 p=28093 u=root n=ansible | local_zfs_root             : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-01-12 07:08:59,719 p=28223 u=root n=ansible | PLAY [live] ****************************************************************************************************************************
+2021-01-12 07:09:00,538 p=28223 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:09:00,539 p=28223 u=root n=ansible | ok: [local_zfs_root]
+2021-01-12 07:09:00,599 p=28223 u=root n=ansible | TASK [debug] ***************************************************************************************************************************
+2021-01-12 07:09:00,599 p=28223 u=root n=ansible | ok: [local_zfs_root] => {
+    "msg": "System Sasasa26 password are"
+}
+2021-01-12 07:09:00,622 p=28223 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 07:09:00,622 p=28223 u=root n=ansible | local_zfs_root             : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-01-12 07:14:41,281 p=29352 u=root n=ansible | PLAY [local] ***************************************************************************************************************************
+2021-01-12 07:14:42,077 p=29352 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:14:42,078 p=29352 u=root n=ansible | ok: [local_user]
+2021-01-12 07:14:45,716 p=29352 u=root n=ansible | TASK [05-environment : install cryptsetup] *********************************************************************************************
+2021-01-12 07:14:45,716 p=29352 u=root n=ansible | changed: [local_user]
+2021-01-12 07:14:46,233 p=29352 u=root n=ansible | TASK [05-environment : Collect only facts about hardware] ******************************************************************************
+2021-01-12 07:14:46,233 p=29352 u=root n=ansible | ok: [local_user]
+2021-01-12 07:14:46,295 p=29352 u=root n=ansible | TASK [05-environment : Output disks] ***************************************************************************************************
+2021-01-12 07:14:46,296 p=29352 u=root n=ansible | ok: [local_user] => {
+    "hostvars[inventory_hostname].ansible_devices.keys() | map('regex_search', 'sd.*') | select('string') | list": [
+        "sdd",
+        "sdb",
+        "sdc",
+        "sda"
+    ]
+}
+2021-01-12 07:14:46,315 p=29352 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 07:14:46,315 p=29352 u=root n=ansible | local_user                 : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2021-01-12 07:26:30,886 p=30519 u=root n=ansible | ERROR! couldn't resolve module/action 'disk_config'. This often indicates a misspelling, missing collection, or incorrect module path.
+
+The error appears to be in '/opt/ansible/ansible-crypt-zfs-root/roles/local/05-environment/tasks/create_disks.yml': line 1, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+- name: "Discover NVMe EBS"
+  ^ here
+
+2021-01-12 07:27:29,616 p=30668 u=root n=ansible | PLAY [local] ***************************************************************************************************************************
+2021-01-12 07:27:30,469 p=30668 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:27:30,469 p=30668 u=root n=ansible | ok: [local_user]
+2021-01-12 07:27:31,499 p=30668 u=root n=ansible | TASK [05-environment : install cryptsetup] *********************************************************************************************
+2021-01-12 07:27:31,500 p=30668 u=root n=ansible | ok: [local_user]
+2021-01-12 07:27:31,916 p=30668 u=root n=ansible | TASK [05-environment : Discover NVMe EBS] **********************************************************************************************
+2021-01-12 07:27:31,916 p=30668 u=root n=ansible | ok: [local_user]
+2021-01-12 07:27:32,050 p=30755 u=root n=ansible | [DEPRECATION WARNING]: evaluating 'disk_additional_disks' as a bare variable, this behaviour will go away and you might need to add 
+|bool to the expression in the future. Also see CONDITIONAL_BARE_VARS configuration toggle. This feature will be removed in version 
+2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2021-01-12 07:27:32,531 p=30668 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 07:27:32,532 p=30668 u=root n=ansible | local_user                 : ok=3    changed=0    unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2021-01-12 07:28:11,047 p=30853 u=root n=ansible | PLAY [local] ***************************************************************************************************************************
+2021-01-12 07:28:11,892 p=30853 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:28:11,893 p=30853 u=root n=ansible | ok: [local_user]
+2021-01-12 07:28:13,006 p=30853 u=root n=ansible | TASK [05-environment : install cryptsetup] *********************************************************************************************
+2021-01-12 07:28:13,007 p=30853 u=root n=ansible | ok: [local_user]
+2021-01-12 07:28:13,398 p=30853 u=root n=ansible | TASK [05-environment : Discover NVMe EBS] **********************************************************************************************
+2021-01-12 07:28:13,399 p=30853 u=root n=ansible | ok: [local_user]
+2021-01-12 07:28:13,528 p=30940 u=root n=ansible | [DEPRECATION WARNING]: evaluating 'disk_additional_disks' as a bare variable, this behaviour will go away and you might need to add 
+|bool to the expression in the future. Also see CONDITIONAL_BARE_VARS configuration toggle. This feature will be removed in version 
+2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2021-01-12 07:28:14,049 p=30853 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 07:28:14,050 p=30853 u=root n=ansible | local_user                 : ok=3    changed=0    unreachable=0    failed=0    skipped=12   rescued=0    ignored=0   
+2021-01-12 07:32:04,127 p=31209 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible/ansible-crypt-zfs-root/roles/local/05-environment/defaults/main.yml, line 3,
+column 1, found a duplicate dict key (disk_additional_disks). Using last defined value only.
+
+2021-01-12 07:32:04,128 p=31209 u=root n=ansible | [WARNING]: While constructing a mapping from /opt/ansible/ansible-crypt-zfs-root/roles/local/05-environment/defaults/main.yml, line 3,
+column 1, found a duplicate dict key (additional_fs_utils). Using last defined value only.
+
+2021-01-12 07:32:04,212 p=31209 u=root n=ansible | PLAY [local] ***************************************************************************************************************************
+2021-01-12 07:32:05,068 p=31209 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:32:05,068 p=31209 u=root n=ansible | ok: [local_user]
+2021-01-12 07:32:06,071 p=31209 u=root n=ansible | TASK [05-environment : install cryptsetup] *********************************************************************************************
+2021-01-12 07:32:06,071 p=31209 u=root n=ansible | ok: [local_user]
+2021-01-12 07:32:06,464 p=31209 u=root n=ansible | TASK [05-environment : Discover NVMe EBS] **********************************************************************************************
+2021-01-12 07:32:06,464 p=31209 u=root n=ansible | ok: [local_user]
+2021-01-12 07:32:06,588 p=31332 u=root n=ansible | [DEPRECATION WARNING]: evaluating 'disk_additional_disks' as a bare variable, this behaviour will go away and you might need to add 
+|bool to the expression in the future. Also see CONDITIONAL_BARE_VARS configuration toggle. This feature will be removed in version 
+2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2021-01-12 07:32:09,103 p=31209 u=root n=ansible | TASK [05-environment : Install parted] *************************************************************************************************
+2021-01-12 07:32:09,104 p=31209 u=root n=ansible | changed: [local_user]
+2021-01-12 07:32:19,331 p=31209 u=root n=ansible |  [ERROR]: User interrupted execution
+
+2021-01-12 07:32:36,774 p=39863 u=root n=ansible | PLAY [local] ***************************************************************************************************************************
+2021-01-12 07:32:37,681 p=39863 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 07:32:37,682 p=39863 u=root n=ansible | ok: [local_user]
+2021-01-12 07:32:38,990 p=39863 u=root n=ansible | TASK [05-environment : install cryptsetup] *********************************************************************************************
+2021-01-12 07:32:38,991 p=39863 u=root n=ansible | ok: [local_user]
+2021-01-12 07:32:39,394 p=39863 u=root n=ansible | TASK [05-environment : Discover NVMe EBS] **********************************************************************************************
+2021-01-12 07:32:39,395 p=39863 u=root n=ansible | ok: [local_user]
+2021-01-12 07:32:39,519 p=39966 u=root n=ansible | [DEPRECATION WARNING]: evaluating 'disk_additional_disks' as a bare variable, this behaviour will go away and you might need to add 
+|bool to the expression in the future. Also see CONDITIONAL_BARE_VARS configuration toggle. This feature will be removed in version 
+2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2021-01-12 07:32:40,379 p=39863 u=root n=ansible | TASK [05-environment : Install parted] *************************************************************************************************
+2021-01-12 07:32:40,380 p=39863 u=root n=ansible | ok: [local_user]
+2021-01-12 07:32:41,271 p=39863 u=root n=ansible | TASK [05-environment : Install additional fs progs] ************************************************************************************
+2021-01-12 07:32:41,271 p=39863 u=root n=ansible | ok: [local_user] => (item=xfsprogs)
+2021-01-12 07:33:07,326 p=39863 u=root n=ansible | changed: [local_user] => (item=btrfs-progs)
+2021-01-12 07:33:07,669 p=39863 u=root n=ansible | TASK [05-environment : Get disk alignment for disks] ***********************************************************************************
+2021-01-12 07:33:07,670 p=39863 u=root n=ansible | changed: [local_user] => (item={'disk': '/dev/sdb1', 'fstype': 'ext4', 'mount_options': 'defaults', 'mount': '/mnt/data2000', 'user': 'www-data', 'group': 'www-data', 'disable_periodic_fsck': False})
+2021-01-12 07:33:07,889 p=39863 u=root n=ansible | TASK [05-environment : Partition additional disks] *************************************************************************************
+2021-01-12 07:33:07,889 p=39863 u=root n=ansible | changed: [local_user] => (item={'disk': '/dev/sdb1', 'fstype': 'ext4', 'mount_options': 'defaults', 'mount': '/mnt/data2000', 'user': 'www-data', 'group': 'www-data', 'disable_periodic_fsck': False})
+2021-01-12 07:33:08,223 p=39863 u=root n=ansible | TASK [05-environment : Create filesystem on the first partition] ***********************************************************************
+2021-01-12 07:33:08,223 p=39863 u=root n=ansible | failed: [local_user] (item={'disk': '/dev/sdb1', 'fstype': 'ext4', 'mount_options': 'defaults', 'mount': '/mnt/data2000', 'user': 'www-data', 'group': 'www-data', 'disable_periodic_fsck': False}) => {"ansible_loop_var": "item", "changed": false, "item": {"disable_periodic_fsck": false, "disk": "/dev/sdb1", "fstype": "ext4", "group": "www-data", "mount": "/mnt/data2000", "mount_options": "defaults", "user": "www-data"}, "msg": "Device /dev/sdb11 not found."}
+2021-01-12 07:33:08,229 p=39863 u=root n=ansible | 	to retry, use: --limit @/opt/ansible/ansible-crypt-zfs-root/config/tmp/retry/1.5_environment.retry
+
+2021-01-12 07:33:08,229 p=39863 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 07:33:08,230 p=39863 u=root n=ansible | local_user                 : ok=7    changed=3    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2021-01-12 08:02:07,515 p=48947 u=root n=ansible | PLAY [local] ***************************************************************************************************************************
+2021-01-12 08:02:09,415 p=48947 u=root n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2021-01-12 08:02:09,416 p=48947 u=root n=ansible | ok: [local_user]
+2021-01-12 08:02:10,509 p=48947 u=root n=ansible | TASK [05-environment : install cryptsetup] *********************************************************************************************
+2021-01-12 08:02:10,509 p=48947 u=root n=ansible | ok: [local_user]
+2021-01-12 08:02:10,912 p=48947 u=root n=ansible | TASK [05-environment : Discover NVMe EBS] **********************************************************************************************
+2021-01-12 08:02:10,913 p=48947 u=root n=ansible | ok: [local_user]
+2021-01-12 08:02:11,047 p=49059 u=root n=ansible | [DEPRECATION WARNING]: evaluating 'disk_additional_disks' as a bare variable, this behaviour will go away and you might need to add 
+|bool to the expression in the future. Also see CONDITIONAL_BARE_VARS configuration toggle. This feature will be removed in version 
+2.12. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2021-01-12 08:02:11,935 p=48947 u=root n=ansible | TASK [05-environment : Install parted] *************************************************************************************************
+2021-01-12 08:02:11,935 p=48947 u=root n=ansible | ok: [local_user]
+2021-01-12 08:02:12,851 p=48947 u=root n=ansible | TASK [05-environment : Install additional fs progs] ************************************************************************************
+2021-01-12 08:02:12,852 p=48947 u=root n=ansible | ok: [local_user] => (item=xfsprogs)
+2021-01-12 08:02:13,701 p=48947 u=root n=ansible | ok: [local_user] => (item=btrfs-progs)
+2021-01-12 08:02:14,035 p=48947 u=root n=ansible | TASK [05-environment : Get disk alignment for disks] ***********************************************************************************
+2021-01-12 08:02:14,036 p=48947 u=root n=ansible | changed: [local_user] => (item={'disk': '/dev/sdb1', 'fstype': 'ext4', 'mount_options': 'defaults', 'mount': '/mnt/data2000', 'user': 'www-data', 'group': 'www-data', 'disable_periodic_fsck': False})
+2021-01-12 08:02:14,238 p=48947 u=root n=ansible | TASK [05-environment : Partition additional disks] *************************************************************************************
+2021-01-12 08:02:14,239 p=48947 u=root n=ansible | changed: [local_user] => (item={'disk': '/dev/sdb1', 'fstype': 'ext4', 'mount_options': 'defaults', 'mount': '/mnt/data2000', 'user': 'www-data', 'group': 'www-data', 'disable_periodic_fsck': False})
+2021-01-12 08:02:14,573 p=48947 u=root n=ansible | TASK [05-environment : Create filesystem on the first partition] ***********************************************************************
+2021-01-12 08:02:14,574 p=48947 u=root n=ansible | failed: [local_user] (item={'disk': '/dev/sdb1', 'fstype': 'ext4', 'mount_options': 'defaults', 'mount': '/mnt/data2000', 'user': 'www-data', 'group': 'www-data', 'disable_periodic_fsck': False}) => {"ansible_loop_var": "item", "changed": false, "item": {"disable_periodic_fsck": false, "disk": "/dev/sdb1", "fstype": "ext4", "group": "www-data", "mount": "/mnt/data2000", "mount_options": "defaults", "user": "www-data"}, "msg": "Device /dev/sdb11 not found."}
+2021-01-12 08:02:14,580 p=48947 u=root n=ansible | 	to retry, use: --limit @/opt/ansible/ansible-crypt-zfs-root/config/tmp/retry/1.5_environment.retry
+
+2021-01-12 08:02:14,580 p=48947 u=root n=ansible | PLAY RECAP *****************************************************************************************************************************
+2021-01-12 08:02:14,580 p=48947 u=root n=ansible | local_user                 : ok=7    changed=2    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2021-01-12 08:48:38,715 p=49672 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-12 08:48:39,578 p=49672 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-12 08:48:39,579 p=49672 u=root n=ansible | ok: [local_user]
+2021-01-12 08:48:40,596 p=49672 u=root n=ansible | TASK [05-environment : install cryptsetup] **************************************************************************************************************************************************************************************************
+2021-01-12 08:48:40,596 p=49672 u=root n=ansible | ok: [local_user]
+2021-01-12 08:48:40,876 p=49672 u=root n=ansible | TASK [05-environment : data1500 check directory.] *******************************************************************************************************************************************************************************************
+2021-01-12 08:48:40,877 p=49672 u=root n=ansible | ok: [local_user]
+2021-01-12 08:48:41,235 p=49672 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists] ******************************************************************************************************************************************************************************
+2021-01-12 08:48:41,235 p=49672 u=root n=ansible | changed: [local_user]
+2021-01-12 08:48:41,494 p=49672 u=root n=ansible | TASK [05-environment : Mounts data1500] *****************************************************************************************************************************************************************************************************
+2021-01-12 08:48:41,495 p=49672 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/data1500: mount: /mnt/data1500: special device /dev/sdb1 does not exist.\n"}
+2021-01-12 08:48:41,495 p=49672 u=root n=ansible | ...ignoring
+2021-01-12 08:48:41,653 p=49672 u=root n=ansible | TASK [05-environment : data2000 check directory.] *******************************************************************************************************************************************************************************************
+2021-01-12 08:48:41,654 p=49672 u=root n=ansible | ok: [local_user]
+2021-01-12 08:48:41,898 p=49672 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists] ******************************************************************************************************************************************************************************
+2021-01-12 08:48:41,898 p=49672 u=root n=ansible | changed: [local_user]
+2021-01-12 08:48:42,071 p=49672 u=root n=ansible | TASK [05-environment : Mounts data2000] *****************************************************************************************************************************************************************************************************
+2021-01-12 08:48:42,072 p=49672 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/data2000: mount: /mnt/data2000: special device /dev/sdc1 does not exist.\n"}
+2021-01-12 08:48:42,072 p=49672 u=root n=ansible | ...ignoring
+2021-01-12 08:48:42,228 p=49672 u=root n=ansible | TASK [05-environment : data2000new check directory.] ****************************************************************************************************************************************************************************************
+2021-01-12 08:48:42,229 p=49672 u=root n=ansible | ok: [local_user]
+2021-01-12 08:48:42,475 p=49672 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists] ******************************************************************************************************************************************************************************
+2021-01-12 08:48:42,475 p=49672 u=root n=ansible | changed: [local_user]
+2021-01-12 08:48:42,643 p=49672 u=root n=ansible | TASK [05-environment : Mounts data2000-new] *************************************************************************************************************************************************************************************************
+2021-01-12 08:48:42,644 p=49672 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/data2000-new: mount: /mnt/data2000-new: special device /dev/sdd1 does not exist.\n"}
+2021-01-12 08:48:42,644 p=49672 u=root n=ansible | ...ignoring
+2021-01-12 08:48:42,802 p=49672 u=root n=ansible | TASK [05-environment : data2000new check directory.] ****************************************************************************************************************************************************************************************
+2021-01-12 08:48:42,802 p=49672 u=root n=ansible | ok: [local_user]
+2021-01-12 08:48:43,069 p=49672 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists 3] ****************************************************************************************************************************************************************************
+2021-01-12 08:48:43,069 p=49672 u=root n=ansible | changed: [local_user]
+2021-01-12 08:48:43,237 p=49672 u=root n=ansible | TASK [05-environment : Mounts data3000] *****************************************************************************************************************************************************************************************************
+2021-01-12 08:48:43,238 p=49672 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/data3000: mount: /mnt/data3000: special device /dev/sde1 does not exist.\n"}
+2021-01-12 08:48:43,238 p=49672 u=root n=ansible | ...ignoring
+2021-01-12 08:48:43,485 p=49672 u=root n=ansible | TASK [05-environment : Dispaly uuid data2] **************************************************************************************************************************************************************************************************
+2021-01-12 08:48:43,486 p=49672 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "Invalid variable name in 'register' specified: 'uuid_data2000-new'"}
+2021-01-12 08:48:43,491 p=49672 u=root n=ansible | 	to retry, use: --limit @/opt/ansible/ansible-crypt-zfs-root/config/tmp/retry/1.5_environment.retry
+
+2021-01-12 08:48:43,492 p=49672 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-12 08:48:43,492 p=49672 u=root n=ansible | local_user                 : ok=14   changed=4    unreachable=0    failed=1    skipped=4    rescued=0    ignored=4   
+2021-01-12 08:51:28,401 p=50104 u=root n=ansible | PLAY [local] ********************************************************************************************************************************************************************************************************************************
+2021-01-12 08:51:29,238 p=50104 u=root n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2021-01-12 08:51:29,238 p=50104 u=root n=ansible | ok: [local_user]
+2021-01-12 08:51:30,254 p=50104 u=root n=ansible | TASK [05-environment : install cryptsetup] **************************************************************************************************************************************************************************************************
+2021-01-12 08:51:30,254 p=50104 u=root n=ansible | ok: [local_user]
+2021-01-12 08:51:30,530 p=50104 u=root n=ansible | TASK [05-environment : data1500 check directory.] *******************************************************************************************************************************************************************************************
+2021-01-12 08:51:30,530 p=50104 u=root n=ansible | ok: [local_user]
+2021-01-12 08:51:30,870 p=50104 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists] ******************************************************************************************************************************************************************************
+2021-01-12 08:51:30,870 p=50104 u=root n=ansible | changed: [local_user]
+2021-01-12 08:51:31,156 p=50104 u=root n=ansible | TASK [05-environment : Mounts data1500] *****************************************************************************************************************************************************************************************************
+2021-01-12 08:51:31,157 p=50104 u=root n=ansible | changed: [local_user]
+2021-01-12 08:51:31,312 p=50104 u=root n=ansible | TASK [05-environment : data2000 check directory.] *******************************************************************************************************************************************************************************************
+2021-01-12 08:51:31,312 p=50104 u=root n=ansible | ok: [local_user]
+2021-01-12 08:51:31,561 p=50104 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists] ******************************************************************************************************************************************************************************
+2021-01-12 08:51:31,562 p=50104 u=root n=ansible | changed: [local_user]
+2021-01-12 08:51:31,735 p=50104 u=root n=ansible | TASK [05-environment : Mounts data2000] *****************************************************************************************************************************************************************************************************
+2021-01-12 08:51:31,736 p=50104 u=root n=ansible | changed: [local_user]
+2021-01-12 08:51:31,910 p=50104 u=root n=ansible | TASK [05-environment : data2000new check directory.] ****************************************************************************************************************************************************************************************
+2021-01-12 08:51:31,911 p=50104 u=root n=ansible | ok: [local_user]
+2021-01-12 08:51:32,163 p=50104 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists] ******************************************************************************************************************************************************************************
+2021-01-12 08:51:32,163 p=50104 u=root n=ansible | changed: [local_user]
+2021-01-12 08:51:32,332 p=50104 u=root n=ansible | TASK [05-environment : Mounts data2000-new] *************************************************************************************************************************************************************************************************
+2021-01-12 08:51:32,333 p=50104 u=root n=ansible | changed: [local_user]
+2021-01-12 08:51:32,491 p=50104 u=root n=ansible | TASK [05-environment : data2000new check directory.] ****************************************************************************************************************************************************************************************
+2021-01-12 08:51:32,492 p=50104 u=root n=ansible | ok: [local_user]
+2021-01-12 08:51:32,736 p=50104 u=root n=ansible | TASK [05-environment : Ansible Create directory if not exists 3] ****************************************************************************************************************************************************************************
+2021-01-12 08:51:32,736 p=50104 u=root n=ansible | changed: [local_user]
+2021-01-12 08:51:32,904 p=50104 u=root n=ansible | TASK [05-environment : Mounts data3000] *****************************************************************************************************************************************************************************************************
+2021-01-12 08:51:32,905 p=50104 u=root n=ansible | fatal: [local_user]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/data3000: mount: /mnt/data3000: special device /dev/sde1 does not exist.\n"}
+2021-01-12 08:51:32,905 p=50104 u=root n=ansible | ...ignoring
+2021-01-12 08:51:34,183 p=50104 u=root n=ansible | TASK [05-environment : Dispaly uuid data2] **************************************************************************************************************************************************************************************************
+2021-01-12 08:51:34,183 p=50104 u=root n=ansible | fatal: [local_user]: FAILED! => {"msg": "Invalid variable name in 'register' specified: 'uuid_data2000-new'"}
+2021-01-12 08:51:34,189 p=50104 u=root n=ansible | 	to retry, use: --limit @/opt/ansible/ansible-crypt-zfs-root/config/tmp/retry/1.5_environment.retry
+
+2021-01-12 08:51:34,189 p=50104 u=root n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2021-01-12 08:51:34,189 p=50104 u=root n=ansible | local_user                 : ok=14   changed=7    unreachable=0    failed=1    skipped=4    rescued=0    ignored=1   

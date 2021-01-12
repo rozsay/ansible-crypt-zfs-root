@@ -4,6 +4,7 @@
     name: cryptsetup
     install_recommends: no
     state: present
-- import_tasks: find_disk.yml
+#- import_tasks: create_disks.yml
+#- import_tasks: find_disk.yml
 #  when: netplan_enabled
 - import_tasks: disk_dialog.yml

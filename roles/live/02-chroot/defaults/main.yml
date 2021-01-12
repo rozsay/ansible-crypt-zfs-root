@@ -1,9 +1,6 @@
 ---
 # defaults file for 02-chroot
-#_grub_cmdline: "elevator=noop"
-_grub_cmdline: "root=ZFS={{ _root_pool }}/root"
-
-_root_password_hash: "$2y$10$SPFGSp7upVEKeE81zZzD5eAnSj6oiXjdtyo56JLJIsQM1WSxEGb/q"  # "Password"
+#_grub_cmdline: "root=ZFS={{ _root_pool }}/root"
 
 sshd_enabled: true
 sshd_port: "1992"

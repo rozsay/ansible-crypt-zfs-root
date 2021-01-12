@@ -1,0 +1,21 @@
+---
+# Aditional disks that need to be formated and mounted.
+#disk_additional_disks: []
+disk_package_use: auto
+#additional_fs_utils: []
+
+disk_additional_disks:
+ - disk: /dev/sdb1
+   fstype: ext4
+   mount_options: defaults
+   mount: /mnt/data2000
+   user: www-data
+   group: www-data
+   disable_periodic_fsck: false
+#   fstype: xfs
+#   mount_options: defaults,noatime
+
+# inventory/group_vars/GROUP_NAME
+additional_fs_utils:
+  - xfsprogs     # package for mkfs.xfs on RedHat / Ubuntu
+  - btrfs-progs  # package for mkfs.btrfs on CentOS / Debian

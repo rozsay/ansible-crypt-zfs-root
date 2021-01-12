@@ -3,6 +3,7 @@
   stat:
     path: /mnt/data1500
   register: my_data1500
+
 - name: "echo if directory already existed"
   debug:
     msg: "the /mnt/data1500 is already existed"
@@ -105,6 +106,7 @@
   stat:
     path: /mnt/data3000
   register: my_data3000
+
 - name: "echo if directory already existed"
   debug:
     msg: "the /mnt/data3000 is already existed"
@@ -133,3 +135,32 @@
     state: mounted
   become: true
   ignore_errors: yes
+
+
+- name: Dispaly uuid data2
+  command: blkid -s UUID -o value /dev/sdb1
+  register: uuid_data2000-new
+
+- name: Dispaly uuid data3
+  command: blkid -s UUID -o value /dev/sdd1
+  register: uuid_data3000
+
+- name: modify /etc/default/grub
+  replace:
+    path: /etc/default/grub
+    regexp: "{{ item.regex }}"
+    replace: "{{ item.replace }}"
+  with_items:
+#    - regex: "^(GRUB_HIDDEN_TIMEOUT.*)"
+#      replace: "#\\1"
+    - regex: "'^(.*)data2000(.*)$'"
+      replace: 'UUID="{{ uuid_data2000-new }}" /mnt/data2000-new ext4 defaults,noatime 0 2'
+    - regex: "'^(.*)data3000(.*)$'"
+      replace: 'UUID="{{ uuid_data3000 }}" /mnt/data3000 ext4 defaults,noatime 0 2'
+
+
+#UUID=023384ba-f966-44a2-9601-3c8bb954a0a7 /mnt/data2000-new ext4 defaults,noatime 0 2
+#UUID=f1711ca9-4d86-45c5-b701-0b60ef7d83b0 /mnt/data3000 ext4 defaults,noatime 0 2
+
+#/dev/sdd1 on /mnt/data3000 type ext4 (rw,noatime)
+#/dev/sdb1 on /mnt/data2000-new type ext4 (rw,noatime)

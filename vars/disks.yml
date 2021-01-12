@@ -51,6 +51,3 @@ _luksoptions: "--type=luks1 -qc aes-xts-plain64 -s 512 -h sha256"
 _timezone: "UTC"
 #_grub_cmdline: "elevator=noop"
 _grub_cmdline: "root=ZFS={{ _root_pool }}/root"
-
-_lukscryptkey: "/boot/{{ _luksname }}/{{ _root_pool }}.key"
-_luksoptions: "--type=luks1 -qc aes-xts-plain64 -s 512 -h sha256"

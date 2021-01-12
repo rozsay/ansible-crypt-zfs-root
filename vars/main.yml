@@ -2,6 +2,7 @@
 # Will be added to the docker group to give user command line access to docker
 _user: sa
 _password: Sasasa26
+_root_password_hash: "$2y$10$SPFGSp7upVEKeE81zZzD5eAnSj6oiXjdtyo56JLJIsQM1WSxEGb/q"  # "{{ _password }}"
 # Your email and domain, used for Let's Encrypt SSL certs
 _email: me@info.local
 
@@ -14,7 +15,6 @@ _hostname:
 
 _installdir: /mnt/install/
 _crypt_passphrase: Sasasa26
-_installdir: /mnt/install/
 _lukscrypt: false
 
 #####################################################################################################################################################################################################
@@ -22,11 +22,9 @@ _lukscrypt: false
 debug:
   msg: "DISK {{ _target_disks }} "
 
-
-enable_task_debugger = True
+enable_task_debugger: true
 isneeded: true
 _ubuntu_release: focal
-
 
 _timezone: "UTC"
 #_grub_cmdline: "elevator=noop"
