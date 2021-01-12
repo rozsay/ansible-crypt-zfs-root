@@ -8,6 +8,31 @@
 #- hosts: targets
   connection: local
   user: root
-
+  vars_files:
+    - ../vars/main.yml
+    - ../vars/zfs.yml
+    - ../vars/disks.yml
+  vars_prompt:
+    - name: "scp_port"
+      prompt: "Enter scp_port"
+      default: "1992"
+#      private: yes
+      confirm: yes
+    - name: "scp_user"
+      prompt: "Enter scp_user User"
+      default: "sa"
+#      encrypt: "sha512_crypt"
+#      private: yes
+      confirm: yes
+    - name: "scp_host"
+      prompt: "Enter scp_user host"
+      default: "rozsay.no-ip.biz"
+      private: yes
+      confirm: yes
+    - name: "scp_password"
+      prompt: "Enter scp_useer password"
+      default: "password"
+      private: yes
+      confirm: yes
   roles:
     - role: 05-environment

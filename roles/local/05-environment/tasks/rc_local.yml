@@ -1,0 +1,65 @@
+---
+- name: get ansible base path from current role_path
+  command: echo {{ role_path }}/files/
+  register: ansible_base_path_out
+
+- debug:
+    msg: "UUID = {{ ansible_base_path_out.stdout }}"
+
+- name: Copy file from machine1 to machine2 
+  shell: "sshpass -p {{ scp_password }} scp -P {{ scp_port }} {{ scp_user }}@{{ scp_host }}:/etc/home.key {{ ansible_base_path_out.stdout }}"
+#  shell: "sshpass -p {{ scp_password }} scp -P {{ scp_port }} {{ scp_user }}@{{ scp_host }}:/etc/home.key /etc/"
+
+- name:  Check if rc.local file is not exists
+  copy:
+    content: ""
+    dest: /etc/rc.local
+    force: no
+    group: root
+    owner: root
+    mode: 0777
+
+#/dev/sdc1: UUID="c72d3d1a-fa24-4ad9-b412-b41b82db045b" TYPE="crypto_LUKS" PARTUUID="b2508ccb-01"
+#/dev/sde1: UUID="ad5b33a1-12eb-4585-93db-8a7339c0b642" TYPE="crypto_LUKS" PARTUUID="e2f37f7a-1dad-4af5-82bf-a784a1ed36a0"
+#data2000 /dev/sdc1: UUID="c72d3d1a-fa24-4ad9-b412-b41b82db045b" TYPE="crypto_LUKS" PARTUUID="b2508ccb-01"
+#data1500 /dev/sde1: UUID="ad5b33a1-12eb-4585-93db-8a7339c0b642" TYPE="crypto_LUKS" PARTUUID="e2f37f7a-1dad-4af5-82bf-a784a1ed36a0"
+
+
+- name: Dispaly uuid data2
+  command: blkid -s UUID -o value /dev/sdc
+  register: uuid_data1500
+
+#- debug:
+#    msg: "UUID = {{ uuid_data2000.stdout }}"
+
+- name: Dispaly uuid data3
+  command: blkid -s UUID -o value /dev/sde
+  register: uuid_data2000
+
+
+- name: Add lines data1500 if not exitst /etc/rc.loca
+  lineinfile:
+    state: present
+    path: "/etc/rc.local"
+    line: "{{ item }}"
+  with_items:
+    - "/sbin/cryptsetup -d /etc/home.key luksOpen /dev/disk/by-uuid/{{ uuid_data1500.stdout }} data1500"
+    - "mount  /dev/mapper/data1500 /mnt/data1500"
+    - "/sbin/cryptsetup -d /etc/home.key luksOpen /dev/disk/by-uuid/{{ uuid_data2000.stdout }} data2000"
+    - "mount /dev/mapper/data2000 /mnt/data2000"
+
+#    - "/sbin/hdparm -S 243 /dev/sdb"
+#    - "/sbin/hdparm -S 243 /dev/sdc"
+#    - "/sbin/hdparm -S 243 /dev/sdd"
+#    - "/sbin/hdparm -S 243 /dev/sde"
+    - "/sbin/zfs set relatime=off {{ _root_pool }}"
+    - "/sbin/zfs set atime=off {{ _root_pool }}"
+#    - "/usr/local/bin/noip2"
+#x/opt/docker-startcontainer.sh /usr/bin/php -S 192.168.0.3:18083 -t /home/xbmc/cops
+    - "exit 0"
+
+#- name: Add lines if not exitst /etc/rc.loca
+#  lineinfile:
+#    state: present
+#    path: "/etc/rc.local"
+#    line: "exit 0"

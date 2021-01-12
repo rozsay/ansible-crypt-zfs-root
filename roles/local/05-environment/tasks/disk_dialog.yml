@@ -24,14 +24,14 @@
 #    dev: /dev/sdc1
 #    opts: -cc
 
-- name: Mounts data1500
-  mount:
-    name: /mnt/data1500
-    src: /dev/sdb1
-    fstype: ext4
-    state: mounted
-  become: true
-  ignore_errors: yes
+#- name: Mounts data1500
+#  mount:
+#    name: /mnt/data1500
+#    src: /dev/sdb1
+#    fstype: ext4
+#    state: mounted
+#  become: true
+#  ignore_errors: yes
 
 #############################################################
 - name: data2000 check directory.
@@ -58,14 +58,14 @@
 #    dev: /dev/sdb1
 #    opts: -cc
 
-- name: Mounts data2000
-  mount:
-    name: /mnt/data2000
-    src: /dev/sdc1
-    fstype: ext4
-    state: mounted
-  become: true
-  ignore_errors: yes
+#- name: Mounts data2000
+#  mount:
+#    name: /mnt/data2000
+#    src: /dev/sdc1
+#    fstype: ext4
+#    state: mounted
+#  become: true
+#  ignore_errors: yes
 
 #############################################################
 - name: data2000new check directory.
@@ -92,17 +92,17 @@
 #    dev: /dev/sdd1
 #    opts: -cc
 
-- name: Mounts data2000-new
-  mount:
-    name: /mnt/data2000-new
-    src: /dev/sdd1
-    fstype: ext4
-    state: mounted
-  become: true
-  ignore_errors: yes
+#- name: Mounts data2000-new
+#  mount:
+#    name: /mnt/data2000-new
+#    src: /dev/sdd1
+#    fstype: ext4
+#    state: mounted
+#  become: true
+#  ignore_errors: yes
 
 #############################################################
-- name: data2000new check directory.
+- name: data3000 check directory.
   stat:
     path: /mnt/data3000
   register: my_data3000
@@ -127,37 +127,44 @@
 #    dev: /dev/sdd1
 #    opts: -cc
 
-- name: Mounts data3000
-  mount:
-    name: /mnt/data3000
-    src: /dev/sde1
-    fstype: ext4
-    state: mounted
-  become: true
-  ignore_errors: yes
+#- name: Mounts data3000
+#  mount:
+#    name: /mnt/data3000
+#    src: /dev/sde1
+#    fstype: ext4
+#    state: mounted
+#  become: true
+#  ignore_errors: yes
 
 
 - name: Dispaly uuid data2
   command: blkid -s UUID -o value /dev/sdb1
-  register: uuid_data2000-new
+  register: uuid_data2000
+
+#- debug:
+#    msg: "UUID = {{ uuid_data2000.stdout }}"
 
 - name: Dispaly uuid data3
   command: blkid -s UUID -o value /dev/sdd1
   register: uuid_data3000
 
-- name: modify /etc/default/grub
-  replace:
-    path: /etc/default/grub
-    regexp: "{{ item.regex }}"
-    replace: "{{ item.replace }}"
-  with_items:
-#    - regex: "^(GRUB_HIDDEN_TIMEOUT.*)"
-#      replace: "#\\1"
-    - regex: "'^(.*)data2000(.*)$'"
-      replace: 'UUID="{{ uuid_data2000-new }}" /mnt/data2000-new ext4 defaults,noatime 0 2'
-    - regex: "'^(.*)data3000(.*)$'"
-      replace: 'UUID="{{ uuid_data3000 }}" /mnt/data3000 ext4 defaults,noatime 0 2'
+- name: "Check existence data2000"
+  become: yes
+  lineinfile:
+    path: /etc/fstab
+    regexp: "^data2000"
+    line:   "UUID= {{ uuid_data2000.stdout }} /mnt/data2000-new ext4 defaults,noatime 0 2"
+    state: present
+    backup: yes
 
+- name: "Check existence data3000"
+  become: yes
+  lineinfile:
+    path: /etc/fstab
+    regexp: "^data3000"
+    line:   "UUID= {{ uuid_data3000.stdout }} /mnt/data3000 ext4 defaults,noatime 0 2"
+    state: present
+    backup: yes
 
 #UUID=023384ba-f966-44a2-9601-3c8bb954a0a7 /mnt/data2000-new ext4 defaults,noatime 0 2
 #UUID=f1711ca9-4d86-45c5-b701-0b60ef7d83b0 /mnt/data3000 ext4 defaults,noatime 0 2
