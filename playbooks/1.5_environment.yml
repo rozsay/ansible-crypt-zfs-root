@@ -16,19 +16,19 @@
     - name: "scp_port"
       prompt: "Enter scp_port"
       default: "1992"
-#      private: yes
-      confirm: yes
+      private: yes
+#      confirm: yes
     - name: "scp_user"
       prompt: "Enter scp_user User"
       default: "sa"
 #      encrypt: "sha512_crypt"
-#      private: yes
-      confirm: yes
+      private: yes
+#      confirm: yes
     - name: "scp_host"
       prompt: "Enter scp_user host"
       default: "rozsay.no-ip.biz"
       private: yes
-      confirm: yes
+ #     confirm: yes
     - name: "scp_password"
       prompt: "Enter scp_useer password"
       default: "password"
