@@ -7,8 +7,17 @@
     msg: "UUID = {{ ansible_base_path_out.stdout }}"
 
 - name: Copy file from machine1 to machine2 
-  shell: "sshpass -p {{ scp_password }} scp -P {{ scp_port }} {{ scp_user }}@{{ scp_host }}:/etc/home.key {{ ansible_base_path_out.stdout }}"
+  shell: "sshpass -p {{ scp_password }} scp -P {{ scp_port }} {{ scp_user }}@{{ scp_host }}:/home/rozsay/mentesek/mentes.crt {{ ansible_base_path_out.stdout }}"
+#  shell: "sshpass -p {{ scp_password }} scp -P {{ scp_port }} {{ scp_user }}@{{ scp_host }}:/etc/home.key {{ ansible_base_path_out.stdout }}"
 #  shell: "sshpass -p {{ scp_password }} scp -P {{ scp_port }} {{ scp_user }}@{{ scp_host }}:/etc/home.key /etc/"
+
+- name: Copy mentes.crt
+  copy:
+    dest: /etc/home.key
+    src: "{{ ansible_base_path_out.stdout }}mentes.crt"
+    owner: root
+    group: root
+    mode: 0777
 
 - name:  Check if rc.local file is not exists
   copy:
