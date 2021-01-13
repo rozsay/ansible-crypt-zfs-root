@@ -5,7 +5,34 @@
     install_recommends: no
     state: present
 
-- import_tasks: find_disk.yml
+- name: Check active Ethernet interface state
+  debug:
+    msg: >
+      Checking Ethernet interface configuration for {{ item.device }}:
+      {{ ether_check }}
+  with_items: "{{ interfaces_ether_interfaces }}"
+  changed_when: ether_check.diff
+  register: ether_check_result
+  vars:
+    ether_check: "{{ item | ether_check }}"
+
+
+- name: Get physical interfaces names
+  command: find /sys/class/net -type l -not -lname '*virtual*' -printf '%f\n'
+  register: physical_interfaces_cmd
+  changed_when: false
+  check_mode: false
+
+#- name: Show interfaces details
+#  debug:
+#    msg: "{{ lookup('vars', 'ansible_' + item) }}"
+#  loop: "{{ physical_interfaces_cmd.stdout_lines }}"
+
+- name: Output network
+  debug:
+    msg: "{{ansible_default_ipv4.interface }}"
+- import_tasks: wol.yml
+#- import_tasks: find_disk.yml
 #  when: netplan_enabled
-- import_tasks: disk_dialog.yml
-- import_tasks: rc_local.yml
+#- import_tasks: disk_dialog.yml
+#- import_tasks: rc_local.yml

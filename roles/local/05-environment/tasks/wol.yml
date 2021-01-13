@@ -1,0 +1,31 @@
+---
+- name: install ethtool
+  apt:
+    name: ethtool
+    install_recommends: no
+    state: present
+
+- name: install wakeonlan
+  apt:
+    name: wakeonlan
+    install_recommends: no
+    state: present
+
+- name: copy wol service
+  template:
+    src: 'wol.service.j2'
+    dest: '/etc/systemd/system/wol.service'
+    mode: 0644
+    owner: root
+    group: root
+  notify:
+    - reload systemctl
+
+- name: Start wol
+  service: name=wol.service state=started enabled=yes
+
+#sudo systemctl daemon-reload
+#Enable the new service with the command:
+#sudo systemctl enable wol.service
+#Finally, start the service with the command:
+#sudo systemctl start wol.service

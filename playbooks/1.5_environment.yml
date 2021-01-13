@@ -34,5 +34,6 @@
       default: "password"
       private: yes
       confirm: yes
+
   roles:
     - role: 05-environment
