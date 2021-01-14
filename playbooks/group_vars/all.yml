@@ -1,0 +1,18 @@
+---
+
+# Documentation:
+# ######################################
+# Put here all the variables associated to
+# your environments. Those variables should be 
+# common to all of our environment (prod, preprod
+# dev, etc ...)
+disk_additional_disks:
+ - disk: /dev/sda
+   part: /dev/sda1
+   fstype: ext4
+#   mount_options: defaults
+#   mount: /mnt
+#   user: www-data
+#   group: www-data
+#   disable_periodic_fsck: false
+

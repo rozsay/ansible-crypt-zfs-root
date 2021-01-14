@@ -1,0 +1,17 @@
+---
+# Documentation:
+# ######################################
+# Put here all the variables associated to your environments. Those variables should be common to all of our environment (prod, preprod dev, etc ...)
+
+# Will be added to the docker group to give user command line access to docker
+nas_user: sa
+
+# Your email and domain, used for Let's Encrypt SSL certs
+nas_email: sa@info.local
+
+# Applications will have subdomain SSL certificates created if Traefik is enabled, e.g. ansible-nas.<your-domain>, nextcloud.<your-domain>
+nas_domain: info.local
+
+docker_enabled: true
+
+nas_timezone: Etc/UTC

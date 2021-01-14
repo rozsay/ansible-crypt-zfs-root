@@ -1,0 +1,8 @@
+
+{
+  "graph": "{{ docker_location }}"
+  "data-root": "{{ docker_location }}"
+#  "storage-driver": "{{ docker_storage_driver }}",
+# "storage-driver": "zfs"
+#  "graph": "/zpool/docker"
+}

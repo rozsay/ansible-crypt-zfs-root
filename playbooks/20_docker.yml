@@ -4,12 +4,20 @@
 # - should install the default utils: screen, vim, htop, etc ...
 # - Should make the user happy to use the vm: bashrc, gitconfig, screenrc, etc ...
 
-- hosts: local
+- hosts: targets
 #- hosts: targets
   connection: local
   user: root
+  pre_tasks:
+    - import_tasks: tasks/dir_docker.yml
+      tags: docker
 
-  roles:
+# Copy custom/custom.yml.sample to custom/custom.yml
+# Update variable values
+    - name: Load custom variables from custom.yml
+      include_vars: custom/custom.yml
+      failed_when: false
+
 #    - role: bertvv.samba
 #      tags:
 #        - samba
@@ -25,8 +33,10 @@
 #        - docker
 #        - skip_ansible_lint
 
-#  roles:
-    - role: 20-docker
+  roles:
+    - role: docker
+      tags: ["docker"]
+    - role: containers
       tags: ["docker"]
  
 #  tasks:

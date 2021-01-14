@@ -16,3 +16,8 @@ interfaces_workaround_centos_remove:
   - ens3-1
   - eth0
 interfaces_pause_time: 0
+
+
+docker_home: /mnt/data2000new/docker
+# Where you want Docker to store images
+docker_image_directory: "{{ docker_home }}/data"

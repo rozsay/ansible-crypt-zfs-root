@@ -1,0 +1,5 @@
+---
+- name: Output network
+  debug:
+    msg: "{{ samba_shares_root }}"
+- import_tasks: dockers.yml
