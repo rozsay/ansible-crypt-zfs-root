@@ -1,0 +1,67 @@
+---
+- name: get ansible base path from current role_path
+  command: echo {{ role_path }}/files/
+  register: ansible_base_path_out
+
+- debug:
+    msg: "UUID = {{ ansible_base_path_out.stdout }}"
+
+- name:  Check if rc.local file is not exists
+  copy:
+    content: ""
+    dest: /etc/rc.local
+    force: no
+    group: root
+    owner: root
+    mode: 0777
+
+- name: Add lines /etc/rc.blindmount if not exitst /etc/rc.loca
+  lineinfile:
+    state: present
+    path: "/etc/rc.local"
+    insertbefore: 'exit 0'
+    line: "{{ item }}"
+  with_items:
+    - "/etc/rc.blindmount"
+
+- name:  Check if rc.blindmount file is not exists
+  copy:
+    content: ""
+    dest: /etc/rc.blindmount
+    force: no
+    group: root
+    owner: root
+    mode: 0777
+
+- name: Add lines /etc/rc.blindmount if not exitst /etc/rc.blindmount
+  lineinfile:
+    state: present
+    path: "/etc/rc.blindmount"
+    line: "{{ item }}"
+  with_items:
+    - "#!/bin/sh -e"
+    - "mount -o bind /mnt/data1500/Rajzsorozatok {{ tv_root }}"
+    - "mount -o bind /mnt/data1500/Tudomany {{ movies_root }}"
+    - "mount -o bind /mnt/data1500/Tudomany-Serial  {{ tv_root }}"
+    - "mount -o bind /mnt/data2000/Gyerekfilmek {{ movies_root }}"
+    - "mount -o bind /mnt/data2000/Movies 18+ {{ movies_root }}"
+    - "mount -o bind /mnt/data2000/Movies 3D {{ movies_root }}"
+    - "mount -o bind /mnt/data2000/Movies1500 {{ movies_root }}"
+    - "mount -o bind /mnt/data2000/UnsortedMovies {{ movies_root }}"
+    - "mount -o bind /mnt/data2000/Walt Disney {{ movies_root }}"
+    - "mount -o bind /mnt/data3000/Movie {{ movies_root }}"
+    - "mount -o bind /mnt/data3000/TVSerials {{ tv_root }}"
+    - "mount -o bind /mnt/data2000/Rsync/calibre {{ books_root }}"
+    - "mount -o bind /mnt/data1500/Zene {{ music_root }}"
+    - "mount -o bind /mnt/data2000/Zene {{ music_root }}"
+    - "mount -o bind /mnt/data2000-new/ZeneNew {{ music_root }}"
+
+# Where torrent files are stored (picked up by Transmission for downloading)
+#torrents_root: "{{ samba_shares_root }}/torrents"
+# Where podcasts are stored
+#podcasts_root: "{{ samba_shares_root }}/medialibrary/podcasts"
+# Where your comics are stored
+#comics_root: "{{ samba_shares_root }}/medialibrary/comics"
+# Where photos are stored
+#photos_root: "{{ samba_shares_root }}/medialibrary/photos"
+

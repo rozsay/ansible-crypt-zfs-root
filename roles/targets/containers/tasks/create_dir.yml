@@ -1,0 +1,19 @@
+---
+
+- name: Create Directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ samba_shares_root }}"
+    - "{{ downloads_root }}"
+    - "{{ torrents_root }}"
+    - "{{ torrents_root }}/incomplete"
+    - "{{ torrents_root }}/complete"
+    - "{{ tv_root }}"
+    - "{{ movies_root }}"
+    - "{{ books_root }}"
+    - "{{ music_root }}"
+    - "{{ podcasts_root }}"
+    - "{{ comics_root }}"
+    - "{{ photos_root }}"

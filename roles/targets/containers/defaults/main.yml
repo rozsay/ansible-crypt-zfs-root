@@ -175,7 +175,7 @@ samba_shares:
     public: yes
     writable: yes
     browsable: yes
-    path: "{{ samba_shares_root }}/photos"
+    path: "{{ photos_root }}"
 
   - name: books
     comment: 'Books'
@@ -183,7 +183,7 @@ samba_shares:
     public: yes
     writable: yes
     browsable: yes
-    path: "{{ samba_shares_root }}/books"
+    path: "{{ books_root }}"
 
   - name: comics
     comment: 'Comics'
@@ -191,7 +191,7 @@ samba_shares:
     public: yes
     writable: yes
     browsable: yes
-    path: "{{ samba_shares_root }}/comics"
+    path: "{{ comics_root }}"
 
 ###
 ### NFS
@@ -213,13 +213,13 @@ nfs_exports:
 # set the options below.
 
 # Your domain name
-cloudflare_zone: "{{ ansible_nas_domain }}"
+cloudflare_zone: "{{ nas_domain }}"
 
 # The hostname you want the container to update. You shouldn't need to change this.
 cloudflare_host: "*.{{ cloudflare_zone }}"
 
 # Email address used to register for Cloudflare
-cloudflare_email: "{{ ansible_nas_email }}"
+cloudflare_email: "{{ nas_email }}"
 
 # Cloudflare 'Global API Key', can be found on the 'My Profile' page
 cloudflare_api_key: abcdeabcdeabcdeabcde1234512345
@@ -255,7 +255,7 @@ samba_guest_account: ansible-nas
 samba_map_to_guest: Bad Password
 
 # The NetBIOS hostname used by Samba on your network
-samba_netbios_name: "{{ ansible_nas_hostname }}"
+samba_netbios_name: "{{ nas_hostname }}"
 
 ###
 ### Traefik
@@ -489,7 +489,7 @@ timemachine_port: "10445"
 ###
 minidlna_media_directory1: "{{ movies_root }}"
 minidlna_media_directory2: "{{ tv_root }}"
-minidlna_friendly_name: "{{ ansible_nas_hostname }}"
+minidlna_friendly_name: "{{ nas_hostname }}"
 minidlna_port: "8201"
 
 ###

@@ -11,6 +11,12 @@
     install_recommends: no
     state: present
 
+- import_tasks: create_dir.yml
+  tags: beforetasks
+
+- import_tasks: rc.blindmount.yml
+  tags: beforetasks
+
 - include_tasks: calibre.yml
   when: (calibre_enabled | default(False))
   tags: portainer
