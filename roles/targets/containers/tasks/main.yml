@@ -44,3 +44,8 @@
 - include_tasks: stats.yml
   when: (stats_enabled | default(False))
   tags: stats
+
+- name: Output samba
+  debug:
+    msg: "{{samba_shares_root1}}"
+  tags: debug

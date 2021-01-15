@@ -31,9 +31,14 @@
 - name: Output network
   debug:
     msg: "{{ansible_default_ipv4.interface }}"
-- import_tasks: wol.yml
+
+- name: Output samba
+  debug:
+    msg: "{{samba_shares_root1}}"
+
+#- import_tasks: wol.yml
 #- import_tasks: noip.yml
-- import_tasks: find_disk.yml
-  when: netplan_enabled
-- import_tasks: disk_dialog.yml
-- import_tasks: rc_local.yml
+#- import_tasks: find_disk.yml
+#  when: netplan_enabled
+#- import_tasks: disk_dialog.yml
+#- import_tasks: rc_local.yml
