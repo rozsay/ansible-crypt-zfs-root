@@ -24,6 +24,11 @@
   with_items:
     - "/etc/rc.blindmount"
 
+- name: Remove file rc.blindmount
+  file:
+    path: /etc/rc.blindmount
+    state: absent
+
 - name:  Check if rc.blindmount file is not exists
   copy:
     content: ""
@@ -43,7 +48,7 @@
     - "mount -o bind /mnt/data1500/Rajzsorozatok {{ tv_root }}/Rajzsorozatok"
     - "mount -o bind /mnt/data1500/Tudomany {{ movies_root }}/Tudomany"
     - "mount -o bind /mnt/data1500/Tudomany-Serial  {{ tv_root }}/Tudomany-Serial"
-    - "mount -o bind /mnt/data2000/Gyerekfilmek {{ movies_root }}Gyerekfilmek"
+    - "mount -o bind /mnt/data2000/Gyerekfilmek {{ movies_root }}/Gyerekfilmek"
     - "mount -o bind /mnt/data2000/Movies\ 18+ {{ movies_root }}/Movies\ 18+"
     - "mount -o bind /mnt/data2000/Movies\ 3D {{ movies_root }}/Movies\ 3D"
     - "mount -o bind /mnt/data2000/Movies1500 {{ movies_root }}/Movies1500"
