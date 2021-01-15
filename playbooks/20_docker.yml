@@ -36,10 +36,10 @@
   roles:
     - role: docker
       tags: ["docker"]
-#    - role: containers
-#      tags: ["beforetasks"]
     - role: containers
-      tags: ["container"]
+#      tags: 
+#        - ["beforetasks"]
+#        - ["containers"]
  
 #  tasks:
 #  - import_tasks: tasks/general.yml

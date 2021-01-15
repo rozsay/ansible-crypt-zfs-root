@@ -1,6 +1,9 @@
 ---
+# Where you want Docker to store its container data.
+docker_home: "/mnt/data2000-new/docker-data"
 docker_location: "/mnt/data2000-new/docker"
 docker_image_directory: "/mnt/data2000-new/docker-data"
+
 docker__edition: "ce"
 docker__channel: ["stable"]
 docker__version: ""
